@@ -1,0 +1,43 @@
+---
+title: "Thermodynamics (ENGI 1111) — part one"
+subtitle: "Dr Majid Bastankhah · Department of Engineering · Durham University"
+toc: false
+number-sections: false
+---
+
+These are the lecture notes for the first part of ENGI 1111, Thermodynamics and
+Fluid Mechanics I. Each chapter exists in three printed versions plus this web
+version, all built from one source file:
+
+| Version | What it is | When to use it |
+|:--|:--|:--|
+| **Student copy** | the notes with gaps where the derivations and examples go | print it and bring it to the lecture |
+| **Completed copy** | the same notes with every gap filled in | after the lecture, to check your own notes |
+| **This website** | the completed notes plus the interactive figures | any time — the figures here you can actually play with |
+
+Problems now sit at the end of the chapter they belong to, rather than on a
+separate weekly sheet. One of them is worked through together in class; the rest
+are for you, and the worked solutions are in the completed copy and on this site.
+
+## Chapters
+
+- [CH2 — First Law of Thermodynamics](ch02-first-law.qmd)
+
+  *Downloads:* [student copy](pdf/ch02-student.pdf) ·
+  [completed copy](pdf/ch02-complete.pdf)
+
+Chapters 1 and 3–6 are still in the old format on Ultra while they are being
+converted.
+
+## Supplementary books
+
+- *Thermodynamics* by A. M. Steane (available online)
+- *Fundamentals of Thermodynamics*, 7th ed., by C. Borgnakke and R. E. Sonntag
+- *Moran's Principles of Engineering Thermodynamics*, 9th ed., by M. J. Moran
+- *Engineering Thermodynamics: Work & Heat Transfer*, 4th ed., by Rogers & Mayhew
+
+## Something unclear?
+
+During lectures, give me a shout if anything is unclear. Afterwards, come to
+office hours or email me at
+[majid.bastankhah@durham.ac.uk](mailto:majid.bastankhah@durham.ac.uk).

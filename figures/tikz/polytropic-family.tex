@@ -1,0 +1,31 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\begin{document}
+% Static stand-in, for the printed notes, of the interactive PV explorer.
+\begin{tikzpicture}
+\begin{axis}[
+  width=10cm, height=6.6cm,
+  axis lines=left,
+  xlabel={$V$ (m$^3$)}, ylabel={$P_\text{ext}$ (kPa)},
+  xmin=0, xmax=0.115, ymin=0, ymax=900,
+  xtick={0.02,0.05,0.1}, ytick={100,400,800},
+  every axis plot/.append style={line width=1.0pt, samples=80},
+  legend style={draw=none, font=\footnotesize, at={(0.98,0.98)}, anchor=north east},
+  label style={font=\small}, tick label style={font=\footnotesize},
+]
+  \addplot[duGrey, dashed, domain=0.02:0.1] {100};
+  \addlegendentry{$n=0$ (constant $P$)}
+
+  \addplot[duBlue, domain=0.02:0.1] {100*0.1/x};
+  \addlegendentry{$n=1$}
+
+  \addplot[duGreen, domain=0.02:0.1] {100*(0.1/x)^1.4};
+  \addlegendentry{$n=1.4$}
+
+  \addplot[duRed, domain=0.02:0.1] {100*(0.1/x)^2};
+  \addlegendentry{$n=2$}
+
+  \addplot[duPurple, opacity=0.18, domain=0.02:0.1, fill] {100*0.1/x} \closedcycle;
+\end{axis}
+\end{tikzpicture}
+\end{document}

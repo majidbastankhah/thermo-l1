@@ -1,0 +1,47 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\begin{document}
+\begin{tikzpicture}[scale=1]
+
+% ---- helper: one panel ----------------------------------------------------
+\newcommand{\panel}[2]{%
+  \begin{scope}[shift={(#1,0)}]
+    \draw[axisline] (0,0) -- (3.3,0) node[right, lbl] {$V$};
+    \draw[axisline] (0,0) -- (0,3.3) node[above, lbl] {$P_\text{ext}$};
+    \node[slbl, below] at (1.65,-0.55) {(#2)};
+  \end{scope}
+}
+
+% (a) compress at the HIGH pressure of state f: largest area
+\panel{0}{a}
+\begin{scope}[shift={(0,0)}]
+  \fill[workfill] (0.7,0) rectangle (2.7,2.6);
+  \draw[path1, arrowhead=0.5] (2.7,0.8) -- (2.7,2.6);
+  \draw[path1, arrowhead=0.5] (2.7,2.6) -- (0.7,2.6);
+  \node[statedot] at (2.7,0.8) {}; \node[lbl, right=1pt] at (2.7,0.8) {i};
+  \node[statedot] at (0.7,2.6) {}; \node[lbl, above=1pt] at (0.7,2.6) {f};
+\end{scope}
+
+% (b) compress at the LOW pressure of state i: smallest area
+\panel{4.3}{b}
+\begin{scope}[shift={(4.3,0)}]
+  \fill[workfill] (0.7,0) rectangle (2.7,0.8);
+  \draw[path1, arrowhead=0.5] (2.7,0.8) -- (0.7,0.8);
+  \draw[path1, arrowhead=0.5] (0.7,0.8) -- (0.7,2.6);
+  \node[statedot] at (2.7,0.8) {}; \node[lbl, right=1pt] at (2.7,0.8) {i};
+  \node[statedot] at (0.7,2.6) {}; \node[lbl, above=1pt] at (0.7,2.6) {f};
+\end{scope}
+
+% (c) quasi-equilibrium curve: in between
+\panel{8.6}{c}
+\begin{scope}[shift={(8.6,0)}]
+  \fill[workfill]
+    plot[domain=0.7:2.7, samples=60] (\x, {2.08/\x}) -- (2.7,0) -- (0.7,0) -- cycle;
+  \draw[path1, arrowhead=0.5]
+    plot[domain=2.7:0.7, samples=60] (\x, {2.08/\x});
+  \node[statedot] at (2.7,{2.08/2.7}) {}; \node[lbl, right=1pt] at (2.7,0.8) {i};
+  \node[statedot] at (0.7,{2.08/0.7}) {}; \node[lbl, above=1pt] at (0.7,2.6) {f};
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

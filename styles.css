@@ -1,0 +1,112 @@
+/* ---------------------------------------------------------------------------
+   Thermodynamics (ENGI 1111) — website styling
+   Light and dark are both selected; nothing is an automatic flip.
+--------------------------------------------------------------------------- */
+
+:root {
+  --du-purple:  #68246D;
+  --du-paper:   #F4F0F5;
+  --box-border: #dedcd6;
+  --box-text:   #52514e;
+  --series-1:   #2a78d6;
+  --series-2:   #eb6834;
+  --series-3:   #1baf7a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --du-purple:  #c79bcb;
+    --du-paper:   #232321;
+    --box-border: #3a3a37;
+    --box-text:   #c3c2b7;
+    --series-1:   #3987e5;
+    --series-2:   #d95926;
+    --series-3:   #199e70;
+  }
+}
+:root[data-theme="dark"] {
+  --du-purple:  #c79bcb;
+  --du-paper:   #232321;
+  --box-border: #3a3a37;
+  --box-text:   #c3c2b7;
+}
+
+h1, h2, h3 { letter-spacing: -0.01em; }
+h2 { border-bottom: 2px solid var(--du-purple); padding-bottom: 0.2em; }
+
+/* --- the boxes produced by filters/boxes.lua ----------------------------- */
+.tbox {
+  border: 1px solid var(--box-border);
+  border-radius: 8px;
+  padding: 0.8em 1em 0.55em;
+  margin: 1.1em 0;
+}
+.tbox > .box-label {
+  font-weight: 650;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--du-purple);
+  margin-bottom: 0.35em;
+}
+.tbox > :last-child { margin-bottom: 0; }
+
+.tbox-note       { background: color-mix(in srgb, var(--series-1) 5%, transparent); }
+.tbox-warning    { background: color-mix(in srgb, var(--series-2) 7%, transparent); }
+.tbox-key        { background: var(--du-paper); border-color: var(--du-purple); border-width: 1.5px; }
+.tbox-example    { background: transparent; border-color: var(--du-purple); }
+.tbox-activity   { background: var(--du-paper); border-color: var(--du-purple); border-width: 1.5px; }
+.tbox-solution   { background: color-mix(in srgb, var(--series-3) 7%, transparent); }
+.tbox-objectives { background: var(--du-paper); }
+
+/* --- gaps ---------------------------------------------------------------- */
+.gap-blank {
+  border: 1.5px dashed color-mix(in srgb, var(--du-purple) 40%, transparent);
+  border-radius: 6px;
+  margin: 0.9em 0;
+}
+.gap-filled {
+  border-left: 3px solid var(--du-purple);
+  background: color-mix(in srgb, var(--du-purple) 4%, transparent);
+  padding: 0.7em 0.9em 0.3em;
+  border-radius: 0 6px 6px 0;
+  margin: 1em 0;
+}
+.gap-filled > :last-child { margin-bottom: 0; }
+.gap-lecturer {
+  border-left: 2px dashed var(--box-border);
+  padding: 0.5em 0.9em 0.1em;
+  font-size: 0.93em;
+  color: var(--box-text);
+  margin: 0.9em 0;
+}
+
+/* --- interactive widgets ------------------------------------------------- */
+.widget-frame {
+  width: 100%;
+  min-height: 720px;
+  border: 1px solid var(--box-border);
+  border-radius: 10px;
+  background: transparent;
+}
+
+/* --- figures ------------------------------------------------------------- */
+figure img, p > img { max-width: 100%; height: auto; }
+
+.gap-hint {
+  font-style: italic;
+  color: var(--du-purple);
+  margin-bottom: 0.5em;
+}
+.gap-hint::before {
+  content: "Board: ";
+  font-style: normal;
+  font-weight: 650;
+}
+
+.wrap-right { float: right; width: 32%; margin: 0.2em 0 0.8em 1.2em; }
+.wrap-left  { float: left;  width: 32%; margin: 0.2em 1.2em 0.8em 0; }
+.wrap-right img, .wrap-left img { width: 100%; }
+@media (max-width: 620px) {
+  .wrap-right, .wrap-left { float: none; width: 100%; margin: 0.8em 0; }
+}

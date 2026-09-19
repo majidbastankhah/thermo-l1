@@ -1,0 +1,24 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\begin{document}
+\begin{tikzpicture}[scale=1]
+  \draw[axisline] (0,0) -- (5.6,0) node[right, lbl] {$v$};
+  \draw[axisline] (0,0) -- (0,4.0) node[above, lbl] {$P_\text{ext}$};
+
+  \fill[workfill] (1.4,1.4) rectangle (4.4,3.0);
+  \draw[path1, arrowhead=0.5] (1.4,3.0) -- (4.4,3.0);
+  \draw[path1, arrowhead=0.5] (4.4,3.0) -- (4.4,1.4);
+  \draw[path1, arrowhead=0.5] (4.4,1.4) -- (1.4,1.4);
+  \draw[path1, arrowhead=0.5] (1.4,1.4) -- (1.4,3.0);
+
+  \draw[dashed, duGrey, line width=0.4pt] (0,3.0) -- (1.4,3.0);
+  \draw[dashed, duGrey, line width=0.4pt] (0,1.4) -- (1.4,1.4);
+  \draw[dashed, duGrey, line width=0.4pt] (1.4,0) -- (1.4,1.4);
+  \draw[dashed, duGrey, line width=0.4pt] (4.4,0) -- (4.4,1.4);
+
+  \node[slbl, left] at (0,3.0) {$200$ kPa};
+  \node[slbl, left] at (0,1.4) {$100$ kPa};
+  \node[slbl, below] at (1.4,0) {$1\ \mathrm{m^3/kg}$};
+  \node[slbl, below] at (4.4,0) {$2\ \mathrm{m^3/kg}$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - widgets/
+    - pdf/
+
+website:
+  title: "Thermodynamics (ENGI 1111)"
+  description: "Level 1 Thermodynamics, part one — Durham University"
+  site-url: "https://USERNAME.github.io/thermo-l1/"
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: ch02-first-law.qmd
+        text: "CH2 · First Law"
+  page-footer:
+    center: "Dr Majid Bastankhah · Department of Engineering · Durham University"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    html-math-method: mathjax
+    fig-align: center
+    link-external-newwindow: true
+    code-copy: false
+
+filters:
+  - filters/gaps.lua
+  - filters/boxes.lua
+  - filters/figext.lua
+  - filters/wrapfig.lua
+
+# Which of the three copies the HTML site shows. The printed variants are built
+# by build.sh, which overrides this on the command line.
+gapmode: complete

@@ -1,0 +1,22 @@
+# PDF settings, kept out of _quarto.yml so that `quarto render` builds only the
+# website. build.sh passes this file with --metadata-file for the printed copies.
+format:
+  pdf:
+    documentclass: scrartcl
+    pdf-engine: pdflatex
+    papersize: a4
+    fontsize: 11pt
+    # Times, to stay close to the look of the original Word notes. It is part of
+    # psnfss, so it is present in any TeX Live install without extra packages.
+    fontfamily: mathptmx
+    geometry:
+      - top=25mm
+      - bottom=22mm
+      - left=24mm
+      - right=24mm
+    colorlinks: true
+    linkcolor: "duPurple"
+    number-sections: true
+    toc: false
+    fig-align: center
+    include-in-header: tex/preamble.tex

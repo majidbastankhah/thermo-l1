@@ -1,0 +1,121 @@
+% ---------------------------------------------------------------------------
+%  Lecture notes of Thermodynamics (ENGI 1111) -- shared LaTeX preamble
+% ---------------------------------------------------------------------------
+
+% The text font is set in _pdf.yml (fontfamily: mathptmx) so that Pandoc's own
+% template loads it; do not load a second text font here.
+
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+% KOMA sets headings in sans by default; the original Word notes are serif
+\setkomafont{disposition}{\rmfamily\bfseries}
+\setkomafont{title}{\rmfamily\bfseries}
+\setkomafont{subtitle}{\rmfamily\mdseries}
+
+% --- Durham palette --------------------------------------------------------
+\definecolor{duPurple}{HTML}{68246D}
+\definecolor{duBlue}{HTML}{002A41}
+\definecolor{duRed}{HTML}{BE1E2D}
+\definecolor{duGrey}{HTML}{6B6B6B}
+\definecolor{duGreen}{HTML}{1B7A57}
+\definecolor{duPaper}{HTML}{F4F0F5}
+
+% --- running heads ---------------------------------------------------------
+\newcommand{\gapvariant}{}          % overwritten per build by filters/gaps.lua
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{14pt}
+\fancyhead[L]{\footnotesize\color{duGrey} Lecture notes of Thermodynamics (ENGI 1111)}
+\fancyhead[R]{\footnotesize\color{duGrey} Instructor: Majid Bastankhah}
+\fancyfoot[L]{\footnotesize\color{duGrey}\gapvariant}
+\fancyfoot[R]{\footnotesize\color{duGrey}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{duPurple}\leaders\hrule height \headrulewidth\hfill}}
+
+% --- gaps ------------------------------------------------------------------
+% student copy: a ruled blank the students fill in with you
+\newcommand{\gapblank}[1]{%
+  \par\vspace{0.6em}%
+  \noindent
+  \begin{tikzpicture}
+    \draw[duPurple!25, dashed, rounded corners=2pt]
+      (0,0) rectangle (\linewidth,#1);
+  \end{tikzpicture}%
+  \par\vspace{0.6em}%
+}
+
+% completed copy: what was written in class, flagged with a purple rule
+\newtcolorbox{gapfilled}{
+  enhanced, breakable, colback=duPurple!3, colframe=duPurple!55,
+  boxrule=0pt, leftrule=2pt, arc=0pt, outer arc=0pt,
+  left=8pt, right=6pt, top=6pt, bottom=6pt,
+  before skip=8pt, after skip=8pt
+}
+
+% lecturer copy: the same content, small and grey, so nothing is improvised
+\newtcolorbox{gaplecturer}{
+  enhanced, breakable, colback=white, colframe=duGrey!45,
+  boxrule=0pt, leftrule=1pt, arc=0pt,
+  borderline west={1pt}{0pt}{duGrey!45, dashed},
+  left=8pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=6pt, after skip=6pt,
+  fontupper=\small\color{duGrey!160}
+}
+\newcommand{\gaphintlabel}{{\bfseries\color{duPurple}Board:}\ \itshape}
+
+% --- content boxes ---------------------------------------------------------
+\newtcolorbox{tnote}{
+  enhanced, breakable, colback=duBlue!4, colframe=duBlue!30,
+  boxrule=0.4pt, arc=2pt, left=7pt, right=7pt, top=5pt, bottom=5pt,
+  before skip=7pt, after skip=7pt
+}
+\newtcolorbox{twarning}{
+  enhanced, breakable, colback=duRed!4, colframe=duRed!45,
+  boxrule=0.4pt, arc=2pt, left=7pt, right=7pt, top=5pt, bottom=5pt,
+  before skip=7pt, after skip=7pt
+}
+\newtcolorbox{tkey}{
+  enhanced, breakable, colback=duPurple!7, colframe=duPurple,
+  boxrule=0.8pt, arc=2pt, left=7pt, right=7pt, top=6pt, bottom=6pt,
+  before skip=8pt, after skip=8pt
+}
+\newtcolorbox{texample}{
+  enhanced, breakable, colback=white, colframe=duPurple!70,
+  boxrule=0.6pt, arc=2pt, left=7pt, right=7pt, top=6pt, bottom=6pt,
+  before skip=9pt, after skip=9pt
+}
+\newtcolorbox{tactivity}{
+  enhanced, breakable, colback=duPurple!10, colframe=duPurple,
+  boxrule=0.8pt, arc=2pt, left=7pt, right=7pt, top=6pt, bottom=6pt,
+  before skip=9pt, after skip=9pt
+}
+\newtcolorbox{tsolution}{
+  enhanced, breakable, colback=duGreen!5, colframe=duGreen!55,
+  boxrule=0.4pt, arc=2pt, left=7pt, right=7pt, top=6pt, bottom=6pt,
+  before skip=7pt, after skip=10pt
+}
+\newtcolorbox{tobjectives}{
+  enhanced, breakable, colback=duPaper, colframe=duPurple!40,
+  boxrule=0.4pt, arc=2pt, left=7pt, right=7pt, top=6pt, bottom=6pt,
+  before skip=6pt, after skip=10pt
+}
+
+% labels used by filters/boxes.lua
+\newcommand{\boxlabel}[1]{{\bfseries\color{duPurple}#1}\quad}
+
+% --- misc ------------------------------------------------------------------
+\setlist[itemize]{itemsep=2pt, topsep=3pt}
+\setlist[enumerate]{itemsep=2pt, topsep=3pt}
+
+% NOTE: no custom math macros are defined here on purpose. The same maths has
+% to render in the HTML build too (MathJax), so everything in the .qmd files
+% uses plain \mathrm{d} and P_\text{ext} rather than shorthands.
