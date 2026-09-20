@@ -122,20 +122,19 @@ quarto preview      # live-reloading website while you edit
 
 ## Publishing to GitHub Pages
 
-1. Create an empty repository on GitHub, e.g. `thermo-l1`.
-2. In `_quarto.yml`, replace `majidbastankhah` in `site-url` with your GitHub username.
-3. Push:
+1. Create an empty **public** repository on GitHub called `thermo-l1`
+   (public because free GitHub Pages needs it; `site-url` in `_quarto.yml` is
+   already set to match).
+2. Push:
 
    ```bash
-   git init
-   git add .
-   git commit -m "Chapter 2 in the new format"
-   git branch -M main
+   # the repository already exists here with its history, so just add the
+   # remote and push
    git remote add origin https://github.com/majidbastankhah/thermo-l1.git
    git push -u origin main
    ```
 
-4. On GitHub: **Settings → Pages → Build and deployment → Source = GitHub
+3. On GitHub: **Settings → Pages → Build and deployment → Source = GitHub
    Actions**.
 
 Every push to `main` then rebuilds the figures, the PDFs and the website,
