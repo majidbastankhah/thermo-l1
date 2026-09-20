@@ -13,7 +13,7 @@ class actually saw.
 | `_site/` | `./build.sh site` | the lecture view **and** the posted version; also holds the interactive figures |
 | `pdf/ch02-student.pdf` | `./build.sh pdf` | students, printed before the lecture — gaps blank, so they still write |
 | `pdf/ch02-complete.pdf` | `./build.sh pdf` | the paper twin of the site, for students who prefer print |
-| `pdf/ch02-presenter.pdf` | `./build.sh pdf` | you — everything in small grey type with a one-line **Board:** prompt per gap |
+| `presenter/ch02-presenter.pdf` | `./build.sh pdf` | you — everything in small grey type with a one-line **Board:** prompt per gap |
 
 `./build.sh` on its own does all of it.
 
@@ -143,6 +143,12 @@ uploading to Ultra except a link.
 
 If the repository is private, GitHub Pages needs a paid plan — for a public
 course site, keep the repository public.
+
+**What is and is not published.** `_quarto.yml` copies `pdf/` into the site
+wholesale, so every file in it is public whether or not anything links to it.
+The presenter copy is therefore built into `presenter/`, which is not a Quarto
+resource and never reaches `_site`. Put anything else you do not want public
+there too, not in `pdf/`.
 
 ## Layout
 
