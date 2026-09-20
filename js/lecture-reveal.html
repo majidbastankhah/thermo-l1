@@ -1,0 +1,132 @@
+<script>
+/* ---------------------------------------------------------------------------
+   Lecture reveal.
+
+   Every ::: {.gap} on the page starts covered. Space (or the arrow keys, a
+   clicker, or a click on the panel itself) uncovers them in document order and
+   scrolls the new one into view. "P" strips the site furniture and enlarges the
+   type for projection.
+
+   The point of doing it this way: the page on the screen in the room and the
+   page posted afterwards are the same file, so the completed notes can never
+   disagree with what the class actually saw.
+--------------------------------------------------------------------------- */
+(function () {
+  "use strict";
+
+  const gaps = Array.prototype.slice.call(document.querySelectorAll(".gap-reveal"));
+  if (!gaps.length) return;
+
+  let cursor = 0;                       // how many are uncovered
+
+  // ------------------------------------------------------------------ bar --
+  const bar = document.createElement("div");
+  bar.className = "reveal-bar";
+  bar.innerHTML =
+    '<button type="button" data-act="back" title="Cover the last one (left arrow)">&larr;</button>' +
+    '<span class="count"></span>' +
+    '<button type="button" data-act="next" title="Reveal the next one (space)">Reveal &rarr;</button>' +
+    '<button type="button" data-act="all" title="Reveal everything (A)">All</button>' +
+    '<button type="button" data-act="none" title="Cover everything (H)">Reset</button>' +
+    '<button type="button" data-act="present" title="Presentation mode (P)">Present</button>' +
+    '<span class="hintkey">space &middot; P</span>';
+  document.body.appendChild(bar);
+
+  const count = bar.querySelector(".count");
+
+  // ---------------------------------------------------------------- state --
+  function paint(scrollTo) {
+    gaps.forEach(function (g, i) {
+      g.classList.toggle("is-open", i < cursor);
+      g.classList.toggle("is-next", i === cursor);
+      if (i >= cursor) {
+        g.setAttribute("role", "button");
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("aria-expanded", "false");
+        g.setAttribute("aria-label", "Reveal step " + (i + 1) + " of " + gaps.length);
+      } else {
+        g.removeAttribute("role");
+        g.removeAttribute("tabindex");
+        g.setAttribute("aria-expanded", "true");
+        g.removeAttribute("aria-label");
+      }
+    });
+    count.textContent = cursor + " / " + gaps.length;
+
+    if (scrollTo != null && gaps[scrollTo]) {
+      gaps[scrollTo].scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto" : "smooth",
+        block: "center"
+      });
+    }
+    try { localStorage.setItem("reveal:" + location.pathname, String(cursor)); } catch (e) {}
+  }
+
+  function next() { if (cursor < gaps.length) { cursor++; paint(cursor - 1); } }
+  function back() { if (cursor > 0) { cursor--; paint(cursor); } }
+  function all()  { cursor = gaps.length; paint(null); }
+  function none() { cursor = 0; paint(null); window.scrollTo({ top: 0, behavior: "smooth" }); }
+
+  function present() {
+    document.body.classList.toggle("present");
+    const on = document.body.classList.contains("present");
+    bar.querySelector('[data-act="present"]').textContent = on ? "Exit" : "Present";
+  }
+
+  // --------------------------------------------------------------- events --
+  bar.addEventListener("click", function (ev) {
+    const act = ev.target.getAttribute("data-act");
+    if (act === "next") next();
+    else if (act === "back") back();
+    else if (act === "all") all();
+    else if (act === "none") none();
+    else if (act === "present") present();
+  });
+
+  // clicking a covered panel jumps straight to it -- useful when a student
+  // asks about something three steps back
+  gaps.forEach(function (g, i) {
+    function open(ev) {
+      if (g.classList.contains("is-open")) return;
+      ev.preventDefault();
+      cursor = i + 1;
+      paint(i);
+    }
+    g.addEventListener("click", open);
+    g.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter" || ev.key === " ") open(ev);
+    });
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    const t = ev.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    if (t && t.closest && t.closest(".gap-reveal")) return;   // handled above
+
+    switch (ev.key) {
+      case " ": case "ArrowRight": case "ArrowDown": case "PageDown":
+        ev.preventDefault(); next(); break;
+      case "ArrowLeft": case "ArrowUp": case "PageUp":
+        ev.preventDefault(); back(); break;
+      case "a": case "A": all(); break;
+      case "h": case "H": none(); break;
+      case "p": case "P": present(); break;
+      default: break;
+    }
+  });
+
+  // A student opening this afterwards picks up where they left off; someone
+  // arriving with ?all=1 (the link posted after the lecture) sees everything.
+  if (/[?&]all=1/.test(location.search)) {
+    cursor = gaps.length;
+  } else {
+    try {
+      const saved = parseInt(localStorage.getItem("reveal:" + location.pathname), 10);
+      if (!isNaN(saved)) cursor = Math.max(0, Math.min(gaps.length, saved));
+    } catch (e) {}
+  }
+  paint(null);
+})();
+</script>

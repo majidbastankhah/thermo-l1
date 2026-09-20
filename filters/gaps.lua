@@ -9,14 +9,17 @@
 
   is rendered according to the `gapmode` metadata value:
 
-    student   -> a blank ruled box of the stated height (what you hand out
-                 before the lecture; the students fill it in with you)
-    complete  -> the content, marked with a coloured rule so it is obvious
-                 what was written in class (what you post afterwards)
-    lecturer  -> the content in small grey type, plus the hint in the margin
-                 (your own copy, so nothing has to be re-derived live)
+    student   -> a blank ruled box of the stated height (the printed handout
+                 students bring to the lecture and write into)
+    reveal    -> the same content, covered, uncovered one gap at a time during
+                 the lecture (the website: the screen in the room AND the file
+                 posted afterwards, so the two can never drift apart)
+    complete  -> everything shown (the printable version of the reveal view)
+    lecturer  -> everything shown in small grey type, plus the hint as a
+                 one-line prompt (your presenter notes)
 
-  `height` only matters in student mode. `hint` only shows in lecturer mode.
+  `height` sets the blank space in student mode and the size of the cover in
+  reveal mode. `hint` only shows in lecturer mode.
 --]]
 
 local mode = "complete"
@@ -59,6 +62,32 @@ local function filled(blocks)
     return out
   end
   return { pandoc.Div(blocks, pandoc.Attr("", { "gap-filled" })) }
+end
+
+-- ----------------------------------------------------------------- reveal --
+
+-- The lecture view: the same content as `complete`, but each gap starts
+-- covered and is uncovered one at a time during the lecture. Because it is
+-- the same file, what is on the screen in the room and what is posted
+-- afterwards can never drift apart. Print falls back to `complete`.
+
+local reveal_count = 0
+
+local function revealable(blocks, height)
+  if is_latex() then return filled(blocks) end
+
+  reveal_count = reveal_count + 1
+  local body = pandoc.Div(blocks, pandoc.Attr("", { "gap-body" }))
+
+  return {
+    pandoc.Div({ body }, pandoc.Attr(
+      "gap-" .. reveal_count,
+      { "gap-reveal" },
+      {
+        ["data-gap"] = tostring(reveal_count),
+        ["style"]    = "--gap-h: " .. height,
+      }))
+  }
 end
 
 -- --------------------------------------------------------------- lecturer --
@@ -115,6 +144,8 @@ function Div(el)
     return blank(height)
   elseif mode == "lecturer" then
     return lecturer(el.content, hint)
+  elseif mode == "reveal" then
+    return revealable(el.content, height)
   else
     return filled(el.content)
   end
@@ -125,7 +156,8 @@ end
 local LABEL = {
   student  = "Chapter 2 -- student copy (gaps filled in during the lecture)",
   complete = "Chapter 2 -- completed copy",
-  lecturer = "Chapter 2 -- LECTURER COPY, do not circulate",
+  reveal   = "Chapter 2 -- completed copy",
+  lecturer = "Chapter 2 -- presenter notes, do not circulate",
 }
 
 function Pandoc(doc)

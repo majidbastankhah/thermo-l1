@@ -27,11 +27,11 @@ build_pdf () {           # $1 = gapmode, $2 = output name
 if [ "$what" = "all" ] || [ "$what" = "pdf" ]; then
   build_pdf student  ch02-student
   build_pdf complete ch02-complete
-  build_pdf lecturer ch02-lecturer
+  build_pdf lecturer ch02-presenter
 fi
 
 if [ "$what" = "all" ] || [ "$what" = "site" ]; then
-  echo "  site: _site/"
+  echo "  site: _site/  (lecture view -- gaps start covered)"
   quarto render --quiet
 fi
 

@@ -1,15 +1,42 @@
 # Thermodynamics (ENGI 1111) — lecture notes
 
-One source file per chapter. Four outputs, all built from it:
+One source file per chapter. Everything below is built from it.
+
+**The website is the lecture.** Gaps start covered and are uncovered one at a
+time from the keyboard; the same page stays up afterwards. That is the whole
+point — the screen in the room and the notes on Ultra are the same file, so a
+"completed" version can never say something slightly different from what the
+class actually saw.
 
 | Output | Built by | Who it is for |
 |:--|:--|:--|
-| `pdf/ch02-student.pdf` | `./build.sh pdf` | students, printed before the lecture — gaps are blank |
-| `pdf/ch02-complete.pdf` | `./build.sh pdf` | students, after the lecture — gaps filled in |
-| `pdf/ch02-lecturer.pdf` | `./build.sh pdf` | you — gaps filled in small grey type, each with a one-line **Board:** prompt |
-| `_site/` | `./build.sh site` | the website, with the interactive figures |
+| `_site/` | `./build.sh site` | the lecture view **and** the posted version; also holds the interactive figures |
+| `pdf/ch02-student.pdf` | `./build.sh pdf` | students, printed before the lecture — gaps blank, so they still write |
+| `pdf/ch02-complete.pdf` | `./build.sh pdf` | the paper twin of the site, for students who prefer print |
+| `pdf/ch02-presenter.pdf` | `./build.sh pdf` | you — everything in small grey type with a one-line **Board:** prompt per gap |
 
-`./build.sh` on its own does all four.
+`./build.sh` on its own does all of it.
+
+### Running a lecture
+
+Open the chapter page and press **P** for presentation mode (hides the site
+furniture, enlarges the type). Then:
+
+| key | |
+|:--|:--|
+| space, →, ↓, PageDown, or a clicker | uncover the next gap and scroll to it |
+| ←, ↑, PageUp | cover the last one again |
+| **A** | uncover everything |
+| **H** | cover everything again |
+| **P** | leave presentation mode |
+
+Clicking a covered panel jumps straight to it — useful when someone asks about
+something three steps back. A student opening the page later resumes where they
+left off; `?all=1` on the URL opens it fully uncovered.
+
+Maths is rendered by KaTeX served from `js/katex/` in this repository, not from
+a CDN, so equations still render if the lecture-theatre network is slow or
+blocked.
 
 ---
 
@@ -28,8 +55,14 @@ $$ W = -\int P_\text{ext}\,\mathrm{d}V $$
 * `height` — how much blank space the student copy leaves. Only used there.
 * `hint` — the one-line prompt that appears on **your** copy. Markdown, so maths works.
 
-Which version gets built is set by `gapmode`, which `build.sh` passes on the
-command line (`student`, `complete`, `lecturer`). You never maintain more than
+Which version gets built is set by `gapmode`:
+
+* `reveal` — the website: covered, uncovered live (set in `_quarto.yml`)
+* `student` — blank space of `height`, for the printed handout
+* `complete` — everything shown
+* `lecturer` — everything shown, small and grey, with the `hint` as a prompt
+
+`build.sh` passes the right one for each output. You never maintain more than
 one file.
 
 ### Boxes
@@ -105,7 +138,7 @@ quarto preview      # live-reloading website while you edit
 4. On GitHub: **Settings → Pages → Build and deployment → Source = GitHub
    Actions**.
 
-Every push to `main` then rebuilds the figures, the three PDFs and the website,
+Every push to `main` then rebuilds the figures, the PDFs and the website,
 and publishes to `https://USERNAME.github.io/thermo-l1/`. Nothing needs
 uploading to Ultra except a link.
 
@@ -120,8 +153,10 @@ index.qmd               the site's front page
 _quarto.yml             website + HTML settings, filter list
 _pdf.yml                print settings (kept separate so `quarto render` stays fast)
 tex/preamble.tex        LaTeX: Durham colours, running heads, all the boxes
-styles.css              the same boxes for the web
-filters/gaps.lua        student / completed / lecturer, and solution visibility
+styles.css              the same boxes for the web, plus the reveal styling
+js/lecture-reveal.html  the keyboard-driven reveal + presentation mode
+js/katex/               self-hosted maths renderer (no CDN in the lecture theatre)
+filters/gaps.lua        reveal / student / complete / lecturer, and solution visibility
 filters/boxes.lua       ::: {.note} etc. -> LaTeX environment or styled div
 filters/figext.lua      .svg -> .pdf for the print build
 filters/wrapfig.lua     {.wrap} images float beside the text

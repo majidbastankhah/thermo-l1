@@ -110,3 +110,117 @@ figure img, p > img { max-width: 100%; height: auto; }
 @media (max-width: 620px) {
   .wrap-right, .wrap-left { float: none; width: 100%; margin: 0.8em 0; }
 }
+
+/* ---------------------------------------------------------------------------
+   Lecture reveal view
+   The gap is covered until you uncover it. Same file on the screen in the
+   room and on Ultra afterwards, so there is only ever one version.
+--------------------------------------------------------------------------- */
+
+.gap-reveal {
+  position: relative;
+  margin: 1em 0;
+}
+
+/* covered: a dashed panel the same shape as the blank in the printed handout */
+.gap-reveal:not(.is-open) > .gap-body { display: none; }
+
+.gap-reveal:not(.is-open)::before {
+  content: "";
+  display: block;
+  min-height: var(--gap-h, 40mm);
+  border: 1.5px dashed color-mix(in srgb, var(--du-purple) 40%, transparent);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--du-purple) 3%, transparent);
+}
+.gap-reveal:not(.is-open)::after {
+  content: "space to reveal";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--du-purple) 65%, transparent);
+  pointer-events: none;
+}
+.gap-reveal:not(.is-open) { cursor: pointer; }
+
+.gap-reveal.is-open > .gap-body {
+  border-left: 3px solid var(--du-purple);
+  background: color-mix(in srgb, var(--du-purple) 4%, transparent);
+  padding: 0.7em 0.9em 0.3em;
+  border-radius: 0 6px 6px 0;
+  animation: gap-in 220ms ease-out;
+}
+.gap-reveal.is-open > .gap-body > :last-child { margin-bottom: 0; }
+.gap-reveal.is-next:not(.is-open)::before {
+  border-color: var(--du-purple);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--du-purple) 14%, transparent);
+}
+
+@keyframes gap-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gap-reveal.is-open > .gap-body { animation: none; }
+}
+
+/* --- the control bar ----------------------------------------------------- */
+.reveal-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--box-border);
+  background: var(--bs-body-bg, #fff);
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.14);
+  font-size: 0.82rem;
+}
+.reveal-bar button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--box-border);
+  background: transparent;
+  color: inherit;
+  border-radius: 7px;
+  padding: 3px 9px;
+}
+.reveal-bar button:hover { border-color: var(--du-purple); color: var(--du-purple); }
+.reveal-bar .count { font-variant-numeric: tabular-nums; opacity: 0.75; min-width: 4.5em; text-align: center; }
+.reveal-bar .hintkey { opacity: 0.55; }
+
+/* --- present mode: strip the site furniture, enlarge the type ------------ */
+body.present .navbar,
+body.present #quarto-margin-sidebar,
+body.present .page-footer,
+body.present nav#TOC { display: none !important; }
+body.present #quarto-content { padding-top: 0.5rem; }
+body.present #quarto-document-content { max-width: 60rem; margin: 0 auto; }
+body.present { font-size: 1.22rem; }
+body.present h1 { font-size: 2.1rem; }
+body.present h2 { font-size: 1.65rem; }
+body.present h3 { font-size: 1.3rem; }
+
+@media print {
+  .reveal-bar { display: none !important; }
+  .gap-reveal > .gap-body { display: block !important; }
+  .gap-reveal::before, .gap-reveal::after { display: none !important; }
+}
+
+/* keep the control bar from covering the last line of the page */
+body.present #quarto-document-content,
+body:has(.reveal-bar) #quarto-document-content { padding-bottom: 4.5rem; }
+
+/* the bar recedes until you reach for it */
+.reveal-bar { opacity: 0.35; transition: opacity 140ms ease; }
+.reveal-bar:hover, .reveal-bar:focus-within { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .reveal-bar { transition: none; } }

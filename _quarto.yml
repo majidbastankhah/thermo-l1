@@ -4,6 +4,7 @@ project:
   resources:
     - widgets/
     - pdf/
+    - js/katex/
 
 website:
   title: "Thermodynamics (ENGI 1111)"
@@ -26,10 +27,15 @@ format:
     toc: true
     toc-depth: 3
     number-sections: true
-    html-math-method: mathjax
+    # KaTeX is served from the repository, not a CDN: equations must render
+    # even if the lecture-theatre network is slow or blocked.
+    html-math-method:
+      method: katex
+      url: js/katex/
     fig-align: center
     link-external-newwindow: true
     code-copy: false
+    include-after-body: js/lecture-reveal.html
 
 filters:
   - filters/gaps.lua
@@ -37,6 +43,7 @@ filters:
   - filters/figext.lua
   - filters/wrapfig.lua
 
-# Which of the three copies the HTML site shows. The printed variants are built
-# by build.sh, which overrides this on the command line.
-gapmode: complete
+# The website is the LECTURE view: gaps start covered and are uncovered one at
+# a time in the room. It is also the version posted afterwards, so the screen
+# and the posted notes are the same file. build.sh overrides this for print.
+gapmode: reveal

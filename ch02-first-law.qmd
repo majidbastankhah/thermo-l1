@@ -600,7 +600,7 @@ then remains constant. Determine the total work, in kJ.
 
 ![](figures/out/p-w3q1.svg){width=58%}
 
-(a) 4.35 &nbsp;&nbsp; (b) 7.875 &nbsp;&nbsp; (c) 0.75 &nbsp;&nbsp; (d) 9.465
+**(a)** 4.35 &nbsp;&nbsp; **(b)** 7.875 &nbsp;&nbsp; **(c)** 0.75 &nbsp;&nbsp; **(d)** 9.465
 
 ::: {.solution}
 The area under the path in the $P_\text{ext}$–$V$ diagram gives the magnitude of
@@ -632,7 +632,7 @@ The system is heated and the piston begins to rise. If the mass of the piston is
 
 ![](figures/img/p-stop-piston.png){width=52%}
 
-(a) $-28$ J &nbsp;&nbsp; (b) $-53$ J &nbsp;&nbsp; (c) $-41$ J &nbsp;&nbsp; (d) $-12$ J
+**(a)** $-28$ J &nbsp;&nbsp; **(b)** $-53$ J &nbsp;&nbsp; **(c)** $-41$ J &nbsp;&nbsp; **(d)** $-12$ J
 
 ::: {.solution}
 The external pressure on the moving boundary is atmospheric plus the weight of
@@ -664,7 +664,7 @@ clear why, give me a shout.)*
 
 ![](figures/img/p-r410a.png){width=22%}
 
-(a) 165 J &nbsp;&nbsp; (b) 334 J &nbsp;&nbsp; (c) 538 J &nbsp;&nbsp; (d) 664 J
+**(a)** 165 J &nbsp;&nbsp; **(b)** 334 J &nbsp;&nbsp; **(c)** 538 J &nbsp;&nbsp; **(d)** 664 J
 
 ::: {.solution}
 As soon as the piston starts moving it is no longer in contact with the stops,
@@ -685,7 +685,7 @@ increasing the external pressure from 100 to 800 kPa such that
 $P_\text{ext}V^{2} = \text{const}$. If the initial volume $V_1 = 0.1~\mathrm{m^3}$,
 the work done on the system is
 
-(a) 42.9 kJ &nbsp;&nbsp; (b) 24.2 kJ &nbsp;&nbsp; (c) 31.6 kJ &nbsp;&nbsp; (d) 18.5 kJ
+**(a)** 42.9 kJ &nbsp;&nbsp; **(b)** 24.2 kJ &nbsp;&nbsp; **(c)** 31.6 kJ &nbsp;&nbsp; **(d)** 18.5 kJ
 
 ::: {.solution}
 With $P_\text{ext}V^{2} = C$, so $P_\text{ext} = C/V^{2}$:
@@ -727,7 +727,7 @@ Sketch the processes in series on a PV diagram and evaluate the total work for
 all of the processes, in kJ. *Note: all pressure values mentioned in the question
 refer to the external pressure (i.e. pressure at the system boundaries).*
 
-(a) 631 &nbsp;&nbsp; (b) 1265 &nbsp;&nbsp; (c) 875 &nbsp;&nbsp; (d) 954
+**(a)** 631 &nbsp;&nbsp; **(b)** 1265 &nbsp;&nbsp; **(c)** 875 &nbsp;&nbsp; **(d)** 954
 
 ::: {.solution}
 ![](figures/out/p-w3q5-sol.svg){width=52%}
@@ -770,7 +770,7 @@ cylinder wall can be neglected. Determine the amount of work.
 
 ![](figures/img/p-spring-cylinder.png){width=62%}
 
-(a) 125 J &nbsp;&nbsp; (b) 2.5 J &nbsp;&nbsp; (c) 20 J &nbsp;&nbsp; (d) 10 J
+**(a)** 125 J &nbsp;&nbsp; **(b)** 2.5 J &nbsp;&nbsp; **(c)** 20 J &nbsp;&nbsp; **(d)** 10 J
 
 ::: {.solution}
 To find the work we first need the external pressure:
@@ -820,7 +820,7 @@ steam to the piston during the process, in kJ.
 
 ![](figures/img/p-steam-paddle.png){width=58%}
 
-(a) 150 &nbsp;&nbsp; (b) 350 &nbsp;&nbsp; (c) $-350$ &nbsp;&nbsp; (d) $-150$
+**(a)** 150 &nbsp;&nbsp; **(b)** 350 &nbsp;&nbsp; **(c)** $-350$ &nbsp;&nbsp; **(d)** $-150$
 
 ::: {.solution}
 From the First Law,
@@ -852,8 +852,8 @@ Determine values of $Q_{12}$, $Q_{23}$ and $W_{34}$, respectively, each in kJ.
 | 3–4 | $-700$ | 0 | |
 | 4–1 | | 500 | 700 |
 
-(a) 1200, 200, $-700$ &nbsp;&nbsp; (b) 1200, 300, $-700$ &nbsp;&nbsp;
-(c) 1000, 300, $-500$ &nbsp;&nbsp; (d) 700, 200, $-500$
+**(a)** 1200, 200, $-700$ &nbsp;&nbsp; **(b)** 1200, 300, $-700$ &nbsp;&nbsp;
+**(c)** 1000, 300, $-500$ &nbsp;&nbsp; **(d)** 700, 200, $-500$
 
 ::: {.solution}
 **Process 1–2:**
@@ -903,7 +903,7 @@ system decreases by 6 kJ/kg and there is no change in kinetic energy of the
 system. The acceleration of gravity is constant at $g = 9.6~\mathrm{m/s^2}$.
 Determine the heat transfer, in kJ.
 
-(a) 1.5 &nbsp;&nbsp; (b) $-3.8$ &nbsp;&nbsp; (c) 2.6 &nbsp;&nbsp; (d) $-5.4$
+**(a)** 1.5 &nbsp;&nbsp; **(b)** $-3.8$ &nbsp;&nbsp; **(c)** 2.6 &nbsp;&nbsp; **(d)** $-5.4$
 
 ::: {.solution}
 Using the generic form of the First Law, per unit mass:
@@ -930,7 +930,7 @@ on the system is 200 kJ. If the initial specific internal energy of the system i
 300 kJ/kg, what is the final specific internal energy, in kJ/kg? Neglect changes
 in kinetic and potential energy.
 
-(a) 150 &nbsp;&nbsp; (b) 260 &nbsp;&nbsp; (c) 330 &nbsp;&nbsp; (d) 420
+**(a)** 150 &nbsp;&nbsp; **(b)** 260 &nbsp;&nbsp; **(c)** 330 &nbsp;&nbsp; **(d)** 420
 
 ::: {.solution}
 $$
@@ -953,7 +953,7 @@ process, the specific internal energy of the carbon monoxide increases by
 10 kJ/kg. If no overall changes in kinetic and potential energy occur, determine
 the heat transfer in kJ.
 
-(a) $-10.4$ &nbsp;&nbsp; (b) 10.4 &nbsp;&nbsp; (c) 6.5 &nbsp;&nbsp; (d) $-6.5$
+**(a)** $-10.4$ &nbsp;&nbsp; **(b)** 10.4 &nbsp;&nbsp; **(c)** 6.5 &nbsp;&nbsp; **(d)** $-6.5$
 
 ::: {.solution}
 First, the work done by the paddle on the system:
@@ -982,7 +982,7 @@ wall can be neglected. The local acceleration of gravity is
 $9.81~\mathrm{m/s^2}$. Determine the final specific internal energy of CO$_2$, in
 kJ/kg.
 
-(a) 324 &nbsp;&nbsp; (b) 148 &nbsp;&nbsp; (c) 263 &nbsp;&nbsp; (d) 89
+**(a)** 324 &nbsp;&nbsp; **(b)** 148 &nbsp;&nbsp; **(c)** 263 &nbsp;&nbsp; **(d)** 89
 
 ::: {.solution}
 To use the energy equation we first need $W$, which means the external pressure

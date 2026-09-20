@@ -6,18 +6,23 @@ number-sections: false
 ---
 
 These are the lecture notes for the first part of ENGI 1111, Thermodynamics and
-Fluid Mechanics I. Each chapter exists in three printed versions plus this web
-version, all built from one source file:
+Fluid Mechanics I.
 
-| Version | What it is | When to use it |
+**This site is the lecture.** The gaps start covered; in class we uncover them
+one at a time. It is also the version that stays up afterwards, so what you saw
+on the screen and what you can re-read later are the same page — there is no
+second, slightly different set of "completed notes" to reconcile against your
+own.
+
+| | What it is | When to use it |
 |:--|:--|:--|
-| **Student copy** | the notes with gaps where the derivations and examples go | print it and bring it to the lecture |
-| **Completed copy** | the same notes with every gap filled in | after the lecture, to check your own notes |
-| **This website** | the completed notes plus the interactive figures | any time — the figures here you can actually play with |
+| **Student copy (PDF)** | the notes with the gaps left blank | print it and bring it — you fill the gaps in as we go |
+| **This site** | the same notes, uncovered step by step | in the lecture, and any time afterwards |
+| **Completed copy (PDF)** | everything already uncovered | if you would rather have the finished version on paper |
 
 Problems now sit at the end of the chapter they belong to, rather than on a
 separate weekly sheet. One of them is worked through together in class; the rest
-are for you, and the worked solutions are in the completed copy and on this site.
+are for you, and the worked solutions are on this site and in the completed PDF.
 
 ## Chapters
 
@@ -25,6 +30,9 @@ are for you, and the worked solutions are in the completed copy and on this site
 
   *Downloads:* [student copy](pdf/ch02-student.pdf) ·
   [completed copy](pdf/ch02-complete.pdf)
+
+  *In the lecture:* space or the arrow keys move through the gaps, **P**
+  switches to presentation mode, **A** uncovers everything.
 
 Chapters 1 and 3–6 are still in the old format on Ultra while they are being
 converted.
