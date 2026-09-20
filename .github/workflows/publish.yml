@@ -35,7 +35,7 @@ jobs:
           version: 1.6.43
 
       - name: Build figures, PDFs and website
-        run: ./build.sh
+        run: bash ./build.sh
 
       - uses: actions/upload-pages-artifact@v3
         with:
