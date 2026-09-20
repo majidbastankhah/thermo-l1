@@ -123,7 +123,7 @@ quarto preview      # live-reloading website while you edit
 ## Publishing to GitHub Pages
 
 1. Create an empty repository on GitHub, e.g. `thermo-l1`.
-2. In `_quarto.yml`, replace `USERNAME` in `site-url` with your GitHub username.
+2. In `_quarto.yml`, replace `majidbastankhah` in `site-url` with your GitHub username.
 3. Push:
 
    ```bash
@@ -131,7 +131,7 @@ quarto preview      # live-reloading website while you edit
    git add .
    git commit -m "Chapter 2 in the new format"
    git branch -M main
-   git remote add origin https://github.com/USERNAME/thermo-l1.git
+   git remote add origin https://github.com/majidbastankhah/thermo-l1.git
    git push -u origin main
    ```
 
@@ -139,7 +139,7 @@ quarto preview      # live-reloading website while you edit
    Actions**.
 
 Every push to `main` then rebuilds the figures, the PDFs and the website,
-and publishes to `https://USERNAME.github.io/thermo-l1/`. Nothing needs
+and publishes to `https://majidbastankhah.github.io/thermo-l1/`. Nothing needs
 uploading to Ultra except a link.
 
 If the repository is private, GitHub Pages needs a paid plan — for a public

@@ -9,7 +9,7 @@ project:
 website:
   title: "Thermodynamics (ENGI 1111)"
   description: "Level 1 Thermodynamics, part one — Durham University"
-  site-url: "https://USERNAME.github.io/thermo-l1/"
+  site-url: "https://majidbastankhah.github.io/thermo-l1/"
   page-navigation: true
   navbar:
     left:
