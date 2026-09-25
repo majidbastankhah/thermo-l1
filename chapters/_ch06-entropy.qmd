@@ -1,0 +1,1082 @@
+# Corollaries of the Second Law: Entropy {#sec-ch6}
+
+::: {.objectives}
+By the end of this chapter, you should be able to:
+
+- Explain the **corollaries** of the second law of thermodynamics and their
+  applications.
+- Define the **absolute temperature scale** and quantify the best possible
+  performance of thermodynamic cycles using the concept of **reversibility**.
+- Evaluate **entropy** and its change during a process.
+:::
+
+## Introduction
+
+The **Clausius statement** of the second law, introduced in the last chapter, is
+considered as the first corollary of the second law. In this chapter we discuss
+corollaries 2 to 8. Each one is built on the ones before it, and together they
+take us from the second law, stated for cycles, to a new system property,
+**entropy**, which lets us apply the second law to any process.
+
+![The corollaries of the second law, step by step. C1 is the Clausius statement of CH5; this chapter climbs from C2 to C8.](figures/img/ch6-corollaries.png){width=90%}
+
+## Reversible thermodynamic cycles
+
+Corollaries 2 and 3 are about **reversible** (i.e. ideal) thermodynamic cycles,
+and they are often called the **Carnot corollaries**.
+
+![](figures/img/ch6-carnot.png){width=22% fig-align="center"}
+
+::: {.key}
+**Corollary 2:** It is *impossible* to construct a heat engine operating between
+only two heat reservoirs that will have a higher efficiency than a *reversible*
+engine operating between the same two reservoirs.
+:::
+
+**Proof.** Suppose that the reverse is true: an imaginary engine I has a higher
+efficiency than a reversible engine R, $\eta_I > \eta_R$, both working between
+the same two reservoirs. Because R is reversible, we can run it backwards, as a
+heat pump, and let the imaginary engine drive it.
+
+![I: the imaginary engine, with $\eta_I > \eta_R$. R: the reversible engine, run backwards. Both exchange the same $|Q_H|$ with the hot reservoir.](figures/out/ch6-carnot-proof.svg){width=62%}
+
+::: {.gap height="16mm" hint="Same $|Q_H|$ for both; $\eta_I > \eta_R$ means $|W_I| > |W_R|$."}
+Let both engines exchange the same heat $|Q_H|$ with the hot reservoir. Since
+$\eta = |W|/|Q_H|$,
+$$
+\eta_I > \eta_R
+\quad\Rightarrow\quad
+|W_I| = \eta_I |Q_H| \;>\; |W_R| = \eta_R |Q_H|
+$$
+:::
+
+::: {.gap height="16mm" hint="Run R backwards: it takes $|W_R|$ (supplied by I) and returns $|Q_H|$ to the hot reservoir."}
+Run R backwards: it takes $|Q_{C,R}|$ from the cold reservoir, receives the work
+$|W_R|$ (supplied by I) and delivers $|Q_H|$ to the hot reservoir. The hot
+reservoir therefore gets back exactly what I took from it: **no net heat
+exchange with the hot reservoir**.
+:::
+
+::: {.gap height="18mm" hint="Net effect of I + R: work $|W_I| - |W_R| > 0$ out, all of it drawn as heat from the COLD reservoir only."}
+The combined device I + R still delivers the net work $|W_I| - |W_R| > 0$. By
+the first law for the two cycles together, that energy must come from the only
+reservoir it still exchanges heat with, the cold one:
+$$
+|Q_{C,R}| - |Q_{C,I}| = |W_I| - |W_R| > 0
+$$
+:::
+
+::: {.gap height="14mm" hint="One reservoir, net work out: violates Kelvin–Planck, so the assumption is false."}
+So the combined device exchanges heat with a **single** reservoir and produces
+net work. This violates the Kelvin–Planck statement of the second law, so the
+assumption $\eta_I > \eta_R$ must be false.
+:::
+
+::: {.key}
+$$
+\eta \le \eta_\text{rev}
+\qquad\Rightarrow\qquad
+\eta_\text{max} = \eta_\text{rev}
+$$
+:::
+
+::: {.note}
+Likewise, one can prove that any reversible refrigerator (or heat pump) has the
+maximum theoretical coefficient of performance (COP):
+$$
+\beta_\text{max} = \left(\frac{|Q_C|}{|W|}\right)_\text{max} = \beta_\text{rev},
+\qquad
+\beta'_\text{max} = \left(\frac{|Q_H|}{|W|}\right)_\text{max} = \beta'_\text{rev}
+$$
+:::
+
+::: {.key}
+**Corollary 3:** All reversible heat engines operating between the same two
+reservoirs have the same efficiency.
+:::
+
+![](figures/out/ch6-three-reversible.svg){width=72% fig-align="center"}
+
+::: {.note}
+As a result of corollary 3, the efficiency of a *reversible* heat engine is
+**independent of the working fluid**, and it only depends on the thermal
+reservoir property, namely the reservoir temperature:
+$$
+\eta_\text{rev} = f\left(T_H, T_C\right)
+$$
+:::
+
+## Thermodynamic (absolute) temperature scale
+
+**Relative temperature scale:** as discussed in CH1, the zeroth law of
+thermodynamics provides a basis for temperature measurement in terms of a
+particular thermometer substance and device.
+
+**Thermodynamic (absolute) temperature scale:** a temperature scale that is
+independent of any particular substance would be most desirable.
+
+::: {.key}
+**Corollary 4:** A scale of temperature can be defined which is independent of
+any particular thermometric substance and which provides an absolute zero of
+temperature ($T > 0$).
+:::
+
+By corollary 3, the efficiency of a reversible engine depends only on the two
+reservoir temperatures:
+
+::: {.gap height="16mm" hint="$\eta_\text{rev} = 1 - (|Q_C|/|Q_H|)_\text{rev} = f(T_H,T_C)$, so the heat ratio is itself a function of $T_H, T_C$ only."}
+$$
+\eta_\text{rev} = 1 - \left(\frac{|Q_C|}{|Q_H|}\right)_\text{rev} = f\left(T_H, T_C\right)
+\quad\longrightarrow\quad
+\left(\frac{|Q_C|}{|Q_H|}\right)_\text{rev} = f^{*}\left(T_H, T_C\right)
+$$
+:::
+
+Kelvin chose the simplest such function, which **defines** the Kelvin
+(absolute) temperature scale:
+
+::: {.key}
+$$
+\left(\frac{|Q_H|}{|Q_C|}\right)_\text{rev} = \frac{T_H}{T_C}
+$$ {#eq-ch6-kelvin}
+:::
+
+![On the Kelvin scale the heat exchanged by a reversible engine is proportional to the reservoir temperature. Since $|Q_C| > 0$ (an engine must reject some heat), $T > 0$: absolute zero is the limit $|Q_C| \to 0$.](figures/out/ch6-kelvin-scale.svg){width=56%}
+
+According to corollaries 2–4, the best possible performance for thermodynamic
+cycles operating between two thermal reservoirs with temperatures $T_H$ and
+$T_C$ is given by:
+
+::: {.gap height="14mm" hint="Heat engine: substitute the Kelvin relation into $1 - (|Q_C|/|Q_H|)_\text{rev}$."}
+**Heat engine:**
+$$
+\eta_\text{max} = \left(\frac{|W|}{|Q_H|}\right)_\text{rev}
+= 1 - \left(\frac{|Q_C|}{|Q_H|}\right)_\text{rev}
+= 1 - \frac{T_C}{T_H}
+$$
+:::
+
+::: {.gap height="14mm" hint="Refrigerator: replace the heat ratio by the temperature ratio."}
+**Refrigerator:**
+$$
+\beta_\text{max} = \left(\frac{|Q_C|}{|W|}\right)_\text{rev}
+= \left(\frac{|Q_C|}{|Q_H| - |Q_C|}\right)_\text{rev}
+= \frac{T_C}{T_H - T_C}
+$$
+:::
+
+::: {.gap height="14mm" hint="Heat pump: the same, with $|Q_H|$ on top."}
+**Heat pump:**
+$$
+\beta'_\text{max} = \left(\frac{|Q_H|}{|W|}\right)_\text{rev}
+= \left(\frac{|Q_H|}{|Q_H| - |Q_C|}\right)_\text{rev}
+= \frac{T_H}{T_H - T_C}
+$$
+:::
+
+These are the maximum (theoretical) efficiencies and COPs:
+
+::: {.key}
+$$
+\eta_\text{max} = 1 - \frac{T_C}{T_H},
+\qquad
+\beta_\text{max} = \frac{T_C}{T_H - T_C},
+\qquad
+\beta'_\text{max} = \frac{T_H}{T_H - T_C}
+$$ {#eq-ch6-max-performance}
+with $T_H$ and $T_C$ in **kelvin**.
+:::
+
+::: {.example}
+Consider a heat engine, a refrigerator and a heat pump all operating between the
+same hot and cold reservoirs with temperatures 400 K and 200 K, respectively. If
+they are **reversible**, calculate the heat engine thermal efficiency and the
+COP of the refrigerator and the heat pump.
+
+![](figures/img/ch6-example-devices.png){width=80% fig-align="center"}
+
+**Step 1.** *Heat engine: use $\eta_\text{rev} = 1 - T_C/T_H$.*
+
+::: {.gap height="12mm" hint="$1 - 200/400 = 50\%$."}
+$$
+\eta_\text{rev} = 1 - \frac{T_C}{T_H} = 1 - \frac{200}{400} = \boxed{50\%}
+$$
+:::
+
+**Step 2.** *Refrigerator: use $\beta_\text{rev} = T_C/(T_H - T_C)$.*
+
+::: {.gap height="12mm" hint="$200/(400-200) = 1$."}
+$$
+\beta_\text{rev} = \frac{T_C}{T_H - T_C} = \frac{200}{400 - 200} = \boxed{1}
+$$
+:::
+
+**Step 3.** *Heat pump: use $\beta'_\text{rev} = T_H/(T_H - T_C)$. How is the
+answer related to Step 2?*
+
+::: {.gap height="16mm" hint="$400/(400-200) = 2$; note $\beta' = \beta + 1$."}
+$$
+\beta'_\text{rev} = \frac{T_H}{T_H - T_C} = \frac{400}{400 - 200} = \boxed{2}
+$$
+Note that $\beta' = \beta + 1$.
+:::
+:::
+
+## Cycle operating between more than two thermal reservoirs
+
+::: {.key}
+**Corollary 5:** The efficiency of a reversible heat engine operating between
+several reservoirs must be less than that of a reversible heat engine operating
+between the highest and the lowest reservoir temperatures.
+:::
+
+![](figures/out/ch6-multi-reservoir.svg){width=44% fig-align="center"}
+
+From corollary 4, $\eta_\text{rev} = 1 - T_C/T_H$.
+
+::: {.gap height="18mm" hint="Heat is taken in at temperatures up to max$(T_H)$ and rejected at temperatures down to min$(T_C)$: the best possible pair is max and min."}
+The engine takes in heat at temperatures no higher than $\max(T_H)$ and rejects
+heat at temperatures no lower than $\min(T_C)$, so
+$$
+\eta_\text{rev} = 1 - \frac{T_C}{T_H} \;\le\; 1 - \frac{\min(T_C)}{\max(T_H)}
+$$
+:::
+
+::: {.key}
+$$
+\eta_{\text{rev, several reservoirs}} < 1 - \frac{T_{C,\min}}{T_{H,\max}}
+$$
+:::
+
+**Practical implication:** to maximise the efficiency of a heat engine, input as
+much heat as possible at the highest temperature and reject heat as much as
+possible at the lowest temperature.
+
+## Clausius inequality
+
+::: {.key}
+**Corollary 6:** For *any* cycle, $\oint (\delta Q/T)$ is zero if the cycle is
+reversible and negative if irreversible. In general
+$$
+\oint \frac{\delta Q}{T} \le 0 .
+$$
+:::
+
+::: {.note}
+Do not confuse the Clausius **inequality** (corollary 6) with the Clausius
+**statement** of the second law (CH5).
+:::
+
+**Proof.**
+
+![](figures/img/ch6-heat-engine.png){width=18% fig-align="right"}
+
+**For a reversible heat engine.** Heat crosses the boundary only at the two
+reservoirs, each at a constant temperature; $Q_H > 0$ and $Q_C < 0$.
+
+::: {.gap height="16mm" hint="Two heat transfers, each at constant $T$; $Q_C$ is negative. Label (I)."}
+$$
+\oint \frac{\delta Q_\text{rev}}{T}
+= \frac{Q_H}{T_H} + \frac{Q_C}{T_C}
+= \frac{|Q_H|}{T_H} - \frac{|Q_C|}{T_C} \tag{I}
+$$
+:::
+
+From corollary 4:
+$$
+\left(\frac{|Q_C|}{|Q_H|}\right)_\text{rev} = \frac{T_C}{T_H} \tag{II}
+$$
+
+::: {.gap height="12mm" hint="(II) says $|Q_H|/T_H = |Q_C|/T_C$; put it in (I)."}
+From (I) and (II), $|Q_H|/T_H = |Q_C|/T_C$, so
+$$
+\oint \frac{\delta Q_\text{rev}}{T} = 0
+$$
+:::
+
+**For an irreversible heat engine.** Compare it with a reversible engine taking
+the same $|Q_H|$ from the same hot reservoir:
+
+![](figures/out/ch6-rev-irrev.svg){width=52% fig-align="center"}
+
+::: {.gap height="14mm" hint="By corollary 2 the irreversible engine does less work, so it must reject more heat."}
+By corollary 2, the irreversible engine is less efficient, so with the same
+$|Q_H|$ it does less work and, by the first law, rejects more heat:
+$$
+|W'| < |W|
+\quad\longrightarrow\quad
+|Q_C'| > |Q_C|
+$$
+:::
+
+::: {.gap height="18mm" hint="Irreversible sum: the second term is bigger than in the reversible case, whose sum is zero."}
+$$
+\oint \frac{\delta Q_\text{ir}}{T}
+= \underbrace{\frac{|Q_H|}{T_H} - \frac{|Q_C'|}{T_C}}_\text{irrev}
+\;<\;
+\underbrace{\frac{|Q_H|}{T_H} - \frac{|Q_C|}{T_C}}_\text{rev} = 0
+$$
+:::
+
+::: {.key}
+$$
+\oint \frac{\delta Q_\text{rev}}{T} = 0,
+\qquad
+\oint \frac{\delta Q_\text{ir}}{T} < 0
+\qquad\Rightarrow\qquad
+\oint \frac{\delta Q}{T} \le 0
+$$
+:::
+
+::: {.note}
+The Clausius inequality is valid for **all possible cycles**, including
+*reversible* and *irreversible* heat engines, refrigerators and heat pumps.
+:::
+
+## A new system property: entropy
+
+::: {.key}
+**Corollary 7:** There exists a property of a closed system such that a change
+in its value between state 1 and state 2 during any **reversible process** is
+equal to $\int (\delta Q/T)$.
+:::
+
+**Proof.** From corollary 6, for a reversible cycle,
+$\oint (\delta Q_\text{rev}/T) = 0$. Take two states 1 and 2, a reversible
+process $a$ from 1 to 2, and two different reversible processes $b$ and $c$
+back from 2 to 1.
+
+![](figures/out/ch6-cor7-paths.svg){width=44% fig-align="center"}
+
+::: {.note}
+**Reminder:** a quantity is a *system property* if its change in value between
+two states is *independent* of the process.
+:::
+
+::: {.gap height="14mm" hint="Cycle $ab$ ($1 \to 2$ along $a$, back along $b$) is reversible: its integral is zero."}
+**Cycle $ab$:**
+$$
+\int \left(\frac{\delta Q}{T}\right)_a + \int \left(\frac{\delta Q}{T}\right)_b = 0
+$$
+:::
+
+::: {.gap height="14mm" hint="Cycle $ac$ is also reversible: zero too."}
+**Cycle $ac$:**
+$$
+\int \left(\frac{\delta Q}{T}\right)_a + \int \left(\frac{\delta Q}{T}\right)_c = 0
+$$
+:::
+
+::: {.gap height="12mm" hint="Subtract: the $a$ terms cancel."}
+Subtracting, the $a$ terms cancel:
+$$
+\int \left(\frac{\delta Q}{T}\right)_b = \int \left(\frac{\delta Q}{T}\right)_c
+$$
+:::
+
+::: {.key}
+For any two reversible processes between the same two states,
+$\int \left(\delta Q/T\right)_b = \int \left(\delta Q/T\right)_c$: the value
+depends only on the end states, so it is the change of a **system property**.
+:::
+
+If this property is denoted by **S**, this corollary can be expressed
+mathematically as
+
+::: {.key}
+$$
+S_2 - S_1 = \int_1^2 \left(\frac{\delta Q}{T}\right)_\text{rev}
+\qquad \left[\frac{\mathrm{J}}{\mathrm{K}}\right]
+$$ {#eq-ch6-entropy}
+:::
+
+The property $S$ is called **entropy**, with the SI unit of J/K. The **specific
+entropy** ($s$) is defined as:
+
+::: {.key}
+$$
+s_2 - s_1 = \frac{S_2 - S_1}{m} = \int_1^2 \left(\frac{\delta q}{T}\right)_\text{rev}
+\qquad \left[\frac{\mathrm{J}}{\mathrm{kg\,K}}\right]
+$$
+:::
+
+::: {.note}
+The change of entropy is equal to $\int (\delta Q/T)$ **ONLY** during a
+*reversible* process. In general, the value of entropy at each state can be
+determined as a function of two other independent system properties (e.g. $T$,
+$P$, $u$ and $h$), regardless of the nature of the process:
+$$
+S = f(T, P, \ldots)
+$$
+:::
+
+## Entropy change in reversible processes
+
+We initially stated the second law for a cycle, but we found that the second law
+(corollary 7) leads to a property, **entropy** ($S$), that enables us to treat
+the second law quantitatively for *reversible* processes:
+$$
+S_2 - S_1 = \int_1^2 \left(\frac{\delta Q}{T}\right)_\text{rev}
+$$
+On a differential basis:
+
+::: {.key}
+$$
+\mathrm{d}S = \frac{\delta Q_\text{rev}}{T}
+$$
+:::
+
+![A reversible process is a quasi-equilibrium one: the path is a succession of equilibrium states, each with its own value of $S$.](figures/out/ch6-quasi-equilibrium.svg){width=36%}
+
+### Isentropic processes
+
+**Isentropic** means *no change* in entropy ($\mathrm{d}S = 0$). Therefore, a
+**reversible adiabatic** process is an isentropic process.
+
+**Reminder:** from CH3, we know that for an *ideal gas* undergoing an
+isentropic (i.e. reversible adiabatic) process:
+
+::: {.key}
+$$
+P v^{\gamma} = \text{const.},
+\qquad
+T v^{\gamma - 1} = \text{const.},
+\qquad
+P T^{\gamma/(1-\gamma)} = \text{const.},
+\qquad
+\gamma = \frac{c_p}{c_v}
+$$
+:::
+
+Each form follows from the first by eliminating one variable with $Pv = RT$.
+
+### Temperature–entropy (T–S) diagram
+
+For a *reversible* process, the area under the path shown in the
+temperature–entropy (T–S) diagram is equal to the amount of heat transfer:
+$$
+\delta Q_\text{rev} = T\,\mathrm{d}S
+$$
+
+::: {.gap height="16mm" hint="Integrate both sides from 1 to 2; the left side is $Q_\text{rev}$."}
+$$
+\underbrace{\int_1^2 \delta Q_\text{rev}}_{Q_\text{rev}} = \int_1^2 T\,\mathrm{d}S
+$$
+:::
+
+::: {.key}
+$$
+Q_\text{rev} = \int_1^2 T\,\mathrm{d}S
+= \text{area under the path in the } T\text{–}S \text{ diagram}
+$$
+:::
+
+![The T–S diagram does for heat what the P–V diagram does for work: for a reversible process, the area under the path on a P–V diagram is $|W|_\text{rev}$, and on a T–S diagram it is $|Q|_\text{rev}$.](figures/out/ch6-areas.svg){width=86%}
+
+::: {.example}
+A **Carnot cycle** is an ideal cycle consisting of four processes: two
+**reversible isothermal** processes and two **reversible adiabatic** (i.e.
+isentropic) processes. Plot this cycle in a T–s diagram.
+
+![](figures/img/ch6-carnot-pv.png){width=30% fig-align="center"}
+
+**Step 1.** *On the P–v diagram, which processes are the isotherms and which are
+the adiabats? Where is heat added and removed, and what is the area enclosed?*
+
+::: {.gap height="22mm" hint="2–3 isotherm at $T_H$: $Q_H$ in. 4–1 isotherm at $T_C$: $Q_C$ out. 1–2, 3–4 adiabatic, $Q = 0$. Enclosed area $= |W|_\text{cycle}$."}
+- 2–3: isothermal at $T_H$, heat $Q_H$ is added.
+- 4–1: isothermal at $T_C$, heat $Q_C$ is rejected.
+- 1–2 and 3–4: adiabatic, $Q = 0$.
+
+The area enclosed by the cycle on the P–v diagram is $|W|_\text{cycle}$.
+:::
+
+**Step 2.** *What shape does an isothermal process have on a T–s diagram? And
+an isentropic one? Sketch the cycle.*
+
+::: {.gap height="55mm" hint="Isothermal = horizontal line, isentropic = vertical line: the Carnot cycle is a rectangle."}
+An isothermal process is a **horizontal** line ($T$ = const.) and an isentropic
+process a **vertical** line ($s$ = const.), so the Carnot cycle is a
+**rectangle**:
+
+![](figures/out/ch6-carnot-ts.svg){width=56% fig-align="center"}
+:::
+
+**Step 3.** *Use the areas under the paths to link the heat and the net work.*
+
+::: {.gap height="18mm" hint="Area under 2–3 is $|Q_H|$, under 4–1 is $|Q_C|$; the difference is the enclosed rectangle."}
+The area under 2–3 is $|Q_H|$ and the area under 4–1 is $|Q_C|$, so the
+enclosed rectangle is
+$$
+|W|_\text{cycle} = |Q_H| - |Q_C| = |Q|_\text{cycle}
+$$
+:::
+:::
+
+::: {.note}
+The magnitude of the **net heat transfer** for any *reversible* cycle is equal
+to the area enclosed by the cycle in the T–S diagram. According to the first law
+of thermodynamics, $\sum W + \sum Q = 0$, this area should be equal to the area
+enclosed by the cycle in a P–V diagram (i.e. the net cyclic work).
+:::
+
+## Corollary 8: entropy change in ANY process
+
+::: {.key}
+**Corollary 8:** For a closed system undergoing *any process* from state 1 to
+state 2:
+$$
+S_2 - S_1 \ge \int_1^2 \frac{\delta Q}{T}
+$$
+with "$=$" for a reversible process (corollary 7) and "$>$" for an irreversible
+one.
+:::
+
+**Proof.** From the Clausius inequality (corollary 6),
+$\oint (\delta Q/T) \le 0$. Go from 1 to 2 by any process $a$, and return from 2
+to 1 by a reversible process $b$.
+
+![](figures/out/ch6-cor8-paths.svg){width=44% fig-align="center"}
+
+::: {.gap height="14mm" hint="Clausius inequality for the cycle $a + b$."}
+$$
+\oint \frac{\delta Q}{T} = \int \frac{\delta Q_a}{T} + \int \frac{\delta Q_b}{T} \le 0
+$$
+:::
+
+::: {.gap height="12mm" hint="$b$ is reversible, from 2 to 1: its integral is $S_1 - S_2$ (corollary 7)."}
+Process $b$ is reversible and goes from 2 to 1, so by corollary 7
+$$
+\int \frac{\delta Q_b}{T} = S_1 - S_2
+$$
+:::
+
+::: {.gap height="12mm" hint="Substitute and rearrange."}
+$$
+\Rightarrow\quad
+\int \frac{\delta Q_a}{T} \le S_2 - S_1
+$$
+:::
+
+::: {.key}
+$$
+S_2 - S_1 \ge \int_1^2 \frac{\delta Q}{T}
+$$
+:::
+
+The change of entropy in *any process* can be written out in a general form as
+an equality, often referred to as the **mathematical form of the second law of
+thermodynamics**:
+
+::: {.key}
+$$
+S_2 - S_1 = \int_1^2 \frac{\delta Q}{T} + S_\text{gen}
+$$ {#eq-ch6-second-law}
+:::
+
+where $S_\text{gen}$ is the **entropy generation** in the process, due to
+**irreversibilities occurring inside the system**, such as friction, free
+expansion and a finite temperature difference:
+$$
+S_\text{gen}
+\begin{cases}
+= 0 & \text{reversible} \\
+> 0 & \text{irreversible}
+\end{cases}
+$$
+
+::: {.note}
+The value of $S_\text{gen}$ **cannot be negative**. In contrast, the *change* in
+entropy of the system may be positive, negative or zero: heat added moves the
+state to the right on a T–s diagram, heat removed moves it to the left, and
+entropy generation can only move it to the right.
+
+![](figures/out/ch6-ts-sgen.svg){width=40% fig-align="center"}
+:::
+
+::: {.warning}
+**Reminder:** for an *irreversible* process, the work is NOT equal to
+$-\int P\,\mathrm{d}V$, and the heat transfer is NOT equal to
+$\int T\,\mathrm{d}S$. Therefore, the area underneath the path does not
+represent work and heat on the P–v and T–s diagrams, respectively.
+:::
+
+![](figures/out/ch6-area-meaning.svg){width=100% fig-align="center"}
+
+## Principle of the increase of entropy
+
+Write the second law for both the system (A) and its surroundings (B), which
+together make up the **universe**. The heat $\delta Q$ that enters one leaves
+the other, across the same boundary.
+
+![](figures/img/ch6-universe.png){width=26% fig-align="center"}
+
+::: {.gap height="12mm" hint="Second law for the system A."}
+**System A:**
+$$
+\Delta S_A = \int_1^2 \frac{\delta Q}{T} + S_{\text{gen},A}
+$$
+:::
+
+::: {.gap height="14mm" hint="Surroundings B: the same heat with the opposite sign."}
+**Surroundings B:** the same heat, with the opposite sign:
+$$
+\Delta S_B = -\int_1^2 \frac{\delta Q}{T} + S_{\text{gen},B}
+$$
+:::
+
+::: {.gap height="14mm" hint="Add them: the heat terms cancel; both $S_\text{gen}$ are positive."}
+Adding, the heat terms cancel:
+$$
+\Delta S_A + \Delta S_B = \underbrace{S_{\text{gen},A}}_{>0} + \underbrace{S_{\text{gen},B}}_{>0}
+$$
+:::
+
+::: {.key}
+$$
+\Delta S_\text{universe} = S_{\text{gen},A} + S_{\text{gen},B} > 0
+$$
+
+*"The entropy of the whole universe is **not conserved**, and it constantly
+increases."*
+:::
+
+### Directionality of processes
+
+Processes occur only in such a direction that the total entropy of the system
+plus surroundings increases.
+
+**Entropy as an arrow of time:** as one goes "forward" in **time**, the second
+law of thermodynamics says the **entropy** of both system and surroundings (as
+an isolated system) can **only increase**.
+
+![An egg breaks ($S_\text{gen} > 0$) but never un-breaks; a cup of coffee at 100 °C in a 20 °C room cools to 20 °C, never the reverse.](figures/img/ch6-arrow-of-time.png){width=90%}
+
+## What is entropy? A physical interpretation
+
+### Towards equilibrium (more probable state)
+
+We all know that systems, left to themselves, tend to undergo processes until a
+condition of equilibrium is attained. The increase of entropy principle suggests
+that the total entropy increases as the state of equilibrium (more probable
+state) is approached.
+
+![Left: a ball released in a bowl oscillates and settles at the bottom, where $N$ balances $mg$. Middle: two blocks at 100 and 300 in contact end at 200 and 200 ($S_\text{gen} > 0$). Right: a gas released in one corner spreads through the whole box.](figures/img/ch6-equilibrium.png){width=92%}
+
+### Lost opportunity to extract work
+
+Entropy generation due to **irreversibilities** can be regarded as a lost
+opportunity to extract work:
+
+::: {.key}
+$$
+\underbrace{T}_{[\mathrm{K}]}\;\underbrace{S_\text{gen}}_{[\mathrm{J/K}]} = \text{lost work}\;[\mathrm{J}]
+$$
+:::
+
+### Entropy as microscopic disorder
+
+From the microscopic (statistical thermodynamic) viewpoint, as the system moves
+toward equilibrium, our knowledge of the condition of the individual particles
+making up the system decreases, which corresponds to an **increase in
+microscopic disorder**.
+
+![Before the partition is removed we know each particle (e.g. the red one) is somewhere on the left; afterwards it could be anywhere in the box.](figures/img/ch6-disorder.png){width=80%}
+
+## Gibbs equations
+
+Gibbs equations are the result of combining the first and the second laws of
+thermodynamics for a *reversible* process.
+
+![](figures/img/ch6-gibbs.png){width=18% fig-align="center"}
+
+::: {.gap height="18mm" hint="First law (CH2) with $\delta Q_\text{rev} = T\,\mathrm{d}S$ and $\delta W_\text{rev} = -P\,\mathrm{d}V$. Label (I)."}
+CH2, first law: $\delta Q_\text{rev} + \delta W_\text{rev} = \mathrm{d}U$, with
+$\delta Q_\text{rev} = T\,\mathrm{d}S$ and $\delta W_\text{rev} = -P\,\mathrm{d}V$:
+$$
+T\,\mathrm{d}S - P\,\mathrm{d}V = \mathrm{d}U
+\quad\Rightarrow\quad
+T\,\mathrm{d}S = \mathrm{d}U + P\,\mathrm{d}V \tag{I}
+$$
+:::
+
+::: {.key}
+**First Gibbs equation:**
+$$
+T\,\mathrm{d}S = \mathrm{d}U + P\,\mathrm{d}V
+$$
+:::
+
+::: {.gap height="12mm" hint="Differentiate $H = U + PV$. Label (II)."}
+By definition, $H = U + PV$, so:
+$$
+\mathrm{d}H = \mathrm{d}U + P\,\mathrm{d}V + V\,\mathrm{d}P \tag{II}
+$$
+:::
+
+::: {.gap height="12mm" hint="Eliminate $\mathrm{d}U + P\,\mathrm{d}V$ between (I) and (II)."}
+From (I) and (II), $\mathrm{d}H = T\,\mathrm{d}S + V\,\mathrm{d}P$.
+:::
+
+::: {.key}
+**Second Gibbs equation:**
+$$
+T\,\mathrm{d}S = \mathrm{d}H - V\,\mathrm{d}P
+$$
+:::
+
+Or in specific forms:
+
+::: {.key}
+$$
+T\,\mathrm{d}s = \mathrm{d}u + P\,\mathrm{d}v,
+\qquad\qquad
+T\,\mathrm{d}s = \mathrm{d}h - v\,\mathrm{d}P
+$$
+:::
+
+::: {.note}
+**Important note:** although the Gibbs equations are derived for a reversible
+process, they can be used for **ANY process and system**, because their final
+forms are only based on system properties: the change of entropy between two
+states is the same whether the path between them is reversible or not. These two
+equations are also called **thermodynamic property relations**.
+:::
+
+### Entropy change for an ideal gas
+
+For an ideal gas, $\mathrm{d}u = c_v\,\mathrm{d}T$ and $P/T = R/v$, so, from the
+first Gibbs equation (with constant $c_v$):
+
+::: {.gap height="14mm" hint="Divide the first Gibbs equation by $T$ and substitute $\mathrm{d}u = c_v\,\mathrm{d}T$, $P/T = R/v$."}
+$$
+\mathrm{d}s = \frac{\mathrm{d}u}{T} + \frac{P}{T}\,\mathrm{d}v
+= c_v \frac{\mathrm{d}T}{T} + R\,\frac{\mathrm{d}v}{v}
+$$
+:::
+
+::: {.gap height="14mm" hint="Integrate from 1 to 2."}
+$$
+\int_1^2 \mathrm{d}s = c_v \int_1^2 \frac{\mathrm{d}T}{T} + R \int_1^2 \frac{\mathrm{d}v}{v}
+$$
+:::
+
+::: {.key}
+$$
+s_2 - s_1 = c_v \ln\frac{T_2}{T_1} + R \ln\frac{v_2}{v_1}
+$$ {#eq-ch6-ds-Tv}
+:::
+
+Similarly, for an ideal gas, $\mathrm{d}h = c_p\,\mathrm{d}T$ and $v/T = R/P$,
+so, from the second Gibbs equation (with constant $c_p$):
+
+::: {.gap height="14mm" hint="Divide the second Gibbs equation by $T$; substitute $\mathrm{d}h = c_p\,\mathrm{d}T$, $v/T = R/P$."}
+$$
+\mathrm{d}s = \frac{\mathrm{d}h}{T} - \frac{v}{T}\,\mathrm{d}P
+= c_p \frac{\mathrm{d}T}{T} - R\,\frac{\mathrm{d}P}{P}
+$$
+:::
+
+::: {.gap height="14mm" hint="Integrate from 1 to 2."}
+$$
+\int_1^2 \mathrm{d}s = c_p \int_1^2 \frac{\mathrm{d}T}{T} - R \int_1^2 \frac{\mathrm{d}P}{P}
+$$
+:::
+
+::: {.key}
+$$
+s_2 - s_1 = c_p \ln\frac{T_2}{T_1} - R \ln\frac{P_2}{P_1}
+$$ {#eq-ch6-ds-TP}
+:::
+
+::: {.note}
+@eq-ch6-ds-Tv and @eq-ch6-ds-TP are two forms of the same result: one turns into
+the other with $Pv = RT$ and $c_p - c_v = R$.
+:::
+
+{{< pagebreak >}}
+
+## End-of-chapter problems {#sec-ch6-problems}
+
+::: {.tryfirst}
+Have a real go at every problem here before you look at a solution. Worked
+solutions are released after the lectures, but reading a solution is not the
+same as being able to produce one: the time you spend stuck on a problem is
+where most of the learning happens. Only once you have an answer of your own,
+or have tried every approach you can think of, check it against the solution,
+and compare the method, not just the final number.
+:::
+
+**P6.1 [easy].** During a process, the volume of 1 kg of air is doubled and its
+pressure tripled. Find the change in specific entropy in kJ/(kg K). Assume an
+ideal gas with $c_v = 0.718~\mathrm{kJ/(kg\,K)}$ and
+$R = 0.287~\mathrm{kJ/(kg\,K)}$.
+
+**(a)** 2.36 &nbsp;&nbsp; **(b)** 1.22 &nbsp;&nbsp; **(c)** 1.48 &nbsp;&nbsp;
+**(d)** 3.98
+
+::: {.gap height="fill"}
+::: {.worked}
+The change of entropy for an ideal gas:
+$$
+s_2 - s_1 = c_v \ln\frac{T_2}{T_1} + R \ln\frac{v_2}{v_1} \tag{I}
+$$
+
+First, we need to find $T_2/T_1$. Based on the ideal-gas equation, with
+$P_2/P_1 = 3$ and $v_2/v_1 = 2$:
+$$
+\frac{T_2}{T_1} = \frac{P_2}{P_1}\,\frac{v_2}{v_1} = 3 \times 2 = 6
+$$
+
+Now, from Eq. (I):
+$$
+s_2 - s_1 = 0.718~\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \ln 6
+          + 0.287~\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \ln 2
+= \boxed{1.485~\mathrm{kJ/(kg\,K)}} \quad \text{(c)}
+$$
+:::
+:::
+
+**P6.2 [easy].** Air in a piston–cylinder assembly undergoes a process from
+state 1, where $T_1 = 400$ K, $P_1 = 200$ kPa, to state 2, where $T_2 = 600$ K,
+$P_2 = 750$ kPa. Using the ideal-gas model for air, determine the change in
+specific entropy between these states, in J/(kg K), if the process occurs
+(i) reversibly, (ii) irreversibly. Treat air as an ideal gas with
+$c_p = 1005~\mathrm{J/(kg\,K)}$ and $R = 287~\mathrm{J/(kg\,K)}$.
+
+**(a)** 35.6, 28.1 &nbsp;&nbsp; **(b)** 28.1, 47.2 &nbsp;&nbsp;
+**(c)** 33.9, 25.6 &nbsp;&nbsp; **(d)** 28.1, 28.1
+
+::: {.gap height="fill"}
+::: {.worked}
+The change of entropy for an ideal gas is given by:
+$$
+s_2 - s_1 = c_p \ln\frac{T_2}{T_1} - R \ln\frac{P_2}{P_1}
+= 1005~\frac{\mathrm{J}}{\mathrm{kg\,K}} \ln\frac{600~\mathrm{K}}{400~\mathrm{K}}
+- 287~\frac{\mathrm{J}}{\mathrm{kg\,K}} \ln\frac{750~\mathrm{kPa}}{200~\mathrm{kPa}}
+= 28.1~\mathrm{J/(kg\,K)}
+$$
+
+Note that as the initial and final states for both the reversible and the
+**irreversible** processes are the same, the change in entropy (as a system
+property) would be the same regardless of the nature of the process:
+$$
+\boxed{28.1,\ 28.1~\mathrm{J/(kg\,K)}} \quad \text{(d)}
+$$
+:::
+:::
+
+**P6.3 [medium].** Find the change of specific entropy for an ideal gas that
+undergoes a reversible polytropic compression (from $v_1$ to $v_2$) with a
+polytropic exponent $n$. Express the answer as a function of $\ln(v_2/v_1)$, the
+ratio of specific heats $\gamma$ and the polytropic exponent $n$.
+
+**(a)** $c_v(n - \gamma)\ln(v_2/v_1)$ &nbsp;&nbsp;
+**(b)** $c_v(\gamma + n)\ln(v_2/v_1)$ &nbsp;&nbsp;
+**(c)** $c_v(\gamma - n)\ln(v_2/v_1)$ &nbsp;&nbsp;
+**(d)** $-c_v(\gamma + n)\ln(v_2/v_1)$
+
+::: {.gap height="fill"}
+::: {.worked}
+For an ideal gas:
+$$
+\Delta s = c_p \ln\frac{T_2}{T_1} - R \ln\frac{P_2}{P_1} \tag{I}
+$$
+
+From the ideal-gas equation:
+$$
+\frac{T_2}{T_1} = \frac{P_2}{P_1}\,\frac{v_2}{v_1}
+\quad\Rightarrow\quad
+\ln\frac{T_2}{T_1} = \ln\frac{P_2}{P_1} + \ln\frac{v_2}{v_1} \tag{II}
+$$
+
+From (I) and (II), with $c_p - R = c_v$:
+$$
+\Delta s = c_p \ln\frac{v_2}{v_1} + \left(c_p - R\right) \ln\frac{P_2}{P_1}
+         = c_p \ln\frac{v_2}{v_1} + c_v \ln\frac{P_2}{P_1} \tag{III}
+$$
+
+We also know that for a polytropic process, by definition:
+$$
+P_1 v_1^{\,n} = P_2 v_2^{\,n}
+\quad\Rightarrow\quad
+\frac{P_2}{P_1} = \left(\frac{v_2}{v_1}\right)^{-n}
+\quad\Rightarrow\quad
+\ln\frac{P_2}{P_1} = -n \ln\frac{v_2}{v_1} \tag{IV}
+$$
+
+From (III) and (IV), with $\gamma = c_p/c_v$:
+$$
+\Delta s = c_p \ln\frac{v_2}{v_1} - c_v n \ln\frac{v_2}{v_1}
+= c_v \ln\frac{v_2}{v_1}\left(\frac{c_p}{c_v} - n\right)
+= \boxed{c_v(\gamma - n)\ln\frac{v_2}{v_1}} \quad \text{(c)}
+$$
+
+**Note:** for $n = \gamma$, $\Delta s = 0$ and therefore
+$Q_\text{rev} = T\Delta S = 0$, which is expected for an adiabatic process.
+:::
+:::
+
+**P6.4 [medium].** Argon in a light bulb is at 90 kPa, 20 °C when it is turned
+on, and electricity input now heats it to 75 °C. Find the specific entropy
+change of the argon gas in kJ/(kg K). Treat argon as an ideal gas with
+$c_v = 0.312~\mathrm{kJ/(kg\,K)}$.
+
+**(a)** 0.054 &nbsp;&nbsp; **(b)** 1.65 &nbsp;&nbsp; **(c)** 0.036 &nbsp;&nbsp;
+**(d)** 0.29
+
+::: {.gap height="fill"}
+::: {.worked}
+Entropy change for an ideal gas:
+$$
+\Delta s = c_v \ln\frac{T_2}{T_1} + R \ln\frac{v_2}{v_1}
+$$
+
+During this process, the volume of argon in the light bulb remains constant. So
+$v_2/v_1 = 1$ and $\ln(v_2/v_1) = 0$. Therefore, we have:
+$$
+\Delta s = c_v \ln\frac{T_2}{T_1}
+= 0.312~\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \ln\frac{273 + 75}{273 + 20}
+= \boxed{0.054~\mathrm{kJ/(kg\,K)}} \quad \text{(a)}
+$$
+
+**Note:** temperature should be written in kelvin.
+:::
+:::
+
+**P6.5 [hard].** Argon in a light bulb is at 110 kPa, 80 °C. The light is
+turned off, so the argon cools to the ambient 20 °C. Disregard the glass and any
+other mass and find the specific entropy generation $s_\text{gen}$ in
+J/(kg K). (Treat argon as an ideal gas with $c_v = 0.312~\mathrm{kJ/(kg\,K)}$.)
+
+**(a)** 3.2 &nbsp;&nbsp; **(b)** 5.8 &nbsp;&nbsp; **(c)** 1.2 &nbsp;&nbsp;
+**(d)** 0.6
+
+::: {.gap height="fill"}
+::: {.worked}
+To find the entropy generation, we can use the second law:
+$$
+\Delta s = \frac{q}{T} + s_\text{gen}
+$$
+So we need to find $\Delta s$ and $q/T$.
+
+![](figures/img/ch6-p-bulb-sol.png){width=30% fig-align="center"}
+
+To find $\Delta s$ for an ideal gas, with $v_2/v_1 = 1$ (the bulb is rigid):
+$$
+\Delta s = c_v \ln\frac{T_2}{T_1} + R \ln\underbrace{\frac{v_2}{v_1}}_{=1}
+= c_v \ln\frac{T_2}{T_1}
+= 0.312~\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \times \ln\frac{20 + 273}{80 + 273}
+= -0.0581~\frac{\mathrm{kJ}}{\mathrm{kg\,K}}
+$$
+
+Next, we find $q/T$. From the energy equation for a closed system:
+$$
+q + w = \Delta u = c_v \Delta T
+$$
+The light is turned off, so there is no electrical work ($w = 0$). Thus:
+$$
+q = c_v \Delta T
+= 0.312~\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \left(20 - 80\right)\mathrm{K}
+= -18.72~\frac{\mathrm{kJ}}{\mathrm{kg}}
+$$
+
+$T$ in $q/T$ is the temperature at which the heat transfer occurs, in other
+words the temperature at the system boundary, which is equal to the temperature
+of the surroundings. So:
+$$
+\Delta s = \frac{q}{T} + s_\text{gen}
+\quad\Rightarrow\quad
+-0.0581~\frac{\mathrm{kJ}}{\mathrm{kg\,K}}
+= -\frac{18.72~\mathrm{kJ/kg}}{(273 + 20)~\mathrm{K}} + s_\text{gen}
+$$
+$$
+\Rightarrow\quad
+s_\text{gen} = 0.0058~\frac{\mathrm{kJ}}{\mathrm{kg\,K}}
+= \boxed{5.8~\mathrm{J/(kg\,K)}} \quad \text{(b)}
+$$
+:::
+:::
+
+**P6.6 [hard].** A cylinder/piston contains carbon dioxide at 1 MPa, 300 °C
+with a volume of 200 L. The total external force acting on the piston is
+proportional to $V^3$. This system is allowed to cool to room temperature,
+20 °C. What is the entropy generation $S_\text{gen}$ for the process in kJ/K?
+Treat carbon dioxide as an ideal gas with $R = 188.92~\mathrm{J/(kg\,K)}$ and
+$c_v = 653~\mathrm{J/(kg\,K)}$, and assume that the system pressure is
+infinitesimally different from the external pressure.
+
+*Hint: this is a challenging problem. To solve it, you can first find the heat
+transfer using the first law of thermodynamics. Then, find the change of entropy
+for an ideal gas. That being done, you can then use the second law of
+thermodynamics to find the entropy generation.*
+
+**(a)** 0.126 &nbsp;&nbsp; **(b)** 0.589 &nbsp;&nbsp; **(c)** 0.634
+&nbsp;&nbsp; **(d)** 0.366
+
+::: {.gap height="fill"}
+::: {.worked}
+To find $S_\text{gen}$ we use the second law, so we first need $S_2 - S_1$
+and $\int \delta Q/T$:
+$$
+S_2 - S_1 = \int \frac{\delta Q}{T} + S_\text{gen} \tag{I}
+$$
+
+![](figures/img/ch6-p-co2-sol.png){width=28% fig-align="center"}
+
+**Find $\int \delta Q/T$.** The temperature at the border of the system (where
+the heat transfer occurs) is constant and equal to that of the surroundings, so
+$\int \delta Q/T = Q/T_\text{surr}$. To find $Q$ we use the energy equation,
+with $\Delta U = m c_v \Delta T$ for an ideal gas:
+$$
+Q + W = m c_v \Delta T \tag{II}
+$$
+The work follows from $P = P_\text{ext} = F_\text{ext}/A \propto V^{3}$, so
+$PV^{-3} = \text{const.}$: a polytropic process with $n = -3$. With $PV = mRT$:
+$$
+m = \frac{P_1 V_1}{R T_1}
+= \frac{10^{6}~\mathrm{Pa} \times 200\times10^{-3}~\mathrm{m^3}}
+       {188.92~\mathrm{J/(kg\,K)} \times 573~\mathrm{K}} = 1.847~\mathrm{kg}
+$$
+$$
+W = \frac{P_2 V_2 - P_1 V_1}{n - 1} = \frac{m R \left(T_2 - T_1\right)}{n - 1}
+= \frac{1.847 \times 188.92 \times (20 - 300)}{-3 - 1} = 24.4~\mathrm{kJ} \tag{III}
+$$
+From (II) and (III):
+$$
+Q = m c_v \left(T_2 - T_1\right) - W
+= 1.847 \times 0.653 \times (20 - 300) - 24.4 = -362.2~\mathrm{kJ}
+$$
+
+**Find $S_2 - S_1$.** For an ideal gas,
+$$
+S_2 - S_1 = m\left[c_v \ln\frac{T_2}{T_1} + R \ln\frac{V_2}{V_1}\right] \tag{IV}
+$$
+For the polytropic process, with $P = mRT/V$:
+$$
+\frac{P_2}{P_1} = \frac{V_2^{-n}}{V_1^{-n}}
+\;\Rightarrow\;
+\frac{T_2}{T_1}\,\frac{V_1}{V_2} = \frac{V_2^{-n}}{V_1^{-n}}
+\;\Rightarrow\;
+\frac{V_2}{V_1} = \left(\frac{T_2}{T_1}\right)^{\frac{1}{1-n}}
+= \left(\frac{273 + 20}{273 + 300}\right)^{\frac{1}{1-(-3)}} = 0.846
+$$
+From Eq. (IV):
+$$
+S_2 - S_1 = 1.847~\mathrm{kg}\left[0.653~\frac{\mathrm{kJ}}{\mathrm{kg\,K}}
+\ln\frac{293}{573}
++ 0.18892~\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \ln 0.846\right]
+= -0.868~\mathrm{kJ/K}
+$$
+
+**Entropy generation.** From Eq. (I):
+$$
+-0.868~\frac{\mathrm{kJ}}{\mathrm{K}}
+= \frac{-362.2~\mathrm{kJ}}{(20 + 273)~\mathrm{K}} + S_\text{gen}
+\quad\Rightarrow\quad
+S_\text{gen} = -0.868 + 1.236 = \boxed{0.37~\mathrm{kJ/K}} \quad \text{(d)}
+$$
+The listed 0.366 kJ/K is what you get if $S_2 - S_1$ is first rounded to
+$-0.87$ kJ/K.
+:::
+:::

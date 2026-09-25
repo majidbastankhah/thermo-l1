@@ -1,0 +1,785 @@
+# Second Law of Thermodynamics {#sec-ch5}
+
+::: {.objectives}
+By the end of this chapter, you should be able to:
+
+- Explain key concepts related to the second law of thermodynamics (e.g.
+  **heat engines**, **refrigerators** and **heat pumps**).
+- State the second law of thermodynamics in two different forms.
+- Evaluate the performance of thermodynamic cycles (i.e. **thermal
+  efficiency**).
+:::
+
+## Introduction
+
+The second law of thermodynamics is one of the most important laws of nature.
+It distinguishes between work and heat. It also acknowledges that spontaneous
+processes proceed in certain directions.
+
+![A hot body left in the atmosphere cools down to $T_0$, and air at high pressure escapes through an opened valve until it reaches $p_0$. Both processes happen by themselves from left to right; neither ever runs back from right to left on its own.](figures/out/ch5-spontaneous.svg){width=88%}
+
+The First Law would be perfectly satisfied if the body in the figure took heat
+back from the atmosphere and warmed up again, or if the air flowed back into the
+tank: energy would still be conserved. It is the **Second Law** that tells us
+these reverse processes do not happen by themselves.
+
+## Heat engines
+
+A **heat engine** is a system that operates in a *cycle* and *delivers work* at
+the expense of *receiving heat* from the surroundings. In our sign convention, a
+heat engine therefore has a net work output, $W < 0$, and a net heat input,
+$Q > 0$.
+
+::: {layout-ncol=2}
+![](figures/out/ch5-power-plant.svg)
+
+![](figures/img/ch5-power-plant-photo.png)
+:::
+
+A steam power plant is a heat engine. Heat is received in the boiler
+($\dot{Q}_\text{boiler} > 0$), heat is rejected in the condenser
+($\dot{Q}_\text{con} < 0$), and the turbine delivers the net work
+($\dot{W} < 0$). Part of the work produced by the turbine is used, through the
+shaft, to drive the pump.
+
+Any heat engine can be represented by the same simple picture: it receives heat
+$Q_H$ from a **hot reservoir**, delivers work $W$, and rejects heat $Q_C$ to a
+**cold reservoir**.
+
+![](figures/out/ch5-heat-engine.svg){width=36% fig-align="center"}
+
+Applying the First Law to the cycle of a heat engine:
+
+::: {.gap height="16mm" hint="First Law for a cycle, $\sum Q + \sum W = 0$: the heats are $Q_H$ and $Q_C$, the work is $W$."}
+$$
+\sum Q + \sum W = 0
+\quad\Rightarrow\quad
+Q_H + Q_C + W = 0
+$$
+:::
+
+::: {.gap height="16mm" hint="Signs: $Q_H > 0$, $Q_C < 0$, $W < 0$. Rewrite in magnitudes."}
+With $Q_H > 0$, $Q_C < 0$ and $W < 0$, in terms of magnitudes:
+$$
+|Q_H| - |Q_C| - |W| = 0
+$$
+:::
+
+::: {.key}
+$$
+|Q_H| - |Q_C| = |W|
+$$ {#eq-ch5-engine}
+:::
+
+### Thermal efficiency
+
+In general, **efficiency** is the ratio of output, the energy sought, to input,
+the energy that costs. For a *heat engine*, the thermal efficiency is given by:
+
+$$
+\eta = \frac{\text{energy sought}}{\text{energy that costs}}
+$$
+
+::: {.gap height="18mm" hint="Sought: the work out, $|W|$. Costs: the heat in, $|Q_H|$ (the fuel)."}
+$$
+\eta = \frac{|W|}{|Q_H|}
+$$
+:::
+
+::: {.gap height="20mm" hint="Replace $|W|$ using $|W| = |Q_H| - |Q_C|$."}
+Using @eq-ch5-engine, $|W| = |Q_H| - |Q_C|$:
+$$
+\eta = \frac{|Q_H| - |Q_C|}{|Q_H|} = 1 - \frac{|Q_C|}{|Q_H|}
+$$
+:::
+
+::: {.key}
+$$
+\eta = \frac{|W|}{|Q_H|} = 1 - \frac{|Q_C|}{|Q_H|}
+$$ {#eq-ch5-eta}
+:::
+
+::: {.example}
+An automobile engine produces a power of 100 kW on the output shaft with a
+thermal efficiency of 30%. Find (i) the rate of energy received by burning fuel
+in the engine, (ii) the rate of energy rejected to the ambient.
+
+![](figures/img/ch5-car.png){width=40% fig-align="center"}
+
+**Step 1.** *The energy received from the fuel is the heat input to the engine.
+Which quantity in @eq-ch5-eta is it, and which one is the 100 kW?*
+
+::: {.gap height="22mm" hint="Energy from burning fuel $= |\dot{Q}_H|$; $\eta = 100/|\dot{Q}_H| = 0.3$, so $|\dot{Q}_H| = 333.3$ kW."}
+The rate of energy received by burning fuel is $|\dot{Q}_H|$, and the shaft
+power is $|\dot{W}|$:
+$$
+\eta = \frac{|\dot{W}|}{|\dot{Q}_H|} = \frac{100~\mathrm{kW}}{|\dot{Q}_H|} = 0.3
+\quad\Rightarrow\quad
+\boxed{|\dot{Q}_H| = 333.3~\mathrm{kW}}
+$$
+:::
+
+**Step 2.** *The energy rejected to the ambient is $|\dot{Q}_C|$. Use the First
+Law for the engine.*
+
+::: {.gap height="14mm" hint="$|\dot{Q}_C| = |\dot{Q}_H| - |\dot{W}| = 333.3 - 100 = 233.3$ kW."}
+$$
+|\dot{Q}_C| = |\dot{Q}_H| - |\dot{W}| = 333.3 - 100
+= \boxed{233.3~\mathrm{kW}}
+$$
+:::
+:::
+
+## Second Law of thermodynamics
+
+The Second Law of thermodynamics can be stated as below, which is known as the
+***Kelvin–Planck statement***:
+
+::: {.key}
+*"It is impossible for any system to operate in a thermodynamic cycle and
+deliver a net amount of work to its surroundings while receiving heat from a
+single reservoir."*
+:::
+
+![Max Planck (1858–1947) and the Lord Kelvin (1824–1907).](figures/img/ch5-planck-kelvin.png){width=34%}
+
+::: {.note}
+The second law of thermodynamics (like every other law of nature) rests on
+***experimental evidence***, and it *cannot* be proved.
+:::
+
+![An engine that exchanges heat with a single reservoir and delivers work is impossible: some heat must be rejected to a colder reservoir, $|Q_C| \neq 0$.](figures/img/ch5-kp-impossible.png){width=32%}
+
+::: {.note}
+From the Second Law, the efficiency of a heat engine is always less than unity,
+and some heat must always be rejected during the cycle:
+$$
+\eta = \frac{|W|}{|Q_H|} < 1
+$$
+:::
+
+::: {.note}
+According to the second law, it is still possible to have a cycle that converts
+all of the *work input* into *heat energy output*.
+
+![](figures/out/ch5-work-heat.svg){width=80% fig-align="center"}
+
+The reverse is not possible: the work output of a cycle is always less than
+its heat input, $W_\text{output} < Q_\text{input}$.
+:::
+
+In a cycle, heat can never be converted entirely into work, but work can always
+be converted into heat. This is often expressed as "***work is a more valuable
+form of energy transfer than heat***".
+
+## Corollary one: Clausius statement of the Second Law
+
+::: {.key}
+*"It is **impossible** to construct a system that operates in a cycle and
+transfer **heat from a cooler to a hotter body without work** being done on the
+system by the surroundings."*
+:::
+
+::: {layout="[[22,-8,50,-20]]"}
+![](figures/img/ch5-clausius.png)
+
+![](figures/out/ch5-clausius-bars.svg)
+:::
+
+Heat flows through a metal bar from the hot to the cold body by itself. To move
+heat from the cold to the hot body, work must be done on the system, $W > 0$.
+
+::: {.note}
+The two statements of the second law, namely the *Kelvin–Planck* and the
+*Clausius* statements, are *equivalent*. This means that the violation of one
+implies the violation of the other.
+:::
+
+## Refrigerators and heat pumps
+
+In both *refrigerators* and *heat pumps*, heat is transferred *from* a **cold**
+reservoir *to* a **hot** reservoir. According to the second law, work has to be
+done on the system to make this happen.
+
+::: {layout="[[22,-6,60,-12]]"}
+![](figures/img/ch5-fridge.png)
+
+![](figures/img/ch5-ac-heat-pump.png)
+:::
+
+| Device | Cold reservoir | Hot reservoir |
+|:--|:--|:--|
+| Refrigerator | the inside of the fridge | the kitchen |
+| Air conditioner (summer) | the inside of the house | the outside air |
+| Heat pump (winter) | the outside air | the inside of the house |
+
+In each case heat is taken from the cold reservoir, $Q_C > 0$, and rejected to
+the hot reservoir, $Q_H < 0$, and the device needs a work input, $W > 0$ (in a
+refrigerator, the electrical work that drives the compressor).
+
+![](figures/out/ch5-refrigerator.svg){width=40% fig-align="center"}
+
+Applying the First Law to the cycle, now with $Q_H < 0$, $Q_C > 0$ and
+$W > 0$:
+
+::: {.gap height="18mm" hint="$Q_H + Q_C + W = 0$ with $Q_H < 0$, $Q_C > 0$, $W > 0$; write in magnitudes."}
+$$
+Q_H + Q_C + W = 0
+\quad\Rightarrow\quad
+-|Q_H| + |Q_C| + |W| = 0
+$$
+:::
+
+::: {.key}
+$$
+|Q_H| = |Q_C| + |W|
+$$ {#eq-ch5-fridge}
+:::
+
+::: {.note}
+A **refrigerator** is a **cooling** system, so its primary objective is the
+amount of heat transferred from the cold environment. In contrast, a **heat
+pump** is a **heating** system, so its primary objective is the heat
+transferred to the hot environment.
+:::
+
+**Refrigerator:** the performance of a refrigerator is expressed in terms of the
+**coefficient of performance (COP)**, shown by the symbol $\beta$.
+
+$$
+\beta = \frac{\text{energy sought}}{\text{energy that costs}}
+$$
+
+::: {.gap height="18mm" hint="Sought: the heat taken out of the cold space, $|Q_C|$. Costs: the work, $|W|$."}
+$$
+\beta = \frac{|Q_C|}{|W|}
+$$
+:::
+
+::: {.gap height="20mm" hint="Replace $|Q_C|$ using $|Q_C| = |Q_H| - |W|$."}
+Using @eq-ch5-fridge, $|Q_C| = |Q_H| - |W|$:
+$$
+\beta = \frac{|Q_H| - |W|}{|W|} = \frac{|Q_H|}{|W|} - 1
+$$
+:::
+
+::: {.key}
+$$
+\beta = \frac{|Q_C|}{|W|} = \frac{|Q_H|}{|W|} - 1
+$$ {#eq-ch5-beta}
+:::
+
+::: {.note}
+According to the second law, the COP of a refrigerator is always less than
+infinity, $0 < \beta < \infty$. In reality, a household refrigerator may have a
+COP of about 2.5.
+:::
+
+**Heat pump:** the COP for a heat pump is denoted by $\beta'$ and is given by
+
+$$
+\beta' = \frac{\text{energy sought}}{\text{energy that costs}}
+$$
+
+::: {.gap height="18mm" hint="Sought: the heat delivered to the hot space, $|Q_H|$. Costs: the work, $|W|$."}
+$$
+\beta' = \frac{|Q_H|}{|W|}
+$$
+:::
+
+::: {.gap height="20mm" hint="Replace $|Q_H|$ using $|Q_H| = |Q_C| + |W|$, and spot $\beta$."}
+Using @eq-ch5-fridge, $|Q_H| = |Q_C| + |W|$:
+$$
+\beta' = \frac{|Q_C| + |W|}{|W|} = \underbrace{\frac{|Q_C|}{|W|}}_{\beta} + 1
+$$
+:::
+
+::: {.key}
+$$
+\beta' = \frac{|Q_H|}{|W|} = \beta + 1
+$$ {#eq-ch5-betap}
+:::
+
+::: {.example}
+The refrigerator in a kitchen receives electrical power of 150 W, and it rejects
+400 W to the kitchen air. Find the rate of energy taken out of the cold space
+inside the refrigerator and the COP of the refrigerator.
+
+![](figures/img/ch5-fridge.png){width=22% fig-align="center"}
+
+**Step 1.** *Which of $|\dot{Q}_H|$, $|\dot{Q}_C|$ and $|\dot{W}|$ are given?
+Use the First Law for the refrigerator.*
+
+::: {.gap height="16mm" hint="$|\dot{W}| = 150$ W, $|\dot{Q}_H| = 400$ W; $|\dot{Q}_C| = 400 - 150 = 250$ W."}
+The electrical power is the work input, $|\dot{W}| = 150$ W, and the heat
+rejected to the kitchen is $|\dot{Q}_H| = 400$ W. From the First Law:
+$$
+|\dot{Q}_C| = |\dot{Q}_H| - |\dot{W}| = 400 - 150 = \boxed{250~\mathrm{W}}
+$$
+:::
+
+**Step 2.** *Now the COP, from @eq-ch5-beta.*
+
+::: {.gap height="16mm" hint="$\beta = |\dot{Q}_C|/|\dot{W}| = 250/150 = 1.67$."}
+$$
+\beta = \frac{|\dot{Q}_C|}{|\dot{W}|} = \frac{250}{150} = \boxed{1.67}
+$$
+:::
+:::
+
+## Reversible cycle
+
+If **every** process in the cycle is *reversible*, then the whole cycle is
+**reversible**.
+
+::: {.note}
+**Reminder:** a process is *reversible* if both the system and its surroundings
+can be exactly restored to their initial states.
+:::
+
+If a reversible heat engine cycle is reversed, it becomes a refrigerator with
+the exact same magnitude of heat transfers and work.
+
+![](figures/out/ch5-reverse.svg){width=86% fig-align="center"}
+
+### Common sources of irreversibility
+
+1. **Unrestrained expansion.** A gas that expands suddenly into a vacuum, or
+   against a much lower pressure (like the air escaping through the valve in
+   the introduction), does no useful work, and it cannot be pushed back into
+   its original volume without work being done by the surroundings.
+2. **Heat transfer through a finite temperature difference.** Heat flows by
+   itself from a hotter to a colder body (like the hot body cooling in the
+   introduction). By the Clausius statement, it cannot be sent back without
+   work being done.
+3. **Friction.** Friction turns work into heat, and by the Kelvin–Planck
+   statement that heat can never be turned entirely back into work.
+
+::: {.note}
+Since at least one of the sources of irreversibility discussed above is always
+present in some degree, no real process can be reversible. The reversible
+process (and a reversible cycle) must therefore be regarded as a limiting case
+– an ideal that can never quite be achieved.
+:::
+
+{{< pagebreak >}}
+
+## End-of-chapter problems {#sec-ch5-problems}
+
+::: {.tryfirst}
+Have a real go at every problem here before you look at a solution. Worked
+solutions are released after the lectures, but reading a solution is not the
+same as being able to produce one: the time you spend stuck on a problem is
+where most of the learning happens. Only once you have an answer of your own,
+or have tried every approach you can think of, check it against the solution,
+and compare the method, not just the final number.
+:::
+
+::: {.note}
+Problems P5.5–P5.7 and P5.10–P5.12 are about **reversible** cycles and use a
+result from CH6: for a reversible cycle operating between reservoirs at the
+absolute temperatures $T_H$ and $T_C$,
+$$
+\left(\frac{|Q_H|}{|Q_C|}\right)_\text{rev} = \frac{T_H}{T_C},
+\qquad\text{so}\qquad
+\eta_\text{rev} = 1 - \frac{T_C}{T_H}.
+$$
+A reversible cycle gives the best possible performance: the maximum efficiency
+for a heat engine and the maximum COP (minimum work) for a refrigerator or heat
+pump.
+:::
+
+**P5.1 [easy].** A heat engine operates continuously and receives energy by heat
+transfer from the combustion of fuel at a rate of 75 kW. If the thermal
+efficiency of the cycle is 33%, at what rate is power developed, in kW?
+
+**(a)** 24.75 &nbsp;&nbsp; **(b)** 33 &nbsp;&nbsp; **(c)** 10.6 &nbsp;&nbsp;
+**(d)** 36.9
+
+::: {.gap height="fill"}
+::: {.worked}
+The heat engine receives $|\dot{Q}_H| = 75$ kW and delivers the net power
+$|\dot{W}_\text{net}|$, rejecting $\dot{Q}_C$ to the cold reservoir. To find
+the rate of power developed we need $|\dot{W}_\text{net}|$:
+$$
+\eta = \frac{|\dot{W}_\text{net}|}{|\dot{Q}_H|} = 0.33
+\quad\Rightarrow\quad
+|\dot{W}_\text{net}| = 0.33 \times 75~\mathrm{kW}
+= \boxed{24.75~\mathrm{kW}} \quad \text{(a)}
+$$
+:::
+:::
+
+**P5.2 [easy].** A heat engine operates with a thermal efficiency of 28%. If heat
+extracted by the engine from the hot reservoir is 600 kJ, how much heat was
+rejected into the cold reservoir, in kJ?
+
+**(a)** 368 &nbsp;&nbsp; **(b)** 168 &nbsp;&nbsp; **(c)** 600 &nbsp;&nbsp;
+**(d)** 432
+
+::: {.gap height="fill"}
+::: {.worked}
+The thermal efficiency of a heat engine is given by
+$$
+\eta = \frac{|W|}{|Q_H|} = \frac{|Q_H| - |Q_C|}{|Q_H|}
+     = 1 - \frac{|Q_C|}{|Q_H|} = 0.28,
+\qquad |Q_H| = 600~\mathrm{kJ}
+$$
+$$
+\Rightarrow\quad
+|Q_C| = (1 - 0.28) \times 600~\mathrm{kJ}
+= \boxed{432~\mathrm{kJ}} \quad \text{(d)}
+$$
+:::
+:::
+
+**P5.3 [easy].** The coefficient of performance of a heat pump cycle is 3.
+Calculate the heat removed from the cold reservoir if 12 kW of heat was
+supplied to the hot reservoir.
+
+**(a)** 4 kW &nbsp;&nbsp; **(b)** 8 kW &nbsp;&nbsp; **(c)** 12 kW &nbsp;&nbsp;
+**(d)** 3 kW
+
+::: {.gap height="fill"}
+::: {.worked}
+The COP for a heat pump is given by
+$$
+\beta' = \frac{|\dot{Q}_H|}{|\dot{W}|}
+       = \frac{|\dot{Q}_H|}{|\dot{Q}_H| - |\dot{Q}_C|} = 3,
+\qquad |\dot{Q}_H| = 12~\mathrm{kW}
+$$
+$$
+\Rightarrow\quad
+3\left(12~\mathrm{kW} - |\dot{Q}_C|\right) = 12~\mathrm{kW}
+\quad\Rightarrow\quad
+\boxed{|\dot{Q}_C| = 8~\mathrm{kW}} \quad \text{(b)}
+$$
+:::
+:::
+
+**P5.4 [easy].** A refrigerator removes 1.5 kJ from the cold space using 1 kJ
+work input. How much energy goes into the kitchen, and what is its coefficient
+of performance?
+
+![](figures/img/ch5-p-fridge.png){width=20%}
+
+**(a)** 2.5 kJ, 1.5 &nbsp;&nbsp; **(b)** 3.5 kJ, 3 &nbsp;&nbsp;
+**(c)** 0.5 kJ, 1 &nbsp;&nbsp; **(d)** 1 kJ, 2
+
+::: {.gap height="fill"}
+::: {.worked}
+Here $|Q_C| = 1.5$ kJ and $|W| = 1$ kJ; $Q_H$ is unknown. From the energy
+equation:
+$$
+|Q_H| = |W| + |Q_C| = 1 + 1.5 = 2.5~\mathrm{kJ}
+$$
+
+COP:
+$$
+\beta = \frac{|Q_C|}{|W|} = \frac{1.5~\mathrm{kJ}}{1~\mathrm{kJ}} = 1.5
+$$
+
+So the answer is $\boxed{2.5~\mathrm{kJ},\ 1.5}$, **(a)**.
+:::
+:::
+
+**P5.5 [easy].** A heat engine operates between hot and cold reservoirs at
+500 K and 310 K, respectively. At steady state, the cycle rejects energy by heat
+transfer to the cold reservoir at a rate of 16 MW. Determine the maximum
+theoretical power that might be developed by such a cycle, in MW.
+
+**(a)** 12.5 &nbsp;&nbsp; **(b)** 2.69 &nbsp;&nbsp; **(c)** 16 &nbsp;&nbsp;
+**(d)** 9.81
+
+::: {.gap height="fill"}
+::: {.worked}
+A reversible heat engine has the maximum efficiency. For a reversible cycle,
+with $T_H = 500$ K, $T_C = 310$ K and $|\dot{Q}_C| = 16$ MW:
+$$
+\left(\frac{|\dot{Q}_H|}{|\dot{Q}_C|}\right)_\text{rev} = \frac{T_H}{T_C}
+\quad\Rightarrow\quad
+\frac{|\dot{Q}_H|}{16~\mathrm{MW}} = \frac{500~\mathrm{K}}{310~\mathrm{K}}
+\quad\Rightarrow\quad
+|\dot{Q}_H| = 25.81~\mathrm{MW}
+$$
+
+From the energy equation:
+$$
+|\dot{W}| = |\dot{Q}_H| - |\dot{Q}_C| = 25.81 - 16
+= \boxed{9.81~\mathrm{MW}} \quad \text{(d)}
+$$
+
+This is the maximum theoretical power that can be delivered, by a reversible
+cycle.
+:::
+:::
+
+**P5.6 [easy].** An inventor claims to have developed a heat engine operating
+between hot and cold reservoirs at 1000 K and 250 K, respectively, that develops
+net work equal to a multiple of the amount of energy, $Q_C$, rejected to the
+cold reservoir – that is, $W = N Q_C$. What is the maximum theoretical value of
+the number $N$ for any such cycle?
+
+**(a)** 1 &nbsp;&nbsp; **(b)** 2 &nbsp;&nbsp; **(c)** 3 &nbsp;&nbsp; **(d)** 4
+
+::: {.gap height="fill"}
+::: {.worked}
+Maximum work is delivered by a reversible heat engine, so, with
+$T_H = 1000$ K and $T_C = 250$ K:
+$$
+\left(\frac{|Q_H|}{|Q_C|}\right)_\text{rev} = \frac{T_H}{T_C}
+= \frac{1000~\mathrm{K}}{250~\mathrm{K}} = 4
+\quad\Rightarrow\quad
+|Q_H| = 4\,|Q_C| \tag{I}
+$$
+
+From the energy equation:
+$$
+|W| = |Q_H| - |Q_C| \tag{II}
+$$
+
+Combining (I) and (II):
+$$
+|W| = 4\,|Q_C| - |Q_C| = 3\,|Q_C|
+\quad\Rightarrow\quad
+\boxed{N_\text{max} = 3} \quad \text{(c)}
+$$
+:::
+:::
+
+**P5.7 [easy].** As shown in the figure below, a reversible heat engine receives
+energy $Q_H$ by heat transfer from a hot reservoir at $T_H$ and rejects energy
+$Q_C$ by heat transfer to a cold reservoir at $T_C$.
+
+(i) If $T_H = 1600$ K and $T_C = 400$ K, what is the thermal efficiency?
+
+(ii) If $T_H = 500$ °C and $T_C = 20$ °C, and $W_\text{cycle} = -1000$ kJ, what
+is $Q_H$, in kJ?
+
+![](figures/img/ch5-p-reversible-engine.png){width=46%}
+
+**(a)** 50%, 1350 &nbsp;&nbsp; **(b)** 50%, 1613 &nbsp;&nbsp;
+**(c)** 75%, 350 &nbsp;&nbsp; **(d)** 75%, 1613
+
+::: {.gap height="fill"}
+::: {.worked}
+**(i)** $T_H = 1600$ K, $T_C = 400$ K. For the reversible heat engine:
+$$
+\eta_\text{rev} = 1 - \frac{T_C}{T_H} = 1 - \frac{400~\mathrm{K}}{1600~\mathrm{K}}
+= \boxed{0.75}
+$$
+
+**(ii)** For a reversible cycle, with the temperatures in kelvin:
+$$
+\frac{|W|}{|Q_H|} = 1 - \frac{|Q_C|}{|Q_H|} = 1 - \frac{T_C}{T_H}
+= 1 - \frac{273 + 20}{273 + 500} \approx 0.621
+$$
+$$
+\Rightarrow\quad
+|Q_H| = \frac{|W|}{0.621} = \frac{1000~\mathrm{kJ}}{0.621}
+\approx \boxed{1610~\mathrm{kJ}}
+$$
+
+So the answer is **(d)**: 75%, about 1610 kJ. (The keyed 1613 kJ comes from
+rounding the efficiency to 0.62 before dividing.)
+:::
+:::
+
+**P5.8 [medium].** A farmer runs a heat pump with a 2 kW motor. It should keep a
+chicken hatchery at 30 °C, which loses energy at a rate of 10 kW to the colder
+ambient. What is the minimum coefficient of performance that will be acceptable
+for the heat pump?
+
+![](figures/img/ch5-p-hatchery.png){width=36%}
+
+**(a)** 2 &nbsp;&nbsp; **(b)** 5 &nbsp;&nbsp; **(c)** 3 &nbsp;&nbsp; **(d)** 1
+
+::: {.gap height="fill"}
+::: {.worked}
+The heat pump takes $\dot{Q}_C$ from the ambient, is driven by
+$|\dot{W}| = 2$ kW, and delivers $\dot{Q}_H$ to the hatchery, which loses
+$|\dot{Q}_\text{loss}| = 10$ kW to the ambient.
+
+In order to keep the temperature constant, the heat given by the heat pump must
+equal the heat losses:
+$$
+|\dot{Q}_H| = |\dot{Q}_\text{loss}|
+\quad\Rightarrow\quad
+|\dot{Q}_H| = 10~\mathrm{kW}
+$$
+
+COP for the heat pump:
+$$
+\beta' = \frac{|\dot{Q}_H|}{|\dot{W}|} = \frac{10~\mathrm{kW}}{2~\mathrm{kW}}
+= \boxed{5} \quad \text{(b)}
+$$
+:::
+:::
+
+**P5.9 [medium].** A sports car engine delivers 100 hp to the driveshaft with a
+thermal efficiency of 25%. The specific fuel energy is 40 000 J/kg (i.e. the
+energy released by burning one kilogram of fuel). Find the rate of fuel
+consumption, and the combined power rejected through the radiator and exhaust.
+(**Hint:** one horsepower (hp) is approximately equal to 0.735 kW.)
+
+![](figures/img/ch5-p-sportcar.png){width=38%}
+
+**(a)** 7.35 kg/s, 220.5 kW &nbsp;&nbsp; **(b)** 2.67 kg/s, 220.5 kW
+&nbsp;&nbsp; **(c)** 5.43 kg/s, 100.9 kW &nbsp;&nbsp; **(d)** 9.8 kg/s, 256 kW
+
+::: {.gap height="fill"}
+::: {.worked}
+Thermal efficiency for the heat engine, with
+$|\dot{W}| = 100~\text{hp} \times 735~\mathrm{W/hp} = 73\,500$ W:
+$$
+\eta = \frac{|\dot{W}|}{|\dot{Q}_H|}
+     = \frac{73\,500~\mathrm{W}}{|\dot{Q}_H|} = 0.25
+\quad\Rightarrow\quad
+|\dot{Q}_H| = 294\,000~\mathrm{W}
+$$
+
+The heat received in the engine is equal to the specific fuel energy times the
+fuel mass flow rate, so
+$$
+\dot{Q}_H = \dot{m}_\text{fuel} \times 40\,000~\frac{\mathrm{J}}{\mathrm{kg}}
+= 294\,000~\frac{\mathrm{J}}{\mathrm{s}}
+\quad\Rightarrow\quad
+\boxed{\dot{m}_\text{fuel} = 7.35~\mathrm{kg/s}}
+$$
+
+From the energy equation:
+$$
+|\dot{Q}_C| = |\dot{Q}_H| - |\dot{W}| = 294\,000 - 73\,500
+= 220\,500~\mathrm{W} = \boxed{220.5~\mathrm{kW}}
+$$
+
+So the answer is **(a)**: 7.35 kg/s, 220.5 kW. (A real fuel releases about
+40 MJ/kg, a thousand times more, which would give a much more realistic
+7.35 g/s.)
+:::
+:::
+
+**P5.10 [medium].** By removing energy by heat transfer from its freezer
+compartment at a rate of 1.5 kW, a refrigerator maintains the freezer at
+$-22$ °C on a day when the temperature of the surroundings is 28 °C. Determine
+the minimum theoretical power, in kW, required by the refrigerator.
+
+**(a)** 0.5 &nbsp;&nbsp; **(b)** 0.3 &nbsp;&nbsp; **(c)** 1.5 &nbsp;&nbsp;
+**(d)** 1
+
+::: {.gap height="fill"}
+::: {.worked}
+A **reversible** refrigerator has the best theoretical performance (minimum
+work is required for a reversible refrigerator). For a reversible refrigerator
+we have
+$$
+\left(\frac{|\dot{Q}_C|}{|\dot{W}|}\right)_\text{rev}
+= \left(\frac{|\dot{Q}_C|}{|\dot{Q}_H| - |\dot{Q}_C|}\right)_\text{rev}
+= \frac{T_C}{T_H - T_C}
+= \frac{-22 + 273}{28 - (-22)} \approx 5
+$$
+$$
+\Rightarrow\quad
+|\dot{W}|_\text{min} = \frac{|\dot{Q}_C|}{5} = \frac{1.5~\mathrm{kW}}{5}
+= \boxed{0.3~\mathrm{kW}} \quad \text{(b)}
+$$
+:::
+:::
+
+**P5.11 [medium].** A heating system must maintain the interior of a building at
+20 °C during a period when the outside air temperature is 5 °C and the heat
+transfer from the building through its roof and walls is estimated to be
+300 kW. For this duty, a heat pump is under consideration that would operate
+between the dwelling and the outside air. Evaluate the minimum theoretical net
+power input required by such a heat pump, in kW.
+
+**(a)** 153.2 &nbsp;&nbsp; **(b)** 25.2 &nbsp;&nbsp; **(c)** 15.4 &nbsp;&nbsp;
+**(d)** 70.8
+
+::: {.gap height="fill"}
+::: {.worked}
+For the heat pump, the inside of the building can be seen as the **hot
+reservoir** ($T_H = 20$ °C), while the outside is the **cold reservoir**
+($T_C = 5$ °C).
+
+To maintain the inside temperature:
+$$
+|\dot{Q}_H| = |\dot{Q}_\text{loss}| = 300~\mathrm{kW}
+$$
+
+The minimum work required is the work for a reversible heat pump:
+$$
+\left(\frac{|\dot{W}|}{|\dot{Q}_H|}\right)_\text{rev}
+= \left(\frac{|\dot{Q}_H| - |\dot{Q}_C|}{|\dot{Q}_H|}\right)_\text{rev}
+= \frac{T_H - T_C}{T_H}
+= \frac{(273 + 20) - (273 + 5)}{273 + 20} = 0.0512
+$$
+$$
+\Rightarrow\quad
+|\dot{W}|_\text{min} = |\dot{Q}_H| \times 0.0512
+= 300~\mathrm{kW} \times 0.0512 \approx \boxed{15.4~\mathrm{kW}} \quad \text{(c)}
+$$
+:::
+:::
+
+**P5.12 [hard].** As shown in the figure below, two reversible cycles arranged
+in series each produce the same net work, $W_\text{cycle}$. The first cycle
+receives energy $Q_H$ by heat transfer from a hot reservoir at 555 K and rejects
+energy $Q$ by heat transfer to a reservoir at an intermediate temperature, $T$.
+The second cycle receives energy $Q$ by heat transfer from the reservoir at
+temperature $T$ and rejects energy $Q_C$ by heat transfer to a reservoir at
+222 K. Determine the intermediate temperature $T$, in K, and the thermal
+efficiency for each of the two power cycles.
+
+![](figures/img/ch5-p-series-engines.png){width=34%}
+
+**(a)** 388.5, 30%, 60% &nbsp;&nbsp; **(b)** 388.5, 45%, 45% &nbsp;&nbsp;
+**(c)** 433.2, 30%, 60% &nbsp;&nbsp; **(d)** 433.2, 40%, 60%
+
+::: {.gap height="fill"}
+::: {.worked}
+Both R1 and R2 are reversible heat engines, and they deliver the same work,
+$|W|_{R1} = |W|_{R2} = |W|$. So:
+
+For R1:
+$$
+\frac{|Q|}{|W|} = \frac{|Q|}{|Q_H| - |Q|} = \frac{T}{T_H - T} \tag{I}
+$$
+
+For R2:
+$$
+\frac{|Q|}{|W|} = \frac{|Q|}{|Q| - |Q_C|} = \frac{T}{T - T_C} \tag{II}
+$$
+
+From (I) and (II):
+$$
+\frac{T}{T_H - T} = \frac{T}{T - T_C}
+\quad\Rightarrow\quad
+T_H - T = T - T_C
+$$
+$$
+\Rightarrow\quad
+T = \frac{T_H + T_C}{2} = \frac{555~\mathrm{K} + 222~\mathrm{K}}{2}
+= \boxed{388.5~\mathrm{K}}
+$$
+
+The efficiencies:
+$$
+\eta_{R1} = \frac{|W|}{|Q_H|} = 1 - \frac{T}{T_H}
+= 1 - \frac{388.5~\mathrm{K}}{555~\mathrm{K}} = \boxed{0.30~(30\%)}
+$$
+$$
+\eta_{R2} = \frac{|W|}{|Q|} = 1 - \frac{T_C}{T}
+= 1 - \frac{222~\mathrm{K}}{388.5~\mathrm{K}} = \boxed{0.43~(42.9\%)}
+$$
+
+Check: R1 turns 30% of $|Q_H|$ into work and passes $|Q| = 0.7\,|Q_H|$ on to
+R2, which delivers the same work, so
+$\eta_{R2} = 0.3/0.7 = 0.429$. The value of 60% is the efficiency of the two
+cycles *together*, $1 - T_C/T_H = 1 - 222/555 = 0.6$, not that of R2.
+
+None of the options is exactly right. The closest is **(a)**, which has the
+right $T$ and $\eta_{R1}$, but the efficiency of the second cycle is 42.9%,
+not 60%.
+:::
+:::

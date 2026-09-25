@@ -1,0 +1,30 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\begin{document}
+\begin{tikzpicture}
+  % temperature across section A--A of the system, while it heats up
+  \draw[axisline] (0,0) -- (6.2,0) node[right, lbl] {position along A--A};
+  \draw[axisline] (0,0) -- (0,4.0) node[above, lbl] {$T$ ($^\circ$C)};
+  \draw[duGrey, dashed, line width=0.4pt] (1.0,0) -- (1.0,3.7);
+  \draw[duGrey, dashed, line width=0.4pt] (5.0,0) -- (5.0,3.7);
+  \node[slbl, below] at (1.0,0) {wall};
+  \node[slbl, below] at (5.0,0) {wall};
+  \node[slbl] at (3.0,-0.65) {system};
+  % source at 200 C outside the system
+  \draw[path2] (0.1,3.2) -- (1.0,3.2);
+  \draw[path2] (5.0,3.2) -- (5.9,3.2);
+  \node[lbl, duRed, left] at (0,3.2) {200};
+  % initial uniform 100 C
+  \draw[path1] (1.0,1.2) -- (5.0,1.2);
+  \node[lbl, duBlue, left] at (0,1.2) {100};
+  \draw[duGrey, dotted] (0,1.2) -- (1.0,1.2);
+  \draw[duGrey, dotted] (0,3.2) -- (0.1,3.2);
+  % intermediate profiles: hot near the walls, cooler in the middle
+  \foreach \d in {1.75,1.25,0.8,0.4} {
+    \draw[path3, line width=0.9pt] plot[domain=1.0:5.0, samples=60]
+      (\x, {3.2 - \d*(1 - ((\x-3.0)/2.0)^2)^0.6 - (2.0-\d)*0});
+  }
+  \draw[-{Stealth[length=2.4mm]}, duGreen, line width=0.7pt] (3.0,1.55) -- (3.0,2.75);
+  \node[slbl, duGreen, right, align=left] at (3.1,2.1) {time};
+\end{tikzpicture}
+\end{document}

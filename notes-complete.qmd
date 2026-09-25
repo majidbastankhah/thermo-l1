@@ -1,0 +1,11 @@
+---
+title: "Thermodynamics (ENGI 1111) — completed lecture notes, part one"
+subtitle: "Dr Majid Bastankhah · Department of Engineering · Durham University"
+toc-depth: 2
+# everything uncovered: derivations, examples and the problem solutions
+gapmode: complete
+---
+
+{{< include chapters/_syllabus.qmd >}}
+
+{{< include chapters/_chapters.qmd >}}

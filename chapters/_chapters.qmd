@@ -1,0 +1,27 @@
+<!-- The chapters, in order. Both notes.qmd (with gaps) and notes-complete.qmd
+     include this file, so a chapter is added in exactly one place.
+     Include paths are relative to the project root, not to this file. -->
+
+{{< pagebreak >}}
+
+{{< include chapters/_ch01-introduction.qmd >}}
+
+{{< pagebreak >}}
+
+{{< include chapters/_ch02-first-law.qmd >}}
+
+{{< pagebreak >}}
+
+{{< include chapters/_ch03-non-flow-processes.qmd >}}
+
+{{< pagebreak >}}
+
+{{< include chapters/_ch04-flow-processes.qmd >}}
+
+{{< pagebreak >}}
+
+{{< include chapters/_ch05-second-law.qmd >}}
+
+{{< pagebreak >}}
+
+{{< include chapters/_ch06-entropy.qmd >}}

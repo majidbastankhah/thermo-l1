@@ -1,0 +1,19 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Textbook power-plant schematic (655 x 456 px) with the board labels on top.
+\newcommand{\pxs}{0.0125}
+\newcommand{\px}[2]{({#1*\pxs},{(456-#2)*\pxs})}
+\begin{document}
+\begin{tikzpicture}
+  \node[anchor=south west, inner sep=0] at (0,0)
+    {\includegraphics[width=8.1875cm]{../img/ch5-power-plant-img.png}};
+  \node[anchor=west, text=duRed, font=\normalsize] at \px{300}{18}
+    {$\dot{Q}_\text{boiler} > 0$};
+  \node[anchor=south, text=duGreen!80!black, font=\normalsize] at \px{625}{180}
+    {$\dot{W} < 0$};
+  \node[anchor=east, text=duBlue, font=\normalsize] at \px{275}{415}
+    {$\dot{Q}_\text{con} < 0$};
+  \draw[-{Stealth[length=2.6mm]}, line width=1.3pt, duGreen!80!black]
+    \px{455}{190} -- \px{215}{190};
+\end{tikzpicture}
+\end{document}

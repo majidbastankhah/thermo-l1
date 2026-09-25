@@ -5,52 +5,19 @@ toc: false
 number-sections: false
 ---
 
-These are the lecture notes for the first part of ENGI 1111, Thermodynamics and
-Fluid Mechanics I.
+The lecture notes for the first part of ENGI 1111, Thermodynamics and Fluid
+Mechanics I: the course syllabus and all six chapters, in one document.
 
-**This site is the lecture.** The gaps start covered; in class we uncover them
-one at a time. It is also the version that stays up afterwards, so what you saw
-on the screen and what you can re-read later are the same page — there is no
-second, slightly different set of "completed notes" to reconcile against your
-own.
-
-| | What it is | When to use it |
+| | Online | PDF |
 |:--|:--|:--|
-| **Student copy (PDF)** | the notes with the gaps left blank | print it and bring it — you fill the gaps in as we go |
-| **This site** | the same notes, uncovered step by step | in the lecture, and any time afterwards |
-| **Completed copy (PDF)** | everything already uncovered | if you would rather have the finished version on paper |
+| **Notes with gaps**: the version used in the lectures | [open](notes.qmd) | [download](pdf/notes-with-gaps.pdf) |
+| **Completed notes**: everything filled in, with worked solutions | [open](notes-complete.qmd) | [download](pdf/notes-complete.pdf) |
 
-Problems now sit at the end of the chapter they belong to, rather than on a
-separate weekly sheet. Each one has space for your own working; on this site the
-worked solution is covered until you choose to open it.
+**In the notes with gaps**, the steps of each derivation and the solution of each
+example start covered. In the lecture we uncover them one at a time: space or
+the arrow keys move through the gaps, **P** switches to presentation mode and
+**A** uncovers everything. The worked solution of each end-of-chapter problem
+stays covered until you click it, so try the problem first.
 
-## Chapters
-
-- [CH1 — Introduction to Thermodynamics](ch01-introduction.qmd)
-
-  *Downloads:* [student copy](pdf/ch01-student.pdf) ·
-  [completed copy](pdf/ch01-complete.pdf)
-
-- [CH2 — First Law of Thermodynamics](ch02-first-law.qmd)
-
-  *Downloads:* [student copy](pdf/ch02-student.pdf) ·
-  [completed copy](pdf/ch02-complete.pdf)
-
-  *In the lecture:* space or the arrow keys move through the gaps, **P**
-  switches to presentation mode, **A** uncovers everything.
-
-Chapters 3–6 are still in the old format on Ultra while they are being
-converted.
-
-## Supplementary books
-
-- *Thermodynamics* by A. M. Steane (available online)
-- *Fundamentals of Thermodynamics*, 7th ed., by C. Borgnakke and R. E. Sonntag
-- *Moran's Principles of Engineering Thermodynamics*, 9th ed., by M. J. Moran
-- *Engineering Thermodynamics: Work & Heat Transfer*, 4th ed., by Rogers & Mayhew
-
-## Something unclear?
-
-During lectures, give me a shout if anything is unclear. Afterwards, come to
-office hours or email me at
-[majid.bastankhah@durham.ac.uk](mailto:majid.bastankhah@durham.ac.uk).
+**The PDF with gaps** leaves the same gaps blank, and a page for your working
+after each end-of-chapter problem: print it and bring it to the lecture.

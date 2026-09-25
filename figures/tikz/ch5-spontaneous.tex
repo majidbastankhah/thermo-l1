@@ -1,0 +1,41 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% The six panels of the textbook figure (691 x 514 px), pulled apart so that
+% the direction arrows drawn on the board fit between them.
+\newcommand{\pxs}{0.0125}   % cm per pixel
+\newcommand{\panel}[6]{%  #1 x0, #2 x1, #3 y0, #4 y1 (pixels, y down), #5 X, #6 Y (cm)
+  \begin{scope}
+    \clip (#5,#6) rectangle ++({(#2-#1)*\pxs},{(#4-#3)*\pxs});
+    \node[anchor=south west, inner sep=0] at ({#5-#1*\pxs},{#6-(514-#4)*\pxs})
+      {\includegraphics[width=8.6375cm]{../img/ch5-spontaneous-img.png}};
+  \end{scope}}
+\newcommand{\tick}[1]{\draw[duGreen!80!black, line width=1.6pt, line cap=round,
+  line join=round] ($#1+(-0.18,0)$) -- ++(0.14,-0.16) -- ++(0.32,0.4);}
+\newcommand{\cross}[1]{\draw[duRed, line width=1.6pt, line cap=round]
+  ($#1+(-0.16,-0.16)$) -- ++(0.32,0.32) ($#1+(-0.16,0.16)$) -- ++(0.32,-0.32);}
+\begin{document}
+\begin{tikzpicture}
+  % column pixel ranges: [0,238] [238,478] [478,691]; rows: [0,228] [228,514]
+  \def\gx{1.7}  % extra horizontal gap between columns (cm)
+  \def\gy{0.5}  % extra vertical gap between rows (cm)
+  % top row (bottom edge at y = 3.575 + gy)
+  \panel{0}{238}{0}{228}{0}{3.575+\gy}
+  \panel{238}{478}{0}{228}{2.975+\gx}{3.575+\gy}
+  \panel{478}{691}{0}{228}{5.975+2*\gx}{3.575+\gy}
+  % bottom row
+  \panel{0}{238}{228}{514}{0}{0}
+  \panel{238}{478}{228}{514}{2.975+\gx}{0}
+  \panel{478}{691}{228}{514}{5.975+2*\gx}{0}
+  % arrows: forward (happens by itself) and backward (never by itself)
+  \foreach \y in {5.9, 2.4} {
+    \foreach \x in {2.95, 7.65} {
+      \draw[-{Stealth[length=2.6mm]}, line width=1.2pt, duRed]
+        (\x+0.05,\y) -- ++(\gx-0.1,0);
+      \tick{(\x+0.5*\gx,\y+0.45)}
+      \draw[-{Stealth[length=2.6mm]}, line width=1.2pt, duBlue]
+        (\x+\gx-0.05,\y-0.8) -- ++(-\gx+0.1,0);
+      \cross{(\x+0.5*\gx,\y-1.2)}
+    }
+  }
+\end{tikzpicture}
+\end{document}

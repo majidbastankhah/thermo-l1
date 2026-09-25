@@ -1,0 +1,25 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Textbook metal-bar figure (359 x 285 px) with the board annotations.
+\newcommand{\pxs}{0.0125}
+\newcommand{\px}[2]{({#1*\pxs},{(285-#2)*\pxs})}
+\begin{document}
+\begin{tikzpicture}
+  \node[anchor=south west, inner sep=0] at (0,0)
+    {\includegraphics[width=4.4875cm]{../img/ch5-metal-bar-img.png}};
+  % left bar: hot -> cold happens by itself
+  \draw[-{Stealth[length=2.6mm]}, line width=1.5pt, duRed]
+    \px{95}{75} -- \px{95}{215};
+  \node[anchor=east, align=right, font=\small] at \px{-5}{150}
+    {happens\\by itself};
+  \draw[duGreen!80!black, line width=1.6pt, line cap=round, line join=round]
+    \px{-62}{92} -- ++(0.14,-0.16) -- ++(0.32,0.4);
+  % right bar: cold -> hot only with work input
+  \draw[-{Stealth[length=2.6mm]}, line width=1.5pt, duBlue]
+    \px{270}{215} -- \px{270}{75};
+  \draw[-{Stealth[length=2.6mm]}, line width=1.3pt, duGreen!80!black]
+    \px{400}{140} -- \px{290}{140};
+  \node[anchor=west, align=left, font=\small] at \px{405}{140}
+    {only with\\$W > 0$};
+\end{tikzpicture}
+\end{document}

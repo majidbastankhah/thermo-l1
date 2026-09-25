@@ -1,0 +1,42 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\usetikzlibrary{shapes.geometric, shapes.arrows}
+\definecolor{hotres}{HTML}{D99694}
+\definecolor{coldres}{HTML}{8EB4E3}
+\definecolor{engine}{HTML}{BFBFBF}
+\begin{document}
+\begin{tikzpicture}[
+  res/.style={rounded corners=3pt, minimum width=3.2cm, minimum height=0.75cm,
+              font=\small\bfseries},
+  flow/.style={-{Stealth[length=3mm,width=3mm]}, line width=2.2pt}]
+  % reversible heat engine
+  \begin{scope}
+    \node[res, fill=hotres]  (H) at (0,2.4)  {Hot reservoir};
+    \node[circle, fill=engine, minimum size=1.8cm, align=center,
+          font=\small\bfseries] (E) at (0,0) {Heat\\engine};
+    \node[res, fill=coldres] (C) at (0,-2.4) {Cold reservoir};
+    \draw[flow, duRed]  (H.south) -- (E.north)
+      node[midway, right=3pt, text=black] {$|Q_H|$};
+    \draw[flow, duBlue] (E.south) -- (C.north)
+      node[midway, right=3pt, text=black] {$|Q_C|$};
+    \draw[flow, duGrey] (E.east) -- ++(1.2,0) node[right, text=black] {$|W|$};
+  \end{scope}
+  % reversed: refrigerator / heat pump
+  \begin{scope}[xshift=8.2cm]
+    \node[res, fill=hotres]  (H2) at (0,2.4)  {Hot reservoir};
+    \node[ellipse, fill=engine, minimum width=2.8cm, minimum height=1.8cm,
+          align=center, font=\small\bfseries] (E2) at (0,0)
+          {Heat pump\\[-1pt]{\normalfont or}\\[-1pt]Refrigerator};
+    \node[res, fill=coldres] (C2) at (0,-2.4) {Cold reservoir};
+    \draw[flow, duRed]  (E2.north) -- (H2.south)
+      node[midway, right=3pt, text=black] {$|Q_H|$};
+    \draw[flow, duBlue] (C2.north) -- (E2.south)
+      node[midway, right=3pt, text=black] {$|Q_C|$};
+    \draw[flow, duGrey] ($(E2.east)+(1.2,0)$) -- (E2.east)
+      node[pos=0, right, text=black] {$|W|$};
+  \end{scope}
+  \draw[-{Stealth[length=3mm]}, line width=1.1pt, duPurple]
+    (2.6,0.9) to[bend left=20]
+    node[midway, above, font=\normalsize\itshape] {reverse} (5.8,0.9);
+\end{tikzpicture}
+\end{document}

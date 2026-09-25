@@ -17,6 +17,7 @@ format:
     colorlinks: true
     linkcolor: "duPurple"
     number-sections: true
-    toc: false
+    toc: true
+    toc-depth: 1
     fig-align: center
     include-in-header: tex/preamble.tex

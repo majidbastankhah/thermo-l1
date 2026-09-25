@@ -1,0 +1,34 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\usetikzlibrary{shapes.geometric, shapes.arrows}
+\definecolor{heatc}{HTML}{D99694}
+\definecolor{workc}{HTML}{00B050}
+\definecolor{engine}{HTML}{BFBFBF}
+\begin{document}
+\begin{tikzpicture}[
+  cyc/.style={circle, fill=engine, minimum size=1.6cm, font=\small\bfseries},
+  blk/.style={single arrow, draw=black, line width=0.6pt, minimum height=1.4cm,
+              minimum width=0.9cm, single arrow head extend=0.12cm}]
+  % possible
+  \node[cyc] (A) at (0,0) {cycle};
+  \node[blk, fill=workc] at (-1.35,0) {};
+  \node[blk, fill=heatc] at (1.35,0) {};
+  \node[font=\normalsize] at (-1.45,0.85) {$W_\text{input}$};
+  \node[font=\normalsize] at (1.45,0.85) {$Q_\text{output}$};
+  \node[font=\small, align=center] at (0,-1.35) {possible};
+  \draw[duGreen!80!black, line width=2pt, line cap=round, line join=round]
+    (-0.35,1.25) -- (-0.1,1.0) -- (0.4,1.6);
+  % impossible
+  \begin{scope}[xshift=6.2cm]
+    \node[cyc] (B) at (0,0) {cycle};
+    \node[blk, fill=heatc] at (-1.35,0) {};
+    \node[blk, fill=workc] at (1.35,0) {};
+    \node[font=\normalsize] at (-1.45,0.85) {$Q_\text{input}$};
+    \node[font=\normalsize] at (1.45,0.85) {$W_\text{output}$};
+    \draw[red, line width=2pt, line cap=round] (-0.75,-0.9) -- (0.75,0.9);
+    \draw[red, line width=2pt, line cap=round] (-0.75,0.9) -- (0.75,-0.9);
+    \node[font=\small, align=center] at (0,-1.35)
+      {impossible if $W_\text{output} = Q_\text{input}$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,1191 @@
+# Reversibility and Non-Flow Processes {#sec-ch3}
+
+::: {.objectives}
+By the end of this chapter, you should be able to:
+
+- Demonstrate the concept of **quasi-equilibrium** and **reversibility** in
+  thermodynamics.
+- Define and use **specific heat capacities** in thermodynamic problems.
+- Analyse different **polytropic processes** (isochoric, isobaric, etc.).
+:::
+
+*Non-flow* processes are processes of a **closed system**: energy (heat and
+work) crosses the boundary, but mass does not.
+
+## Reversibility
+
+In the last chapter, the energy equation for a process was presented in the
+form of:
+
+![](figures/img/ch3-system.png){width=26%}
+
+$$
+q + w = u_2 - u_1
+$$
+
+As mentioned earlier, in general, the amount of work and heat depends on the
+process, and therefore they cannot be expressed as a function of system
+properties, $f(T, P, \ldots)$. This can be, however, done for certain ideal
+processes called *quasi-equilibrium* processes (*quasi* means *almost*).
+
+### Quasi-equilibrium process
+
+A process during which the system only deviates from thermodynamic equilibrium
+by an infinitesimal amount. In other words, the system is passed through a
+continuous series of equilibrium states.
+
+![](figures/out/ch3-quasi-path.svg){width=86%}
+
+::: {.note}
+During a quasi-equilibrium process, intensive properties (e.g. $T$, $P$) of a
+system are uniform throughout the whole system.
+:::
+
+::: {.note}
+Quasi-equilibrium processes are ***reversible***. This means that **both** the
+system **and** the surroundings can be returned to their exact initial
+conditions.
+:::
+
+### Work and reversibility
+
+In a quasi-equilibrium (reversible) expansion/compression, the external
+pressure is infinitesimally different from the system pressure.
+
+![](figures/img/ch3-piston-masses.png){width=24%}
+
+Incremental masses are removed one at a time during the expansion.
+$P_\text{ext}$ acts on the piston from above; $P$ is the pressure of the gas.
+
+![](figures/out/ch3-rev-steps.svg){width=58%}
+
+Each small mass removed lowers $P_\text{ext}$ a little and the gas expands
+until its pressure $P$ matches it again, so $P \approx P_\text{ext}$ at every
+step of the process.
+
+::: {.gap height="16mm" hint="Start from the CH2 work integral; in a reversible process $P_\text{ext} \approx P$."}
+$$
+W = -\int P_\text{ext}\,\mathrm{d}V
+\qquad \xrightarrow{\ P_\text{ext}\,\approx\,P\ } \qquad
+W_\text{rev} = -\int P\,\mathrm{d}V
+$$
+:::
+
+::: {.key}
+$$
+W_\text{rev} = -\int P\,\mathrm{d}V
+$$ {#eq-ch3-wrev}
+:::
+
+::: {.note}
+Quasi-equilibrium processes are **very slow** and may never happen in reality,
+but many actual processes approach a quasi-equilibrium process.
+:::
+
+**Irreversible work.** **Free expansion** is the classical example of a process
+that is NOT quasi-equilibrium. A gas at $P_1, V_1$ is held on one side of a
+partition, with a vacuum ($P = 0$) on the other. The partition is removed and
+the gas fills the whole container, reaching $P_2, V_2$.
+
+![](figures/out/ch3-free-expansion.svg){width=100%}
+
+::: {.gap height="14mm" hint="What pushes back on the gas? Nothing: $P_\text{ext} = 0$, so $W = 0$."}
+Nothing pushes back on the expanding gas, $P_\text{ext} = 0$, so
+$$
+W = -\int \underbrace{P_\text{ext}}_{=\,0}\,\mathrm{d}V = 0
+$$
+:::
+
+Free expansion is NOT quasi-equilibrium, and therefore it is
+**irreversible**.
+
+::: {.note}
+Irreversible processes are usually shown by dashed lines in $PV$ diagrams.
+:::
+
+::: {.note}
+Free expansion is an extreme case. In reality, expansion processes are
+something between free expansion and a quasi-equilibrium (reversible)
+expansion.
+:::
+
+![](figures/out/ch3-exp-comp.svg){width=74%}
+
+**Magnitude of expansion work done by the system:**
+
+::: {.gap height="16mm" hint="Expansion: the gas pushes the piston out, so $P \ge P_\text{ext}$; compare the two integrals."}
+To push the piston out, $P \ge P_\text{ext}$, so
+$$
+|W| = \int P_\text{ext}\,\mathrm{d}V \;\le\; \int P\,\mathrm{d}V
+$$
+:::
+
+**Magnitude of compression work done on the system:**
+
+::: {.gap height="16mm" hint="Compression: the surroundings push the piston in, so $P \le P_\text{ext}$."}
+To push the piston in, $P \le P_\text{ext}$, so
+$$
+|W| = \int P_\text{ext}\,\mathrm{d}V \;\ge\; \int P\,\mathrm{d}V
+$$
+:::
+
+::: {.key}
+The ideal (reversible) process, with $|W| = \int P\,\mathrm{d}V$, gives the
+**maximum expansion work** done by the system and needs the **minimum
+compression work** done on the system.
+:::
+
+### Heat and reversibility
+
+The part of the surroundings that exchanges heat with the system is called a
+**heat reservoir**. We assume that heat exchange cannot change the temperature
+of a heat reservoir, owing to its very large heat capacity. A heat reservoir
+can be either a **heat source** ($T_\text{H.R.} > T_\text{sys}$) or a **heat
+sink** ($T_\text{H.R.} < T_\text{sys}$).
+
+![The sea, the atmosphere and a fire: examples of heat reservoirs.](figures/img/ch3-reservoirs.png){width=88%}
+
+The heat transfer between the system and a heat reservoir can be done either
+***reversibly*** or ***irreversibly***.
+
+::: {.example}
+Imagine we want to raise the system temperature from 100 °C to 200 °C. Compare
+the two ways of doing it shown below: putting the system straight into a heat
+source at 200 °C (left), or heating it with a heat source that is always only
+$\mathrm{d}T$ hotter than the system (right). Which one is reversible?
+
+![](figures/img/ch3-heat-sources.png){width=62%}
+
+**Step 1.** *System at 100 °C inside a source at 200 °C: sketch how the
+temperature varies across a section A–A of the system while it heats up. Is it
+uniform?*
+
+::: {.gap height="50mm" hint="Temperature profile across A--A: 200 at the walls, 100 inside at first; the profiles evolve, never uniform. Non-quasi $\Rightarrow$ irreversible."}
+![](figures/out/ch3-temp-profile.svg){width=62%}
+
+The part of the system next to the wall heats up first, so while the system
+heats up its temperature is **not uniform**. The process is not
+quasi-equilibrium:
+$$
+\text{non-quasi-equilibrium} \;\Rightarrow\; \textbf{irreversible}
+$$
+:::
+
+**Step 2.** *Now the source is only $\mathrm{d}T$ hotter than the system, at
+every instant. What happens to the temperature inside the system?*
+
+::: {.gap height="18mm" hint="Source at $T + \mathrm{d}T$: $T$ stays uniform, the system passes through equilibrium states. Quasi-eq. $\Rightarrow$ reversible."}
+The heat flows across an infinitesimal temperature difference, so the
+temperature of the system stays uniform and it passes through a continuous
+series of equilibrium states:
+$$
+\text{quasi-equilibrium} \;\Rightarrow\; \textbf{reversible}
+$$
+:::
+:::
+
+### Energy equation in differential form
+
+For a *reversible* process, the energy equation can be written in a
+differential form.
+
+::: {.gap height="16mm" hint="Write $Q + W = \Delta U$ for an infinitesimal step: $\delta Q + \delta W = \mathrm{d}U$."}
+$$
+Q + W = \Delta U
+\qquad \longrightarrow \qquad
+\underbrace{\delta Q}_{\text{inexact}} + \underbrace{\delta W}_{\text{inexact}}
+= \underbrace{\mathrm{d}U}_{\text{exact}}
+$$
+:::
+
+$U$ is a property, so $\int_1^2 \mathrm{d}U = U_2 - U_1$. Work and heat are
+not, so $\int_1^2 \delta W \neq W_2 - W_1$: there is no such thing as "$W_2$"
+or "$W_1$".
+
+::: {.gap height="14mm" hint="Reversibility: $\delta W = -P\,\mathrm{d}V$ (the system pressure, not $P_\text{ext}$)."}
+For a reversible process, @eq-ch3-wrev gives $\delta W = -P\,\mathrm{d}V$, with
+the **system** pressure $P$ in place of $P_\text{ext}$:
+$$
+\delta Q - P\,\mathrm{d}V = \mathrm{d}U
+$$
+:::
+
+::: {.key}
+$$
+\delta Q - P\,\mathrm{d}V = \mathrm{d}U
+$$ {#eq-ch3-diff}
+
+the differential form of the energy equation, for a **reversible** process.
+:::
+
+::: {.note}
+$\delta q$ and $\delta w$, as *inexact* differentials, are specific types of
+differentials used in thermodynamics to express the **path dependence**. The
+integral of an inexact differential cannot be identified only by knowing the
+initial and final states. This is in contrast with the concept of the *exact*
+differential (e.g. $\mathrm{d}u$, $\mathrm{d}T$ and $\mathrm{d}P$), which is
+path independent.
+:::
+
+## Constant volume (isochoric) process
+
+The First Law for a *reversible* constant-volume process can be written as:
+
+::: {.gap height="16mm" hint="$\mathrm{d}V = 0$ kills the work term; divide by the mass. Label it (I)."}
+$\mathrm{d}V = 0$, so
+$$
+\delta Q - P\underbrace{\mathrm{d}V}_{=\,0} = \mathrm{d}U
+\;\;\rightarrow\;\;
+\delta Q_v = \mathrm{d}U_v
+\;\;\xrightarrow{\ \div\,\text{mass}\ }\;\;
+\delta q_v = \mathrm{d}u_v \tag{I}
+$$
+:::
+
+**Heat capacity** $C$ is the amount of heat needed to raise the temperature of a
+substance by 1 °C. The SI unit of heat capacity is [J/K]:
+
+$$
+\delta Q = C\,\mathrm{d}T \qquad \left[\frac{\mathrm{J}}{\mathrm{K}}\right]
+$$
+
+**Specific heat capacity** $c$ is the heat capacity of a substance divided by
+its mass, with the SI unit of [J/(kg K)]:
+
+$$
+c = \frac{C}{m}
+\quad\rightarrow\quad
+\underbrace{\delta Q}_{[\mathrm{J}]}
+= \underbrace{m}_{[\mathrm{kg}]}\,c\,\underbrace{\mathrm{d}T}_{[\mathrm{K}]},
+\quad c\;\left[\frac{\mathrm{J}}{\mathrm{kg\,K}}\right]
+\quad\rightarrow\quad
+\delta q = c\,\mathrm{d}T
+$$
+
+**Specific heat capacity at constant volume, $c_v$:** the specific heat capacity
+$c$ for a constant-volume process:
+
+$$
+\delta q_v = c_v\,\mathrm{d}T \tag{II}
+$$
+
+::: {.gap height="12mm" hint="Combine (I) and (II)."}
+Combining (I) and (II):
+$$
+\mathrm{d}u = c_v\,\mathrm{d}T \qquad (\text{at constant } v)
+$$
+:::
+
+$c_v$ can therefore be defined as a system (thermodynamic) property:
+
+::: {.key}
+$$
+c_v = \left(\frac{\mathrm{d}u}{\mathrm{d}T}\right)_v
+$$ {#eq-ch3-cv}
+:::
+
+## Constant pressure (isobaric) process
+
+The energy equation (i.e. the First Law) for a *reversible* constant-pressure
+process can be written as:
+
+$$
+\delta q - P\,\mathrm{d}v = \mathrm{d}u
+$$
+
+::: {.note}
+*Reminder:* product rule, $\mathrm{d}(fg) = g\,\mathrm{d}f + f\,\mathrm{d}g$.
+:::
+
+::: {.gap height="16mm" hint="Move $P\,\mathrm{d}v$ across and add $v\,\mathrm{d}P$, which is zero at constant $P$."}
+$$
+\delta q = \mathrm{d}u + \underbrace{P\,\mathrm{d}v + v\underbrace{\mathrm{d}P}_{=\,0}}_{\mathrm{d}(Pv)}
+$$
+:::
+
+::: {.gap height="16mm" hint="So $\delta q = \mathrm{d}(u + Pv)$; call $u + Pv = h$."}
+$$
+\delta q = \mathrm{d}(\underbrace{u + Pv}_{h})
+\quad\rightarrow\quad
+\delta q_P = \mathrm{d}h_P
+$$
+:::
+
+$h$ is the specific **enthalpy**:
+
+::: {.key}
+$$
+H = U + PV \;\;[\mathrm{J}], \qquad h = u + Pv \;\;\left[\frac{\mathrm{J}}{\mathrm{kg}}\right],
+\qquad H = m h
+$$ {#eq-ch3-h}
+:::
+
+::: {.note}
+Enthalpy (*EN-thal-pee*) is a system property, so its change from one state to
+another does not depend on the process. $H$ is an extensive property, and the
+specific enthalpy $h = H/m$ is its intensive counterpart.
+:::
+
+::: {.note}
+Enthalpy is always greater than internal energy.
+:::
+
+**Specific heat capacity at constant pressure, $c_P$:** the specific heat
+capacity $c$ for a constant-pressure process:
+
+$$
+\delta q_P = c_P\,\mathrm{d}T
+$$
+
+Similar to $c_v$, $c_P$ can be defined as a system property.
+
+::: {.gap height="14mm" hint="The energy equation gave $\delta q_P = \mathrm{d}h_P$; compare with $\delta q_P = c_P\,\mathrm{d}T$."}
+The energy equation gave $\delta q_P = \mathrm{d}h_P$, and by definition
+$\delta q_P = c_P\,\mathrm{d}T$, so $\mathrm{d}h = c_P\,\mathrm{d}T$ at
+constant $P$.
+:::
+
+::: {.key}
+$$
+c_P = \left(\frac{\mathrm{d}h}{\mathrm{d}T}\right)_P
+$$ {#eq-ch3-cp}
+:::
+
+::: {.note}
+In general, two independent system properties are enough to identify $c_v$ or
+$c_P$ (like any other system property).
+:::
+
+## Specific heat capacities for ideal gases
+
+One of the important features of an ***ideal gas*** is that its **internal
+energy only depends on its temperature**: $u = u(T)$.
+
+::: {.gap height="14mm" hint="$u$ depends on $T$ only, so the 'at constant $v$' can be dropped."}
+$u$ depends on $T$ alone, so the constraint "at constant $v$" in @eq-ch3-cv
+can be dropped:
+$$
+c_v = \left(\frac{\mathrm{d}u}{\mathrm{d}T}\right)_{v}
+\;\xrightarrow{\ u\,=\,u(T)\ }\;
+c_v = \frac{\mathrm{d}u}{\mathrm{d}T}
+\;\rightarrow\;
+\mathrm{d}u = c_v\,\mathrm{d}T
+$$
+:::
+
+From the ideal-gas equation, $Pv = RT$. Thus:
+
+::: {.gap height="12mm" hint="$h = u(T) + RT$: a function of $T$ only."}
+$$
+h = u + Pv = u(T) + RT
+\quad\rightarrow\quad
+h = h(T) \quad \text{(ideal gas)}
+$$
+:::
+
+::: {.gap height="14mm" hint="Same argument for $c_P$: drop the 'at constant $P$'."}
+$$
+c_P = \left(\frac{\mathrm{d}h}{\mathrm{d}T}\right)_{P}
+\;\xrightarrow{\ h\,=\,h(T)\ }\;
+c_P = \frac{\mathrm{d}h}{\mathrm{d}T}
+\;\rightarrow\;
+\mathrm{d}h = c_P\,\mathrm{d}T
+$$
+:::
+
+::: {.key}
+For an **ideal gas**, going through **any process**:
+$$
+\mathrm{d}u = c_v\,\mathrm{d}T, \qquad \mathrm{d}h = c_P\,\mathrm{d}T
+$$ {#eq-ch3-dudh}
+:::
+
+Therefore, for an ideal gas, $c_v$ and $c_P$ only depend on $T$:
+$c_v = c_v(T)$, $c_P = c_P(T)$.
+
+Over small temperature changes, it is often assumed that $c_v$ and $c_P$ are
+**constant for ideal gases**.
+
+::: {.note}
+$\mathrm{d}u = c_v\,\mathrm{d}T$ and $\mathrm{d}h = c_P\,\mathrm{d}T$ are valid
+for ideal gases going through **any process**, not only constant pressure or
+constant volume.
+:::
+
+We can also relate the specific heat capacities of an ideal gas to its gas
+constant $R$ as follows:
+
+::: {.gap height="16mm" hint="Differentiate $h = u + Pv$; each term: $c_P\,\mathrm{d}T$, $c_v\,\mathrm{d}T$, $R\,\mathrm{d}T$ (from $Pv = RT$)."}
+$$
+h = u + Pv
+\quad\rightarrow\quad
+\underbrace{\mathrm{d}h}_{c_P\,\mathrm{d}T}
+= \underbrace{\mathrm{d}u}_{c_v\,\mathrm{d}T}
++ \underbrace{\mathrm{d}(Pv)}_{R\,\mathrm{d}T}
+$$
+:::
+
+::: {.gap height="12mm" hint="Cancel $\mathrm{d}T$."}
+$$
+c_P\,\mathrm{d}T = c_v\,\mathrm{d}T + R\,\mathrm{d}T
+$$
+:::
+
+::: {.key}
+$$
+c_P = c_v + R
+$$ {#eq-ch3-cpcv}
+:::
+
+::: {.example}
+Calculate the change of enthalpy as 2 kg of a gas is heated from 300 K to
+500 K. Assume ideal gas behaviour for the gas, with $R = 200~\mathrm{J/(kg\,K)}$
+and $c_v = 800~\mathrm{J/(kg\,K)}$.
+
+**Step 1.** *For an ideal gas, how is a change of enthalpy related to a change
+of temperature? Which specific heat do you need?*
+
+::: {.gap height="14mm" hint="$\Delta H = m\,\Delta h = m c_P \Delta T$: we need $c_P$, not $c_v$."}
+$$
+\Delta H = m\,\Delta h = m\,c_P\,\Delta T \tag{$*$}
+$$
+:::
+
+**Step 2.** *You are given $c_v$, not $c_P$. How are they related for an ideal
+gas?*
+
+::: {.gap height="16mm" hint="$c_P = c_v + R = 800 + 200 = 1000$ J/(kg K)."}
+$$
+c_P = c_v + R = 800~\frac{\mathrm{J}}{\mathrm{kg\,K}} + 200~\frac{\mathrm{J}}{\mathrm{kg\,K}}
+= 1000~\frac{\mathrm{J}}{\mathrm{kg\,K}}
+$$
+:::
+
+**Step 3.** *Substitute into ($*$).*
+
+::: {.gap height="14mm" hint="$2 \times 1000 \times 200 = 4\times10^5$ J $= 400$ kJ."}
+$$
+\Delta H = 2~\mathrm{kg} \times 1000~\frac{\mathrm{J}}{\mathrm{kg\,K}} \times 200~\mathrm{K}
+= \boxed{4\times10^{5}~\mathrm{J} = 400~\mathrm{kJ}}
+$$
+:::
+:::
+
+An expression that will appear often is the **ratio of specific heats**
+$\gamma$, defined as $c_P/c_v$:
+
+::: {.key}
+$$
+\gamma = \frac{c_P}{c_v} > 1
+$$
+
+since $c_P - c_v = R > 0$, so $c_P > c_v$.
+:::
+
+| | $c_v$ | $c_P$ | $\gamma = c_P/c_v$ |
+|:--|:-:|:-:|:-:|
+| Monatomic (He, Ne) | $3R/2$ | $5R/2$ | $5/3$ |
+| Diatomic (O$_2$, N$_2$) | $5R/2$ | $7R/2$ | $7/5$ |
+
+: Specific heats of ideal gases.
+
+## Isothermal process
+
+An isothermal process is a change of a system in which the **system temperature
+remains constant**.
+
+::: {.note}
+Heat is NOT necessarily zero in an isothermal process: heat can be exchanged
+(reversibly) with a reservoir at $T + \mathrm{d}T$ while the system stays at
+$T_\text{sys}$.
+:::
+
+$$
+\delta q - P\,\mathrm{d}v = \mathrm{d}u
+$$
+
+::: {.gap height="16mm" hint="Ideal gas: $\mathrm{d}u = c_v\,\mathrm{d}T = 0$ at constant $T$."}
+For an ideal gas, $\mathrm{d}u = c_v\,\mathrm{d}T = 0$ since $T$ is constant:
+$$
+\delta q_T = P\,\mathrm{d}v
+$$
+:::
+
+::: {.gap height="16mm" hint="$Pv = RT$ with $RT$ constant: $P \propto 1/v$, like $y \sim 1/x$."}
+For an ideal gas,
+$$
+Pv = RT \;\rightarrow\; P = \frac{\overbrace{RT}^{\text{constant}}}{v}
+\qquad\text{i.e. } P \propto \frac{1}{v}\;\;(\text{like } y \sim 1/x)
+$$
+:::
+
+::: {.key}
+Isothermal process of an ideal gas:
+$$
+Pv = \text{const}, \qquad \delta q_T = P\,\mathrm{d}v
+$$
+:::
+
+![Isotherms of an ideal gas in the $P$–$v$ diagram.](figures/out/ch3-isotherms.svg){width=56%}
+
+## Adiabatic process
+
+A process in which there is no heat transfer ($Q = 0$) is called an
+***adiabatic*** (*ay-dye-uh-BAT-ik*) process. This can usually be accomplished
+by:
+
+![Insulation (left), or a rapid process, e.g. the compression in an engine cylinder (right).](figures/img/ch3-adiabatic.png){width=56%}
+
+According to the energy equation (assuming a reversible process), for an ideal
+gas ($Pv = RT$, $\mathrm{d}u = c_v\,\mathrm{d}T$):
+
+$$
+\delta q - P\,\mathrm{d}v = \mathrm{d}u
+$$
+
+::: {.gap height="14mm" hint="$\delta q = 0$ and $\mathrm{d}u = c_v\,\mathrm{d}T$."}
+$\delta q = 0$ and $\mathrm{d}u = c_v\,\mathrm{d}T$:
+$$
+-P\,\mathrm{d}v = c_v\,\mathrm{d}T
+$$
+:::
+
+::: {.gap height="14mm" hint="Replace $P$ by $RT/v$."}
+With $P = RT/v$:
+$$
+-\frac{RT}{v}\,\mathrm{d}v = c_v\,\mathrm{d}T
+$$
+:::
+
+::: {.gap height="22mm" hint="Separate variables and integrate; $\int_{x_1}^{x_2} \mathrm{d}x/x = \ln(x_2/x_1)$."}
+Separating the variables and integrating, with
+$\int_{x_1}^{x_2} \frac{\mathrm{d}x}{x} = \ln\frac{x_2}{x_1}$:
+$$
+-R\int_{v_1}^{v_2}\frac{\mathrm{d}v}{v} = c_v\int_{T_1}^{T_2}\frac{\mathrm{d}T}{T}
+\quad\rightarrow\quad
+-R\ln\!\left(\frac{v_2}{v_1}\right) = c_v\ln\!\left(\frac{T_2}{T_1}\right)
+$$
+:::
+
+::: {.gap height="14mm" hint="Move the coefficients into the logarithms as powers."}
+Moving the coefficients into the logarithms as powers:
+$$
+\left(\frac{v_2}{v_1}\right)^{-R} = \left(\frac{T_2}{T_1}\right)^{c_v}
+$$
+:::
+
+::: {.gap height="24mm" hint="Eliminate $T$: $T_2/T_1 = (P_2/P_1)(v_2/v_1)$; then use $\gamma = c_P/c_v = (R + c_v)/c_v$."}
+From $Pv = RT$, $\dfrac{T_2}{T_1} = \left(\dfrac{P_2}{P_1}\right)\left(\dfrac{v_2}{v_1}\right)$, so
+$$
+\left(\frac{v_2}{v_1}\right)^{-(R + c_v)} = \left(\frac{P_2}{P_1}\right)^{c_v}
+\quad\xrightarrow{\ \gamma\,=\,\frac{c_P}{c_v}\,=\,\frac{R + c_v}{c_v}\ }\quad
+\frac{P_2}{P_1} = \left(\frac{v_1}{v_2}\right)^{\gamma}
+\quad\rightarrow\quad
+P_1 v_1^{\gamma} = P_2 v_2^{\gamma}
+$$
+:::
+
+::: {.key}
+Reversible adiabatic process of an ideal gas:
+$$
+P v^{\gamma} = \text{Constant}
+$$ {#eq-ch3-adiabatic}
+:::
+
+## Polytropic process
+
+All of the processes discussed earlier can be generally expressed as a
+**polytropic process**, given by:
+
+$$
+P v^{n} = \text{const.}
+$$
+
+The *polytropic exponent* $n$ is indicative of the type of process, and it can
+vary from $-\infty$ to $+\infty$.
+
+::: {.gap height="10mm" hint="Isobaric: $P = \text{const}$ means $Pv^0 = \text{const}$, so $n = 0$."}
+**Isobaric:** $P v^{n} = \text{const}$ with $P = \text{const}$ $\rightarrow$ $n = 0$.
+:::
+
+::: {.gap height="16mm" hint="Isochoric: take the $n$-th root, $P^{1/n}v = \text{const}$; let $n \to \infty$."}
+**Isochoric:** take the $n$-th root of both sides,
+$$
+\sqrt[n]{P v^{n}} = \sqrt[n]{\text{const}}
+\;\rightarrow\;
+P^{1/n}\,v = \text{const}^{*}
+\qquad n \to \infty \;\Rightarrow\; v = \text{const}
+$$
+:::
+
+::: {.gap height="12mm" hint="Isothermal (ideal gas): $Pv = \text{const}$, so $n = 1$."}
+**Isothermal** (ideal gas): $P v^{n} = \text{const}$ and $P v = \text{const}$
+$\rightarrow$ $n = 1$.
+:::
+
+::: {.gap height="12mm" hint="Adiabatic (ideal gas): $Pv^\gamma = \text{const}$, so $n = \gamma = c_P/c_v$."}
+**Adiabatic** (ideal gas): $P v^{\gamma} = \text{const}$ $\rightarrow$
+$n = \gamma = c_P/c_v$.
+:::
+
+| | Polytropic | $Pv^{n} = \text{const}$ | $n$ | Work [J/kg] |
+|:-:|:--|:--|:-:|:-:|
+| 1 | **Isobaric** | $P = \text{const}$ | $0$ | $-P\,(v_2 - v_1)$ |
+| 2 | **Isochoric** | $v = \text{const}$ | $\infty$ | $0$ |
+| 3 | **Isothermal** | $Pv = \text{const}$ (only for ideal gas) | $1$ | $-Pv\ln\left(v_2/v_1\right)$ |
+| 4 | **Adiabatic** | $Pv^{\gamma} = \text{const}$ (only for ideal gas) | $\gamma > 1$ | $\dfrac{P_2 v_2 - P_1 v_1}{\gamma - 1}$ |
+
+: The polytropic family of processes. In general, $w = \dfrac{P_2 v_2 - P_1 v_1}{n - 1}$ for $n \neq 1$.
+
+![Polytropic expansions from the same initial state. The dotted lines are isotherms, $T_1 > T_2 > T_3$.](figures/out/ch3-polytropic-paths.svg){width=70%}
+
+Let us derive a relationship for the amount of **work** in a ***reversible
+polytropic*** process, $Pv^{n} = \text{const}$:
+
+::: {.gap height="18mm" hint="Reversible: $P_\text{ext} = P$; then $P = \text{const}/v^n$ comes out of the integral."}
+$$
+w = -\int P_\text{ext}\,\mathrm{d}v
+\;\xrightarrow{\ P_\text{ext}\,=\,P\ }\;
+w = -\int P\,\mathrm{d}v = -\text{Const.}\int_{v_1}^{v_2}\frac{\mathrm{d}v}{v^{n}}
+$$
+:::
+
+::: {.gap height="18mm" hint="$\int \mathrm{d}x/x^n = x^{1-n}/(1-n)$ for $n \neq 1$."}
+With $\displaystyle\int_{x_1}^{x_2}\frac{\mathrm{d}x}{x^{n}}
+= \left.\frac{x^{1-n}}{1-n}\right|_{x_1}^{x_2}$ for $n \neq 1$:
+$$
+w = -P v^{n}\,\frac{v_2^{\,1-n} - v_1^{\,1-n}}{1 - n}
+$$
+:::
+
+::: {.gap height="16mm" hint="The constant $Pv^n$ equals $P_1v_1^n$ and also $P_2v_2^n$: use each with its own term."}
+The constant $Pv^{n}$ equals both $P_1 v_1^{n}$ and $P_2 v_2^{n}$; use each one
+with its own term:
+$$
+w = -\frac{P_2 v_2^{n}\,v_2^{\,1-n} - P_1 v_1^{n}\,v_1^{\,1-n}}{1 - n}
+  = \frac{P_2 v_2 - P_1 v_1}{n - 1}
+$$
+:::
+
+::: {.key}
+$$
+w = \frac{P_2 v_2 - P_1 v_1}{n - 1} \qquad (n \neq 1)
+$$ {#eq-ch3-wpoly}
+:::
+
+For $n = 1$ the formula above breaks down (division by zero).
+
+::: {.gap height="18mm" hint="$n = 1$ is the isothermal process: $P_1v_1 = P_2v_2 = Pv$; now $\int \mathrm{d}x/x = \ln(x_2/x_1)$."}
+$n = 1$ is the **isothermal** process (for an ideal gas), $P_1 v_1 = P_2 v_2 = Pv$,
+and with $\int_{x_1}^{x_2}\frac{\mathrm{d}x}{x} = \ln\frac{x_2}{x_1}$:
+$$
+w = -Pv\int_{v_1}^{v_2}\frac{\mathrm{d}v}{v} = -Pv\ln\!\left(\frac{v_2}{v_1}\right)
+$$
+:::
+
+::: {.key}
+$$
+w = -Pv\ln\!\left(\frac{v_2}{v_1}\right) \qquad (n = 1)
+$$ {#eq-ch3-wiso}
+:::
+
+::: {.example}
+A gas in a piston–cylinder assembly undergoes a reversible polytropic process.
+The initial pressure is 3 bar, the initial volume is $0.1~\mathrm{m^3}$, and the
+final volume is $0.2~\mathrm{m^3}$. Determine the work for the process, in kJ,
+if (a) $n = 1.5$, (b) $n = 1$, and (c) $n = 0$.
+
+![](figures/img/ch3-polytropic-piston.png){width=40%}
+
+**Step 1.** *(a) @eq-ch3-wpoly needs $P_2$. Find it from $PV^{n} = \text{const}$.*
+
+::: {.gap height="14mm" hint="$P_2 = P_1(V_1/V_2)^n = 3 \times 0.5^{1.5} = 1.061$ bar."}
+$$
+P_1V_1^{n} = P_2V_2^{n}
+\;\Rightarrow\;
+P_2 = P_1\left(\frac{V_1}{V_2}\right)^{n}
+= 3~\text{bar}\times\left(\frac{0.1}{0.2}\right)^{1.5} = 1.061~\text{bar}
+$$
+:::
+
+**Step 2.** *(a) Multiply @eq-ch3-wpoly by the mass to get the total work, and
+substitute in SI units.*
+
+::: {.gap height="18mm" hint="$W = (P_2V_2 - P_1V_1)/(n-1) = (21.21 - 30)/0.5 = -17.6$ kJ."}
+$$
+W = \frac{P_2V_2 - P_1V_1}{n - 1}
+= \frac{1.061\times10^{5}\times0.2 - 3\times10^{5}\times0.1}{1.5 - 1}~\mathrm{J}
+= \boxed{-17.6~\mathrm{kJ}}
+$$
+:::
+
+**Step 3.** *(b) $n = 1$: which formula applies now?*
+
+::: {.gap height="16mm" hint="$W = -P_1V_1\ln(V_2/V_1) = -3\times10^4 \ln 2 = -20.8$ kJ."}
+$$
+W = -P_1V_1\ln\!\left(\frac{V_2}{V_1}\right)
+= -3\times10^{5}\times0.1\times\ln\!\left(\frac{0.2}{0.1}\right)~\mathrm{J}
+= \boxed{-20.8~\mathrm{kJ}}
+$$
+:::
+
+**Step 4.** *(c) $n = 0$: what kind of process is this?*
+
+::: {.gap height="14mm" hint="$n = 0$ is isobaric: $W = -P(V_2 - V_1) = -30$ kJ."}
+$n = 0$ is a constant-pressure process:
+$$
+W = -P\left(V_2 - V_1\right) = -3\times10^{5}\times\left(0.2 - 0.1\right)~\mathrm{J}
+= \boxed{-30~\mathrm{kJ}}
+$$
+:::
+
+**Step 5.** *All three are expansions between the same two volumes. Why do the
+magnitudes differ?*
+
+::: {.gap height="14mm" hint="All negative (expansion). The smaller $n$, the higher the pressure stays, so the larger the area under the path."}
+All three are negative, as expected for an expansion. The smaller $n$ is, the
+more slowly the pressure falls as the gas expands, so the larger the area under
+the path in the $P$–$V$ diagram: $|W_{n=0}| > |W_{n=1}| > |W_{n=1.5}|$.
+:::
+:::
+
+{{< pagebreak >}}
+
+## End-of-chapter problems {#sec-ch3-problems}
+
+::: {.tryfirst}
+Have a real go at every problem here before you look at a solution. Worked
+solutions are released after the lectures, but reading a solution is not the
+same as being able to produce one: the time you spend stuck on a problem is
+where most of the learning happens. Only once you have an answer of your own,
+or have tried every approach you can think of, check it against the solution,
+and compare the method, not just the final number.
+:::
+
+**P3.1 [easy].** Air is heated from 300 to 350 K at constant volume. Find the
+heat transfer per unit mass in kJ/kg. (Assume ideal gas and
+$c_v = 0.72~\mathrm{kJ/(kg\,K)}$.)
+
+**(a)** 8 &nbsp;&nbsp; **(b)** 24 &nbsp;&nbsp; **(c)** 48 &nbsp;&nbsp; **(d)** 36
+
+::: {.gap height="fill"}
+::: {.worked}
+For a constant-volume process:
+$$
+q_v = c_v\,\Delta T = 0.72~\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \times 50~\mathrm{K}
+= \boxed{36~\mathrm{kJ/kg}} \quad \text{(d)}
+$$
+:::
+:::
+
+**P3.2 [easy].** In the previous question (P3.1), find the heat transfer per
+unit mass in kJ/kg if the process is constant pressure (isobaric).
+($R = 287~\mathrm{J/(kg\,K)}$)
+
+**(a)** 100.6 &nbsp;&nbsp; **(b)** 50.35 &nbsp;&nbsp; **(c)** 20.9 &nbsp;&nbsp; **(d)** 10
+
+::: {.gap height="fill"}
+::: {.worked}
+For a constant-pressure process, $q_P = c_P\,\Delta T$, and for an ideal gas
+$c_P = c_v + R$:
+$$
+q_P = c_P\,\Delta T = \left(c_v + R\right)\Delta T
+= \left(0.72 + 0.287\right)\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \times 50~\mathrm{K}
+= \boxed{50.35~\mathrm{kJ/kg}} \quad \text{(b)}
+$$
+
+For a given $\Delta T$, $q_P > q_v$ because $c_P > c_v$.
+:::
+:::
+
+**P3.3 [easy].** A rigid container has 2 kg of nitrogen gas at 100 kPa, 1200 K
+that is heated to 1400 K. Find the heat transfer in kJ.
+($c_v = 0.745~\mathrm{kJ/(kg\,K)}$)
+
+![](figures/img/ch3-p-rigid-tank.png){width=36%}
+
+**(a)** 298 &nbsp;&nbsp; **(b)** 150 &nbsp;&nbsp; **(c)** 138 &nbsp;&nbsp; **(d)** 369
+
+::: {.gap height="fill"}
+::: {.worked}
+Since the container is **rigid**, the volume does not change during the
+process:
+$$
+Q = m\,c_v\,\Delta T
+= 2~\mathrm{kg} \times 0.745~\frac{\mathrm{kJ}}{\mathrm{kg\,K}} \times 200~\mathrm{K}
+= \boxed{298~\mathrm{kJ}} \quad \text{(a)}
+$$
+:::
+:::
+
+**P3.4 [medium].** As shown in the figure below, a gas contained within a
+piston–cylinder assembly, initially at a volume of $0.1~\mathrm{m^3}$, undergoes
+a constant-pressure expansion at 2 bar to a final volume of $0.12~\mathrm{m^3}$,
+while being slowly heated through the base. The increase in internal energy of
+the gas is 0.25 kJ. The piston and cylinder walls are fabricated from
+heat-resistant material, and the piston moves smoothly and slowly in the
+cylinder (assume a quasi-equilibrium expansion). The local atmospheric pressure
+is 1 bar. Evaluate the heat transfer magnitude through the base in kJ.
+
+![](figures/img/ch3-p-piston-base.png){width=46%}
+
+**(a)** 2.45 &nbsp;&nbsp; **(b)** 3.10 &nbsp;&nbsp; **(c)** 4.25 &nbsp;&nbsp; **(d)** 8.67
+
+::: {.gap height="fill"}
+::: {.worked}
+**Given:** $P = 2$ bar, $V_1 = 0.1~\mathrm{m^3}$, $V_2 = 0.12~\mathrm{m^3}$,
+$\Delta U = 0.25$ kJ; $Q = ?$
+
+This is a quasi-equilibrium process, so $P_\text{ext} \approx P$ and we have:
+$$
+W = -\int P\,\mathrm{d}V
+\;\xrightarrow{\ P\,=\,\text{const.}\ }\;
+W = -P\left(V_2 - V_1\right)
+= -2\times10^{5}~\mathrm{Pa}\times\left(0.02~\mathrm{m^3}\right)
+= -4\times10^{3}~\mathrm{J}
+$$
+
+From the energy equation:
+$$
+Q + W = \Delta U
+\quad\Rightarrow\quad
+Q = \Delta U - W = 0.25~\mathrm{kJ} + 4~\mathrm{kJ}
+= \boxed{4.25~\mathrm{kJ}} \quad \text{(c)}
+$$
+
+The atmospheric pressure is not needed: the gas pressure of 2 bar already
+balances the atmosphere and the weight of the piston.
+:::
+:::
+
+**P3.5 [medium].** A gas expands in a piston–cylinder assembly from
+$p_1 = 8$ bar, $V_1 = 0.02~\mathrm{m^3}$ to $p_2 = 2$ bar in a
+quasi-equilibrium process during which the relation between pressure and volume
+is $pV^{1.2} = \text{constant}$. The mass of the gas is 0.25 kg. If the specific
+internal energy of the gas decreases by 55 kJ/kg during the process, determine
+the heat transfer in kJ. Kinetic and potential energy effects are negligible.
+
+**(a)** 2.75 &nbsp;&nbsp; **(b)** 1.46 &nbsp;&nbsp; **(c)** 3.69 &nbsp;&nbsp; **(d)** 7.84
+
+::: {.gap height="fill"}
+::: {.worked}
+**Given:** $m = 0.25$ kg, $P_1 = 8$ bar, $V_1 = 0.02~\mathrm{m^3}$,
+$P_2 = 2$ bar, $PV^{1.2} = \text{constant}$, $\Delta u = -55$ kJ/kg.
+
+As the process is quasi-equilibrium, $P_\text{ext} \approx P$, so we have:
+$$
+W = -\int_{V_1}^{V_2} P_\text{ext}\,\mathrm{d}V = -\int_{V_1}^{V_2} P\,\mathrm{d}V
+  = -\int_{V_1}^{V_2}\frac{\text{Const.}}{V^{1.2}}\,\mathrm{d}V
+$$
+$$
+W = \frac{\text{Const.}}{0.2}\left(V_2^{-0.2} - V_1^{-0.2}\right)
+  = \frac{P_2V_2 - P_1V_1}{0.2}
+\qquad (\text{Const.} = PV^{1.2})
+$$
+
+The volume at the final state is
+$$
+V_2 = \left(\frac{P_1}{P_2}\right)^{1/1.2} V_1 = 4^{1/1.2}\times0.02 = 0.0635~\mathrm{m^3}
+$$
+thus
+$$
+W = \frac{\left(2\times10^{5}~\mathrm{Pa}\right)\left(0.0635~\mathrm{m^3}\right)
+        - \left(8\times10^{5}~\mathrm{Pa}\right)\left(0.02~\mathrm{m^3}\right)}{0.2}
+  = -16.5\times10^{3}~\mathrm{J} = -16.5~\mathrm{kJ}
+$$
+
+Now, to get the heat transfer, we use the energy equation (First Law):
+$$
+Q + W = \Delta U + \underbrace{\Delta KE}_{=\,0} + \underbrace{\Delta PE}_{=\,0}
+$$
+
+Solving for $Q$ and noting that $\Delta U = m\,\Delta u$:
+$$
+Q = m\,\Delta u - W
+= \left(0.25~\mathrm{kg}\right)\left(-55~\frac{\mathrm{kJ}}{\mathrm{kg}}\right) + 16.5~\mathrm{kJ}
+= \boxed{2.75~\mathrm{kJ}} \quad \text{(a)}
+$$
+
+A positive heat transfer: energy is transferred **to** the gas by heat.
+:::
+:::
+
+**P3.6 [medium].** A 250 litre rigid tank contains methane at 500 K,
+1500 kPa. It is now cooled down to 300 K. Find the heat transfer in kJ.
+(Assume ideal gas, $c_v = 1.736~\mathrm{kJ/(kg\,K)}$ and
+$R = 0.518~\mathrm{kJ/(kg\,K)}$.)
+
+**(a)** $-502.4$ &nbsp;&nbsp; **(b)** 367.8 &nbsp;&nbsp; **(c)** $-487.6$
+&nbsp;&nbsp; **(d)** 128
+
+::: {.gap height="fill"}
+::: {.worked}
+For a constant-volume process:
+$$
+Q = m\,c_v\,\Delta T \tag{I}
+$$
+
+We need to find the value of $m$. For an ideal gas:
+$$
+m = \frac{PV}{RT}
+  = \frac{1500\times10^{3}~\mathrm{Pa}\times250\times10^{-3}~\mathrm{m^3}}
+         {518~\mathrm{J/(kg\,K)}\times500~\mathrm{K}}
+  = 1.448~\mathrm{kg} \tag{II}
+$$
+
+From (I) and (II):
+$$
+Q = 1.448~\mathrm{kg}\times1.736~\frac{\mathrm{kJ}}{\mathrm{kg\,K}}
+    \times\left(300~\mathrm{K} - 500~\mathrm{K}\right)
+  = \boxed{-502.7~\mathrm{kJ}} \quad \text{(a)}
+$$
+
+Option (a), $-502.4$ kJ, is the same answer with the mass rounded down to
+1.447 kg.
+:::
+:::
+
+**P3.7 [medium].** A piston–cylinder contains air at 600 kPa, 290 K and a
+volume of $0.01~\mathrm{m^3}$. In a reversible constant-pressure process, the
+system does 18 kJ of work. Find the amount of heat transfer in kJ. (Assume ideal
+gas, $R = 287~\mathrm{J/(kg\,K)}$ and $c_P = 1000~\mathrm{J/(kg\,K)}$.)
+
+**(a)** 62.7 &nbsp;&nbsp; **(b)** 35.6 &nbsp;&nbsp; **(c)** 128.9 &nbsp;&nbsp; **(d)** 26.9
+
+::: {.gap height="fill"}
+::: {.worked}
+**Given:** $P_1 = P_2 = 600$ kPa, $T_1 = 290$ K, $V_1 = 0.01~\mathrm{m^3}$,
+$W = -18$ kJ, $c_P = 1000~\mathrm{J/(kg\,K)}$; $Q = ?$
+
+First, we find the value of $V_2$ using the work relationship:
+$$
+W = -\int_{V_1}^{V_2} P_\text{ext}\,\mathrm{d}V
+\;\xrightarrow{\ \text{reversible process}\ }\;
+W = -\int_{V_1}^{V_2} P\,\mathrm{d}V
+\;\xrightarrow{\ P\,=\,\text{const.}\ }\;
+W = -P\,\Delta V
+$$
+$$
+-18\times10^{3}~\mathrm{J} = -600\times10^{3}~\mathrm{Pa}\left(V_2 - 0.01~\mathrm{m^3}\right)
+\quad\Rightarrow\quad
+V_2 = 0.04~\mathrm{m^3}
+$$
+
+From the ideal-gas equation, we can find the air mass:
+$$
+m = \frac{P_1V_1}{RT_1}
+  = \frac{600\times10^{3}\times0.01~\mathrm{m^3}}{287~\mathrm{J/(kg\,K)}\times290~\mathrm{K}}
+  = 0.0721~\mathrm{kg}
+$$
+
+We can also find $T_2$:
+$$
+PV = mRT \;\xrightarrow{\ P\,=\,\text{const.}\ }\;
+\frac{V_1}{T_1} = \frac{V_2}{T_2}
+\;\Rightarrow\;
+T_2 = \left(\frac{V_2}{V_1}\right)T_1
+    = \left(\frac{0.04~\mathrm{m^3}}{0.01~\mathrm{m^3}}\right)290~\mathrm{K}
+    = 1160~\mathrm{K}
+$$
+
+Now we can determine $Q$. For a constant-pressure process:
+$$
+Q_P = m\,c_P\,\Delta T
+    = 0.0721~\mathrm{kg}\times1000~\frac{\mathrm{J}}{\mathrm{kg\,K}}\times870~\mathrm{K}
+    = 6.27\times10^{4}~\mathrm{J} = \boxed{62.7~\mathrm{kJ}} \quad \text{(a)}
+$$
+:::
+:::
+
+**P3.8 [medium].** A constant-pressure piston/cylinder contains 0.5 kg air at
+300 K, 400 kPa. The system is heated to 1600 K. Find the magnitude of heat
+transfer and its ratio to the work magnitude $|q/w|$. (Assume ideal gas and
+$c_P = 1000~\mathrm{J/(kg\,K)}$.)
+
+**(a)** 650 kJ, $c_v/R$ &nbsp;&nbsp; **(b)** 350 kJ, 1 &nbsp;&nbsp;
+**(c)** 650 kJ, $(1 + c_v/R)$ &nbsp;&nbsp; **(d)** 350 kJ, $c_v/R$
+
+::: {.gap height="fill"}
+::: {.worked}
+For a constant-pressure process:
+$$
+Q_P = m\,c_P\,\Delta T
+    = 0.5~\mathrm{kg}\times1000~\frac{\mathrm{J}}{\mathrm{kg\,K}}\times1300~\mathrm{K}
+    = 65\times10^{4}~\mathrm{J} = 650~\mathrm{kJ}
+$$
+
+Work in a reversible constant-pressure process, using $P\,\Delta V = mR\,\Delta T$
+for an ideal gas:
+$$
+W = -P\,\Delta V
+\;\xrightarrow{\ \text{ideal gas}\ }\;
+W = -mR\,\Delta T
+\;\Rightarrow\;
+|W| = mR\,\Delta T
+$$
+
+Therefore
+$$
+\left|\frac{Q}{W}\right| = \left|\frac{q}{w}\right|
+= \frac{m\,c_P\,\Delta T}{m R\,\Delta T} = \frac{c_P}{R}
+= \frac{R + c_v}{R} = 1 + \frac{c_v}{R}
+$$
+
+$$
+\boxed{650~\mathrm{kJ},\;\; 1 + \frac{c_v}{R}} \quad \text{(c)}
+$$
+:::
+:::
+
+**P3.9 [medium].** A sealed chamber of $1~\mathrm{m^3}$ in volume is divided
+into two halves by an impermeable diaphragm. Initially air at 20 °C and 1 bar is
+contained in one half, and the other half is evacuated (i.e. total vacuum). The
+diaphragm is removed, and the air is allowed to fill the whole chamber. What is
+the final temperature (in Celsius) and pressure (bar) of the air? Assume ideal
+gas behaviour and no heat exchange across the walls.
+
+*Hint: you can first write the energy equation to find the change in internal
+energy during this process. Then, you can try to relate this change to the
+change in temperature. Once the final temperature is found, you should be able
+to find the final pressure using the ideal-gas equation.*
+
+**(a)** 10, 1 &nbsp;&nbsp; **(b)** 20, 0.5 &nbsp;&nbsp; **(c)** 20, 2
+&nbsp;&nbsp; **(d)** 20, 0.5
+
+::: {.gap height="fill"}
+::: {.worked}
+State 1: 1 bar, 20 °C in one half, vacuum in the other. State 2: the whole
+chamber, $P = ?$, $T = ?$
+
+According to the energy equation, $Q + W = \Delta U$. Both $Q$ and $W$ are
+zero. Note that the latter is zero because $P_\text{ext} = 0$ (free expansion).
+Therefore:
+$$
+\Delta U = 0 \tag{I}
+$$
+
+For air as an ideal gas:
+$$
+\Delta U = m\,c_v\,\Delta T \tag{II}
+$$
+
+From (I) and (II):
+$$
+\Delta T = 0 \quad\Rightarrow\quad T_2 = T_1 = 20~^\circ\mathrm{C}
+$$
+
+Also, $PV = mRT$, and both $m$ and $T$ do not change during the process, so:
+$$
+P_1V_1 = P_2V_2
+\quad\Rightarrow\quad
+P_2 = \left(\frac{V_1}{V_2}\right)P_1 = 0.5\times1~\text{bar} = 0.5~\text{bar}
+$$
+
+$$
+\boxed{20~^\circ\mathrm{C},\;\; 0.5~\text{bar}} \quad \text{(b)}
+$$
+
+(Options (b) and (d) are identical.)
+:::
+:::
+
+**P3.10 [medium].** Air in a piston cylinder is at 1800 K, 7 MPa and expands in
+a reversible polytropic process with $n = 1.5$ to a volume 8 times larger. Find
+the heat transfer per unit mass in kJ/kg during this process. Assume air is an
+ideal gas with $c_v = 0.717~\mathrm{kJ/(kg\,K)}$ and
+$R = 0.287~\mathrm{kJ/(kg\,K)}$.
+
+**(a)** $-278.8$ &nbsp;&nbsp; **(b)** 356.9 &nbsp;&nbsp; **(c)** 487.2
+&nbsp;&nbsp; **(d)** $-166.4$
+
+::: {.gap height="fill"}
+::: {.worked}
+**Given:** $P_1 = 7$ MPa, $T_1 = 1800$ K, $v_1 = ?$; $v_2 = 8v_1$, $P_2 = ?$,
+$T_2 = ?$
+
+Use the ideal-gas equation to find $v_1$:
+$$
+v_1 = \frac{RT_1}{P_1}
+    = \frac{287~\mathrm{J/(kg\,K)}\times1800~\mathrm{K}}{7\times10^{6}~\mathrm{Pa}}
+    = 0.0738~\mathrm{m^3/kg}
+$$
+
+For a polytropic process with $n = 1.5$, $P_1v_1^{1.5} = P_2v_2^{1.5}$:
+$$
+P_2 = P_1\left(\frac{v_1}{v_2}\right)^{n}
+    = 7\times10^{6}~\mathrm{Pa}\times\left(\frac{1}{8}\right)^{1.5}
+    = 3.09\times10^{5}~\mathrm{Pa}
+$$
+
+Now we can calculate the work per unit mass:
+$$
+w = \frac{P_2v_2 - P_1v_1}{n - 1}
+  = \frac{3.09\times10^{5}\times8\times0.0738 - 7\times10^{6}\times0.0738}{1.5 - 1}
+  = -6.679\times10^{5}~\mathrm{J/kg}
+$$
+
+To find the heat transfer, we can use the energy equation, with
+$\Delta u = c_v\,\Delta T$ for an ideal gas and $T = Pv/R$:
+$$
+q + w = u_2 - u_1
+\;\xrightarrow{\ \text{ideal gas}\ }\;
+q + w = c_v\left(T_2 - T_1\right) = \frac{c_v}{R}\left(P_2v_2 - P_1v_1\right)
+$$
+$$
+q - 6.679\times10^{5}~\frac{\mathrm{J}}{\mathrm{kg}}
+= \frac{717}{287}\left(3.09\times10^{5}\times8\times0.0738
+  - 7\times10^{6}\times0.0738\right)\frac{\mathrm{J}}{\mathrm{kg}}
+= -8.343\times10^{5}~\frac{\mathrm{J}}{\mathrm{kg}}
+$$
+$$
+q = -1.664\times10^{5}~\mathrm{J/kg} = \boxed{-166.4~\mathrm{kJ/kg}} \quad \text{(d)}
+$$
+:::
+:::
+
+**P3.11 [medium].** A piston cylinder contains 0.1 kg air at 300 K and
+100 kPa. The air is now slowly compressed in a reversible isothermal process to
+a final pressure of 250 kPa. Show the process in a $PV$ diagram and find the
+heat transfer in kJ in the process. (Air is an ideal gas with
+$R = 287~\mathrm{J/(kg\,K)}$.)
+
+**(a)** $-7.89$ &nbsp;&nbsp; **(b)** 3.69 &nbsp;&nbsp; **(c)** $-2.6$
+&nbsp;&nbsp; **(d)** 7.89
+
+::: {.gap height="fill"}
+::: {.worked}
+In an isothermal process (i.e. a polytropic process with $n = 1$) for an ideal
+gas, the pressure rises along $PV = mRT = \text{const}$ as the volume falls,
+from $V_1 = mRT/P_1 = 0.086~\mathrm{m^3}$ to
+$V_2 = mRT/P_2 = 0.034~\mathrm{m^3}$:
+
+![](figures/out/ch3-p-isothermal-sol.svg){width=52%}
+
+The work is
+$$
+W = -P_1V_1\ln\frac{V_2}{V_1}
+\;\xrightarrow{\ \text{ideal gas: } P_1V_1\,=\,mRT\ }\;
+W = -mRT\ln\!\left(\frac{V_2}{V_1}\right) \tag{I}
+$$
+
+For the isothermal process, $P_1V_1 = mRT$ and $P_2V_2 = mRT$, so
+$$
+\frac{V_2}{V_1} = \frac{P_1}{P_2} \tag{II}
+$$
+
+From (I) and (II):
+$$
+W = -mRT_1\ln\!\left(\frac{P_1}{P_2}\right)
+  = -0.1~\mathrm{kg}\times287~\frac{\mathrm{J}}{\mathrm{kg\,K}}\times300~\mathrm{K}
+    \times\ln\!\left(\frac{100~\mathrm{kPa}}{250~\mathrm{kPa}}\right)
+  = 7.89\times10^{3}~\mathrm{J}
+$$
+
+From the energy equation for an ideal gas, with $\Delta T = 0$ ($T$ constant):
+$$
+Q + W = \Delta U = m\,c_v\,\underbrace{\Delta T}_{=\,0}
+\quad\Rightarrow\quad
+Q = -W = \boxed{-7.89~\mathrm{kJ}} \quad \text{(a)}
+$$
+:::
+:::

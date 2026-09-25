@@ -1,0 +1,16 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% what can move a state left or right on a T-s diagram
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[axisline] (0,0) -- (5.2,0) node[right, lbl] {$s$};
+  \draw[axisline] (0,0) -- (0,3.4) node[above, lbl] {$T$};
+  \draw[duGrey, line width=0.8pt] (2.5,0.5) -- (2.5,3.0);
+  \node[statedot] at (2.5,1.8) {};
+  \draw[-{Stealth[length=2.8mm]}, line width=1.2pt, duBlue] (2.2,1.8) -- (0.9,1.8);
+  \draw[-{Stealth[length=2.8mm]}, line width=1.2pt, duRed] (2.8,1.8) -- (4.1,1.8);
+  \node[lbl, duBlue, above] at (1.55,1.9) {$Q < 0$};
+  \node[lbl, duRed, above] at (3.45,1.9) {$Q > 0$};
+  \node[lbl, duRed, below] at (3.45,1.7) {$S_\text{gen}$};
+\end{tikzpicture}
+\end{document}

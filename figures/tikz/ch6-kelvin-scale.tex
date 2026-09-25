@@ -1,0 +1,16 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Kelvin scale: |Q|_rev is proportional to T; Q_C -> 0 at absolute zero
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[axisline] (0,0) -- (6,0) node[right, lbl] {$T$};
+  \draw[axisline] (0,0) -- (0,4.2) node[above, lbl] {$|Q|_\text{rev}$};
+  \draw[path1] (0,0) -- (5.4,3.78);
+  \draw[duRed, dashed] (4.6,0) node[below, lbl] {$T_H$} -- (4.6,3.22) -- (0,3.22) node[left, lbl] {$|Q_H|$};
+  \draw[duBlue, dashed] (1.7,0) node[below, lbl] {$T_C$} -- (1.7,1.19) -- (0,1.19) node[left, lbl] {$|Q_C|$};
+  \node[statedot, fill=duRed] at (4.6,3.22) {};
+  \node[statedot, fill=duBlue] at (1.7,1.19) {};
+  \node[statedot] at (0,0) {};
+  \draw[-{Stealth[length=2.4mm]}, duGrey, line width=0.8pt] (1.4,-0.9) node[right, slbl] {absolute zero: $|Q_C| \to 0$} -- (0.12,-0.12);
+\end{tikzpicture}
+\end{document}

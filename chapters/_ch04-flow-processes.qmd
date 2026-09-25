@@ -1,0 +1,864 @@
+# Flow Processes (Open Systems) {#sec-ch4}
+
+::: {.objectives}
+By the end of this chapter, you should be able to:
+
+- Demonstrate key concepts related to open systems (e.g. **steady-state** vs.
+  **transient**, **mass flow rate**, and **flow work**).
+- Apply **mass** and **energy** balances to open systems.
+- Analyse different open systems such as **nozzles**, **diffusers**,
+  **turbines**, **compressors** and **boilers**.
+:::
+
+## Introduction
+
+In previous chapters, we developed the energy equation for a **closed system**
+(i.e. a control mass), which exchanges only *energy* with its surroundings.
+Many applications in thermodynamics, however, are regarded as open systems. An
+**open system** (also called a **control volume**, or simply **CV**) is a
+system that freely exchanges both **energy** and **mass** with its
+surroundings.
+
+![A jet engine and a dam spillway are open systems: the red dashed line marks a control volume that the fluid flows through. Heat, work *and mass* cross the boundary of an open system.](figures/img/ch4-open-systems.png){width=92%}
+
+### Steady-state vs. transient conditions
+
+Many engineering systems (e.g. turbines, compressors, nozzles, boilers and
+condensers) can be idealised as being **steady state**, meaning that the
+conditions of the system (e.g. its total mass and energy) **do NOT vary with
+time**.
+
+![Fluid flows in and out of the control volume (dashed), but at steady state the amount of mass and energy inside it stays the same.](figures/img/ch4-steady-cv.png){width=36%}
+
+::: {.key}
+$$
+\text{Steady-state condition:}\qquad
+\frac{\mathrm{d}E_{cv}}{\mathrm{d}t} = 0, \qquad
+\frac{\mathrm{d}m_{cv}}{\mathrm{d}t} = 0
+$$
+$$
+\text{Transient condition:}\qquad
+\frac{\mathrm{d}(\;)_{cv}}{\mathrm{d}t} \neq 0
+$$
+:::
+
+## Conservation of mass (continuity equation)
+
+The **conservation of mass** principle for a control volume states that:
+
+$$
+\begin{bmatrix}\text{rate of mass change}\\ \text{within the control volume}\end{bmatrix}
+=
+\begin{bmatrix}\text{rate of mass}\\ \text{flux at inlet}\end{bmatrix}
+-
+\begin{bmatrix}\text{rate of mass}\\ \text{flux at exit}\end{bmatrix}
+$$
+
+![Mass enters the control volume at inlet $i$ at the rate $\dot{m}_i$ and leaves at exit $e$ at the rate $\dot{m}_e$.](figures/img/ch4-mass-balance-cv.png){width=36%}
+
+::: {.key}
+$$
+\frac{\mathrm{d}m_{cv}}{\mathrm{d}t} = \dot{m}_i - \dot{m}_e
+$$
+where $\dot{m}_i$ and $\dot{m}_e$ are the **mass flow rates** at the inlet and
+the exit, in kg/s.
+:::
+
+### Mass flow rate
+
+We can obtain a mathematical expression for the mass flow rate $\dot{m}$
+entering or exiting a control volume in terms of fluid local properties.
+
+![In a time $\mathrm{d}t$, a slice of fluid of mass $\mathrm{d}m$, cross-sectional area $A$ and thickness $\mathrm{d}x$ (volume $\mathrm{d}V$) flows into the control volume.](figures/img/ch4-mass-flow-element.png){width=44%}
+
+::: {.gap height="14mm" hint="Mass of the slice: $\mathrm{d}m = \rho\,\mathrm{d}V = \rho A\,\mathrm{d}x$; the velocity is $C = \mathrm{d}x/\mathrm{d}t$."}
+The mass of the slice, and the velocity of the fluid, are
+$$
+\mathrm{d}m = \rho\,\mathrm{d}V = \rho A\,\mathrm{d}x,
+\qquad
+C = \frac{\mathrm{d}x}{\mathrm{d}t}\;\;\text{(velocity)}
+$$
+:::
+
+::: {.gap height="16mm" hint="Divide by $\mathrm{d}t$: $\dot{m} = \rho A\,\mathrm{d}x/\mathrm{d}t = \rho A C$."}
+Dividing by $\mathrm{d}t$:
+$$
+\frac{\mathrm{d}m}{\mathrm{d}t} = \dot{m}
+= \rho A \underbrace{\frac{\mathrm{d}x}{\mathrm{d}t}}_{C}
+= \rho A C
+$$
+:::
+
+::: {.gap height="12mm" hint="With $\rho = 1/v$: $\dot{m} = AC/v$."}
+and since $\rho = 1/v$,
+$$
+\dot{m} = \frac{AC}{v}
+$$
+:::
+
+::: {.key}
+$$
+\dot{m} = \rho A C = \frac{AC}{v}
+$$ {#eq-ch4-mdot}
+:::
+
+::: {.example}
+A gas is flowing into a 1-m-diameter pipe at a uniform velocity of 10 m/s. The
+temperature is 27 °C and the pressure is 100 kPa. Determine the mass flow rate.
+(Assume ideal gas with $R = 200~\mathrm{J/(kg\,K)}$.)
+
+**Step 1.** *To use $\dot{m} = AC/v$ you need the specific volume. Which
+equation gives $v$ from $P$ and $T$? Remember to use kelvin.*
+
+::: {.gap height="18mm" hint="$Pv = RT$: $v = RT/P = 200 \times 300/(100\times10^3) = 0.6~\mathrm{m^3/kg}$."}
+Ideal gas, with $T = 27 + 273 = 300$ K:
+$$
+Pv = RT
+\quad\Rightarrow\quad
+v = \frac{RT}{P}
+  = \frac{200~\mathrm{J/(kg\,K)} \times 300~\mathrm{K}}{100\times10^{3}~\mathrm{Pa}}
+  = 0.6~\mathrm{m^3/kg}
+$$
+:::
+
+**Step 2.** *Now the area of the pipe, and @eq-ch4-mdot.*
+
+::: {.gap height="20mm" hint="$\dot{m} = AC/v = (\pi/4)(1)^2 \times 10/0.6 = 100\pi/24 \approx 13.1$ kg/s."}
+With $D = 1$ m and $C = 10$ m/s:
+$$
+\dot{m} = \frac{AC}{v}
+= \frac{\tfrac{\pi}{4}\,(1~\mathrm{m})^{2} \times 10~\mathrm{m/s}}{0.6~\mathrm{m^3/kg}}
+= \frac{100\pi}{24}~\mathrm{kg/s}
+\approx \boxed{13.1~\mathrm{kg/s}}
+$$
+:::
+:::
+
+### Steady-state form of mass conservation
+
+For a steady-state condition, the total amount of matter within the control
+volume remains constant. In general, with several inlets and exits,
+
+$$
+\frac{\mathrm{d}m_{cv}}{\mathrm{d}t} = \sum \dot{m}_i - \sum \dot{m}_e
+$$
+
+::: {.gap height="12mm" hint="Steady state: $\mathrm{d}m_{cv}/\mathrm{d}t = 0$, so what flows in flows out."}
+At steady state $\mathrm{d}m_{cv}/\mathrm{d}t = 0$, so
+$$
+\sum \dot{m}_i = \sum \dot{m}_e
+$$
+:::
+
+::: {.gap height="10mm" hint="Only one inlet and one outlet: $\dot{m}_i = \dot{m}_e = \dot{m}$."}
+With only **one inlet** and **one outlet**:
+$$
+\dot{m}_i = \dot{m}_e = \dot{m}
+$$
+:::
+
+::: {.key}
+$$
+\text{Steady state:}\qquad \sum \dot{m}_i = \sum \dot{m}_e
+\qquad\xrightarrow{\ \text{one inlet/outlet}\ }\qquad
+\dot{m}_i = \dot{m}_e = \dot{m}
+$$
+:::
+
+## Conservation of energy for a control volume
+
+The conservation of energy applied to a control volume (an open system) states:
+
+$$
+\begin{bmatrix}\text{rate of energy}\\ \text{change within the}\\ \text{control volume}\end{bmatrix}
+=
+\begin{bmatrix}\text{net rate of energy}\\ \text{transfer by heat}\end{bmatrix}
++
+\begin{bmatrix}\text{net rate of energy}\\ \text{transfer by work}\end{bmatrix}
++
+\begin{bmatrix}\text{net rate of energy}\\ \text{transfer by mass fluxes}\end{bmatrix}
+$$
+
+![](figures/img/ch4-energy-cv.png){width=50%}
+
+Each unit of mass crossing the boundary carries its own energy with it: internal,
+kinetic and potential, $u + \tfrac{1}{2}C^{2} + gz$ per kg (CH2).
+
+::: {.gap height="20mm" hint="Over a short time: $\mathrm{d}E_{cv} = \delta Q + \delta W$ + energy carried in by $\mathrm{d}m_i$ $-$ energy carried out by $\mathrm{d}m_e$."}
+Over a short time interval, a mass $\mathrm{d}m_i$ enters and a mass
+$\mathrm{d}m_e$ leaves:
+$$
+\mathrm{d}E_{cv} = \delta Q + \delta W
++ \underbrace{\mathrm{d}m_i\left(u_i + \tfrac{1}{2}C_i^{2} + g z_i\right)
+- \mathrm{d}m_e\left(u_e + \tfrac{1}{2}C_e^{2} + g z_e\right)}_{\text{energy by mass fluxes}}
+$$
+:::
+
+::: {.gap height="12mm" hint="Divide by $\mathrm{d}t$ to get rates."}
+Dividing by $\mathrm{d}t$ gives the rate form below.
+:::
+
+::: {.key}
+$$
+\frac{\mathrm{d}E_{cv}}{\mathrm{d}t} = \dot{Q} + \dot{W}
++ \dot{m}_i\left(u_i + \tfrac{1}{2}C_i^{2} + g z_i\right)
+- \dot{m}_e\left(u_e + \tfrac{1}{2}C_e^{2} + g z_e\right)
+$$
+:::
+
+### Flow work
+
+Consider a fluid element entering the control volume. The flow immediately
+upstream will force this fluid element to enter the control volume, and can be
+regarded as an *imaginary piston*. In other words, **flow work** is the work
+**done by the surroundings** *at the inlet* to push the fluid element into
+the control volume. Likewise, work is **done by the system** *at the exit*
+to push the fluid element out of the control volume into the surroundings.
+
+![The fluid just upstream acts as an imaginary piston that pushes a fluid element (red) into the control volume; at the exit the fluid in the control volume pushes an element out.](figures/img/ch4-flow-work.png){width=80%}
+
+The work of the imaginary piston is expansion/compression work,
+$\delta W = -P\,\mathrm{d}V$ (CH2).
+
+::: {.gap height="18mm" hint="Inlet: the element of mass $\mathrm{d}m_i$ is pushed in, so the volume outside shrinks: $\mathrm{d}V_i = -v_i\,\mathrm{d}m_i$, and $\delta W_i = -P_i\,\mathrm{d}V_i = P_i v_i\,\mathrm{d}m_i$."}
+At the inlet, an element of mass $\mathrm{d}m_i$ is pushed in, so the volume on
+the upstream side decreases by $\mathrm{d}V_i = -v_i\,\mathrm{d}m_i$:
+$$
+\delta W_i = -P_i\,\mathrm{d}V_i = P_i v_i\,\mathrm{d}m_i
+$$
+:::
+
+::: {.gap height="16mm" hint="Divide by $\mathrm{d}t$: $\dot{W}_i = P_i v_i \dot{m}_i$."}
+$$
+\dot{W}_i = P_i v_i \frac{\mathrm{d}m_i}{\mathrm{d}t} = P_i v_i \dot{m}_i
+$$
+:::
+
+::: {.gap height="16mm" hint="Exit: the element is pushed OUT, $\mathrm{d}V_e = v_e\,\mathrm{d}m_e$, so the work has the opposite sign: $\dot{W}_e = -P_e v_e \dot{m}_e$."}
+At the exit the element is pushed *out* by the system,
+$\mathrm{d}V_e = +v_e\,\mathrm{d}m_e$, so
+$$
+\dot{W}_e = -P_e v_e \dot{m}_e
+$$
+:::
+
+::: {.key}
+$$
+\dot{W}_f = \dot{W}_i + \dot{W}_e = \dot{m}_i P_i v_i - \dot{m}_e P_e v_e
+\qquad\text{(flow work rate)}
+$$
+:::
+
+It is convenient to separate the **total work rate $\dot{W}$** into *two
+contributions*: (i) the **flow work rate** $\dot{W}_f$ associated with the mass
+fluxes at inlets and outlets, and (ii) all other work rates, denoted by
+$\dot{W}_{CV}$, due to interaction with external sources, such as those
+associated with rotating shafts, displacement of the boundary, and electrical
+work.
+
+::: {.key}
+$$
+\dot{W} = \underbrace{\dot{W}_f}_{\text{flow work}}
++ \underbrace{\dot{W}_{CV}}_{\text{piston, shaft, electrical}}
+$$
+:::
+
+![A control volume can exchange work through a moving boundary (piston) and a rotating shaft (paddle), as well as flow work at its inlet and outlet.](figures/img/ch4-work-types.png){width=38%}
+
+### Final form of the energy equation for a control volume
+
+Substituting the flow work rate $\dot{W}_f$ into the energy equation results in:
+
+$$
+\frac{\mathrm{d}E_{CV}}{\mathrm{d}t} = \dot{Q}_{CV} + \dot{W}_{CV}
++ \underbrace{\dot{m}_i P_i v_i - \dot{m}_e P_e v_e}_{\text{flow work}}
++ \dot{m}_i\left(u_i + \tfrac{1}{2}C_i^{2} + g z_i\right)
+- \dot{m}_e\left(u_e + \tfrac{1}{2}C_e^{2} + g z_e\right)
+$$
+
+Recall the **enthalpy** from CH3, a property that combines the internal energy
+with the product $Pv$:
+
+::: {.key}
+$$
+h = u + P v
+$$
+:::
+
+::: {.gap height="12mm" hint="Steady state: $\mathrm{d}E_{cv}/\mathrm{d}t = 0$."}
+**Steady state:**
+$$
+\frac{\mathrm{d}E_{cv}}{\mathrm{d}t} = 0
+$$
+:::
+
+::: {.gap height="18mm" hint="Group each flow-work term with the internal energy at the same port: $\dot{m}_i(P_iv_i + u_i) = \dot{m}_i h_i$, and the same at $e$."}
+The flow work combines with the internal energy at each port into the enthalpy:
+$$
+\dot{m}_i\left(P_i v_i + u_i\right) = \dot{m}_i h_i,
+\qquad
+\dot{m}_e\left(P_e v_e + u_e\right) = \dot{m}_e h_e
+$$
+:::
+
+::: {.gap height="16mm" hint="One inlet/outlet: $\mathrm{d}m_{cv}/\mathrm{d}t = 0$ so $\dot{m}_i = \dot{m}_e = \dot{m}$; take out $\dot{m}$ and move the heat and work to the left."}
+**One inlet/outlet:** $\mathrm{d}m_{cv}/\mathrm{d}t = 0$, so
+$\dot{m}_i = \dot{m}_e = \dot{m}$. Taking $\dot{m}$ out as a common factor and
+rearranging gives the equation below.
+:::
+
+::: {.key}
+**Steady Flow Energy Equation (SFEE):**
+$$
+\dot{Q}_{CV} + \dot{W}_{CV}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right)
++ g\left(z_e - z_i\right)\right]
+$$ {#eq-ch4-sfee}
+:::
+
+::: {.note}
+The **Steady Flow Energy Equation (SFEE)** is the basic equation for studying
+most *open systems* in thermodynamics.
+:::
+
+::: {.warning}
+Do NOT confuse the *SFEE for open systems* with the *energy equation for closed
+systems*.
+:::
+
+**Open systems (flow processes):**
+$$
+\dot{Q}_{CV} + \dot{W}_{CV}
+= \dot{m}\left[\underbrace{\left(h_e - h_i\right)}_{\text{enthalpy}}
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+$$
+
+**Closed systems (non-flow processes):**
+$$
+Q + W = \Delta E
+= m\left[\underbrace{\left(u_2 - u_1\right)}_{\text{internal energy}}
++ \tfrac{1}{2}\left(C_2^{2} - C_1^{2}\right) + g\left(z_2 - z_1\right)\right]
+$$
+
+| | Open systems (flow processes) | Closed systems (non-flow processes) |
+|:--|:--|:--|
+| Property in the equation | enthalpy, $h$ | internal energy, $u$ |
+| Each term is | a **rate** of energy [J/s] | an **amount** (form) of energy [J] |
+| Applies to | a **steady** state, $\mathrm{d}E/\mathrm{d}t = 0$ | an **unsteady** process, from state 1 to state 2 |
+
+::: {layout-ncol=2}
+![Open system: fluid flows through from $i$ to $e$, and nothing inside changes with time.](figures/img/ch4-open-sketch.png){width=62%}
+
+![Closed system: the same mass goes from state 1 to state 2.](figures/img/ch4-closed-sketch.png){width=80%}
+:::
+
+## Examples of steady-state flow processes
+
+### Nozzles and diffusers
+
+A **nozzle** is a flow passage in which the velocity of a gas or liquid
+*increases* in the direction of flow. In a **diffuser**, the gas or liquid
+velocity *decreases* in the direction of flow.
+
+![](figures/img/ch4-nozzle-diffuser.png){width=58%}
+
+| Nozzle | Diffuser |
+|:--|:--|
+| $A_e < A_i$ | $A_e > A_i$ |
+| $C_e > C_i$ | $C_e < C_i$ |
+
+SFEE equation:
+$$
+\dot{Q}_{cv} + \dot{W}_{cv}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+$$
+
+::: {.gap height="20mm" hint="Nozzle/diffuser: $\dot{Q}_{cv} \approx 0$ (fast flow, little time for heat transfer), $\dot{W}_{cv} = 0$ (no shaft), $z_e \approx z_i$."}
+In a nozzle or a diffuser there is little heat transfer, $\dot{Q}_{cv} \approx 0$;
+there is no shaft or moving boundary, $\dot{W}_{cv} = 0$; and the change of
+height is negligible, $g(z_e - z_i) \approx 0$. With $\dot{m} \neq 0$:
+$$
+\left(h_e - h_i\right) + \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) \approx 0
+$$
+:::
+
+::: {.gap height="12mm" hint="Mass balance, one inlet/outlet: $\dot{m}_i = \dot{m}_e$, with $\dot{m} = \rho A C$."}
+And from conservation of mass, with $\dot{m} = \rho A C$:
+$$
+\dot{m}_i = \dot{m}_e
+\quad\Rightarrow\quad
+\rho_i A_i C_i = \rho_e A_e C_e
+$$
+:::
+
+::: {.key}
+$$
+\text{Nozzles and diffusers:}\qquad
+\left(h_e - h_i\right) + \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) \approx 0,
+\qquad
+\rho_i A_i C_i = \rho_e A_e C_e
+$$
+:::
+
+::: {.example}
+Gas at 200 K enters an insulated nozzle with a velocity of 10 m/s. It leaves
+the nozzle at a velocity of 600 m/s. Determine the final temperature. (Assume
+ideal gas with $c_p = 1000~\mathrm{J/(kg\,K)}$.)
+
+**Step 1.** *Start from the SFEE. Which terms vanish for an insulated nozzle?*
+
+::: {.gap height="18mm" hint="Insulated: $\dot{Q} \approx 0$; no work, $\dot{W} = 0$; $\Delta z \approx 0$. Left with (I): $(h_e - h_i) + \tfrac12(C_e^2 - C_i^2) = 0$."}
+Insulated, so $\dot{Q}_{cv} \approx 0$; no work, $\dot{W}_{cv} = 0$; and
+$z_e \approx z_i$:
+$$
+0 = \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right)\right] \tag{I}
+$$
+:::
+
+**Step 2.** *For an ideal gas, how is the change in enthalpy related to the
+change in temperature?*
+
+::: {.gap height="10mm" hint="Ideal gas: $h_e - h_i = c_p(T_e - T_i)$ (II)."}
+$$
+h_e - h_i = c_p\left(T_e - T_i\right) \tag{II}
+$$
+:::
+
+**Step 3.** *Combine (I) and (II): only $T_e$ is unknown.*
+
+::: {.gap height="22mm" hint="$c_p(T_e - T_i) = -\tfrac12(C_e^2 - C_i^2)$, so $T_e = 200 - (600^2 - 10^2)/2000 = 20.05$ K."}
+$$
+c_p\left(T_e - T_i\right) = -\tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right)
+\quad\Rightarrow\quad
+T_e = T_i - \frac{C_e^{2} - C_i^{2}}{2 c_p}
+    = 200 - \frac{600^{2} - 10^{2}}{2 \times 1000}
+    = \boxed{20.05~\mathrm{K}}
+$$
+The kinetic energy gained by the gas comes from its enthalpy, so the gas cools
+down a lot.
+:::
+:::
+
+### Turbines, pumps and compressors
+
+A **turbine** is a device in which work is developed as a result of a gas or
+liquid passing through a set of blades attached to a shaft.
+
+![A gas or steam turbine (left) and a hydraulic turbine (right).](figures/img/ch4-turbines.png){width=80%}
+
+**Compressors** are devices in which work is done on a **gas** passing
+through them in order to raise the pressure. In **pumps**, the work input is
+used to give energy to a **liquid** passing through.
+
+![A reciprocating compressor, an axial compressor and a centrifugal pump.](figures/img/ch4-compressors-pumps.png){width=88%}
+
+::: {.note}
+A turbine delivers work, so $\dot{W}_\text{turbine} < 0$. Pumps and compressors
+receive work, so $\dot{W}_\text{pump},\ \dot{W}_\text{compressor} > 0$.
+:::
+
+SFEE equation:
+$$
+\dot{Q}_{cv} + \dot{W}_{cv}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+$$
+
+::: {.gap height="18mm" hint="Turbines, pumps, compressors: $\dot{Q}_{cv} \approx 0$, $\Delta KE \approx 0$, $\Delta PE \approx 0$."}
+In turbines, pumps and compressors the heat transfer is usually small,
+$\dot{Q}_{cv} \approx 0$, and so are the changes of kinetic and potential
+energy, $\tfrac{1}{2}(C_e^{2} - C_i^{2}) \approx 0$ and
+$g(z_e - z_i) \approx 0$.
+:::
+
+::: {.key}
+$$
+\text{Turbines, pumps and compressors:}\qquad
+\dot{W}_{cv} \approx \dot{m}\left(h_e - h_i\right)
+$$
+:::
+
+::: {.example}
+The mass flow rate into a gas turbine is 1 kg/s. Determine the power output of
+the turbine if the gas temperature drops 200 K during this process. (Assume
+ideal gas and $c_p = 1000~\mathrm{J/(kg\,K)}$.)
+
+**Step 1.** *Which form does the SFEE take for a turbine?*
+
+::: {.gap height="10mm" hint="Turbine: $\dot{W}_{cv} = \dot{m}(h_e - h_i)$."}
+$$
+\dot{W}_{cv} = \dot{m}\left(h_e - h_i\right)
+$$
+:::
+
+**Step 2.** *Ideal gas: replace $\Delta h$ by $c_p \Delta T$. The temperature
+drops, so what is the sign of $\Delta T$?*
+
+::: {.gap height="20mm" hint="$\Delta h = c_p\Delta T$ with $\Delta T = -200$ K: $\dot{W}_{cv} = 1 \times 1000 \times (-200) = -2\times10^5$ W."}
+For an ideal gas $\Delta h = c_p\,\Delta T$, with $\Delta T = -200$ K:
+$$
+\dot{W}_{cv} = 1~\mathrm{kg/s} \times 10^{3}~\mathrm{J/(kg\,K)} \times (-200~\mathrm{K})
+= \boxed{-2\times10^{5}~\mathrm{J/s} = -200~\mathrm{kW}}
+$$
+$\dot{W}_{cv} < 0$: the turbine delivers 200 kW of power to the surroundings.
+:::
+:::
+
+### Heat exchangers
+
+Devices that transfer energy between fluids at different temperatures by heat
+transfer are called **heat exchangers**.
+
+![A boiler (left): the water in the tubes (green dashed control volume) receives heat, $\dot{Q} > 0$. A condenser (right): the steam gives heat to the cooling water, $\dot{Q} < 0$.](figures/img/ch4-heat-exchangers.png){width=90%}
+
+SFEE equation:
+$$
+\dot{Q}_{cv} + \dot{W}_{cv}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+$$
+
+::: {.gap height="16mm" hint="Heat exchangers: no shaft, $\dot{W}_{cv} = 0$; $\Delta KE \approx 0$; $\Delta PE \approx 0$."}
+A heat exchanger has no shaft or moving boundary, $\dot{W}_{cv} = 0$, and the
+changes of kinetic and potential energy are small,
+$\tfrac{1}{2}(C_e^{2} - C_i^{2}) \approx 0$ and $g(z_e - z_i) \approx 0$.
+:::
+
+::: {.key}
+$$
+\text{Heat exchangers:}\qquad
+\dot{Q}_{cv} \approx \dot{m}\left(h_e - h_i\right),
+\qquad
+\dot{Q} > 0 \text{ boilers}, \quad \dot{Q} < 0 \text{ condensers}
+$$
+:::
+
+{{< pagebreak >}}
+
+## End-of-chapter problems {#sec-ch4-problems}
+
+::: {.tryfirst}
+Have a real go at every problem here before you look at a solution. Worked
+solutions are released after the lectures, but reading a solution is not the
+same as being able to produce one: the time you spend stuck on a problem is
+where most of the learning happens. Only once you have an answer of your own,
+or have tried every approach you can think of, check it against the solution,
+and compare the method, not just the final number.
+:::
+
+**P4.1 [easy].** Air at 20 m/s, 1500 K, 875 kPa with 5 kg/s flows into a
+turbine and it flows out at 25 m/s, 850 K, 105 kPa. Find the power output in
+MW. (Assume air as an ideal gas with $c_p = 1005~\mathrm{J/(kg\,K)}$.)
+
+**(a)** $-3.27$ &nbsp;&nbsp; **(b)** 3.27 &nbsp;&nbsp; **(c)** 2.68
+&nbsp;&nbsp; **(d)** $-2.68$
+
+::: {.gap height="fill"}
+::: {.worked}
+According to the SFEE, with $\dot{Q}_{cv} \approx 0$ and the kinetic and
+potential energy changes $\approx 0$:
+$$
+\dot{Q}_{cv} + \dot{W}_{cv}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+\quad\Rightarrow\quad
+\dot{W}_{cv} = \dot{m}\left(h_e - h_i\right)
+$$
+
+For an ideal gas $\Delta h = c_p\,\Delta T$, so
+$$
+\dot{W}_{cv} = \dot{m}\,c_p\left(T_e - T_i\right)
+= 5~\mathrm{kg/s} \times 1005~\mathrm{J/(kg\,K)} \times (850 - 1500)~\mathrm{K}
+= -3.27\times10^{6}~\mathrm{J/s}
+= \boxed{-3.27~\mathrm{MW}} \quad \text{(a)}
+$$
+
+Note $\dot{W} < 0$ for a turbine. The kinetic-energy term we neglected is only
+$5 \times \tfrac{1}{2}\left(25^{2} - 20^{2}\right) \approx 0.56$ kW, tiny
+compared with 3.27 MW.
+:::
+:::
+
+**P4.2 [easy].** In a steam turbine the flow rate is 5000 kg/hour and the power
+output is 500 kW. The heat loss from the turbine casing to the surroundings is
+negligible (i.e. adiabatic process). Find the change in specific enthalpy of
+the steam as it passes through the turbine, assuming that the mechanical
+(kinetic and potential) energy of the steam is the same where it enters and
+exits the turbine.
+
+**(a)** 360 kJ/kg &nbsp;&nbsp; **(b)** $-100$ J/kg &nbsp;&nbsp; **(c)** 100 J/kg
+&nbsp;&nbsp; **(d)** $-360$ kJ/kg
+
+::: {.gap height="fill"}
+::: {.worked}
+SFEE, with $\dot{Q}_{cv} \approx 0$ and the kinetic and potential energy
+changes $\approx 0$:
+$$
+\dot{W}_{cv} \approx \dot{m}\left(h_e - h_i\right)
+\quad\Rightarrow\quad
+h_e - h_i \approx \frac{\dot{W}_{cv}}{\dot{m}}
+$$
+
+The power is an *output*, so $\dot{W}_{cv} = -500$ kW:
+$$
+h_e - h_i = \frac{-500\times10^{3}~\mathrm{J/s}}
+{5000~\mathrm{kg/h} \times \dfrac{1~\mathrm{h}}{3600~\mathrm{s}}}
+= -360\times10^{3}~\mathrm{J/kg}
+= \boxed{-360~\mathrm{kJ/kg}} \quad \text{(d)}
+$$
+:::
+:::
+
+**P4.3 [medium].** Air at 35 °C, 105 kPa flows in a
+$100~\mathrm{mm} \times 150~\mathrm{mm}$ rectangular duct in a heating system.
+The mass flow rate is 0.015 kg/s. What is the velocity of the air flowing in
+the duct in m/s? (Assume air as an ideal gas with
+$R = 287~\mathrm{J/(kg\,K)}$.)
+
+![](figures/img/ch4-p-furnace.png){width=20%}
+
+**(a)** 0.84 &nbsp;&nbsp; **(b)** 0.36 &nbsp;&nbsp; **(c)** 1.2 &nbsp;&nbsp;
+**(d)** 3.34
+
+::: {.gap height="fill"}
+::: {.worked}
+The cross-sectional area of the duct is
+$$
+A = 0.1~\mathrm{m} \times 0.15~\mathrm{m} = 0.015~\mathrm{m^2}
+$$
+
+Ideal gas, so
+$$
+\rho = \frac{P}{RT}
+= \frac{105\times10^{3}~\mathrm{Pa}}{287~\mathrm{J/(kg\,K)} \times (273 + 35)~\mathrm{K}}
+\approx 1.19~\mathrm{kg/m^3}
+$$
+
+Assuming a uniform velocity across the duct area, the mass flow rate is
+$$
+\dot{m} = \rho A C
+\quad\Rightarrow\quad
+C = \frac{\dot{m}}{\rho A}
+= \frac{0.015~\mathrm{kg/s}}{1.19~\mathrm{kg/m^3} \times 0.015~\mathrm{m^2}}
+= \boxed{0.84~\mathrm{m/s}} \quad \text{(a)}
+$$
+:::
+:::
+
+**P4.4 [medium].** A household fan of diameter 0.75 m takes air in at 98 kPa,
+22 °C and delivers it at 105 kPa, 23 °C with a velocity of 1.5 m/s. What is the
+inlet velocity in m/s? (Assume air as an ideal gas.)
+
+![](figures/img/ch4-p-fan.png){width=20%}
+
+**(a)** 3.7 &nbsp;&nbsp; **(b)** 2 &nbsp;&nbsp; **(c)** 1.6 &nbsp;&nbsp;
+**(d)** 1.3
+
+::: {.gap height="fill"}
+::: {.worked}
+If we assume steady-state conditions, with the inlet $i$ and exit $e$ as
+sketched:
+
+![](figures/img/ch4-p-fan-sol.png){width=24%}
+$$
+\dot{m}_i = \dot{m}_e
+\quad\Rightarrow\quad
+\rho_i C_i A_i = \rho_e C_e A_e
+$$
+
+With $A_e = A_i$, and $\rho = P/(RT)$ from the ideal-gas assumption ($R$
+cancels):
+$$
+\frac{C_i}{C_e} = \frac{\rho_e}{\rho_i}
+= \frac{P_e/(R T_e)}{P_i/(R T_i)}
+= \frac{P_e}{P_i}\,\frac{T_i}{T_e}
+= \frac{105~\mathrm{kPa}}{98~\mathrm{kPa}} \times \frac{(273 + 22)~\mathrm{K}}{(273 + 23)~\mathrm{K}}
+= 1.068
+$$
+$$
+C_i = C_e \times 1.068 = 1.5~\mathrm{m/s} \times 1.068
+= \boxed{1.6~\mathrm{m/s}} \quad \text{(c)}
+$$
+:::
+:::
+
+**P4.5 [medium].** In a jet engine a flow of air at 1000 K, 200 kPa and 40 m/s
+enters a nozzle, where the air exits at 500 m/s, 90 kPa. What is the exit
+temperature in kelvin, assuming no heat loss? (Assume air as an ideal gas with
+$c_p = 1005~\mathrm{J/(kg\,K)}$.)
+
+**(a)** 534 &nbsp;&nbsp; **(b)** 1510 &nbsp;&nbsp; **(c)** 876 &nbsp;&nbsp;
+**(d)** 123
+
+::: {.gap height="fill"}
+::: {.worked}
+The nozzle, with its inlet $i$ and exit $e$:
+
+![](figures/img/ch4-p-nozzle-sol.png){width=36%}
+
+According to the SFEE, with $\dot{Q}_{cv} \approx 0$, $\dot{W}_{cv} = 0$ and
+$z_e \approx z_i$:
+$$
+\dot{Q}_{cv} + \dot{W}_{cv}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+\quad\Rightarrow\quad
+\left(h_e - h_i\right) + \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) \approx 0
+$$
+
+For an ideal gas, $h_e - h_i = c_p\left(T_e - T_i\right)$:
+$$
+1005\left(T_e - 1000\right) + \tfrac{1}{2}\left(500^{2} - 40^{2}\right) \approx 0
+\quad\Rightarrow\quad
+\boxed{T_e \approx 876~\mathrm{K}} \quad \text{(c)}
+$$
+
+The pressures are not needed.
+:::
+:::
+
+**P4.6 [medium].** A compressor brings nitrogen from 100 kPa, 290 K to
+2000 kPa. The process has a work (per unit mass) input of 450 kJ/kg and the
+exit temperature is 700 K. Find the heat transfer per unit mass in kJ/kg.
+(Assume nitrogen as an ideal gas with $c_p = 1.04~\mathrm{kJ/(kg\,K)}$.)
+
+**(a)** 36.9 &nbsp;&nbsp; **(b)** $-23.6$ &nbsp;&nbsp; **(c)** 524.3
+&nbsp;&nbsp; **(d)** $-191.8$
+
+::: {.gap height="fill"}
+::: {.worked}
+*Note: we are asked to find the heat transfer, so we should not neglect
+$\dot{Q}$ in the SFEE.* With the kinetic and potential energy changes
+$\approx 0$:
+$$
+\dot{Q}_{cv} + \dot{W}_{cv}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+\quad\Rightarrow\quad
+\dot{Q}_{cv} + \dot{W}_{cv} \approx \dot{m}\left(h_e - h_i\right)
+$$
+
+Dividing by $\dot{m}$:
+$$
+q_{cv} + w_{cv} \approx h_e - h_i
+$$
+
+For an ideal gas, $\Delta h = c_p\,\Delta T$:
+$$
+q_{cv} + w_{cv} \approx c_p\left(T_e - T_i\right)
+\quad\Rightarrow\quad
+q_{cv} + 450~\mathrm{kJ/kg}
+\approx 1.04~\mathrm{kJ/(kg\,K)} \times (700 - 290)~\mathrm{K}
+$$
+$$
+\boxed{q_{cv} = -23.6~\mathrm{kJ/kg}} \quad \text{(b)}
+$$
+
+**Note 1:** $q < 0$, meaning the compressor is losing energy through heat.
+
+**Note 2:** as you can see, $|q| \ll |w|$. That is why we often neglect heat
+transfer for turbines, compressors and pumps.
+:::
+:::
+
+**P4.7 [medium].** Water enters a boiler at a rate of 1 kg/s with pressure
+$P_1 = 1.013$ bar (standard atmospheric pressure) and $T_1 = 100$ °C. There is a
+steady rate of heat input which causes the water to change to steam, which
+leaves the tube at $P_2 = 1.013$ bar (unchanged) and $T_2 = 100$ °C (also
+unchanged). How much heat is required to create the steam?
+
+Assume that kinetic and potential energy changes are negligible. The standard
+properties of water and steam at standard atmospheric pressure (1.013 bar) and
+100 °C are:
+
+| Property | Water | Steam | Units |
+|:--|--:|--:|:--|
+| $v$ | 0.001044 | 1.673 | $\mathrm{m^3/kg}$ |
+| $u$ | 419.0 | 2506.5 | kJ/kg |
+| $h = u + Pv$ | 419.1 | 2676.0 | kJ/kg |
+
+**(a)** 2257 kW &nbsp;&nbsp; **(b)** 2426 kW &nbsp;&nbsp; **(c)** 2088 kW
+&nbsp;&nbsp; **(d)** 2.3 W
+
+::: {.gap height="fill"}
+::: {.worked}
+Take the tube as the control volume: water enters at $i$, steam leaves at $e$.
+
+![](figures/img/ch4-p-boiler-sol.png){width=48%}
+
+SFEE for the tube, with $\dot{W}_{cv} = 0$ and the kinetic and potential energy
+changes $\approx 0$:
+$$
+\dot{Q}_{cv} + \dot{W}_{cv}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+\quad\Rightarrow\quad
+\dot{Q}_{cv} \approx \dot{m}\left(h_e - h_i\right)
+$$
+
+*Note: we cannot use $\Delta h = c_p\,\Delta T$, since we do not have an ideal
+gas.* (Indeed, here $\Delta T = 0$ but $\Delta h$ is large.) From the table:
+$$
+\dot{Q}_{cv} \approx 1~\mathrm{kg/s} \times
+\left(2676~\mathrm{kJ/kg} - 419.1~\mathrm{kJ/kg}\right)
+\approx \boxed{2257~\mathrm{kW}} \quad \text{(a)}
+$$
+
+**Note:** $\dot{Q} > 0$ for boilers and $\dot{Q} < 0$ for condensers.
+
+Using $u$ instead of $h$ gives $2506.5 - 419.0 = 2088$ kW, answer (c), which is
+wrong: the SFEE contains the enthalpy, because it includes the flow work.
+:::
+:::
+
+**P4.8 [hard].** In a factory, a compressor receives 600 kW power to compress
+the air with a mass flow rate of 2 kg/s and temperature of 17 °C. The air
+exiting from the compressor is then cooled by a cooler to 300 K. Find the heat
+transfer in the cooler in kW. (Assume air as an ideal gas with
+$c_p = 1.05~\mathrm{kJ/(kg\,K)}$.)
+
+![](figures/img/ch4-p-compressor-cooler.png){width=66%}
+
+::: {.gap height="fill"}
+::: {.worked}
+**SFEE for the compressor**, with $\dot{Q}_{cv} \approx 0$ and the kinetic and
+potential energy changes $\approx 0$:
+$$
+\dot{W}_{cv} + \dot{Q}_{cv}
+= \dot{m}\left[\left(h_e - h_i\right)
++ \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) + g\left(z_e - z_i\right)\right]
+\quad\Rightarrow\quad
+\dot{W}_{cv} \approx \dot{m}\left(h_e - h_i\right)
+$$
+
+With $\Delta h = c_p\,\Delta T$ (ideal gas):
+$$
+600~\mathrm{kJ/s} = 2~\mathrm{kg/s} \times 1.05~\mathrm{kJ/(kg\,K)}
+\times \left(T_e - (273 + 17)\right)~\mathrm{K}
+\quad\Rightarrow\quad
+T_e = 575.7~\mathrm{K}
+$$
+This is the air temperature at the exit of the compressor.
+
+**SFEE for the cooler**, with $\dot{W}_{cv} = 0$ and the kinetic and potential
+energy changes $\approx 0$:
+$$
+\dot{Q}_{cv} \approx \dot{m}\left(h_e - h_i\right)
+\quad\xrightarrow{\ \Delta h = c_p \Delta T\ }\quad
+\dot{Q}_\text{cooler} \approx \dot{m}\,c_p\left(T_e - T_i\right)
+$$
+
+*Note:* the air leaves the compressor and enters the cooler, so
+$T_{e,\text{comp}} = T_{i,\text{cooler}} = 575.7$ K:
+$$
+\dot{Q}_\text{cooler} \approx 2~\mathrm{kg/s} \times 1.05~\mathrm{kJ/(kg\,K)}
+\times (300 - 575.7)~\mathrm{K}
+\approx \boxed{-579~\mathrm{kW}}
+$$
+
+$\dot{Q} < 0$: 579 kW of heat is removed from the air in the cooler.
+:::
+:::

@@ -1,8 +1,4 @@
----
-title: "CH2 — First Law of Thermodynamics"
-subtitle: "Lecture notes of Thermodynamics (ENGI 1111)"
-chapter: 2
----
+# First Law of Thermodynamics {#sec-ch2}
 
 ::: {.objectives}
 By the end of this chapter, you should be able to:
@@ -12,7 +8,7 @@ By the end of this chapter, you should be able to:
 - Analyse and apply the **first law of thermodynamics**.
 :::
 
-# Process
+## Process
 
 Whenever properties of a system change, we say that a change in the
 thermodynamic state has occurred. The path through which the system passes from
@@ -20,7 +16,7 @@ one state to the other is called the **process**.
 
 ![](figures/out/process-path.svg){width=68%}
 
-## Thermodynamic equilibrium
+### Thermodynamic equilibrium
 
 Thermodynamic equilibrium is a state at which no change occurs within the system
 *when it is isolated from the surroundings*. The properties can describe the
@@ -62,7 +58,7 @@ $$
 Q_a \neq Q_b, \qquad W_a \neq W_b .
 $$
 
-## Energy transfer in a process
+### Energy transfer in a process
 
 Work ($W$) and heat ($Q$) are two different forms of energy transferred between
 system and surroundings. Work and heat are NOT system properties. They can only
@@ -73,7 +69,7 @@ Work and heat are called **path functions**, while system properties (e.g.\ $P$,
 $T$ and $V$) are **point functions**.
 :::
 
-# Work (W)
+## Work (W)
 
 In mechanics, work is defined as a force $F$ acting through displacement $x$.
 
@@ -95,7 +91,7 @@ of doing work $\dot{W}$ is called **power**. In the SI system, power has units o
 joule per second (J/s), or **watt** (W).
 :::
 
-## Sign convention
+### Sign convention
 
 ![](figures/img/piston-weights.png){width=34% fig-align="center"}
 
@@ -104,7 +100,7 @@ joule per second (J/s), or **watt** (W).
 | Work done **ON** the system BY the surroundings | **compression**, $W > 0$ |
 | Work done **BY** the system ON the surroundings | **expansion**, $W < 0$ |
 
-## Expansion / compression work: mathematical relationship
+### Expansion / compression work: mathematical relationship
 
 Imagine the external force $F_\text{ext}$ compresses the gas within the cylinder.
 The work done by the surroundings on the system is given by:
@@ -141,7 +137,7 @@ Integrating gives the expansion/compression work:
 ::: {.key}
 $$
 W = \int -P_\text{ext}\,\mathrm{d}V
-$$ {#eq-work}
+$$ {#eq-ch2-work}
 :::
 
 ::: {.note}
@@ -161,7 +157,7 @@ In both expansion and compression processes, work is determined by the
 pressure $P$.
 :::
 
-## Work as an area under PV curves
+### Work as an area under PV curves
 
 From mathematics, we know that $\int f(x)\,\mathrm{d}x$ is equal to the area
 under $f(x)$. Therefore, the area under the path shown in the pressure–volume
@@ -207,7 +203,7 @@ surroundings during this process.
 ![](figures/out/example-burner.svg){width=58%}
 
 **Step 1.** *$P_\text{ext}$ does not change during the process. What does that
-let you do with the integral in @eq-work?*
+let you do with the integral in @eq-ch2-work?*
 
 ::: {.gap height="16mm" hint="$P_\text{ext}$ is constant, so it comes out of the integral."}
 Because $P_\text{ext}$ is constant it comes straight out of the integral:
@@ -230,78 +226,7 @@ The gas expands, so the work is done **by** the system: $W < 0$.
 :::
 :::
 
-::: {.example}
-A gas contained within a
-piston–cylinder assembly undergoes three processes in series:
-
-- **Process 1–2:** constant volume from $P_1 = 1$ bar, $V_1 = 4~\mathrm{m^3}$ to
-  state 2, where $P_2 = 2$ bar.
-- **Process 2–3:** compression to $V_3 = 2~\mathrm{m^3}$, during which the
-  pressure–volume relationship is $PV = \text{constant}$.
-- **Process 3–4:** constant pressure to state 4, where $V_4 = 1~\mathrm{m^3}$.
-
-Sketch the processes in series on a PV diagram and evaluate the total work for
-all of the processes, in kJ. *Note: all pressure values mentioned in the question
-refer to the external pressure (i.e. pressure at the system boundaries).*
-
-**(a)** 631 &nbsp;&nbsp; **(b)** 1265 &nbsp;&nbsp; **(c)** 875 &nbsp;&nbsp; **(d)** 954
-
-**Step 1.** *Sketch the three processes on a $P$–$V$ diagram. Which ones move the boundary?*
-
-::: {.gap height="45mm" hint="Sketch: vertical line up at $V = 4$, $PV = C$ curve to $V = 2$, horizontal line to $V = 1$."}
-![](figures/out/p-w3q5-sol.svg){width=52%}
-:::
-
-**Step 2.** *Find the missing pressure $P_3$ first, using the relationship for
-process 2–3.*
-
-::: {.gap height="12mm" hint="$P_2V_2 = P_3V_3$ gives $P_3 = 4$ bar."}
-$P_2V_2 = P_3V_3$, so
-$P_3 = P_2\left(V_2/V_3\right) = 2 \times \tfrac{4}{2} = 4$ bar.
-:::
-
-**Step 3.** *Process 1–2: does the boundary move?*
-
-::: {.gap height="10mm" hint="Constant volume, piston does not move, $W_{12} = 0$."}
-$V$ is constant, the piston does not move, so
-$$W_{12} = 0$$
-:::
-
-**Step 4.** *Process 2–3: write $P_\text{ext} = C/V$ and integrate @eq-work.*
-
-::: {.gap height="30mm" hint="$W_{23} = C\ln(V_2/V_3) = P_2V_2\ln(V_2/V_3) = 554.5$ kJ."}
-$P_\text{ext}V = C$:
-$$
-W_{23} = -\int_{V_2}^{V_3} P_\text{ext}\,\mathrm{d}V
-       = -\int_{V_2}^{V_3} \frac{C}{V}\,\mathrm{d}V
-       = C \ln\!\frac{V_2}{V_3} = P_2 V_2 \ln\!\frac{V_2}{V_3}
-$$
-$$
-W_{23} = \left(2\times10^{5}~\mathrm{Pa} \times 4~\mathrm{m^3}\right)
-         \ln\!\left(\frac{4}{2}\right) = 554.5~\mathrm{kJ}
-$$
-:::
-
-**Step 5.** *Process 3–4: constant pressure. Is it an expansion or a
-compression?*
-
-::: {.gap height="14mm" hint="$W_{34} = -P_3(V_4 - V_3) = 400$ kJ, compression so positive."}
-$$
-W_{34} = -P_3 (V_4 - V_3)
-       = -4\times10^{5}\left(1 - 2\right) = 400~\mathrm{kJ}
-$$
-:::
-
-**Step 6.** *Add the three contributions.*
-
-::: {.gap height="10mm" hint="$0 + 554.5 + 400 = 954$ kJ, answer (d)."}
-$$
-W_\text{total} = 0 + 554.5 + 400 = \boxed{954~\mathrm{kJ}} \quad \text{(d)}
-$$
-:::
-:::
-
-## Other types of work
+### Other types of work
 
 **Shaft work:**
 
@@ -327,7 +252,7 @@ this becomes important in CH4, in which shaft work is regarded as the common typ
 of work in open systems.
 :::
 
-# Heat (Q)
+## Heat (Q)
 
 Heat ($Q$) is defined as the form of energy that is transferred across the
 boundary of a system **by virtue of the temperature difference** between the
@@ -363,7 +288,7 @@ Draw it around the cold part only and heat does cross it: $Q \neq 0$.
 The physics has not changed — the bookkeeping has.
 :::
 
-# Cycle
+## Cycle
 
 A **thermodynamic cycle** is a sequence of processes that begins and ends at the
 same state. At the conclusion of a cycle, all properties have the same values
@@ -372,7 +297,7 @@ they had at the beginning.
 The repeating nature of cycles allows for continuous operation, making them an
 important concept in thermodynamics.
 
-## Net amount of work in a cycle
+### Net amount of work in a cycle
 
 The magnitude of the net work for any cycle is equal to the area enclosed by the
 cycle in the PV diagram.
@@ -439,7 +364,7 @@ $$
 :::
 :::
 
-# First Law of thermodynamics
+## First Law of thermodynamics
 
 ::: {.key}
 *"If any system undergoes a cyclic process, the sum of the net heat energy input
@@ -485,7 +410,7 @@ $$
 :::
 :::
 
-# First Law of thermodynamics for a process (non-cyclic)
+## First Law of thermodynamics for a process (non-cyclic)
 
 Using the First Law for a cycle, one can prove that for a non-cyclic process of a
 closed system (see the textbook for the proof), the sum of the net heat and work
@@ -621,77 +546,7 @@ $$
 :::
 :::
 
-::: {.example}
-The following table gives data, in
-kJ, for a system undergoing a thermodynamic cycle consisting of four processes in
-series. For the cycle, kinetic and potential energy effects can be neglected.
-Determine values of $Q_{12}$, $Q_{23}$ and $W_{34}$, respectively, each in kJ.
-
-| Process | $\Delta U$ | $Q$ | $W$ |
-|:--|--:|--:|--:|
-| 1–2 | 600 | | $-600$ |
-| 2–3 | | | $-1300$ |
-| 3–4 | $-700$ | 0 | |
-| 4–1 | | 500 | 700 |
-
-**(a)** 1200, 200, $-700$ &nbsp;&nbsp; **(b)** 1200, 300, $-700$ &nbsp;&nbsp;
-**(c)** 1000, 300, $-500$ &nbsp;&nbsp; **(d)** 700, 200, $-500$
-
-**Step 1.** *Process 1–2: two of the three quantities are in the table.*
-
-::: {.gap height="12mm" hint="$Q_{12} - 600 = 600$, so $Q_{12} = 1200$ kJ."}
-$$
-Q_{12} + W_{12} = \Delta U_{12}
-\quad\Rightarrow\quad
-Q_{12} - 600 = 600
-\quad\Rightarrow\quad
-\boxed{Q_{12} = 1200~\mathrm{kJ}}
-$$
-:::
-
-**Step 2.** *To find $Q_{23}$ you first need $\Delta U_{23}$. What is $\Delta U$
-for the whole cycle? The 4–1 row gives you $\Delta U_{41}$.*
-
-::: {.gap height="26mm" hint="$\Delta U_\text{cycle} = 0$; $\Delta U_{41} = 1200$ kJ, so $\Delta U_{23} = -1100$ kJ."}
-For the whole **cycle**, $\Delta U = 0$, because the initial and final states of
-the cycle are the same. From the 4–1 row, $\Delta U_{41} = 500 + 700 = 1200$ kJ,
-so
-$$
-\Delta U_{12} + \Delta U_{23} + \Delta U_{34} + \Delta U_{41} = 0
-$$
-$$
-600 + \Delta U_{23} - 700 + 1200 = 0
-\quad\Rightarrow\quad
-\Delta U_{23} = -1100~\mathrm{kJ}
-$$
-:::
-
-**Step 3.** *Now apply the First Law to process 2–3.*
-
-::: {.gap height="12mm" hint="$Q_{23} - 1300 = -1100$, so $Q_{23} = 200$ kJ."}
-$$
-Q_{23} + W_{23} = \Delta U_{23}
-\quad\Rightarrow\quad
-Q_{23} - 1300 = -1100
-\quad\Rightarrow\quad
-\boxed{Q_{23} = 200~\mathrm{kJ}}
-$$
-:::
-
-**Step 4.** *Process 3–4: $Q_{34} = 0$.*
-
-::: {.gap height="14mm" hint="$W_{34} = \Delta U_{34} = -700$ kJ. Answer (a)."}
-$$
-\underbrace{Q_{34}}_{=\,0} + W_{34} = \Delta U_{34}
-\quad\Rightarrow\quad
-\boxed{W_{34} = -700~\mathrm{kJ}}
-$$
-
-So the answer is (a): 1200, 200, $-700.$
-:::
-:::
-
-## Generic form of the First Law
+### Generic form of the First Law
 
 In general, a system can possess energy in the form of **internal energy** $U$
 inherent in its internal structure, **kinetic energy** $KE$ in its motion, and
@@ -719,10 +574,10 @@ $$
 q + w = \Delta e = \left(u_2 - u_1\right)
       + \tfrac{1}{2}\left(C_2^{2} - C_1^{2}\right)
       + g\left(z_2 - z_1\right)
-$$ {#eq-firstlaw}
+$$ {#eq-ch2-firstlaw}
 :::
 
-# Importance of system selection
+## Importance of system selection
 
 The first and important step to solve any thermodynamic problem must be to define
 the system and its boundaries.
@@ -739,7 +594,7 @@ Exactly the same physical situation, three different boundaries:
 
 Choosing the boundary badly does not make a problem wrong — it makes it hard.
 
-# Explore it yourself {#sec-explore}
+## Explore it yourself {#sec-ch2-explore}
 
 Work is the area under the path in the $P_\text{ext}$–$V$ diagram, which is why
 two processes between the same two states can need very different amounts of
@@ -764,7 +619,7 @@ follow the *Explore it yourself* link in CH2.
 
 {{< pagebreak >}}
 
-# End-of-chapter problems {#sec-problems}
+## End-of-chapter problems {#sec-ch2-problems}
 
 ::: {.tryfirst}
 Have a real go at every problem here before you look at a solution. Worked
@@ -775,7 +630,7 @@ or have tried every approach you can think of, check it against the solution,
 and compare the method, not just the final number.
 :::
 
-**P1 [easy].** Air contained within a piston–cylinder assembly is slowly
+**P2.1 [easy].** Air contained within a piston–cylinder assembly is slowly
 compressed. As shown in the figure, during this process the pressure at the
 system boundaries (i.e. external pressure) first varies linearly with volume and
 then remains constant. Determine the total work, in kJ.
@@ -809,7 +664,7 @@ $$
 :::
 :::
 
-**P2 [easy].** As shown in the figure, 5 kg of steam contained within a
+**P2.2 [easy].** As shown in the figure, 5 kg of steam contained within a
 piston–cylinder assembly undergoes an expansion from state 1, where the specific
 internal energy is $u_1 = 2709.9$ kJ/kg, to state 2, where
 $u_2 = 2659.6$ kJ/kg. During the process, there is heat transfer to the steam
@@ -842,7 +697,7 @@ $W < 0$: expansion, work done **by** the system.
 :::
 :::
 
-**P3 [easy].** A closed system of mass 5 kg undergoes a process in which there is
+**P2.3 [easy].** A closed system of mass 5 kg undergoes a process in which there is
 work of magnitude 9 kJ to the system from the surroundings. The elevation of the
 system increases by 700 m during the process. The specific internal energy of the
 system decreases by 6 kJ/kg and there is no change in kinetic energy of the
@@ -872,7 +727,7 @@ $$
 :::
 :::
 
-**P4 [easy].** A closed system of mass 20 kg undergoes a process in which there
+**P2.4 [easy].** A closed system of mass 20 kg undergoes a process in which there
 is a heat transfer of 1000 kJ from the system to the surroundings. The work done
 on the system is 200 kJ. If the initial specific internal energy of the system is
 300 kJ/kg, what is the final specific internal energy, in kJ/kg? Neglect changes
@@ -896,7 +751,7 @@ $$
 :::
 :::
 
-**P5 [medium].** A stop is located 20 mm above the piston at the position shown.
+**P2.5 [medium].** A stop is located 20 mm above the piston at the position shown.
 The system is heated and the piston begins to rise. If the mass of the piston is
 64 kg, what is the work done by the air on the piston until it reaches the stop?
 ($P_\text{atm} = 100$ kPa, $g = 9.8~\mathrm{m\,s^{-2}}$)
@@ -926,7 +781,7 @@ Expansion, so $W < 0$ as expected.
 :::
 :::
 
-**P6 [medium].** The refrigerant R-410a contained in the cylinder is at 1000 kPa,
+**P2.6 [medium].** The refrigerant R-410a contained in the cylinder is at 1000 kPa,
 50 °C with a volume of 3.32 litres. It is cooled so that the volume is reduced to
 half the initial volume. The piston mass and gravitation are such that a pressure
 of 400 kPa will float the piston. Find the work in the process.
@@ -955,7 +810,7 @@ $$
 :::
 :::
 
-**P7 [medium].** A 200 mm diameter piston compresses the air inside a cylinder by
+**P2.7 [medium].** A 200 mm diameter piston compresses the air inside a cylinder by
 increasing the external pressure from 100 to 800 kPa such that
 $P_\text{ext}V^{2} = \text{const}$. If the initial volume $V_1 = 0.1~\mathrm{m^3}$,
 the work done on the system is
@@ -991,7 +846,109 @@ Compression, so $W > 0$ as expected.
 :::
 :::
 
-**P8 [medium].** Four kilograms of carbon monoxide (CO) is contained in a rigid
+**P2.8 [medium].** A gas contained within a
+piston–cylinder assembly undergoes three processes in series:
+
+- **Process 1–2:** constant volume from $P_1 = 1$ bar, $V_1 = 4~\mathrm{m^3}$ to
+  state 2, where $P_2 = 2$ bar.
+- **Process 2–3:** compression to $V_3 = 2~\mathrm{m^3}$, during which the
+  pressure–volume relationship is $PV = \text{constant}$.
+- **Process 3–4:** constant pressure to state 4, where $V_4 = 1~\mathrm{m^3}$.
+
+Sketch the processes in series on a PV diagram and evaluate the total work for
+all of the processes, in kJ. *Note: all pressure values mentioned in the question
+refer to the external pressure (i.e. pressure at the system boundaries).*
+
+**(a)** 631 &nbsp;&nbsp; **(b)** 1265 &nbsp;&nbsp; **(c)** 875 &nbsp;&nbsp; **(d)** 954
+
+::: {.gap height="fill"}
+::: {.worked}
+![](figures/out/p-w3q5-sol.svg){width=52%}
+
+$P_2V_2 = P_3V_3$, so
+$P_3 = P_2\left(V_2/V_3\right) = 2 \times \tfrac{4}{2} = 4$ bar.
+
+$V$ is constant, the piston does not move, so
+$$W_{12} = 0$$
+
+$P_\text{ext}V = C$:
+$$
+W_{23} = -\int_{V_2}^{V_3} P_\text{ext}\,\mathrm{d}V
+       = -\int_{V_2}^{V_3} \frac{C}{V}\,\mathrm{d}V
+       = C \ln\!\frac{V_2}{V_3} = P_2 V_2 \ln\!\frac{V_2}{V_3}
+$$
+$$
+W_{23} = \left(2\times10^{5}~\mathrm{Pa} \times 4~\mathrm{m^3}\right)
+         \ln\!\left(\frac{4}{2}\right) = 554.5~\mathrm{kJ}
+$$
+
+$$
+W_{34} = -P_3 (V_4 - V_3)
+       = -4\times10^{5}\left(1 - 2\right) = 400~\mathrm{kJ}
+$$
+
+$$
+W_\text{total} = 0 + 554.5 + 400 = \boxed{954~\mathrm{kJ}} \quad \text{(d)}
+$$
+:::
+:::
+
+**P2.9 [medium].** The following table gives data, in
+kJ, for a system undergoing a thermodynamic cycle consisting of four processes in
+series. For the cycle, kinetic and potential energy effects can be neglected.
+Determine values of $Q_{12}$, $Q_{23}$ and $W_{34}$, respectively, each in kJ.
+
+| Process | $\Delta U$ | $Q$ | $W$ |
+|:--|--:|--:|--:|
+| 1–2 | 600 | | $-600$ |
+| 2–3 | | | $-1300$ |
+| 3–4 | $-700$ | 0 | |
+| 4–1 | | 500 | 700 |
+
+**(a)** 1200, 200, $-700$ &nbsp;&nbsp; **(b)** 1200, 300, $-700$ &nbsp;&nbsp;
+**(c)** 1000, 300, $-500$ &nbsp;&nbsp; **(d)** 700, 200, $-500$
+
+::: {.gap height="fill"}
+::: {.worked}
+$$
+Q_{12} + W_{12} = \Delta U_{12}
+\quad\Rightarrow\quad
+Q_{12} - 600 = 600
+\quad\Rightarrow\quad
+\boxed{Q_{12} = 1200~\mathrm{kJ}}
+$$
+
+For the whole **cycle**, $\Delta U = 0$, because the initial and final states of
+the cycle are the same. From the 4–1 row, $\Delta U_{41} = 500 + 700 = 1200$ kJ,
+so
+$$
+\Delta U_{12} + \Delta U_{23} + \Delta U_{34} + \Delta U_{41} = 0
+$$
+$$
+600 + \Delta U_{23} - 700 + 1200 = 0
+\quad\Rightarrow\quad
+\Delta U_{23} = -1100~\mathrm{kJ}
+$$
+
+$$
+Q_{23} + W_{23} = \Delta U_{23}
+\quad\Rightarrow\quad
+Q_{23} - 1300 = -1100
+\quad\Rightarrow\quad
+\boxed{Q_{23} = 200~\mathrm{kJ}}
+$$
+
+$$
+\underbrace{Q_{34}}_{=\,0} + W_{34} = \Delta U_{34}
+\quad\Rightarrow\quad
+\boxed{W_{34} = -700~\mathrm{kJ}}
+$$
+
+So the answer is (a): 1200, 200, $-700.$
+:::
+:::
+
+**P2.10 [medium].** Four kilograms of carbon monoxide (CO) is contained in a rigid
 tank with a volume of $1~\mathrm{m^3}$. The tank is fitted with a paddle wheel
 that transfers energy to the CO at a constant rate of 14 W for 1 h. During the
 process, the specific internal energy of the carbon monoxide increases by
@@ -1018,7 +975,7 @@ Energy is removed from the system through heat transfer.
 :::
 :::
 
-**P9 [hard].** Warm air is contained in a piston–cylinder assembly oriented
+**P2.11 [hard].** Warm air is contained in a piston–cylinder assembly oriented
 horizontally as shown. The air cools slowly from an initial volume of
 $0.003~\mathrm{m^3}$ to a final volume of $0.002~\mathrm{m^3}$. During the
 process, the spring exerts a force that varies linearly from an initial value of
@@ -1062,7 +1019,7 @@ Compression, so $W > 0$ as expected.
 :::
 :::
 
-**P10 [hard].** Gaseous CO$_2$ is contained in a vertical piston–cylinder assembly
+**P2.12 [hard].** Gaseous CO$_2$ is contained in a vertical piston–cylinder assembly
 by a piston of mass 50 kg and having a face area of $0.01~\mathrm{m^2}$. The mass
 of the CO$_2$ is 4 g. The CO$_2$ initially occupies a volume of $0.005~\mathrm{m^3}$
 and has a specific internal energy of 657 kJ/kg. The atmosphere exerts a pressure

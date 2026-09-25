@@ -1,0 +1,77 @@
+# Course syllabus {.unnumbered #sec-syllabus}
+
+| | |
+|:--|:--|
+| **Module** | ENGI1111: Thermodynamics & Fluid Mechanics I |
+| **Course** | Thermodynamics (part one) |
+| **Lecturer** | Dr Majid Bastankhah, Associate Professor, Department of Engineering |
+| **Contact** | [majid.bastankhah@durham.ac.uk](mailto:majid.bastankhah@durham.ac.uk) |
+| **Assessment** | Written examination (100%) in May–June |
+
+**About the lecturer.** PhD (2017) in Mechanical Engineering, EPFL,
+Switzerland; MSc (2012) and BSc (2009) in Mechanical Engineering, Sharif
+University, Iran. At Durham since 2018. I am passionate about wind energy: in
+my research, I try to improve the efficiency of wind turbines and wind farms.
+
+## Course objectives {.unnumbered}
+
+This is an introductory course in thermodynamics, covering the topics that
+engineering students are most likely to need in their professional lives.
+Students are assumed to have a basic background in calculus, physics and
+engineering mechanics. By the end of the course, you should be able to:
+
+- Demonstrate understanding of key thermodynamic terms (e.g. internal energy,
+  enthalpy and entropy) and concepts (e.g. work, heat transfer and
+  reversibility).
+- Apply the first and second laws of thermodynamics to different
+  thermodynamic systems.
+- Analyse the performance of simplified (and often ideal) thermodynamic
+  systems such as heat engines and refrigerators.
+
+## Course outline {.unnumbered}
+
+1. Introduction to thermodynamics
+2. First law of thermodynamics
+3. Reversibility and non-flow processes (closed systems)
+4. Flow processes (open systems)
+5. Second law of thermodynamics
+6. Corollaries of the second law of thermodynamics (the concept of entropy)
+
+## Course material {.unnumbered}
+
+- **These lecture notes**, in two versions, on the course website (linked from
+  Ultra), each also available as a PDF:
+  - **Notes with gaps.** This is the version used in the lectures. The steps of
+    each derivation and the solution of each example start covered, and we
+    uncover them one step at a time in class. In the printable PDF the same
+    gaps are left blank, so you can bring it and fill them in as we go.
+  - **Completed notes.** Everything uncovered, including the worked solutions
+    to the end-of-chapter problems.
+- **End-of-chapter problems** at the end of each chapter, marked **[easy]**,
+  **[medium]** or **[hard]**. The PDF with gaps leaves a page for your working
+  after each one; on the website, each solution stays covered until you
+  choose to open it.
+- **Lecture recordings** after each session.
+- **Post-lecture short videos** on key concepts or examples.
+
+## Supplementary books {.unnumbered}
+
+- *Thermodynamics* by A. M. Steane (available online)
+- *Fundamentals of Thermodynamics*, 7th ed., by C. Borgnakke and R. E. Sonntag
+- *Moran's Principles of Engineering Thermodynamics*, 9th ed., by M. J. Moran
+- *Engineering Thermodynamics: Work & Heat Transfer*, 4th ed., by G. F. C.
+  Rogers and Y. R. Mayhew
+
+## Course policies and expectations {.unnumbered}
+
+- *Regular study* of the course material throughout the term.
+- Lecture attendance is optional, but *strongly recommended*.
+- Try the end-of-chapter problems yourself **before** looking at the worked
+  solutions.
+- Be professional and respectful to others.
+
+## Questions and feedback {.unnumbered}
+
+- During lectures, give me a shout if anything is unclear.
+- After lectures, come to office hours or contact me by email at
+  [majid.bastankhah@durham.ac.uk](mailto:majid.bastankhah@durham.ac.uk).

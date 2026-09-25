@@ -1,0 +1,24 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Corollary 2 proof: an imaginary engine I (eta_I > eta_R) drives a reversible
+% engine R run backwards; both exchange the same |Q_H| with the hot reservoir
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,
+    res/.style={draw=none, rounded corners=3pt, minimum width=7.6cm, minimum height=0.8cm, font=\small\bfseries},
+    eng/.style={circle, draw=duGrey, fill=duGrey!25, line width=0.8pt, minimum size=1.25cm, font=\small},
+    flow/.style={-{Stealth[length=2.6mm]}, line width=1.2pt}]
+  \node[res, fill=duRed!30] (hot) at (0,3.2) {Hot reservoir, $T_H$};
+  \node[res, fill=duBlue!30] (cold) at (0,-3.2) {Cold reservoir, $T_C$};
+  \node[eng] (I) at (-1.6,0) {I};
+  \node[eng] (R) at (1.6,0) {R};
+  % imaginary engine, forwards
+  \draw[flow, duRed]  (-1.6,2.8) -- (I.north) node[midway, left, lbl] {$|Q_H|$};
+  \draw[flow, duBlue] (I.south) -- (-1.6,-2.8) node[midway, left, lbl] {$|Q_{C,I}|$};
+  % reversible engine, backwards (heat pump)
+  \draw[flow, duBlue] (1.6,-2.8) -- (R.south) node[midway, right, lbl] {$|Q_{C,R}|$};
+  \draw[flow, duRed]  (R.north) -- (1.6,2.8) node[midway, right, lbl] {$|Q_H|$};
+  % work: part of W_I drives R, the rest is left over
+  \draw[flow, duPurple] (I.east) -- (R.west) node[midway, above, lbl] {$|W_R|$};
+  \draw[flow, duPurple] (I.west) -- ++(-1.5,0) node[above, lbl, xshift=4pt] {$|W_I| - |W_R|$};
+\end{tikzpicture}
+\end{document}

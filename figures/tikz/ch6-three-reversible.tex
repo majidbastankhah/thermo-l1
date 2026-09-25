@@ -1,0 +1,19 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Corollary 3: three reversible engines between the same two reservoirs
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,
+    res/.style={draw=none, rounded corners=3pt, minimum width=6.6cm, minimum height=0.7cm, font=\small\bfseries},
+    eng/.style={circle, draw=duGrey, fill=duGrey!25, line width=0.8pt, minimum size=0.95cm, font=\small},
+    flow/.style={-{Stealth[length=2.4mm]}, line width=1.1pt}]
+  \node[res, fill=duRed!30] at (0,2.1) {$T_H$};
+  \node[res, fill=duBlue!30] at (0,-2.1) {$T_C$};
+  \foreach \x/\n in {-2.2/1, 0/2, 2.2/3} {
+    \node[eng] (E\n) at (\x,0) {$R_\n$};
+    \draw[flow, duRed] (\x,1.75) -- (E\n.north);
+    \draw[flow, duBlue] (E\n.south) -- (\x,-1.75);
+    \draw[flow, duPurple] (E\n.east) -- ++(0.55,0) node[right, slbl] {$W$};
+  }
+  \node[lbl, right] at (4.2,0) {$\eta_{R_1} = \eta_{R_2} = \eta_{R_3}$};
+\end{tikzpicture}
+\end{document}

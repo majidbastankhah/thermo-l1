@@ -1,0 +1,16 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Corollary 8: any process a from 1 to 2, closed by a reversible process b
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[axisline] (0,0) -- (5.2,0);
+  \draw[axisline] (0,0) -- (0,3.8);
+  \coordinate (A) at (0.9,0.8); \coordinate (B) at (4.2,3.0);
+  \draw[path1, dashed, arrowhead=0.55] (A) .. controls (1.2,2.4) and (2.6,3.0) .. (B);
+  \draw[path2, arrowhead=0.5] (B) .. controls (4.1,1.0) and (2.3,0.2) .. (A);
+  \node[statedot] at (A) {}; \node[lbl, below left] at (A) {1};
+  \node[statedot] at (B) {}; \node[lbl, above right] at (B) {2};
+  \node[lbl, duBlue, align=center] at (1.3,3.1) {$a$: any process};
+  \node[lbl, duRed] at (4.25,0.9) {$b$: reversible};
+\end{tikzpicture}
+\end{document}

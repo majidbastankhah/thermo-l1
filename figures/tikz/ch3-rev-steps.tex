@@ -1,0 +1,21 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\begin{document}
+\begin{tikzpicture}
+  \draw[axisline] (0,0) -- (6.4,0) node[right, lbl] {$V$};
+  \draw[axisline] (0,0) -- (0,4.4) node[above, lbl] {$P$};
+  % system pressure along the expansion: P = C/V
+  \def\C{3.6}
+  \draw[path2] plot[domain=0.9:5.6, samples=80] (\x, {\C/\x});
+  % external pressure: a staircase just below it (one small mass removed per step)
+  \foreach \a/\b in {0.9/1.2,1.2/1.55,1.55/1.95,1.95/2.45,2.45/3.05,3.05/3.75,3.75/4.6,4.6/5.6} {
+    \draw[path1, line width=0.9pt] (\a,{\C/\a}) -- (\a,{\C/\b}) -- (\b,{\C/\b});
+  }
+  \node[statedot] at (0.9,{\C/0.9}) {}; \node[lbl, above right=0pt] at (0.9,{\C/0.9}) {1};
+  \node[statedot] at (5.6,{\C/5.6}) {}; \node[lbl, above right=0pt] at (5.6,{\C/5.6}) {2};
+  % legend
+  \draw[path2] (3.4,3.8) -- (3.9,3.8) node[right, lbl, black] {$P$ (gas)};
+  \draw[path1] (3.4,3.3) -- (3.9,3.3) node[right, lbl, black] {$P_\text{ext}$};
+  \node[lbl, draw, rounded corners=2pt, inner sep=4pt] at (2.2,3.9) {$P \approx P_\text{ext}$};
+\end{tikzpicture}
+\end{document}

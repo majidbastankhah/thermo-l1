@@ -1,0 +1,24 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\usetikzlibrary{shapes.geometric, shapes.arrows}
+\definecolor{hotres}{HTML}{D99694}
+\definecolor{coldres}{HTML}{8EB4E3}
+\definecolor{engine}{HTML}{BFBFBF}
+\begin{document}
+\begin{tikzpicture}[
+  res/.style={rounded corners=3pt, minimum width=3.6cm, minimum height=0.8cm,
+              font=\small\bfseries},
+  flow/.style={-{Stealth[length=3mm,width=3mm]}, line width=2.2pt}]
+  \node[res, fill=hotres]  (H) at (0,2.6)  {Hot reservoir};
+  \node[ellipse, fill=engine, minimum width=2.9cm, minimum height=1.9cm,
+        align=center, font=\small\bfseries] (E) at (0,0)
+        {Heat pump\\[-1pt]{\normalfont or}\\[-1pt]Refrigerator};
+  \node[res, fill=coldres] (C) at (0,-2.6) {Cold reservoir};
+  \draw[flow, duRed]  (E.north) -- (H.south)
+    node[midway, right=3pt, font=\normalsize, text=duRed] {$Q_H < 0$};
+  \draw[flow, duBlue] (C.north) -- (E.south)
+    node[midway, right=3pt, font=\normalsize, text=duBlue] {$Q_C > 0$};
+  \draw[flow, duGreen!80!black] ($(E.east)+(1.5,0)$) -- (E.east)
+    node[pos=0, right, font=\normalsize, text=duGreen!80!black] {$W > 0$};
+\end{tikzpicture}
+\end{document}

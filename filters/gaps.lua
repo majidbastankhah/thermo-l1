@@ -156,6 +156,17 @@ function Div(el)
   local fill = (height == "fill")
   if fill then height = "70mm" end
 
+  -- a gap that holds an end-of-chapter solution: in print, the solution box
+  -- goes out on its own, NOT inside the gap's frame -- tcolorbox cannot break
+  -- a box nested in another box across pages, and long solutions need to
+  local holds_solution = false
+  for _, b in ipairs(el.content) do
+    if b.t == "Div" and b.classes:includes("worked") then holds_solution = true end
+  end
+  if holds_solution and is_latex() and mode ~= "student" then
+    return el.content
+  end
+
   if mode == "student" then
     if fill and is_latex() then
       return { pandoc.RawBlock("latex", "\\gapfill") }

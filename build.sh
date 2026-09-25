@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Build everything: the TikZ figures, the three printed copies, and the website.
+# Build everything: the TikZ figures, the three printed copies of the combined
+# notes, and the website (notes with gaps + completed notes).
 #
 #   ./build.sh          -- figures + PDFs + website
 #   ./build.sh pdf      -- figures + PDFs only
@@ -11,31 +12,27 @@ what="${1:-all}"
 
 ./build-figures.sh
 
-# Every chNN-*.qmd in this folder is a chapter; its outputs are named chNN-...
-CHAPTERS=(ch[0-9][0-9]-*.qmd)
-
-# $1 = chapter file, $2 = gapmode, $3 = output name, $4 = destination directory.
+# All chapters live in chapters/_chNN-*.qmd and are combined into ONE document,
+# notes.qmd. The printed copies are built from it in three gap modes.
+# $1 = gapmode, $2 = output name, $3 = destination directory.
 # pdf/ is copied into the published site by _quarto.yml, so anything written
 # there is PUBLIC. The presenter copy goes to presenter/ instead, which is not
 # a Quarto resource and never reaches _site.
 build_pdf () {
-  echo "  pdf: $4/$3"
-  quarto render "$1" --to pdf \
+  echo "  pdf: $3/$2"
+  quarto render notes.qmd --to pdf \
     --metadata-file _pdf.yml \
-    -M "gapmode:$2" \
-    --output "$3.pdf" \
+    -M "gapmode:$1" \
+    --output "$2.pdf" \
     --quiet
-  mkdir -p "$4"
-  mv "_site/$3.pdf" "$4/$3.pdf"
+  mkdir -p "$3"
+  mv "_site/$2.pdf" "$3/$2.pdf"
 }
 
 if [ "$what" = "all" ] || [ "$what" = "pdf" ]; then
-  for qmd in "${CHAPTERS[@]}"; do
-    ch="${qmd:0:4}"                       # ch01, ch02, ...
-    build_pdf "$qmd" student  "$ch-student"   pdf
-    build_pdf "$qmd" complete "$ch-complete"  pdf
-    build_pdf "$qmd" lecturer "$ch-presenter" presenter
-  done
+  build_pdf student  notes-with-gaps  pdf
+  build_pdf complete notes-complete   pdf
+  build_pdf lecturer notes-presenter  presenter
 fi
 
 if [ "$what" = "all" ] || [ "$what" = "site" ]; then

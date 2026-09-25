@@ -15,10 +15,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: ch01-introduction.qmd
-        text: "CH1 · Introduction"
-      - href: ch02-first-law.qmd
-        text: "CH2 · First Law"
+      - href: notes.qmd
+        text: "Notes (with gaps)"
+      - href: notes-complete.qmd
+        text: "Completed notes"
   page-footer:
     center: "Dr Majid Bastankhah · Department of Engineering · Durham University"
 
@@ -27,7 +27,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-    toc-depth: 3
+    toc-depth: 2
     number-sections: true
     # KaTeX is served from the repository, not a CDN: equations must render
     # even if the lecture-theatre network is slow or blocked.

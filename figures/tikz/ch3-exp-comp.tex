@@ -1,0 +1,22 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\begin{document}
+\begin{tikzpicture}
+\newcommand{\cyl}[4]{% x-shift, title, relation, arrow direction (+1 / -1)
+  \begin{scope}[shift={(#1,0)}]
+    \draw[line width=1pt] (2.8,1.3) -- (0,1.3) -- (0,0) -- (2.8,0);
+    \fill[duRed, opacity=0.10] (0,0) rectangle (1.6,1.3);
+    \draw[line width=1.6pt] (1.6,0.05) -- (1.6,1.25);
+    \draw[line width=0.9pt] (1.7,0.6) -- (2.9,0.6);
+    \draw[line width=0.9pt] (1.7,0.7) -- (2.9,0.7);
+    \draw[line width=0.9pt] (1.7,0.05) -- (1.7,1.25);
+    \node[lbl, duRed] at (0.75,0.65) {$P$};
+    \node[lbl, duBlue, right] at (2.9,0.65) {$P_\text{ext}$};
+    \draw[-{Stealth[length=2.6mm]}, line width=0.8pt] (1.9,1.55) -- ++(#4*0.9,0);
+    \node[lbl, above] at (1.8,1.75) {#3};
+    \node[slbl, below] at (1.6,-0.15) {#2};
+  \end{scope}}
+\cyl{0}{expansion}{$P \ge P_\text{ext}$}{1}
+\cyl{5.5}{compression}{$P \le P_\text{ext}$}{-1}
+\end{tikzpicture}
+\end{document}

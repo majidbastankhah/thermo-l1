@@ -1,0 +1,13 @@
+---
+title: "Thermodynamics (ENGI 1111) — lecture notes, part one"
+subtitle: "Dr Majid Bastankhah · Department of Engineering · Durham University"
+toc-depth: 2
+# old per-chapter pages redirect here
+aliases:
+  - ch01-introduction.html
+  - ch02-first-law.html
+---
+
+{{< include chapters/_syllabus.qmd >}}
+
+{{< include chapters/_chapters.qmd >}}
