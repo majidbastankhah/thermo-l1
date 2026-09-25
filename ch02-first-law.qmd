@@ -1,6 +1,7 @@
 ---
 title: "CH2 — First Law of Thermodynamics"
 subtitle: "Lecture notes of Thermodynamics (ENGI 1111)"
+chapter: 2
 ---
 
 ::: {.objectives}

@@ -11,11 +11,14 @@ class actually saw.
 | Output | Built by | Who it is for |
 |:--|:--|:--|
 | `_site/` | `./build.sh site` | the lecture view **and** the posted version; also holds the interactive figures |
-| `pdf/ch02-student.pdf` | `./build.sh pdf` | students, printed before the lecture — gaps blank, so they still write |
-| `pdf/ch02-complete.pdf` | `./build.sh pdf` | the paper twin of the site, for students who prefer print |
-| `presenter/ch02-presenter.pdf` | `./build.sh pdf` | you — everything in small grey type with a one-line **Board:** prompt per gap |
+| `pdf/chNN-student.pdf` | `./build.sh pdf` | students, printed before the lecture — gaps blank, so they still write |
+| `pdf/chNN-complete.pdf` | `./build.sh pdf` | the paper twin of the site, for students who prefer print |
+| `presenter/chNN-presenter.pdf` | `./build.sh pdf` | you — everything in small grey type with a one-line **Board:** prompt per gap |
 
-`./build.sh` on its own does all of it.
+`./build.sh` on its own does all of it, for every `chNN-*.qmd` in the folder.
+To add a chapter, create `chNN-name.qmd` with `chapter: NN` in its front
+matter (it goes into the PDF footer), and add it to the navbar in `_quarto.yml`
+and to `index.qmd`.
 
 ### Running a lecture
 
@@ -181,7 +184,8 @@ there too, not in `pdf/`.
 ## Layout
 
 ```
-ch02-first-law.qmd      the chapter -- text, gaps, examples, problems, solutions
+ch01-introduction.qmd   chapter 1 -- text, gaps, examples, problems, solutions
+ch02-first-law.qmd      chapter 2
 index.qmd               the site's front page
 _quarto.yml             website + HTML settings, filter list
 _pdf.yml                print settings (kept separate so `quarto render` stays fast)

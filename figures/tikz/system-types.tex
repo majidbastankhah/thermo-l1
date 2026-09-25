@@ -1,0 +1,25 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+\usepackage{graphicx}
+% open / closed / isolated: the same flask, with what may cross the boundary
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,
+    xfer/.style={-{Stealth[length=2.6mm]}, line width=1.1pt},
+    both/.style={{Stealth[length=2.6mm]}-{Stealth[length=2.6mm]}, line width=1.1pt}]
+  \foreach \x/\name in {0/Open system, 5/Closed system, 10/Isolated system} {
+    \node[inner sep=0] (f\x) at (\x,0) {\includegraphics[height=3cm]{../img/flask.png}};
+    \node[lbl, below=4pt] at (f\x.south) {\name};
+  }
+  % open: mass through the neck, energy through the wall
+  \draw[both, duBlue] (0,1.75) -- (0,2.75) node[above, lbl] {mass};
+  \draw[both, duRed] (0.6,0) -- (1.9,0.6) node[right, lbl] {heat, work};
+  % closed: energy only
+  \node[lbl, duGrey] at (5,1.95) {sealed};
+  \draw[both, duRed] (5.6,0) -- (6.9,0.6) node[right, lbl] {heat, work};
+  % isolated: nothing crosses
+  \node[lbl, duGrey] at (10,1.95) {sealed};
+  \draw[duPurple, line width=1.4pt, dashed, rounded corners=6pt]
+    (8.85,-1.6) rectangle (11.15,1.65);
+  \node[slbl, right] at (11.15,0) {\begin{tabular}{@{}l@{}}no mass,\\ no energy\end{tabular}};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,868 @@
+---
+title: "CH1 — Introduction to Thermodynamics"
+subtitle: "Lecture notes of Thermodynamics (ENGI 1111)"
+chapter: 1
+---
+
+::: {.objectives}
+By the end of this chapter, you should be able to:
+
+- Define thermodynamics and explain its real-world applications.
+- Explain important thermodynamic terms such as **system**, **state**,
+  **property**, **temperature** and **pressure**.
+- Use the **equation of state** to solve ideal-gas problems.
+:::
+
+# Definition
+
+Thermodynamics is the study of the effects of energy transfer via **heat** and
+**work** on a system.
+
+![](figures/img/thermo-heat-work.png){width=34%}
+
+Thermodynamics has its roots in the study of engines that convert heat
+(*thermo*) into movement (*dynamics*).
+
+![](figures/img/steam-locomotive.png){width=26%}
+
+# Applications
+
+All applications in nature involve some interaction between energy and matter;
+it is therefore hard to imagine an area that does not relate to thermodynamics
+in some way.
+
+![Refrigerators, power plants, car engines, jet engines and the human body are all thermodynamic systems.](figures/img/applications.png){width=72%}
+
+# Macroscopic description
+
+The behaviour of individual molecules is studied in **statistical** or
+**microscopic** thermodynamics. In **engineering** or **macroscopic**
+thermodynamics, on the other hand, the fluid is treated as a **continuum** with
+measurable quantities such as pressure and temperature.
+
+![Individual molecules (microscopic view). Engineering thermodynamics describes the gas as a whole instead, through properties such as $P$ and $T$.](figures/img/molecules-macro.png){width=26%}
+
+# Thermodynamic terms and definitions
+
+## System
+
+A collection of matter enclosed within a prescribed boundary.
+
+## Boundary
+
+A surface, real or imaginary, that separates the system from its surroundings.
+The boundary may be fixed, or it may be flexible and allow movement.
+
+## Surroundings
+
+Matter external to the system.
+
+![Heat and work, and in some systems mass, can cross the boundary between the system and its surroundings.](figures/img/system-boundary.png){width=52%}
+
+## Open, closed and isolated systems
+
+**Open system** (also called a **control volume**): a system that freely
+exchanges energy (work and heat) *and* matter with its surroundings.
+
+**Closed system** (also called a **control mass**): a system where only work and
+heat can cross the boundary. A closed system exchanges energy with its
+surroundings, but not matter.
+
+**Isolated system**: a system that exchanges neither matter nor energy with its
+surroundings.
+
+![](figures/out/system-types.svg){width=92%}
+
+# Working fluid
+
+The **working fluid** is the matter within the system boundaries, and it is
+affected by any energy (heat and work) crossing the boundary. Common working
+fluids are air, water, steam and refrigerants.
+
+![Steam in a power station, air in a car engine, refrigerant in a fridge.](figures/img/working-fluids.png){width=62%}
+
+## Phase
+
+A **phase** is a quantity of matter with the same chemical composition that is
+homogeneous throughout. Working fluids can exist in the solid, liquid or vapour
+phase.
+
+![](figures/img/phases.png){width=48%}
+
+# State and property of a system
+
+The condition of a system at any instant of time is called its **state**. The
+**thermodynamic properties** of the fluid (for example $T$, $P$ and $V$) define
+the state of a system. A property must be a characteristic that can be measured,
+and it must have a unique numerical value when the fluid is in any particular
+state.
+
+The value of a property must be **independent of the process** through which
+the fluid has passed in reaching that state.
+
+![Temperature, pressure and volume of the gas can each be read off directly: they describe its state now, whatever happened to it before.](figures/img/state-properties.png){width=52%}
+
+::: {.key}
+It has been found experimentally that only **two independent properties** are
+necessary and sufficient to determine the state of a closed system containing a
+simple fluid.
+:::
+
+## Intensive vs extensive properties
+
+Thermodynamic properties are divided into two general types, intensive and
+extensive.
+
+An **intensive** property is one that does *not* depend on the mass of the
+system (for example $T$ and $P$). If we bring two systems together, intensive
+properties are not summed.
+
+An **extensive** property is one that *does* depend on the mass of the system
+(for example $V$). If two systems are brought together, the extensive property
+of the new system is the sum of the extensive properties of the original two
+systems.
+
+If we divide an extensive property by the mass, a **specific** property
+results. For instance, the specific volume is defined as
+
+::: {.key}
+$$
+v = \frac{V}{m}\;\left[\frac{\mathrm{m^3}}{\mathrm{kg}}\right]
+  = \frac{1}{m/V} = \frac{1}{\rho}
+$$
+:::
+
+::: {.note}
+If an extensive property is represented by an **uppercase** letter, the
+associated specific (intensive) property is denoted by a **lowercase** letter:
+$x = X/m$.
+:::
+
+# Temperature
+
+Temperature is a measure of molecular activity. In engineering thermodynamics,
+however, the quantities of interest are defined in terms of macroscopic
+observations only, so we proceed without defining temperature at the molecular
+level.
+
+## Thermal equilibrium
+
+If there is no transfer of heat between two systems when they are brought into
+thermal contact, they are said to be in **thermal equilibrium** with each other.
+In this case, the temperatures of the two systems are the same: $T_1 = T_2$.
+
+## Zeroth law of thermodynamics
+
+::: {.key}
+*"If two systems are in thermal equilibrium with a third system, they are in
+thermal equilibrium with each other."*
+:::
+
+This law may seem so obvious that it does not need stating, but without it we
+could not build thermometers.
+
+![](figures/img/zeroth-law.png){width=40%}
+
+A thermometer $C$ placed in contact with $A$ reads $T_C = T_A$; placed in
+contact with $B$ it reads $T_C = T_B$. By the zeroth law, $A$ and $B$ are then
+at the same temperature, $T_A = T_B$, without ever being brought into contact
+themselves. That is exactly what we rely on every time we compare two
+temperatures with a thermometer.
+
+## Relative temperature scale (based on the zeroth law)
+
+**Celsius** (or centigrade) is the most common temperature scale. The freezing
+point of water is at $0~^\circ\mathrm{C}$ and its boiling point at
+$100~^\circ\mathrm{C}$, with the interval between them divided into 100
+degrees.
+
+![Melting ice fixes 0 °C and boiling water 100 °C. Anders Celsius (Sweden, 1701–1744).](figures/img/celsius-scale.png){width=62%}
+
+## Absolute temperature scale (based on the second law)
+
+A definition of absolute temperature is possible with the second law of
+thermodynamics (to be studied later). The **Kelvin** scale is the SI unit of
+temperature, named after William Thomson, Lord Kelvin. A temperature in Celsius
+is converted to kelvin as
+
+::: {.key}
+$$
+T_\mathrm{K} = T_{^\circ\mathrm{C}} + 273.15
+$$
+:::
+
+For example, $20~^\circ\mathrm{C}$ is $20 + 273.15 = 293.15~\mathrm{K}$.
+
+![William Thomson, Lord Kelvin (UK, 1824–1907).](figures/img/kelvin.png){width=16%}
+
+# Pressure
+
+In gases and liquids, the effect of a normal force acting on an area is the
+**pressure**. If a force $F$ acts at an angle to an area $A$, only the normal
+component $F_n$ enters into the definition of pressure:
+
+::: {.key}
+$$
+P = \frac{\Delta F_n}{\Delta A}
+$$
+:::
+
+![](figures/img/pressure-surface.png){width=46%}
+
+The pressure at a point in a fluid in equilibrium is the same in all directions:
+it is a **scalar** quantity. The SI unit of pressure is the **pascal** (Pa),
+where $1~\mathrm{Pa} = 1~\mathrm{N/m^2}$.
+
+The pascal is a small unit, so pressure is usually given in kPa. Other common
+units are the **bar** and the **atm**: $1~\text{bar}$ is exactly
+$100\,000~\mathrm{Pa} = 100~\mathrm{kPa}$, and $1~\text{atm}$ is
+$101\,325~\mathrm{Pa}$ ($1.01325$ bar), approximately the atmospheric pressure at
+sea level.
+
+## Absolute vs relative (gauge) pressure
+
+Pressure as discussed above is called **absolute** pressure. Although absolute
+pressure is what appears in most thermodynamic relations, pressure-measuring
+devices often indicate the *difference* between the absolute pressure in a
+system and the absolute pressure of the atmosphere outside the device. The
+magnitude of this difference is called the **gauge** pressure.
+
+::: {layout-ncol=2}
+![](figures/img/tyre.png)
+
+![](figures/img/tyre-gauge.png)
+:::
+
+::: {.key}
+$$
+P_\text{abs} = P_\text{gauge} + P_\text{atm},
+\qquad P_\text{atm} \approx 101~\mathrm{kPa} \text{ at sea level}
+$$
+:::
+
+::: {.note}
+For a sense of scale: a diver 10 m under water feels roughly one extra
+atmosphere, since $\rho g h \approx 1000 \times 9.81 \times 10 \approx
+100~\mathrm{kPa}$.
+:::
+
+::: {.example}
+The **gauge** pressure of a tank is 50 kPa. Calculate the **absolute**
+pressure.
+
+![](figures/img/gauge-absolute.png){width=36%}
+
+*Hint: which relation links gauge and absolute pressure, and roughly what is the
+atmospheric pressure?*
+
+::: {.gap height="14mm" hint="$P_\text{abs} = P_\text{gauge} + P_\text{atm}$, with $P_\text{atm} \approx 100$ kPa."}
+$$
+P_\text{abs} = P_\text{gauge} + P_\text{atm}
+\approx 50~\mathrm{kPa} + 100~\mathrm{kPa} = \boxed{150~\mathrm{kPa}}
+$$
+:::
+:::
+
+::: {.example}
+The piston has a mass of 10 kg and an area of $0.1~\mathrm{m^2}$. Find the
+absolute pressure of the gas contained in the cylinder. Take
+$P_\text{atm} = 100~\mathrm{kPa}$ and $g = 10~\mathrm{m/s^2}$.
+
+![](figures/img/piston-10kg.png){width=22%}
+
+**Step 1.** *The gas holds up the piston as well as the atmosphere above it.
+What gauge pressure does the weight of the piston alone produce?*
+
+::: {.gap height="16mm" hint="$P_\text{gauge} = mg/A = 1000$ Pa $= 1$ kPa."}
+$$
+P_\text{gauge} = \frac{mg}{A}
+= \frac{10~\mathrm{kg} \times 10~\mathrm{m/s^2}}{0.1~\mathrm{m^2}}
+= 1000~\mathrm{Pa} = 1~\mathrm{kPa}
+$$
+:::
+
+**Step 2.** *Now add the atmosphere.*
+
+::: {.gap height="12mm" hint="$P_\text{abs} = 1 + 100 = 101$ kPa."}
+$$
+P_\text{abs} = P_\text{gauge} + P_\text{atm}
+= 1~\mathrm{kPa} + 100~\mathrm{kPa} = \boxed{101~\mathrm{kPa}}
+$$
+:::
+:::
+
+::: {.note}
+In this course, the term *pressure* refers to **absolute pressure** unless
+explicitly stated otherwise.
+:::
+
+## Pressure measurements
+
+**Manometer.** The most basic device for measuring pressure is the manometer.
+Manometers measure pressure differences in terms of the length of a column of
+liquid such as water, mercury or oil. If one side of the manometer is open to
+the atmosphere, the length of the liquid column gives the gauge pressure.
+
+![](figures/img/manometer.png){width=40%}
+
+Points $A$ and $B$ are at the same level in the manometer liquid. Above $B$ is a
+column of liquid of height $H$, open to the atmosphere at the top.
+
+::: {.gap height="20mm" hint="Pressure at $B$: the atmosphere plus the weight of the column over its area; $m = \rho A H$."}
+$$
+P_B = P_\text{atm} + \frac{mg}{A}
+    = P_\text{atm} + \frac{\rho\,(A H)\,g}{A}
+    = P_\text{atm} + \rho g H \tag{I}
+$$
+:::
+
+::: {.gap height="14mm" hint="$A$ and $B$: same liquid, same level, at rest, so the same pressure. $A$ is at the fluid pressure $P$."}
+$A$ and $B$ are in the same liquid, at rest, at the same level, so they are at
+the same pressure; and $A$ is at the pressure $P$ of the fluid in the tank:
+$$
+P = P_A = P_B \tag{II}
+$$
+:::
+
+::: {.gap height="10mm" hint="Combine (I) and (II)."}
+Combining (I) and (II):
+$$
+P - P_\text{atm} = \rho g H
+$$
+:::
+
+::: {.key}
+$$
+P_\text{gauge} = P - P_\text{atm} = \rho g H
+$$
+:::
+
+**Barometer.** A barometer is a special manometer with one end closed above a
+near vacuum ($P \approx 0$). Since there is almost zero pressure in the closed
+tube above the column of liquid, the height of the column gives the atmospheric
+pressure directly.
+
+![](figures/img/barometer.png){width=26%}
+
+::: {.gap height="14mm" hint="Above the column is (near) vacuum, so the pressure at $B$ is due to the column alone."}
+Above the column there is (near) vacuum, so the pressure at the bottom of the
+column, $B$, comes from the weight of the liquid alone:
+$$
+P_B = \rho g H_0
+$$
+:::
+
+::: {.gap height="12mm" hint="$A$ is at the free surface, open to the atmosphere; $P_A = P_B$ (same level)."}
+$A$ is at the free surface, open to the atmosphere, and at the same level as $B$:
+$$
+P_A = P_\text{atm}, \qquad P_A = P_B
+$$
+:::
+
+::: {.key}
+$$
+P_\text{atm} = \rho g H_0
+$$
+:::
+
+::: {.example}
+A mercury barometer located in a room has a height of 750 mm. What is the
+atmospheric pressure in kPa? ($\rho_\text{mercury} = 13\,500~\mathrm{kg/m^3}$,
+$g = 10~\mathrm{m/s^2}$)
+
+*Hint: use the barometer relation we have just derived, with the height in
+metres.*
+
+::: {.gap height="16mm" hint="$P_\text{atm} = \rho g H_0 = 13500 \times 10 \times 0.75 = 101.25$ kPa."}
+$$
+P_\text{atm} = \rho g H_0
+= 13\,500~\frac{\mathrm{kg}}{\mathrm{m^3}} \times 10~\frac{\mathrm{m}}{\mathrm{s^2}}
+  \times 0.75~\mathrm{m}
+= 101\,250~\mathrm{Pa} = \boxed{101.25~\mathrm{kPa}}
+$$
+:::
+:::
+
+# Real fluid vs ideal fluid
+
+As mentioned, two independent properties are necessary and sufficient to
+determine the state of a system. To find the values of the other properties,
+one can use **thermodynamic tables** for **real fluids**. These tables are
+readily available in thermodynamics books.
+
+![Part of a property table: once two properties (here $P$ and $T$) are fixed, the others can be read off.](figures/img/property-table.png){width=40%}
+
+In thermodynamics and fluid mechanics we also often model fluids as **ideal**
+(**perfect**) in order to approximate the behaviour of real fluids. An ideal
+fluid is described by *mathematical equations*; a real fluid by *thermodynamic
+tables*.
+
+One of the best-known equations for ideal fluids is the **equation of state for
+an ideal gas**. When a gas or a vapour has relatively low density, the following
+equation is valid. A gas for which it is valid is called an **ideal gas**, or
+sometimes a **perfect gas**:
+
+::: {.key}
+$$
+PV = mRT
+\qquad\text{or}\qquad
+P = \rho R T
+\qquad\text{or}\qquad
+P v = R T
+$$
+:::
+
+::: {.gap height="12mm" hint="Divide $PV = mRT$ by $V$: $m/V = \rho$."}
+Dividing $PV = mRT$ by the volume, with $m/V = \rho$:
+$$
+P = \frac{m}{V}\,R T = \rho R T
+$$
+:::
+
+::: {.gap height="12mm" hint="Divide $PV = mRT$ by $m$: $V/m = v$."}
+Dividing $PV = mRT$ by the mass, with $V/m = v$:
+$$
+P\,\frac{V}{m} = P v = R T
+$$
+:::
+
+where
+
+| Symbol | Quantity | Unit |
+|:--|:--|:--|
+| $P$ | **absolute** pressure | Pa |
+| $V$ | volume | m³ |
+| $m$ | mass | kg |
+| $R$ | gas constant | J/(kg K) |
+| $T$ | temperature | **K** |
+| $\rho$ | density ($= 1/v$) | kg/m³ |
+| $v$ | specific volume | m³/kg |
+
+| Gas | $R$ [J/(kg K)] |
+|:--|--:|
+| Air | 286.9 |
+| Carbon dioxide (CO$_2$) | 188.9 |
+| Helium (He) | 2077 |
+| Hydrogen (H$_2$) | 4124 |
+| Methane (CH$_4$) | 518.3 |
+| Nitrogen (N$_2$) | 296.8 |
+| Oxygen (O$_2$) | 259.8 |
+
+: Individual gas constants.
+
+::: {.warning}
+When using the equation of state, pressure and temperature must be in **SI
+units** and **absolute** quantities: absolute pressure, and temperature in
+kelvin (K).
+:::
+
+Given that $Pv = RT$, for an ideal gas:
+
+| | |
+|:--|:--|
+| $P \propto T$ | constant-volume process |
+| $v \propto T$ | constant-pressure process |
+| $P \propto 1/v$ | constant-temperature process |
+
+![](figures/out/pv-ideal-processes.svg){width=62%}
+
+::: {.note}
+In microscopic and chemical studies, the equation of state is often written in
+molar units, $PV = n R_0 T$, where $n$ is the number of moles (in kmol) and
+$R_0$ is the **universal gas constant**, which has the same value for all ideal
+gases: $R_0 = 8314~\mathrm{J/(kmol\,K)}$. One mole is about
+$6.022 \times 10^{23}$ particles.
+
+The two forms are linked through the **molar mass** $M$ of the gas, the mass of
+one kmol in kg/kmol:
+
+::: {.gap height="12mm" hint="Both forms describe the same gas: $PV = mRT = nR_0T$, so $mR = nR_0$."}
+Both forms describe the same gas, so
+$$
+PV = mRT = n R_0 T
+\quad\Rightarrow\quad
+m R = n R_0
+$$
+:::
+
+::: {.gap height="12mm" hint="$m/n$ is the molar mass $M$, so $R_0 = MR$."}
+and since $m/n$ is the molar mass $M$,
+$$
+R_0 = \frac{m}{n}\,R = M R
+$$
+:::
+
+$$
+R = \frac{R_0}{M}
+$$
+:::
+
+::: {.note}
+The value of $R$ is specific to each ideal gas, depending on its molar mass. For
+oxygen, for example, $M = 32$ kg/kmol, giving
+$R = 8314/32 = 259.8~\mathrm{J/(kg\,K)}$, whereas $R_0$ has the same value for
+all ideal gases.
+:::
+
+{{< pagebreak >}}
+
+# End-of-chapter problems {#sec-problems}
+
+::: {.tryfirst}
+Have a real go at every problem here before you look at a solution. Worked
+solutions are released after the lectures, but reading a solution is not the
+same as being able to produce one: the time you spend stuck on a problem is
+where most of the learning happens. Only once you have an answer of your own,
+or have tried every approach you can think of, check it against the solution,
+and compare the method, not just the final number.
+:::
+
+**P1 [easy].** Which of the following is **not** a property?
+
+**(a)** heat &nbsp;&nbsp; **(b)** density &nbsp;&nbsp; **(c)** temperature
+&nbsp;&nbsp; **(d)** volume
+
+::: {.gap height="fill"}
+::: {.worked}
+**(a)** Heat is not a system property: it depends on the path followed during a
+process, not only on the state of the system.
+:::
+:::
+
+**P2 [easy].** Identify which of the following is an **intensive** property.
+
+**(a)** a pressure of 90 kPa &nbsp;&nbsp; **(b)** a mass of 75 kg &nbsp;&nbsp;
+**(c)** a 10 m³ volume &nbsp;&nbsp; **(d)** 30 J of kinetic energy
+
+::: {.gap height="fill"}
+::: {.worked}
+**(a)** Pressure is independent of mass, so it is an intensive property. The
+others would all double if, for example, the mass doubled.
+:::
+:::
+
+**P3 [easy].** A 5 litre can of a particular brand of motor oil has a specific
+volume of $0.0013~\mathrm{m^3/kg}$. Calculate its density.
+
+**(a)** 769.2 kg/m³ &nbsp;&nbsp; **(b)** 153.8 kg/m³ &nbsp;&nbsp;
+**(c)** 3846.0 kg/m³ &nbsp;&nbsp; **(d)** 0.0325 kg/m³
+
+::: {.gap height="fill"}
+::: {.worked}
+Specific volume and density are
+$$
+v = \frac{V}{m}, \qquad \rho = \frac{m}{V}
+\qquad\Rightarrow\qquad
+\rho = \frac{1}{v} = \frac{1}{0.0013~\mathrm{m^3/kg}}
+= \boxed{769.2~\mathrm{kg/m^3}} \quad \text{(a)}
+$$
+
+The 5 litres is not needed: density is an intensive property.
+:::
+:::
+
+**P4 [easy].** A balloon contains $0.5~\mathrm{m^3}$ of air at a pressure of
+1.02 bar and a temperature of 18 °C. What mass of air does the balloon contain?
+(For air, $R = 287~\mathrm{J/(kg\,K)}$.)
+
+**(a)** 0.61 kg &nbsp;&nbsp; **(b)** 1.0 kg &nbsp;&nbsp; **(c)** 0.00006 kg
+&nbsp;&nbsp; **(d)** 9.9 kg
+
+::: {.gap height="fill"}
+::: {.worked}
+In SI units: $V = 0.5~\mathrm{m^3}$, $P = 1.02~\text{bar} = 1.02\times10^{5}$ Pa,
+$T = 18~^\circ\mathrm{C} = 291~\mathrm{K}$.
+
+For an ideal gas,
+$$
+PV = mRT
+\quad\Rightarrow\quad
+m = \frac{PV}{RT}
+  = \frac{1.02\times10^{5}~\mathrm{Pa} \times 0.5~\mathrm{m^3}}
+         {287~\mathrm{J/(kg\,K)} \times 291~\mathrm{K}}
+  = \boxed{0.61~\mathrm{kg}} \quad \text{(a)}
+$$
+:::
+:::
+
+**P5 [easy].** Estimate the difference in density between the inside and the
+outside of a house in winter, when $P = 100$ kPa,
+$T_\text{inside} = 20$ °C and $T_\text{outside} = -20$ °C. For dry air,
+$R = 287~\mathrm{J/(kg\,K)}$.
+
+**(a)** 0.19 kg/m³ &nbsp;&nbsp; **(b)** 0.17 kg/m³ &nbsp;&nbsp;
+**(c)** 0.15 kg/m³ &nbsp;&nbsp; **(d)** 0.09 kg/m³
+
+::: {.gap height="fill"}
+::: {.worked}
+From the ideal-gas equation, $\rho = P/(RT)$, with the temperatures in kelvin:
+$$
+\rho_\text{out} = \frac{100\times10^{3}~\mathrm{Pa}}
+                       {287~\mathrm{J/(kg\,K)} \times (-20 + 273)~\mathrm{K}}
+               = 1.377~\mathrm{kg/m^3}
+$$
+$$
+\rho_\text{in} = \frac{100\times10^{3}~\mathrm{Pa}}
+                      {287~\mathrm{J/(kg\,K)} \times (20 + 273)~\mathrm{K}}
+              = 1.189~\mathrm{kg/m^3}
+$$
+$$
+\Delta\rho = 1.377 - 1.189 = \boxed{0.188~\mathrm{kg/m^3}} \quad \text{(a)}
+$$
+:::
+:::
+
+**P6 [medium].** Calculate the weight of a body that occupies $200~\mathrm{m^3}$
+if its specific volume is $10~\mathrm{m^3/kg}$ ($g = 9.8~\mathrm{m/s^2}$).
+
+**(a)** 196 N &nbsp;&nbsp; **(b)** 20 N &nbsp;&nbsp; **(c)** 132 N &nbsp;&nbsp;
+**(d)** 92 N
+
+::: {.gap height="fill"}
+::: {.worked}
+From the specific volume,
+$$
+v = \frac{V}{m}
+\quad\Rightarrow\quad
+m = \frac{V}{v} = \frac{200~\mathrm{m^3}}{10~\mathrm{m^3/kg}} = 20~\mathrm{kg}
+$$
+so the weight is
+$$
+W = m g = 20~\mathrm{kg} \times 9.8~\mathrm{m/s^2}
+  = \boxed{196~\mathrm{N}} \quad \text{(a)}
+$$
+:::
+:::
+
+**P7 [medium].** The figure shows a tank within a tank, each containing air.
+Pressure gauge A is located inside tank B and reads 1.4 bar. The U-tube manometer
+connected to tank B contains mercury. Using the data on the diagram, determine
+the absolute pressure inside tank A, in bar. The atmospheric pressure
+surrounding tank B is 101 kPa, and $g = 9.81~\mathrm{m/s^2}$.
+
+![](figures/img/p-tank-in-tank.png){width=62%}
+
+**(a)** 2.68 &nbsp;&nbsp; **(b)** 3.54 &nbsp;&nbsp; **(c)** 1.2 &nbsp;&nbsp;
+**(d)** 0.4
+
+::: {.gap height="fill"}
+::: {.worked}
+Gauge A measures the pressure in tank A **relative to tank B**, not to the
+atmosphere, so we first need the absolute pressure in tank B:
+$$
+P_{B,\text{abs}} = P_\text{atm} + P_{B,\text{gauge}} \tag{I}
+$$
+
+The manometer gives the gauge pressure of tank B, with
+$\rho = 13.59~\mathrm{g/cm^3} = 13\,590~\mathrm{kg/m^3}$:
+$$
+P_{B,\text{gauge}} = \rho_\text{mercury}\, g L
+= 13\,590 \times 9.81 \times 0.2 = 26.7~\mathrm{kPa} \tag{II}
+$$
+
+From (I) and (II):
+$$
+P_{B,\text{abs}} = 101 + 26.7 = 127.7~\mathrm{kPa} = 1.28~\text{bar}
+$$
+
+Now tank A:
+$$
+P_{A,\text{abs}} = P_{A,\text{gauge}} + P_{B,\text{abs}}
+= 1.4~\text{bar} + 1.28~\text{bar} = \boxed{2.68~\text{bar}} \quad \text{(a)}
+$$
+:::
+:::
+
+**P8 [medium].** The gauge pressure reading on an automobile tyre is 240 kPa
+when the tyre temperature is $-30$ °C. The automobile is driven to a warmer
+climate, and the tyre temperature increases to 65 °C. Make reasonable
+assumptions to estimate the gauge pressure of the tyre in the warmer climate.
+The atmospheric pressure in both locations is 100 kPa.
+
+**(a)** 333 kPa &nbsp;&nbsp; **(b)** 473 kPa &nbsp;&nbsp; **(c)** 373 kPa
+&nbsp;&nbsp; **(d)** 260 kPa
+
+::: {.gap height="fill"}
+::: {.worked}
+**State 1:** $P_{1,\text{gauge}} = 240$ kPa, so
+$P_{1,\text{abs}} = 240 + 100 = 340$ kPa; $T_1 = -30~^\circ\mathrm{C} = 243$ K.
+
+**State 2:** $P_2 = ?$, $T_2 = 65~^\circ\mathrm{C} = 338$ K.
+
+From the ideal-gas equation, $P/T = mR/V$. It is reasonable to assume that
+neither the mass of air nor the volume of the tyre changes, so
+$$
+\frac{P_1}{T_1} = \frac{P_2}{T_2}
+\quad\Rightarrow\quad
+P_2 = 340~\mathrm{kPa} \times \frac{338~\mathrm{K}}{243~\mathrm{K}}
+    = 472.9~\mathrm{kPa}
+$$
+
+This is absolute. The gauge reading is
+$$
+P_{2,\text{gauge}} = P_{2,\text{abs}} - P_\text{atm} = 473 - 100
+= \boxed{373~\mathrm{kPa}} \quad \text{(c)}
+$$
+
+Always use **absolute** pressure in the ideal-gas equation. Using the gauge
+readings directly gives 333 kPa, answer (a), which is wrong.
+:::
+:::
+
+**P9 [medium].** A hollow metal sphere with an inside diameter of 150 mm is
+weighed on a precision beam balance when evacuated, and again after being filled
+to 875 kPa with an unknown ideal gas. The difference in mass is 0.0025 kg, and
+the temperature is 25 °C. What is the gas? (*Hint: the volume of a sphere is
+$\tfrac{4}{3}\pi r^3$, where $r$ is its radius.*)
+
+| Gas | Formula | Molar mass (kg/kmol) | $R$ (kJ/(kg K)) |
+|:--|:--|--:|--:|
+| Steam | H$_2$O | 18.015 | 0.4615 |
+| Acetylene | C$_2$H$_2$ | 26.038 | 0.3193 |
+| Air | — | 28.97 | 0.287 |
+| Ammonia | NH$_3$ | 17.031 | 0.4882 |
+| Argon | Ar | 39.948 | 0.2081 |
+| Butane | C$_4$H$_{10}$ | 58.124 | 0.1430 |
+| Carbon dioxide | CO$_2$ | 44.01 | 0.1889 |
+| Carbon monoxide | CO | 28.01 | 0.2968 |
+| Ethane | C$_2$H$_6$ | 30.07 | 0.2765 |
+| Ethanol | C$_2$H$_5$OH | 46.069 | 0.1805 |
+| Ethylene | C$_2$H$_4$ | 28.054 | 0.2964 |
+| Helium | He | 4.003 | 2.0771 |
+| Hydrogen | H$_2$ | 2.016 | 4.1243 |
+| Methane | CH$_4$ | 16.043 | 0.5183 |
+| Methanol | CH$_3$OH | 32.042 | 0.2595 |
+| Neon | Ne | 20.183 | 0.4120 |
+| Nitric oxide | NO | 30.006 | 0.2771 |
+| Nitrogen | N$_2$ | 28.013 | 0.2968 |
+
+**(a)** Helium &nbsp;&nbsp; **(b)** Air &nbsp;&nbsp; **(c)** Methanol
+&nbsp;&nbsp; **(d)** Ethane
+
+::: {.gap height="fill"}
+::: {.worked}
+The volume of the sphere:
+$$
+V = \tfrac{4}{3}\pi r^{3} = \tfrac{4}{3}\pi \left(\frac{0.15~\mathrm{m}}{2}\right)^{3}
+  = 0.00177~\mathrm{m^3}
+$$
+
+With $m = 0.0025$ kg, $T = 25~^\circ\mathrm{C} = 298$ K and
+$P = 875\times10^{3}$ Pa, the ideal-gas equation gives the gas constant, which
+has a specific value for each gas:
+$$
+PV = mRT
+\quad\Rightarrow\quad
+R = \frac{PV}{mT}
+  = \frac{875\times10^{3}~\mathrm{Pa} \times 0.00177~\mathrm{m^3}}
+         {0.0025~\mathrm{kg} \times 298~\mathrm{K}}
+  \approx 2.08~\mathrm{kJ/(kg\,K)}
+$$
+
+According to the table, helium has the value of $R$ closest to this, so the gas
+is **helium**, answer (a).
+:::
+:::
+
+**P10 [medium].** Air in an internal-combustion engine is at 227 °C and
+1000 kPa, with a volume of $0.1~\mathrm{m^3}$. Combustion heats it to 1500 K in
+a constant-volume process. What is the mass of air, and how high does the
+pressure become? ($R_\text{air} = 0.287~\mathrm{kJ/(kg\,K)}$)
+
+**(a)** 0.697 kg, 3000 kPa &nbsp;&nbsp; **(b)** 0.345 kg, 4000 kPa &nbsp;&nbsp;
+**(c)** 0.697 kg, 1000 kPa &nbsp;&nbsp; **(d)** 0.234 kg, 3000 kPa
+
+::: {.gap height="fill"}
+::: {.worked}
+With $T_1 = 227~^\circ\mathrm{C} = 500$ K, $P_1 = 10^{6}$ Pa and
+$V_1 = 0.1~\mathrm{m^3}$, the ideal-gas equation gives the mass:
+$$
+m = \frac{P_1 V_1}{R T_1}
+  = \frac{10^{6}~\mathrm{Pa} \times 0.1~\mathrm{m^3}}
+         {287~\mathrm{J/(kg\,K)} \times 500~\mathrm{K}}
+  = 0.697~\mathrm{kg}
+$$
+
+For the final state the volume does not change, $V_2 = V_1$:
+$$
+P_2 = \frac{m R T_2}{V_2}
+    = \frac{0.697 \times 287 \times 1500}{0.1}
+    \approx 3\times10^{6}~\mathrm{Pa} = 3000~\mathrm{kPa}
+$$
+
+Alternatively, since $m_1 = m_2$ and $V_1 = V_2$,
+$$
+\frac{P_2}{P_1} = \frac{T_2}{T_1}
+\quad\Rightarrow\quad
+P_2 = 1000~\mathrm{kPa} \times \frac{1500~\mathrm{K}}{500~\mathrm{K}}
+    = 3000~\mathrm{kPa}
+$$
+
+So the answer is **(a)**: 0.697 kg, 3000 kPa.
+:::
+:::
+
+**P11 [hard].** Helium in a steel tank is at 250 kPa and 300 K, with a volume of
+$0.1~\mathrm{m^3}$. It is used to fill a balloon. When the pressure drops to
+150 kPa, the flow of helium stops by itself. If all the helium is still at
+300 K, how big a balloon is produced? ($R_\text{helium} = 2.0771~\mathrm{kJ/(kg\,K)}$)
+
+**(a)** 67 litres &nbsp;&nbsp; **(b)** 93 litres &nbsp;&nbsp; **(c)** 167 litres
+&nbsp;&nbsp; **(d)** 7 litres
+
+::: {.gap height="fill"}
+::: {.worked}
+Take the system to be all of the helium: in the tank at first, in the tank plus
+the balloon at the end. Its total mass and temperature are the same in the
+initial and final states, so for an ideal gas
+$$
+P_1 V_1 = m R T = P_2 V_2
+\quad\Rightarrow\quad
+V_2 = \frac{P_1 V_1}{P_2}
+    = \frac{250~\mathrm{kPa} \times 0.1~\mathrm{m^3}}{150~\mathrm{kPa}}
+    = 0.167~\mathrm{m^3}
+$$
+
+The steel tank's volume does not change, so the difference between $V_2$ and
+$V_1$ is the balloon:
+$$
+V_\text{balloon} = V_2 - V_1 = 0.167 - 0.1 = 0.067~\mathrm{m^3}
+= \boxed{67~\text{litres}} \quad \text{(a)}
+$$
+
+$R$ is not needed.
+:::
+:::
+
+**P12 [hard].** A glass is cleaned in hot water at 45 °C and placed on the table
+bottom up. The room air at 20 °C that was trapped in the glass is heated up to
+40 °C, and some of it leaks out, so that the net resulting pressure inside is
+2 kPa above the ambient pressure of 101 kPa. Now the glass and the air inside
+cool down to room temperature. What is the pressure inside the glass?
+($P_\text{atm} = 101$ kPa)
+
+**(a)** 96.4 kPa &nbsp;&nbsp; **(b)** 50.3 kPa &nbsp;&nbsp; **(c)** 115.4 kPa
+&nbsp;&nbsp; **(d)** 167.8 kPa
+
+::: {.gap height="fill"}
+::: {.worked}
+**While the air is hot** (after the leak):
+$P_1 = P_\text{atm} + P_{1,\text{gauge}} = 101 + 2 = 103$ kPa,
+$T_1 = 40~^\circ\mathrm{C} = 313$ K.
+
+**After the air cools down:** $P_2 = ?$, $T_2 = 20~^\circ\mathrm{C} = 293$ K.
+
+Once the glass sits sealed on the table, the mass and the volume of the trapped
+air stay fixed. Assuming an ideal gas:
+$$
+P_1 V = m R T_1, \qquad P_2 V = m R T_2
+\quad\Rightarrow\quad
+P_2 = P_1 \frac{T_2}{T_1}
+    = 103~\mathrm{kPa} \times \frac{293~\mathrm{K}}{313~\mathrm{K}}
+    = \boxed{96.4~\mathrm{kPa}} \quad \text{(a)}
+$$
+
+$P_2 < P_\text{atm}$: there is a partial vacuum inside relative to the
+atmosphere, so the atmosphere presses the glass against the table.
+:::
+:::

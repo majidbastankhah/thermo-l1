@@ -23,10 +23,12 @@
 --]]
 
 local mode = "complete"
+local chapter = nil          -- from the chapter's own front matter
 local show_solutions = nil   -- nil => decide from `mode`
 
 function Meta(m)
   if m.gapmode then mode = pandoc.utils.stringify(m.gapmode) end
+  if m.chapter then chapter = pandoc.utils.stringify(m.chapter) end
   if m.solutions ~= nil then
     local s = pandoc.utils.stringify(m.solutions)
     show_solutions = (s == "true" or s == "yes")
@@ -171,15 +173,16 @@ end
 -- stamp the footer of the PDF with which of the three copies this is, so the
 -- student handout and the lecturer copy can never be confused for each other
 local LABEL = {
-  student  = "Chapter 2 -- student copy (gaps filled in during the lecture)",
-  complete = "Chapter 2 -- completed copy",
-  reveal   = "Chapter 2 -- completed copy",
-  lecturer = "Chapter 2 -- presenter notes, do not circulate",
+  student  = "student copy (gaps filled in during the lecture)",
+  complete = "completed copy",
+  reveal   = "completed copy",
+  lecturer = "presenter notes, do not circulate",
 }
 
 function Pandoc(doc)
   if is_latex() then
     local label = LABEL[mode] or LABEL.complete
+    if chapter then label = "Chapter " .. chapter .. " -- " .. label end
     table.insert(doc.blocks, 1,
       pandoc.RawBlock("latex", "\\renewcommand{\\gapvariant}{" .. label .. "}"))
   end
