@@ -79,10 +79,19 @@ local function revealable(blocks, height)
   reveal_count = reveal_count + 1
   local body = pandoc.Div(blocks, pandoc.Attr("", { "gap-body" }))
 
+  -- a gap that holds an end-of-chapter solution is not a lecture step: it
+  -- opens on its own when clicked and is skipped by the keyboard sequence
+  local classes = { "gap-reveal" }
+  for _, b in ipairs(blocks) do
+    if b.t == "Div" and b.classes:includes("worked") then
+      classes[#classes + 1] = "gap-solo"
+    end
+  end
+
   return {
     pandoc.Div({ body }, pandoc.Attr(
       "gap-" .. reveal_count,
-      { "gap-reveal" },
+      classes,
       {
         ["data-gap"] = tostring(reveal_count),
         ["style"]    = "--gap-h: " .. height,
@@ -130,7 +139,7 @@ end
 
 function Div(el)
   -- worked solutions to the end-of-chapter problems
-  if el.classes:includes("solution") then
+  if el.classes:includes("worked") then
     if not show_solutions then return {} end
     return nil   -- left for boxes.lua to style
   end
@@ -140,7 +149,15 @@ function Div(el)
   local height = el.attributes["height"] or "40mm"
   local hint   = el.attributes["hint"]
 
+  -- height="fill": the rest of the page in the printed student copy (one
+  -- end-of-chapter problem per page); a fixed panel on screen
+  local fill = (height == "fill")
+  if fill then height = "70mm" end
+
   if mode == "student" then
+    if fill and is_latex() then
+      return { pandoc.RawBlock("latex", "\\gapfill") }
+    end
     return blank(height)
   elseif mode == "lecturer" then
     return lecturer(el.content, hint)

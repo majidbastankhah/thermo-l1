@@ -14,7 +14,28 @@
 (function () {
   "use strict";
 
-  const gaps = Array.prototype.slice.call(document.querySelectorAll(".gap-reveal"));
+  // End-of-chapter solutions (.gap-solo) are not lecture steps: each opens by
+  // itself when clicked, and the keys, the counter and ?all=1 leave them alone,
+  // so opening P5's solution does not also give away P1-P4.
+  Array.prototype.forEach.call(document.querySelectorAll(".gap-solo"), function (g) {
+    g.setAttribute("role", "button");
+    g.setAttribute("tabindex", "0");
+    g.setAttribute("aria-expanded", "false");
+    g.setAttribute("aria-label", "Show solution");
+    function open(ev) {
+      if (g.classList.contains("is-open")) return;
+      ev.preventDefault();
+      g.classList.add("is-open");
+      g.removeAttribute("role"); g.removeAttribute("tabindex");
+      g.removeAttribute("aria-label"); g.setAttribute("aria-expanded", "true");
+    }
+    g.addEventListener("click", open);
+    g.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter" || ev.key === " ") open(ev);
+    });
+  });
+
+  const gaps = Array.prototype.slice.call(document.querySelectorAll(".gap-reveal:not(.gap-solo)"));
   if (!gaps.length) return;
 
   let cursor = 0;                       // how many are uncovered

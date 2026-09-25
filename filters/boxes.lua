@@ -21,8 +21,12 @@ local ENV = {
   example    = { env = "texample",    label = "Example"       },
   activity   = { env = "tactivity",   label = "In-class activity" },
   objectives = { env = "tobjectives", label = "Learning objectives" },
-  solution   = { env = "tsolution",   label = "Solution"       },
+  worked     = { env = "tsolution",   label = "Solution"       },
+  tryfirst   = { env = "ttryfirst",   label = "Try it before you look" },
 }
+
+-- examples are numbered in document order: Example 1, Example 2, ...
+local example_count = 0
 
 local function is_latex() return FORMAT:match("latex") or FORMAT:match("beamer") end
 
@@ -43,6 +47,10 @@ function Div(el)
   for class, spec in pairs(ENV) do
     if el.classes:includes(class) then
       local label = el.attributes["title"] or spec.label
+      if class == "example" and not el.attributes["title"] then
+        example_count = example_count + 1
+        label = "Example " .. example_count
+      end
 
       if is_latex() then
         local blocks = prepend_label(el.content, label)

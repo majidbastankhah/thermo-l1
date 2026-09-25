@@ -34,6 +34,10 @@ Clicking a covered panel jumps straight to it — useful when someone asks about
 something three steps back. A student opening the page later resumes where they
 left off; `?all=1` on the URL opens it fully uncovered.
 
+End-of-chapter solutions are not part of that sequence. Each one stays covered
+until it is clicked, on its own, so opening one solution does not give away the
+others; the keys, the counter and `?all=1` leave them alone.
+
 Maths is rendered by KaTeX served from `js/katex/` in this repository, not from
 a CDN, so equations still render if the lecture-theatre network is slow or
 blocked.
@@ -71,11 +75,35 @@ one file.
 ::: {.note} ... :::          ::: {.warning} ... :::
 ::: {.key} ... :::           ::: {.example} ... :::
 ::: {.activity} ... :::      ::: {.objectives} ... :::
-::: {.solution} ... :::
+::: {.worked} ... :::
 ```
 
-`.solution` blocks are dropped from the student copy and kept everywhere else.
-To release solutions separately, build with `-M solutions:true`.
+`.worked` is the solution box for an end-of-chapter problem. Put it inside a
+gap, so it is blank in the student copy and covered on the website (students
+can uncover it after trying the problem):
+
+```markdown
+::: {.gap height="45mm"}
+::: {.worked}
+...
+:::
+:::
+```
+
+It is not called `.solution` because Quarto has a built-in environment of that
+name, which takes the block over before the filter can drop it. Problems solved
+in the lecture go in the body of the chapter where they belong, as an ordinary
+`::: {.example}` with stepped gaps, not at the end.
+
+Examples are numbered automatically (Example 1, Example 2, ...) in document
+order; give one a `title="..."` only if it should not be numbered.
+
+`height="fill"` on a gap makes it fill the rest of the page in the printed
+student copy and then start a new page -- used for the end-of-chapter problems,
+so each one gets a page of working space. On screen it is a fixed 70 mm panel.
+
+`::: {.tryfirst}` is the amber note at the start of the end-of-chapter
+problems.
 
 ### Figures
 

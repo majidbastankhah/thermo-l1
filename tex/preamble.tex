@@ -27,6 +27,7 @@
 \definecolor{duGrey}{HTML}{6B6B6B}
 \definecolor{duGreen}{HTML}{1B7A57}
 \definecolor{duPaper}{HTML}{F4F0F5}
+\definecolor{duAmber}{HTML}{C77700}
 
 % --- running heads ---------------------------------------------------------
 \newcommand{\gapvariant}{}          % overwritten per build by filters/gaps.lua
@@ -51,6 +52,18 @@
       (0,0) rectangle (\linewidth,#1);
   \end{tikzpicture}%
   \par\vspace{0.6em}%
+}
+
+% student copy, end-of-chapter problems: a blank that fills the rest of the
+% page, followed by a page break, so every problem gets a page of its own
+\newcommand{\gapfill}{%
+  \par\vspace{0.6em}%
+  \noindent
+  \begin{tcolorbox}[enhanced, height fill, colback=white, frame hidden,
+      borderline={0.4pt}{0pt}{duPurple!25, dashed}, arc=2pt]
+  \mbox{}
+  \end{tcolorbox}%
+  \clearpage
 }
 
 % completed copy: what was written in class, flagged with a purple rule
@@ -107,6 +120,15 @@
   enhanced, breakable, colback=duPaper, colframe=duPurple!40,
   boxrule=0.4pt, arc=2pt, left=7pt, right=7pt, top=6pt, bottom=6pt,
   before skip=6pt, after skip=10pt
+}
+
+% the note at the start of the end-of-chapter problems: deliberately a colour
+% nothing else in the notes uses
+\newtcolorbox{ttryfirst}{
+  enhanced, breakable, colback=duAmber!10, colframe=duAmber,
+  boxrule=0pt, leftrule=4pt, arc=0pt, outer arc=0pt,
+  left=9pt, right=8pt, top=7pt, bottom=7pt,
+  before skip=8pt, after skip=12pt
 }
 
 % labels used by filters/boxes.lua
