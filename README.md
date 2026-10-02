@@ -63,10 +63,14 @@ On the notes with gaps (not on the completed notes) this gives:
 
 | | |
 |:--|:--|
-| **Ask a question** button | for students: opens the Q&A in a side panel beside the notes (a new tab on phones). If Poll Everywhere refuses to load inside the page, the panel's *open in a new tab* link always works. |
+| **Ask a question** button | for students: opens the Q&A in a new tab |
 | **P** (presentation mode) | the address and a small QR code stay in the bottom-right corner |
 | **J** | a full-screen QR code and the address, to show at the start of a lecture; J or Esc closes it |
-| **Q** | for you: the side panel on `qa-presenter-url` (e.g. your moderation page) or, if that is empty, on `qa-url`. Q again or Esc closes it. Note it shows on the projector if your screen is mirrored. |
+| **Q** | for you: opens `qa-presenter-url` (e.g. your moderation page) or, if that is empty, `qa-url`, in a small window at the right of the screen; Q again brings the same window to the front |
+
+Poll Everywhere cannot be embedded in the page: its bot check fails inside a
+frame ("Max challenge attempts exceeded"), so it always opens in a tab or
+window of its own.
 
 The syllabus and the front page show the address with `{{< meta qa-url >}}`,
 so it is set only in `_quarto.yml`. The QR code is drawn in the browser by

@@ -234,6 +234,9 @@ body:has(.reveal-bar) #quarto-document-content { padding-bottom: 4.5rem; }
 @media (prefers-reduced-motion: reduce) { .reveal-bar { transition: none; } }
 
 /* --- live questions (js/lecture-reveal.html, qa-url in _quarto.yml) ------ */
+.qa-button, .qa-button:hover, .qa-button:visited {
+  text-decoration: none; color: #fff;
+}
 .qa-button {
   position: fixed; right: 16px; bottom: 16px; z-index: 1040;
   border: 0; border-radius: 999px; padding: 0.55em 1.1em;
@@ -242,24 +245,6 @@ body:has(.reveal-bar) #quarto-document-content { padding-bottom: 4.5rem; }
 }
 .qa-button span { opacity: 0.75; font-size: 0.8em; margin-left: 0.3em; }
 .qa-button:hover { filter: brightness(1.1); }
-
-body .qa-panel {
-  position: fixed; top: 0; right: 0; bottom: 0; z-index: 1050 !important;
-  width: min(420px, 92vw); display: flex; flex-direction: column;
-  background: var(--bs-body-bg, #fff); border-left: 1px solid var(--box-border);
-  box-shadow: -4px 0 16px rgba(0,0,0,0.12);
-  transform: translateX(100%); transition: transform 0.2s ease;
-}
-body.qa-open .qa-panel { transform: none; }
-body.qa-open .qa-button { display: none; }
-.qa-head { display: flex; align-items: center; gap: 0.8em; padding: 0.6em 0.9em;
-           border-bottom: 1px solid var(--box-border); }
-.qa-head a { font-size: 0.85rem; margin-left: auto; }
-.qa-close { border: 0; background: none; font-size: 1.5rem; line-height: 1; cursor: pointer; color: inherit; }
-.qa-panel iframe { flex: 1; width: 100%; border: 0; }
-.qa-foot { margin: 0; padding: 0.4em 0.9em; font-size: 0.75rem; color: var(--box-text); }
-/* on a wide screen the notes move over, so the panel sits beside them */
-@media (min-width: 1200px) { body.qa-open { padding-right: 420px; } }
 
 .qa-badge, .qa-card { display: none; }
 body.present .qa-button { display: none; }
@@ -286,4 +271,4 @@ body.qa-join .qa-card {
 /* the QR code must stay dark-on-light to scan, in dark mode too */
 .qa-card svg, .qa-badge svg { background: #fff; }
 
-@media print { .qa-button, .qa-panel, .qa-badge, .qa-card { display: none !important; } }
+@media print { .qa-button, .qa-badge, .qa-card { display: none !important; } }

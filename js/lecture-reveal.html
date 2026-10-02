@@ -155,10 +155,14 @@
 <!-- Live questions during the lecture (Poll Everywhere Q&A, address set by
      qa-url in _quarto.yml). Only on pages that carry #qa-config, i.e. the
      notes with gaps.
-       button  "Ask a question": opens the Q&A in a side panel (a new tab on phones)
-       Q       you: open/close the panel on qa-presenter-url (or qa-url)
+       button  "Ask a question": opens the Q&A in a new tab
+       Q       you: opens qa-presenter-url (or qa-url) in a small window at the
+               side of the screen; Q again brings that same window to the front
        J       a large QR code + address, to show at the start of a lecture
-       Esc     close the panel / the QR card
+       Esc     close the QR card
+     Poll Everywhere cannot run inside another page (its bot check fails in an
+     embedded frame: "Max challenge attempts exceeded"), so it always gets a
+     tab or window of its own.
      In presentation mode (P) the address and a small QR stay in a corner. -->
 <script src="js/qrcode.js"></script>
 <script>
@@ -178,46 +182,26 @@
   }
   const qr = qrSvg();
 
-  // ------------------------------------------------- button + side panel --
-  const btn = document.createElement("button");
-  btn.type = "button";
+  // ----------------------------------------------- student button: a tab --
+  const btn = document.createElement("a");
   btn.className = "qa-button";
+  btn.href = url;
+  btn.target = "_blank";
+  btn.rel = "noopener";
   btn.innerHTML = "Ask a question <span>anonymous</span>";
-  btn.title = "Ask a question anonymously (" + shown + ")";
+  btn.title = "Ask a question anonymously (" + shown + "), opens in a new tab";
   document.body.appendChild(btn);
 
-  // a div, not an <aside>: Quarto's CSS puts asides under its navbar
-  const panel = document.createElement("div");
-  panel.className = "qa-panel";
-  panel.setAttribute("role", "complementary");
-  panel.setAttribute("aria-label", "Questions");
-  panel.innerHTML =
-    '<div class="qa-head"><strong>Questions</strong>' +
-    '<a target="_blank" rel="noopener">open in a new tab &#8599;</a>' +
-    '<button type="button" class="qa-close" aria-label="Close">&times;</button></div>' +
-    '<iframe title="Questions (Poll Everywhere)"></iframe>' +
-    '<p class="qa-foot">Nothing showing? Use <em>open in a new tab</em>.</p>';
-  document.body.appendChild(panel);
-  const frame = panel.querySelector("iframe");
-  const link = panel.querySelector("a");
-
-  function isOpen() { return document.body.classList.contains("qa-open"); }
-  function openPanel(target) {
-    if (window.matchMedia("(max-width: 760px)").matches) {   // phones: a tab
-      window.open(target, "_blank", "noopener");
-      return;
-    }
-    if (frame.getAttribute("src") !== target) frame.setAttribute("src", target);
-    link.href = target;
-    document.body.classList.add("qa-open");
+  // -------------------------------- lecturer (Q): one window at the side --
+  let side = null;
+  function openSide() {
+    if (side && !side.closed) { side.focus(); return; }
+    const w = 460, h = Math.max(500, (screen.availHeight || 900) - 40);
+    const left = Math.max(0, (screen.availWidth || 1400) - w);
+    side = window.open(presenter, "qa-presenter",
+      "popup,width=" + w + ",height=" + h + ",left=" + left + ",top=0");
+    if (!side) window.open(presenter, "_blank");   // popup blocked: a tab
   }
-  function closePanel() { document.body.classList.remove("qa-open"); }
-  function toggle(target) {
-    if (isOpen() && frame.getAttribute("src") === target) closePanel();
-    else openPanel(target);
-  }
-  btn.addEventListener("click", function () { toggle(url); });
-  panel.querySelector(".qa-close").addEventListener("click", closePanel);
 
   // ------------------------------- presentation mode: badge + join card --
   const badge = document.createElement("div");
@@ -239,9 +223,9 @@
     const t = ev.target;
     if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
     if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
-    if (ev.key === "q" || ev.key === "Q") { ev.preventDefault(); toggle(presenter); }
+    if (ev.key === "q" || ev.key === "Q") { ev.preventDefault(); openSide(); }
     else if (ev.key === "j" || ev.key === "J") { document.body.classList.toggle("qa-join"); }
-    else if (ev.key === "Escape") { closePanel(); document.body.classList.remove("qa-join"); }
+    else if (ev.key === "Escape") { document.body.classList.remove("qa-join"); }
   });
 })();
 </script>
