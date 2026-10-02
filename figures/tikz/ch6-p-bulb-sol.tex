@@ -1,0 +1,33 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% P6.5 solution sketch: the argon in the bulb is the system; it loses heat q
+% to the 20 C room while it cools from 80 C to 20 C.
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,
+    q/.style={-{Stealth[length=2.4mm]}, line width=1.1pt, duRed}]
+  % --- bulb ---------------------------------------------------------------
+  \draw[line width=0.9pt, fill=yellow!55]
+    (-0.32,-0.75) .. controls (-0.32,-0.35) and (-0.85,-0.05) .. (-0.85,0.45)
+    arc[start angle=180, end angle=0, radius=0.85]
+    .. controls (0.85,-0.05) and (0.32,-0.35) .. (0.32,-0.75) -- cycle;
+  % filament and its supports
+  \draw[line width=0.6pt] (-0.12,-0.75) -- (-0.28,0.25) (0.12,-0.75) -- (0.28,0.25);
+  \draw[line width=0.7pt, smooth, domain=0:1440, samples=240, variable=\t]
+    plot ({-0.28 + 0.56*\t/1440 - 0.085*sin(\t)}, {0.25 + 0.085*(1 - cos(\t))});
+  % screw base
+  \draw[line width=0.9pt, fill=orange!35] (-0.34,-0.75) rectangle (0.34,-1.25);
+  \foreach \y in {-0.875,-1.0,-1.125} \draw[line width=0.6pt] (-0.34,\y) -- (0.34,\y);
+  \draw[line width=0.9pt, fill=black!70] (-0.18,-1.25) -- (0.18,-1.25) -- (0.06,-1.38) -- (-0.06,-1.38) -- cycle;
+  % --- system boundary ------------------------------------------------------
+  \draw[duBlue, dash dot, line width=0.9pt] (0,0) circle (1.6);
+  \node[lbl, duBlue] (sys) at (-1.6,1.95) {system};
+  \draw[-{Stealth[length=2mm]}, line width=0.7pt, duBlue] (sys.south) -- (135:1.62);
+  % --- heat lost to the room ---------------------------------------------
+  \foreach \a in {150, 95, 55, 15} \draw[q] (\a:1.1) -- (\a:2.05);
+  \node[lbl, duRed, above] at (95:2.05) {$q$};
+  % --- temperatures ------------------------------------------------------
+  \node[lbl, duBlue, anchor=west] at (2.0,1.35) {$T_\text{room} = 20\,^\circ$C};
+  \node[lbl, duGreen!70!black, anchor=west] at (2.0,-0.65) {$T_{1,\text{bulb}} = 80\,^\circ$C};
+  \node[lbl, duGreen!70!black, anchor=west] at (2.0,-1.2) {$T_{2,\text{bulb}} = 20\,^\circ$C};
+\end{tikzpicture}
+\end{document}

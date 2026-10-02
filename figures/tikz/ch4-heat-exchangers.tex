@@ -1,0 +1,21 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Boiler (358 x 379 px) with the water tubes taken as the control volume, and a
+% condenser (354 x 256 px); both textbook images, labelled as on the board.
+\begin{document}
+\begin{tikzpicture}
+  \node[anchor=south west, inner sep=0] (boil) at (0,0)
+    {\includegraphics[height=5cm]{../img/ch4-heat-exchangers-boiler-clean.png}};
+  \begin{scope}[shift={(boil.north west)}, x=5cm/379, y=-5cm/379]
+    \draw[duGreen!80!black, dashed, line width=1.4pt, rounded corners=3pt,
+          preaction={draw=white, solid, line width=2.6pt}]
+      (115,119) rectangle (230,307);
+  \end{scope}
+  \node[anchor=south west, inner sep=0] (cond) at (5.9,0)
+    {\includegraphics[width=7.6cm]{../img/ch4-heat-exchangers-condenser-clean.png}};
+  \node[anchor=north, text=duRed, font=\normalsize] at ([yshift=-4pt]boil.south)
+    {Boiler, $\dot{Q} > 0$};
+  \node[anchor=north, text=duBlue, font=\normalsize] at ([yshift=-4pt]cond.south |- boil.south)
+    {Condenser, $\dot{Q} < 0$};
+\end{tikzpicture}
+\end{document}

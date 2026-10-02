@@ -367,27 +367,16 @@ process (and a reversible cycle) must therefore be regarded as a limiting case
 ## End-of-chapter problems {#sec-ch5-problems}
 
 ::: {.tryfirst}
-Have a real go at every problem here before you look at a solution. Worked
-solutions are released after the lectures, but reading a solution is not the
-same as being able to produce one: the time you spend stuck on a problem is
-where most of the learning happens. Only once you have an answer of your own,
-or have tried every approach you can think of, check it against the solution,
-and compare the method, not just the final number.
+Have a real go at every problem here before you look at its solution. All the
+worked solutions are available from the start (under each problem on the
+website, and in the completed notes), so the only thing between you and a
+solution is your own decision to wait. Use it well: reading a solution is not
+the same as being able to produce one, and the time you spend stuck on a
+problem is where most of the learning happens. Only once you have an answer of
+your own, or have tried every approach you can think of, check it against the
+solution, and compare the method, not just the final number.
 :::
 
-::: {.note}
-Problems P5.5–P5.7 and P5.10–P5.12 are about **reversible** cycles and use a
-result from CH6: for a reversible cycle operating between reservoirs at the
-absolute temperatures $T_H$ and $T_C$,
-$$
-\left(\frac{|Q_H|}{|Q_C|}\right)_\text{rev} = \frac{T_H}{T_C},
-\qquad\text{so}\qquad
-\eta_\text{rev} = 1 - \frac{T_C}{T_H}.
-$$
-A reversible cycle gives the best possible performance: the maximum efficiency
-for a heat engine and the maximum COP (minimum work) for a refrigerator or heat
-pump.
-:::
 
 **P5.1 [easy].** A heat engine operates continuously and receives energy by heat
 transfer from the combustion of fuel at a rate of 75 kW. If the thermal
@@ -483,109 +472,7 @@ So the answer is $\boxed{2.5~\mathrm{kJ},\ 1.5}$, **(a)**.
 :::
 :::
 
-**P5.5 [easy].** A heat engine operates between hot and cold reservoirs at
-500 K and 310 K, respectively. At steady state, the cycle rejects energy by heat
-transfer to the cold reservoir at a rate of 16 MW. Determine the maximum
-theoretical power that might be developed by such a cycle, in MW.
-
-**(a)** 12.5 &nbsp;&nbsp; **(b)** 2.69 &nbsp;&nbsp; **(c)** 16 &nbsp;&nbsp;
-**(d)** 9.81
-
-::: {.gap height="fill"}
-::: {.worked}
-A reversible heat engine has the maximum efficiency. For a reversible cycle,
-with $T_H = 500$ K, $T_C = 310$ K and $|\dot{Q}_C| = 16$ MW:
-$$
-\left(\frac{|\dot{Q}_H|}{|\dot{Q}_C|}\right)_\text{rev} = \frac{T_H}{T_C}
-\quad\Rightarrow\quad
-\frac{|\dot{Q}_H|}{16~\mathrm{MW}} = \frac{500~\mathrm{K}}{310~\mathrm{K}}
-\quad\Rightarrow\quad
-|\dot{Q}_H| = 25.81~\mathrm{MW}
-$$
-
-From the energy equation:
-$$
-|\dot{W}| = |\dot{Q}_H| - |\dot{Q}_C| = 25.81 - 16
-= \boxed{9.81~\mathrm{MW}} \quad \text{(d)}
-$$
-
-This is the maximum theoretical power that can be delivered, by a reversible
-cycle.
-:::
-:::
-
-**P5.6 [easy].** An inventor claims to have developed a heat engine operating
-between hot and cold reservoirs at 1000 K and 250 K, respectively, that develops
-net work equal to a multiple of the amount of energy, $Q_C$, rejected to the
-cold reservoir – that is, $W = N Q_C$. What is the maximum theoretical value of
-the number $N$ for any such cycle?
-
-**(a)** 1 &nbsp;&nbsp; **(b)** 2 &nbsp;&nbsp; **(c)** 3 &nbsp;&nbsp; **(d)** 4
-
-::: {.gap height="fill"}
-::: {.worked}
-Maximum work is delivered by a reversible heat engine, so, with
-$T_H = 1000$ K and $T_C = 250$ K:
-$$
-\left(\frac{|Q_H|}{|Q_C|}\right)_\text{rev} = \frac{T_H}{T_C}
-= \frac{1000~\mathrm{K}}{250~\mathrm{K}} = 4
-\quad\Rightarrow\quad
-|Q_H| = 4\,|Q_C| \tag{I}
-$$
-
-From the energy equation:
-$$
-|W| = |Q_H| - |Q_C| \tag{II}
-$$
-
-Combining (I) and (II):
-$$
-|W| = 4\,|Q_C| - |Q_C| = 3\,|Q_C|
-\quad\Rightarrow\quad
-\boxed{N_\text{max} = 3} \quad \text{(c)}
-$$
-:::
-:::
-
-**P5.7 [easy].** As shown in the figure below, a reversible heat engine receives
-energy $Q_H$ by heat transfer from a hot reservoir at $T_H$ and rejects energy
-$Q_C$ by heat transfer to a cold reservoir at $T_C$.
-
-(i) If $T_H = 1600$ K and $T_C = 400$ K, what is the thermal efficiency?
-
-(ii) If $T_H = 500$ °C and $T_C = 20$ °C, and $W_\text{cycle} = -1000$ kJ, what
-is $Q_H$, in kJ?
-
-![](figures/img/ch5-p-reversible-engine.png){width=46%}
-
-**(a)** 50%, 1350 &nbsp;&nbsp; **(b)** 50%, 1613 &nbsp;&nbsp;
-**(c)** 75%, 350 &nbsp;&nbsp; **(d)** 75%, 1613
-
-::: {.gap height="fill"}
-::: {.worked}
-**(i)** $T_H = 1600$ K, $T_C = 400$ K. For the reversible heat engine:
-$$
-\eta_\text{rev} = 1 - \frac{T_C}{T_H} = 1 - \frac{400~\mathrm{K}}{1600~\mathrm{K}}
-= \boxed{0.75}
-$$
-
-**(ii)** For a reversible cycle, with the temperatures in kelvin:
-$$
-\frac{|W|}{|Q_H|} = 1 - \frac{|Q_C|}{|Q_H|} = 1 - \frac{T_C}{T_H}
-= 1 - \frac{273 + 20}{273 + 500} \approx 0.621
-$$
-$$
-\Rightarrow\quad
-|Q_H| = \frac{|W|}{0.621} = \frac{1000~\mathrm{kJ}}{0.621}
-\approx \boxed{1610~\mathrm{kJ}}
-$$
-
-So the answer is **(d)**: 75%, about 1610 kJ. (The keyed 1613 kJ comes from
-rounding the efficiency to 0.62 before dividing.)
-:::
-:::
-
-**P5.8 [medium].** A farmer runs a heat pump with a 2 kW motor. It should keep a
+**P5.5 [medium].** A farmer runs a heat pump with a 2 kW motor. It should keep a
 chicken hatchery at 30 °C, which loses energy at a rate of 10 kW to the colder
 ambient. What is the minimum coefficient of performance that will be acceptable
 for the heat pump?
@@ -616,7 +503,7 @@ $$
 :::
 :::
 
-**P5.9 [medium].** A sports car engine delivers 100 hp to the driveshaft with a
+**P5.6 [medium].** A sports car engine delivers 100 hp to the driveshaft with a
 thermal efficiency of 25%. The specific fuel energy is 40 000 J/kg (i.e. the
 energy released by burning one kilogram of fuel). Find the rate of fuel
 consumption, and the combined power rejected through the radiator and exhaust.
@@ -656,130 +543,5 @@ $$
 So the answer is **(a)**: 7.35 kg/s, 220.5 kW. (A real fuel releases about
 40 MJ/kg, a thousand times more, which would give a much more realistic
 7.35 g/s.)
-:::
-:::
-
-**P5.10 [medium].** By removing energy by heat transfer from its freezer
-compartment at a rate of 1.5 kW, a refrigerator maintains the freezer at
-$-22$ °C on a day when the temperature of the surroundings is 28 °C. Determine
-the minimum theoretical power, in kW, required by the refrigerator.
-
-**(a)** 0.5 &nbsp;&nbsp; **(b)** 0.3 &nbsp;&nbsp; **(c)** 1.5 &nbsp;&nbsp;
-**(d)** 1
-
-::: {.gap height="fill"}
-::: {.worked}
-A **reversible** refrigerator has the best theoretical performance (minimum
-work is required for a reversible refrigerator). For a reversible refrigerator
-we have
-$$
-\left(\frac{|\dot{Q}_C|}{|\dot{W}|}\right)_\text{rev}
-= \left(\frac{|\dot{Q}_C|}{|\dot{Q}_H| - |\dot{Q}_C|}\right)_\text{rev}
-= \frac{T_C}{T_H - T_C}
-= \frac{-22 + 273}{28 - (-22)} \approx 5
-$$
-$$
-\Rightarrow\quad
-|\dot{W}|_\text{min} = \frac{|\dot{Q}_C|}{5} = \frac{1.5~\mathrm{kW}}{5}
-= \boxed{0.3~\mathrm{kW}} \quad \text{(b)}
-$$
-:::
-:::
-
-**P5.11 [medium].** A heating system must maintain the interior of a building at
-20 °C during a period when the outside air temperature is 5 °C and the heat
-transfer from the building through its roof and walls is estimated to be
-300 kW. For this duty, a heat pump is under consideration that would operate
-between the dwelling and the outside air. Evaluate the minimum theoretical net
-power input required by such a heat pump, in kW.
-
-**(a)** 153.2 &nbsp;&nbsp; **(b)** 25.2 &nbsp;&nbsp; **(c)** 15.4 &nbsp;&nbsp;
-**(d)** 70.8
-
-::: {.gap height="fill"}
-::: {.worked}
-For the heat pump, the inside of the building can be seen as the **hot
-reservoir** ($T_H = 20$ °C), while the outside is the **cold reservoir**
-($T_C = 5$ °C).
-
-To maintain the inside temperature:
-$$
-|\dot{Q}_H| = |\dot{Q}_\text{loss}| = 300~\mathrm{kW}
-$$
-
-The minimum work required is the work for a reversible heat pump:
-$$
-\left(\frac{|\dot{W}|}{|\dot{Q}_H|}\right)_\text{rev}
-= \left(\frac{|\dot{Q}_H| - |\dot{Q}_C|}{|\dot{Q}_H|}\right)_\text{rev}
-= \frac{T_H - T_C}{T_H}
-= \frac{(273 + 20) - (273 + 5)}{273 + 20} = 0.0512
-$$
-$$
-\Rightarrow\quad
-|\dot{W}|_\text{min} = |\dot{Q}_H| \times 0.0512
-= 300~\mathrm{kW} \times 0.0512 \approx \boxed{15.4~\mathrm{kW}} \quad \text{(c)}
-$$
-:::
-:::
-
-**P5.12 [hard].** As shown in the figure below, two reversible cycles arranged
-in series each produce the same net work, $W_\text{cycle}$. The first cycle
-receives energy $Q_H$ by heat transfer from a hot reservoir at 555 K and rejects
-energy $Q$ by heat transfer to a reservoir at an intermediate temperature, $T$.
-The second cycle receives energy $Q$ by heat transfer from the reservoir at
-temperature $T$ and rejects energy $Q_C$ by heat transfer to a reservoir at
-222 K. Determine the intermediate temperature $T$, in K, and the thermal
-efficiency for each of the two power cycles.
-
-![](figures/img/ch5-p-series-engines.png){width=34%}
-
-**(a)** 388.5, 30%, 60% &nbsp;&nbsp; **(b)** 388.5, 45%, 45% &nbsp;&nbsp;
-**(c)** 433.2, 30%, 60% &nbsp;&nbsp; **(d)** 433.2, 40%, 60%
-
-::: {.gap height="fill"}
-::: {.worked}
-Both R1 and R2 are reversible heat engines, and they deliver the same work,
-$|W|_{R1} = |W|_{R2} = |W|$. So:
-
-For R1:
-$$
-\frac{|Q|}{|W|} = \frac{|Q|}{|Q_H| - |Q|} = \frac{T}{T_H - T} \tag{I}
-$$
-
-For R2:
-$$
-\frac{|Q|}{|W|} = \frac{|Q|}{|Q| - |Q_C|} = \frac{T}{T - T_C} \tag{II}
-$$
-
-From (I) and (II):
-$$
-\frac{T}{T_H - T} = \frac{T}{T - T_C}
-\quad\Rightarrow\quad
-T_H - T = T - T_C
-$$
-$$
-\Rightarrow\quad
-T = \frac{T_H + T_C}{2} = \frac{555~\mathrm{K} + 222~\mathrm{K}}{2}
-= \boxed{388.5~\mathrm{K}}
-$$
-
-The efficiencies:
-$$
-\eta_{R1} = \frac{|W|}{|Q_H|} = 1 - \frac{T}{T_H}
-= 1 - \frac{388.5~\mathrm{K}}{555~\mathrm{K}} = \boxed{0.30~(30\%)}
-$$
-$$
-\eta_{R2} = \frac{|W|}{|Q|} = 1 - \frac{T_C}{T}
-= 1 - \frac{222~\mathrm{K}}{388.5~\mathrm{K}} = \boxed{0.43~(42.9\%)}
-$$
-
-Check: R1 turns 30% of $|Q_H|$ into work and passes $|Q| = 0.7\,|Q_H|$ on to
-R2, which delivers the same work, so
-$\eta_{R2} = 0.3/0.7 = 0.429$. The value of 60% is the efficiency of the two
-cycles *together*, $1 - T_C/T_H = 1 - 222/555 = 0.6$, not that of R2.
-
-None of the options is exactly right. The closest is **(a)**, which has the
-right $T$ and $\eta_{R1}$, but the efficiency of the second cycle is 42.9%,
-not 60%.
 :::
 :::

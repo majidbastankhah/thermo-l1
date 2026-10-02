@@ -622,12 +622,14 @@ follow the *Explore it yourself* link in CH2.
 ## End-of-chapter problems {#sec-ch2-problems}
 
 ::: {.tryfirst}
-Have a real go at every problem here before you look at a solution. Worked
-solutions are released after the lectures, but reading a solution is not the
-same as being able to produce one: the time you spend stuck on a problem is
-where most of the learning happens. Only once you have an answer of your own,
-or have tried every approach you can think of, check it against the solution,
-and compare the method, not just the final number.
+Have a real go at every problem here before you look at its solution. All the
+worked solutions are available from the start (under each problem on the
+website, and in the completed notes), so the only thing between you and a
+solution is your own decision to wait. Use it well: reading a solution is not
+the same as being able to produce one, and the time you spend stuck on a
+problem is where most of the learning happens. Only once you have an answer of
+your own, or have tried every approach you can think of, check it against the
+solution, and compare the method, not just the final number.
 :::
 
 **P2.1 [easy].** Air contained within a piston–cylinder assembly is slowly

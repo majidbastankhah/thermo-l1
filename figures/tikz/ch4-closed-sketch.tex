@@ -1,0 +1,25 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Closed system: a piston-cylinder going from state 1 to state 2.
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm,
+    wall/.style={line width=1.3pt, line join=round, line cap=round},
+    piston/.style={line width=1.2pt, line cap=round},
+    state/.style={circle, draw=duRed, text=duRed, line width=0.9pt,
+                  inner sep=1.2pt, font=\small}]
+  % state 1: piston near the top
+  \draw[wall] (0,2.3) -- (0,0) -- (2.4,0) -- (2.4,2.3);
+  \draw[piston] (0.05,1.95) -- (2.35,1.95);
+  \draw[piston] (0.05,1.72) -- (2.35,1.72);
+  \draw[piston] (1.15,1.95) -- (1.65,2.55);
+  \node[state] at (1.2,0.8) {1};
+  % state 2: piston pushed down
+  \begin{scope}[xshift=4cm]
+    \draw[wall] (0,2.3) -- (0,0) -- (2.4,0) -- (2.4,2.3);
+    \draw[piston] (0.05,0.85) -- (2.35,0.85);
+    \draw[piston] (0.05,0.62) -- (2.35,0.62);
+    \draw[piston] (0.85,0.85) -- (2.1,2.55);
+    \node[state] at (1.2,0.3) {2};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

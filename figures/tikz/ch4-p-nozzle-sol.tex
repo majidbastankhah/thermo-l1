@@ -1,0 +1,27 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% P4: the nozzle, inlet i (40 m/s, 200 kPa) and exit e (500 m/s, 90 kPa).
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm,
+    sec/.style={duRed, dashed, line width=0.9pt},
+    wallc/.style={duBlue, line width=1.2pt},
+    flow/.style={-{Stealth[length=2.4mm]}, duBlue, line width=0.9pt},
+    val/.style={duBlue, font=\small}]
+  % inlet and exit sections
+  \draw[sec] (0,-1.85) -- (0,1.75);
+  \node[duRed, anchor=south] at (0,1.75) {$i$};
+  \draw[sec] (2.6,-1.25) -- (2.6,1.25);
+  \node[duRed, anchor=south] at (2.6,1.25) {$e$};
+  % converging walls
+  \draw[wallc] (0.05,1.1) .. controls (0.9,0.6) and (1.8,0.48) .. (2.6,0.45);
+  \draw[wallc] (0.0,-1.25) .. controls (0.8,-0.75) and (1.8,-0.62) .. (2.6,-0.6);
+  % inlet state
+  \node[val, anchor=south east] at (-0.1,0.05) {$40~\mathrm{m/s}$};
+  \draw[flow] (-0.65,-0.08) -- (-0.08,-0.08);
+  \node[val, anchor=north east] at (-0.1,-0.25) {$200~\mathrm{kPa}$};
+  % exit state
+  \node[val, anchor=south west] at (2.7,0.0) {$500~\mathrm{m/s}$};
+  \draw[flow] (2.2,-0.12) -- (3.4,-0.12);
+  \node[val, anchor=north west] at (2.7,-0.28) {$90~\mathrm{kPa}$};
+\end{tikzpicture}
+\end{document}

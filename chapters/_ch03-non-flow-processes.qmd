@@ -754,12 +754,14 @@ the path in the $P$–$V$ diagram: $|W_{n=0}| > |W_{n=1}| > |W_{n=1.5}|$.
 ## End-of-chapter problems {#sec-ch3-problems}
 
 ::: {.tryfirst}
-Have a real go at every problem here before you look at a solution. Worked
-solutions are released after the lectures, but reading a solution is not the
-same as being able to produce one: the time you spend stuck on a problem is
-where most of the learning happens. Only once you have an answer of your own,
-or have tried every approach you can think of, check it against the solution,
-and compare the method, not just the final number.
+Have a real go at every problem here before you look at its solution. All the
+worked solutions are available from the start (under each problem on the
+website, and in the completed notes), so the only thing between you and a
+solution is your own decision to wait. Use it well: reading a solution is not
+the same as being able to produce one, and the time you spend stuck on a
+problem is where most of the learning happens. Only once you have an answer of
+your own, or have tried every approach you can think of, check it against the
+solution, and compare the method, not just the final number.
 :::
 
 **P3.1 [easy].** Air is heated from 300 to 350 K at constant volume. Find the
@@ -915,7 +917,7 @@ A positive heat transfer: energy is transferred **to** the gas by heat.
 (Assume ideal gas, $c_v = 1.736~\mathrm{kJ/(kg\,K)}$ and
 $R = 0.518~\mathrm{kJ/(kg\,K)}$.)
 
-**(a)** $-502.4$ &nbsp;&nbsp; **(b)** 367.8 &nbsp;&nbsp; **(c)** $-487.6$
+**(a)** $-502.7$ &nbsp;&nbsp; **(b)** 367.8 &nbsp;&nbsp; **(c)** $-487.6$
 &nbsp;&nbsp; **(d)** 128
 
 ::: {.gap height="fill"}
@@ -939,9 +941,6 @@ Q = 1.448~\mathrm{kg}\times1.736~\frac{\mathrm{kJ}}{\mathrm{kg\,K}}
     \times\left(300~\mathrm{K} - 500~\mathrm{K}\right)
   = \boxed{-502.7~\mathrm{kJ}} \quad \text{(a)}
 $$
-
-Option (a), $-502.4$ kJ, is the same answer with the mass rounded down to
-1.447 kg.
 :::
 :::
 
@@ -1050,7 +1049,7 @@ change in temperature. Once the final temperature is found, you should be able
 to find the final pressure using the ideal-gas equation.*
 
 **(a)** 10, 1 &nbsp;&nbsp; **(b)** 20, 0.5 &nbsp;&nbsp; **(c)** 20, 2
-&nbsp;&nbsp; **(d)** 20, 0.5
+&nbsp;&nbsp; **(d)** 10, 0.5
 
 ::: {.gap height="fill"}
 ::: {.worked}
@@ -1085,7 +1084,9 @@ $$
 \boxed{20~^\circ\mathrm{C},\;\; 0.5~\text{bar}} \quad \text{(b)}
 $$
 
-(Options (b) and (d) are identical.)
+The temperature does not drop: there is no work, because nothing resists the
+expansion, and no heat, so the internal energy, and with it the temperature of
+an ideal gas, stays the same.
 :::
 :::
 

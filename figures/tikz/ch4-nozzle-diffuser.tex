@@ -1,0 +1,16 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Textbook nozzle and diffuser (591 x 300 px) with inlet i and exit e labelled.
+\begin{document}
+\begin{tikzpicture}
+  \node[anchor=north west, inner sep=0] (img) at (0,0)
+    {\includegraphics[width=8.9cm]{../img/ch4-nozzle-diffuser-clean.png}};
+  \begin{scope}[shift={(img.north west)}, x=8.9cm/591, y=-8.9cm/591,
+      every node/.style={font=\normalsize}]
+    \node[anchor=east] at (2,118) {$i$};
+    \node[anchor=west] at (230,100) {$e$};
+    \node[anchor=east] at (352,100) {$i$};
+    \node[anchor=west] at (590,134) {$e$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% P4: the boiler tube as the control volume, water in at i, steam out at e.
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm,
+    flow/.style={-{Stealth[length=2.4mm]}, duRed, line width=1pt},
+    tube/.style={duBlue, line width=1.2pt}]
+  % tube
+  \draw[tube] (1.9,0.45) -- (5.8,0.45);
+  \draw[tube] (1.9,-0.45) -- (5.8,-0.45);
+  \draw[tube] (1.9,0) ellipse (0.13 and 0.45);
+  \draw[tube] (5.8,-0.45) arc[start angle=-90, end angle=90, x radius=0.13, y radius=0.45];
+  % water in
+  \node[duRed, anchor=south] at (0.9,0.42) {water};
+  \draw[flow] (0.6,0.15) -- (1.6,0.15);
+  \draw[flow] (0.6,-0.15) -- (1.6,-0.15);
+  \node[duRed, anchor=north] at (0.75,-0.35) {$i$};
+  % steam out
+  \node[duRed, anchor=south] at (6.8,0.42) {steam};
+  \draw[flow] (6.1,0.15) -- (7.1,0.15);
+  \draw[flow] (6.1,-0.15) -- (7.1,-0.15);
+  \node[duRed, anchor=north] at (6.3,-0.4) {$e$};
+\end{tikzpicture}
+\end{document}

@@ -19,7 +19,7 @@ Many applications in thermodynamics, however, are regarded as open systems. An
 system that freely exchanges both **energy** and **mass** with its
 surroundings.
 
-![A jet engine and a dam spillway are open systems: the red dashed line marks a control volume that the fluid flows through. Heat, work *and mass* cross the boundary of an open system.](figures/img/ch4-open-systems.png){width=92%}
+![A jet engine and a dam spillway are open systems: the red dashed line marks a control volume that the fluid flows through. Heat, work *and mass* cross the boundary of an open system.](figures/out/ch4-open-systems.svg){width=92%}
 
 ### Steady-state vs. transient conditions
 
@@ -28,7 +28,7 @@ condensers) can be idealised as being **steady state**, meaning that the
 conditions of the system (e.g. its total mass and energy) **do NOT vary with
 time**.
 
-![Fluid flows in and out of the control volume (dashed), but at steady state the amount of mass and energy inside it stays the same.](figures/img/ch4-steady-cv.png){width=36%}
+![Fluid flows in and out of the control volume (dashed), but at steady state the amount of mass and energy inside it stays the same.](figures/out/ch4-steady-cv.svg){width=38%}
 
 ::: {.key}
 $$
@@ -54,7 +54,7 @@ $$
 \begin{bmatrix}\text{rate of mass}\\ \text{flux at exit}\end{bmatrix}
 $$
 
-![Mass enters the control volume at inlet $i$ at the rate $\dot{m}_i$ and leaves at exit $e$ at the rate $\dot{m}_e$.](figures/img/ch4-mass-balance-cv.png){width=36%}
+![Mass enters the control volume at inlet $i$ at the rate $\dot{m}_i$ and leaves at exit $e$ at the rate $\dot{m}_e$.](figures/out/ch4-mass-balance-cv.svg){width=36%}
 
 ::: {.key}
 $$
@@ -69,7 +69,7 @@ the exit, in kg/s.
 We can obtain a mathematical expression for the mass flow rate $\dot{m}$
 entering or exiting a control volume in terms of fluid local properties.
 
-![In a time $\mathrm{d}t$, a slice of fluid of mass $\mathrm{d}m$, cross-sectional area $A$ and thickness $\mathrm{d}x$ (volume $\mathrm{d}V$) flows into the control volume.](figures/img/ch4-mass-flow-element.png){width=44%}
+![In a time $\mathrm{d}t$, a slice of fluid of mass $\mathrm{d}m$, cross-sectional area $A$ and thickness $\mathrm{d}x$ (volume $\mathrm{d}V$) flows into the control volume.](figures/out/ch4-mass-flow-element.svg){width=44%}
 
 ::: {.gap height="14mm" hint="Mass of the slice: $\mathrm{d}m = \rho\,\mathrm{d}V = \rho A\,\mathrm{d}x$; the velocity is $C = \mathrm{d}x/\mathrm{d}t$."}
 The mass of the slice, and the velocity of the fluid, are
@@ -215,7 +215,7 @@ regarded as an *imaginary piston*. In other words, **flow work** is the work
 the control volume. Likewise, work is **done by the system** *at the exit*
 to push the fluid element out of the control volume into the surroundings.
 
-![The fluid just upstream acts as an imaginary piston that pushes a fluid element (red) into the control volume; at the exit the fluid in the control volume pushes an element out.](figures/img/ch4-flow-work.png){width=80%}
+![The fluid just upstream acts as an imaginary piston that pushes a fluid element (red) into the control volume; at the exit the fluid in the control volume pushes an element out.](figures/out/ch4-flow-work.svg){width=80%}
 
 The work of the imaginary piston is expansion/compression work,
 $\delta W = -P\,\mathrm{d}V$ (CH2).
@@ -263,7 +263,7 @@ $$
 $$
 :::
 
-![A control volume can exchange work through a moving boundary (piston) and a rotating shaft (paddle), as well as flow work at its inlet and outlet.](figures/img/ch4-work-types.png){width=38%}
+![A control volume can exchange work through a moving boundary (piston) and a rotating shaft (paddle), as well as flow work at its inlet and outlet.](figures/out/ch4-work-types.svg){width=38%}
 
 ### Final form of the energy equation for a control volume
 
@@ -348,9 +348,9 @@ $$
 | Applies to | a **steady** state, $\mathrm{d}E/\mathrm{d}t = 0$ | an **unsteady** process, from state 1 to state 2 |
 
 ::: {layout-ncol=2}
-![Open system: fluid flows through from $i$ to $e$, and nothing inside changes with time.](figures/img/ch4-open-sketch.png){width=62%}
+![Open system: fluid flows through from $i$ to $e$, and nothing inside changes with time.](figures/out/ch4-open-sketch.svg){width=62%}
 
-![Closed system: the same mass goes from state 1 to state 2.](figures/img/ch4-closed-sketch.png){width=80%}
+![Closed system: the same mass goes from state 1 to state 2.](figures/out/ch4-closed-sketch.svg){width=80%}
 :::
 
 ## Examples of steady-state flow processes
@@ -361,7 +361,7 @@ A **nozzle** is a flow passage in which the velocity of a gas or liquid
 *increases* in the direction of flow. In a **diffuser**, the gas or liquid
 velocity *decreases* in the direction of flow.
 
-![](figures/img/ch4-nozzle-diffuser.png){width=58%}
+![](figures/out/ch4-nozzle-diffuser.svg){width=60%}
 
 | Nozzle | Diffuser |
 |:--|:--|
@@ -512,7 +512,7 @@ $\dot{W}_{cv} < 0$: the turbine delivers 200 kW of power to the surroundings.
 Devices that transfer energy between fluids at different temperatures by heat
 transfer are called **heat exchangers**.
 
-![A boiler (left): the water in the tubes (green dashed control volume) receives heat, $\dot{Q} > 0$. A condenser (right): the steam gives heat to the cooling water, $\dot{Q} < 0$.](figures/img/ch4-heat-exchangers.png){width=90%}
+![A boiler (left): the water in the tubes (green dashed control volume) receives heat, $\dot{Q} > 0$. A condenser (right): the steam gives heat to the cooling water, $\dot{Q} < 0$.](figures/out/ch4-heat-exchangers.svg){width=90%}
 
 SFEE equation:
 $$
@@ -541,12 +541,14 @@ $$
 ## End-of-chapter problems {#sec-ch4-problems}
 
 ::: {.tryfirst}
-Have a real go at every problem here before you look at a solution. Worked
-solutions are released after the lectures, but reading a solution is not the
-same as being able to produce one: the time you spend stuck on a problem is
-where most of the learning happens. Only once you have an answer of your own,
-or have tried every approach you can think of, check it against the solution,
-and compare the method, not just the final number.
+Have a real go at every problem here before you look at its solution. All the
+worked solutions are available from the start (under each problem on the
+website, and in the completed notes), so the only thing between you and a
+solution is your own decision to wait. Use it well: reading a solution is not
+the same as being able to produce one, and the time you spend stuck on a
+problem is where most of the learning happens. Only once you have an answer of
+your own, or have tried every approach you can think of, check it against the
+solution, and compare the method, not just the final number.
 :::
 
 **P4.1 [easy].** Air at 20 m/s, 1500 K, 875 kPa with 5 kg/s flows into a
@@ -662,7 +664,7 @@ inlet velocity in m/s? (Assume air as an ideal gas.)
 If we assume steady-state conditions, with the inlet $i$ and exit $e$ as
 sketched:
 
-![](figures/img/ch4-p-fan-sol.png){width=24%}
+![](figures/out/ch4-p-fan-sol.svg){width=27%}
 $$
 \dot{m}_i = \dot{m}_e
 \quad\Rightarrow\quad
@@ -697,7 +699,7 @@ $c_p = 1005~\mathrm{J/(kg\,K)}$.)
 ::: {.worked}
 The nozzle, with its inlet $i$ and exit $e$:
 
-![](figures/img/ch4-p-nozzle-sol.png){width=36%}
+![](figures/out/ch4-p-nozzle-sol.svg){width=36%}
 
 According to the SFEE, with $\dot{Q}_{cv} \approx 0$, $\dot{W}_{cv} = 0$ and
 $z_e \approx z_i$:
@@ -787,7 +789,7 @@ properties of water and steam at standard atmospheric pressure (1.013 bar) and
 ::: {.worked}
 Take the tube as the control volume: water enters at $i$, steam leaves at $e$.
 
-![](figures/img/ch4-p-boiler-sol.png){width=48%}
+![](figures/out/ch4-p-boiler-sol.svg){width=46%}
 
 SFEE for the tube, with $\dot{W}_{cv} = 0$ and the kinetic and potential energy
 changes $\approx 0$:

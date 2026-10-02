@@ -1,0 +1,26 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% P6.6 solution sketch: CO2 in a cylinder/piston (the system) loses heat Q to
+% the 20 C surroundings; the external force on the piston is proportional to V^3.
+\begin{document}
+\begin{tikzpicture}[x=1cm,y=1cm,
+    dbl/.style={double, double distance=2.2pt, line width=0.7pt,
+                -{Implies[length=2.6mm]}, black}]
+  % cylinder: closed on the left, open on the right
+  \draw[duBlue, line width=1.1pt] (4.6,2.4) -- (0,2.4) -- (0,0) -- (4.6,0);
+  % piston and rod (hatched)
+  \fill[pattern=north east lines, pattern color=duBlue] (2.7,0) rectangle (3.25,2.4);
+  \draw[duBlue, line width=1.1pt] (2.7,0) -- (2.7,2.4) (3.25,0) -- (3.25,2.4);
+  \fill[pattern=north east lines, pattern color=duBlue] (3.25,0.95) rectangle (5.6,1.35);
+  \draw[duBlue, line width=1.1pt] (3.25,1.35) -- (5.6,1.35) (3.25,0.95) -- (5.6,0.95);
+  % system boundary, just inside the gas
+  \draw[duRed, dash dot, line width=0.9pt] (0.15,0.15) rectangle (2.6,2.25);
+  \node[lbl, duRed] at (1.35,1.1) {Sys};
+  % heat out to the surroundings
+  \draw[dbl] (0.85,2.0) -- (0.45,3.05) node[above left=-1pt, lbl] {$Q$};
+  \node[lbl, duGreen!70!black, anchor=west] at (0.9,3.2) {$T_\text{surr} = 20\,^\circ$C};
+  % external force on the piston
+  \draw[dbl] (4.75,1.15) -- (3.35,1.15);
+  \node[lbl, anchor=west] at (3.45,1.8) {$F_\text{ext} \propto V^{3}$};
+\end{tikzpicture}
+\end{document}

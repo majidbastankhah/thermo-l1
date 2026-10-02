@@ -650,7 +650,7 @@ plus surroundings increases.
 law of thermodynamics says the **entropy** of both system and surroundings (as
 an isolated system) can **only increase**.
 
-![An egg breaks ($S_\text{gen} > 0$) but never un-breaks; a cup of coffee at 100 °C in a 20 °C room cools to 20 °C, never the reverse.](figures/img/ch6-arrow-of-time.png){width=90%}
+![An egg breaks ($S_\text{gen} > 0$) but never un-breaks; a cup of coffee at 100 °C in a 20 °C room cools to 20 °C, never the reverse.](figures/out/ch6-arrow-of-time.svg){width=90%}
 
 ## What is entropy? A physical interpretation
 
@@ -661,7 +661,7 @@ condition of equilibrium is attained. The increase of entropy principle suggests
 that the total entropy increases as the state of equilibrium (more probable
 state) is approached.
 
-![Left: a ball released in a bowl oscillates and settles at the bottom, where $N$ balances $mg$. Middle: two blocks at 100 and 300 in contact end at 200 and 200 ($S_\text{gen} > 0$). Right: a gas released in one corner spreads through the whole box.](figures/img/ch6-equilibrium.png){width=92%}
+![Left: a ball released in a bowl oscillates and settles at the bottom, where $N$ balances $mg$. Middle: two blocks at 100 and 300 in contact end at 200 and 200 ($S_\text{gen} > 0$). Right: a gas released in one corner spreads through the whole box.](figures/out/ch6-equilibrium.svg){width=88%}
 
 ### Lost opportunity to extract work
 
@@ -681,7 +681,7 @@ toward equilibrium, our knowledge of the condition of the individual particles
 making up the system decreases, which corresponds to an **increase in
 microscopic disorder**.
 
-![Before the partition is removed we know each particle (e.g. the red one) is somewhere on the left; afterwards it could be anywhere in the box.](figures/img/ch6-disorder.png){width=80%}
+![Before the partition is removed we know each particle (e.g. the red one) is somewhere on the left; afterwards it could be anywhere in the box.](figures/out/ch6-disorder.svg){width=70%}
 
 ## Gibbs equations
 
@@ -799,15 +799,118 @@ the other with $Pv = RT$ and $c_p - c_v = R$.
 ## End-of-chapter problems {#sec-ch6-problems}
 
 ::: {.tryfirst}
-Have a real go at every problem here before you look at a solution. Worked
-solutions are released after the lectures, but reading a solution is not the
-same as being able to produce one: the time you spend stuck on a problem is
-where most of the learning happens. Only once you have an answer of your own,
-or have tried every approach you can think of, check it against the solution,
-and compare the method, not just the final number.
+Have a real go at every problem here before you look at its solution. All the
+worked solutions are available from the start (under each problem on the
+website, and in the completed notes), so the only thing between you and a
+solution is your own decision to wait. Use it well: reading a solution is not
+the same as being able to produce one, and the time you spend stuck on a
+problem is where most of the learning happens. Only once you have an answer of
+your own, or have tried every approach you can think of, check it against the
+solution, and compare the method, not just the final number.
 :::
 
-**P6.1 [easy].** During a process, the volume of 1 kg of air is doubled and its
+**P6.1 [easy].** A heat engine operates between hot and cold reservoirs at
+500 K and 310 K, respectively. At steady state, the cycle rejects energy by heat
+transfer to the cold reservoir at a rate of 16 MW. Determine the maximum
+theoretical power that might be developed by such a cycle, in MW.
+
+**(a)** 12.5 &nbsp;&nbsp; **(b)** 2.69 &nbsp;&nbsp; **(c)** 16 &nbsp;&nbsp;
+**(d)** 9.81
+
+::: {.gap height="fill"}
+::: {.worked}
+A reversible heat engine has the maximum efficiency. For a reversible cycle,
+with $T_H = 500$ K, $T_C = 310$ K and $|\dot{Q}_C| = 16$ MW:
+$$
+\left(\frac{|\dot{Q}_H|}{|\dot{Q}_C|}\right)_\text{rev} = \frac{T_H}{T_C}
+\quad\Rightarrow\quad
+\frac{|\dot{Q}_H|}{16~\mathrm{MW}} = \frac{500~\mathrm{K}}{310~\mathrm{K}}
+\quad\Rightarrow\quad
+|\dot{Q}_H| = 25.81~\mathrm{MW}
+$$
+
+From the energy equation:
+$$
+|\dot{W}| = |\dot{Q}_H| - |\dot{Q}_C| = 25.81 - 16
+= \boxed{9.81~\mathrm{MW}} \quad \text{(d)}
+$$
+
+This is the maximum theoretical power that can be delivered, by a reversible
+cycle.
+:::
+:::
+
+**P6.2 [easy].** An inventor claims to have developed a heat engine operating
+between hot and cold reservoirs at 1000 K and 250 K, respectively, that develops
+net work equal to a multiple of the amount of energy, $Q_C$, rejected to the
+cold reservoir – that is, $W = N Q_C$. What is the maximum theoretical value of
+the number $N$ for any such cycle?
+
+**(a)** 1 &nbsp;&nbsp; **(b)** 2 &nbsp;&nbsp; **(c)** 3 &nbsp;&nbsp; **(d)** 4
+
+::: {.gap height="fill"}
+::: {.worked}
+Maximum work is delivered by a reversible heat engine, so, with
+$T_H = 1000$ K and $T_C = 250$ K:
+$$
+\left(\frac{|Q_H|}{|Q_C|}\right)_\text{rev} = \frac{T_H}{T_C}
+= \frac{1000~\mathrm{K}}{250~\mathrm{K}} = 4
+\quad\Rightarrow\quad
+|Q_H| = 4\,|Q_C| \tag{I}
+$$
+
+From the energy equation:
+$$
+|W| = |Q_H| - |Q_C| \tag{II}
+$$
+
+Combining (I) and (II):
+$$
+|W| = 4\,|Q_C| - |Q_C| = 3\,|Q_C|
+\quad\Rightarrow\quad
+\boxed{N_\text{max} = 3} \quad \text{(c)}
+$$
+:::
+:::
+
+**P6.3 [easy].** As shown in the figure below, a reversible heat engine receives
+energy $Q_H$ by heat transfer from a hot reservoir at $T_H$ and rejects energy
+$Q_C$ by heat transfer to a cold reservoir at $T_C$.
+
+(i) If $T_H = 1600$ K and $T_C = 400$ K, what is the thermal efficiency?
+
+(ii) If $T_H = 500$ °C and $T_C = 20$ °C, and $W_\text{cycle} = -1000$ kJ, what
+is $Q_H$, in kJ?
+
+![](figures/img/ch5-p-reversible-engine.png){width=46%}
+
+**(a)** 50%, 1350 &nbsp;&nbsp; **(b)** 50%, 1610 &nbsp;&nbsp;
+**(c)** 75%, 350 &nbsp;&nbsp; **(d)** 75%, 1610
+
+::: {.gap height="fill"}
+::: {.worked}
+**(i)** $T_H = 1600$ K, $T_C = 400$ K. For the reversible heat engine:
+$$
+\eta_\text{rev} = 1 - \frac{T_C}{T_H} = 1 - \frac{400~\mathrm{K}}{1600~\mathrm{K}}
+= \boxed{0.75}
+$$
+
+**(ii)** For a reversible cycle, with the temperatures in kelvin:
+$$
+\frac{|W|}{|Q_H|} = 1 - \frac{|Q_C|}{|Q_H|} = 1 - \frac{T_C}{T_H}
+= 1 - \frac{273 + 20}{273 + 500} \approx 0.621
+$$
+$$
+\Rightarrow\quad
+|Q_H| = \frac{|W|}{0.621} = \frac{1000~\mathrm{kJ}}{0.621}
+\approx \boxed{1610~\mathrm{kJ}}
+$$
+
+So the answer is **(d)**: 75%, 1610 kJ.
+:::
+:::
+
+**P6.4 [easy].** During a process, the volume of 1 kg of air is doubled and its
 pressure tripled. Find the change in specific entropy in kJ/(kg K). Assume an
 ideal gas with $c_v = 0.718~\mathrm{kJ/(kg\,K)}$ and
 $R = 0.287~\mathrm{kJ/(kg\,K)}$.
@@ -837,7 +940,7 @@ $$
 :::
 :::
 
-**P6.2 [easy].** Air in a piston–cylinder assembly undergoes a process from
+**P6.5 [easy].** Air in a piston–cylinder assembly undergoes a process from
 state 1, where $T_1 = 400$ K, $P_1 = 200$ kPa, to state 2, where $T_2 = 600$ K,
 $P_2 = 750$ kPa. Using the ideal-gas model for air, determine the change in
 specific entropy between these states, in J/(kg K), if the process occurs
@@ -866,7 +969,70 @@ $$
 :::
 :::
 
-**P6.3 [medium].** Find the change of specific entropy for an ideal gas that
+**P6.6 [medium].** By removing energy by heat transfer from its freezer
+compartment at a rate of 1.5 kW, a refrigerator maintains the freezer at
+$-22$ °C on a day when the temperature of the surroundings is 28 °C. Determine
+the minimum theoretical power, in kW, required by the refrigerator.
+
+**(a)** 0.5 &nbsp;&nbsp; **(b)** 0.3 &nbsp;&nbsp; **(c)** 1.5 &nbsp;&nbsp;
+**(d)** 1
+
+::: {.gap height="fill"}
+::: {.worked}
+A **reversible** refrigerator has the best theoretical performance (minimum
+work is required for a reversible refrigerator). For a reversible refrigerator
+we have
+$$
+\left(\frac{|\dot{Q}_C|}{|\dot{W}|}\right)_\text{rev}
+= \left(\frac{|\dot{Q}_C|}{|\dot{Q}_H| - |\dot{Q}_C|}\right)_\text{rev}
+= \frac{T_C}{T_H - T_C}
+= \frac{-22 + 273}{28 - (-22)} \approx 5
+$$
+$$
+\Rightarrow\quad
+|\dot{W}|_\text{min} = \frac{|\dot{Q}_C|}{5} = \frac{1.5~\mathrm{kW}}{5}
+= \boxed{0.3~\mathrm{kW}} \quad \text{(b)}
+$$
+:::
+:::
+
+**P6.7 [medium].** A heating system must maintain the interior of a building at
+20 °C during a period when the outside air temperature is 5 °C and the heat
+transfer from the building through its roof and walls is estimated to be
+300 kW. For this duty, a heat pump is under consideration that would operate
+between the dwelling and the outside air. Evaluate the minimum theoretical net
+power input required by such a heat pump, in kW.
+
+**(a)** 153.2 &nbsp;&nbsp; **(b)** 25.2 &nbsp;&nbsp; **(c)** 15.4 &nbsp;&nbsp;
+**(d)** 70.8
+
+::: {.gap height="fill"}
+::: {.worked}
+For the heat pump, the inside of the building can be seen as the **hot
+reservoir** ($T_H = 20$ °C), while the outside is the **cold reservoir**
+($T_C = 5$ °C).
+
+To maintain the inside temperature:
+$$
+|\dot{Q}_H| = |\dot{Q}_\text{loss}| = 300~\mathrm{kW}
+$$
+
+The minimum work required is the work for a reversible heat pump:
+$$
+\left(\frac{|\dot{W}|}{|\dot{Q}_H|}\right)_\text{rev}
+= \left(\frac{|\dot{Q}_H| - |\dot{Q}_C|}{|\dot{Q}_H|}\right)_\text{rev}
+= \frac{T_H - T_C}{T_H}
+= \frac{(273 + 20) - (273 + 5)}{273 + 20} = 0.0512
+$$
+$$
+\Rightarrow\quad
+|\dot{W}|_\text{min} = |\dot{Q}_H| \times 0.0512
+= 300~\mathrm{kW} \times 0.0512 \approx \boxed{15.4~\mathrm{kW}} \quad \text{(c)}
+$$
+:::
+:::
+
+**P6.8 [medium].** Find the change of specific entropy for an ideal gas that
 undergoes a reversible polytropic compression (from $v_1$ to $v_2$) with a
 polytropic exponent $n$. Express the answer as a function of $\ln(v_2/v_1)$, the
 ratio of specific heats $\gamma$ and the polytropic exponent $n$.
@@ -917,7 +1083,7 @@ $Q_\text{rev} = T\Delta S = 0$, which is expected for an adiabatic process.
 :::
 :::
 
-**P6.4 [medium].** Argon in a light bulb is at 90 kPa, 20 °C when it is turned
+**P6.9 [medium].** Argon in a light bulb is at 90 kPa, 20 °C when it is turned
 on, and electricity input now heats it to 75 °C. Find the specific entropy
 change of the argon gas in kJ/(kg K). Treat argon as an ideal gas with
 $c_v = 0.312~\mathrm{kJ/(kg\,K)}$.
@@ -944,7 +1110,68 @@ $$
 :::
 :::
 
-**P6.5 [hard].** Argon in a light bulb is at 110 kPa, 80 °C. The light is
+**P6.10 [hard].** As shown in the figure below, two reversible cycles arranged
+in series each produce the same net work, $W_\text{cycle}$. The first cycle
+receives energy $Q_H$ by heat transfer from a hot reservoir at 555 K and rejects
+energy $Q$ by heat transfer to a reservoir at an intermediate temperature, $T$.
+The second cycle receives energy $Q$ by heat transfer from the reservoir at
+temperature $T$ and rejects energy $Q_C$ by heat transfer to a reservoir at
+222 K. Determine the intermediate temperature $T$, in K, and the thermal
+efficiency for each of the two power cycles.
+
+![](figures/img/ch5-p-series-engines.png){width=34%}
+
+**(a)** 388.5, 30%, 42.9% &nbsp;&nbsp; **(b)** 388.5, 45%, 45% &nbsp;&nbsp;
+**(c)** 388.5, 30%, 60% &nbsp;&nbsp; **(d)** 433.2, 40%, 60%
+
+::: {.gap height="fill"}
+::: {.worked}
+Both R1 and R2 are reversible heat engines, and they deliver the same work,
+$|W|_{R1} = |W|_{R2} = |W|$. So:
+
+For R1:
+$$
+\frac{|Q|}{|W|} = \frac{|Q|}{|Q_H| - |Q|} = \frac{T}{T_H - T} \tag{I}
+$$
+
+For R2:
+$$
+\frac{|Q|}{|W|} = \frac{|Q|}{|Q| - |Q_C|} = \frac{T}{T - T_C} \tag{II}
+$$
+
+From (I) and (II):
+$$
+\frac{T}{T_H - T} = \frac{T}{T - T_C}
+\quad\Rightarrow\quad
+T_H - T = T - T_C
+$$
+$$
+\Rightarrow\quad
+T = \frac{T_H + T_C}{2} = \frac{555~\mathrm{K} + 222~\mathrm{K}}{2}
+= \boxed{388.5~\mathrm{K}}
+$$
+
+The efficiencies:
+$$
+\eta_{R1} = \frac{|W|}{|Q_H|} = 1 - \frac{T}{T_H}
+= 1 - \frac{388.5~\mathrm{K}}{555~\mathrm{K}} = \boxed{0.30~(30\%)}
+$$
+$$
+\eta_{R2} = \frac{|W|}{|Q|} = 1 - \frac{T_C}{T}
+= 1 - \frac{222~\mathrm{K}}{388.5~\mathrm{K}} = \boxed{0.43~(42.9\%)}
+$$
+
+Check: R1 turns 30% of $|Q_H|$ into work and passes $|Q| = 0.7\,|Q_H|$ on to
+R2, which delivers the same work, so
+$\eta_{R2} = 0.3/0.7 = 0.429$. The value of 60% is the efficiency of the two
+cycles *together*, $1 - T_C/T_H = 1 - 222/555 = 0.6$, not that of R2: option
+(c) is that mistake.
+
+So the answer is **(a)**: 388.5 K, 30% and 42.9%.
+:::
+:::
+
+**P6.11 [hard].** Argon in a light bulb is at 110 kPa, 80 °C. The light is
 turned off, so the argon cools to the ambient 20 °C. Disregard the glass and any
 other mass and find the specific entropy generation $s_\text{gen}$ in
 J/(kg K). (Treat argon as an ideal gas with $c_v = 0.312~\mathrm{kJ/(kg\,K)}$.)
@@ -960,7 +1187,7 @@ $$
 $$
 So we need to find $\Delta s$ and $q/T$.
 
-![](figures/img/ch6-p-bulb-sol.png){width=30% fig-align="center"}
+![](figures/out/ch6-p-bulb-sol.svg){width=42% fig-align="center"}
 
 To find $\Delta s$ for an ideal gas, with $v_2/v_1 = 1$ (the bulb is rigid):
 $$
@@ -998,7 +1225,7 @@ $$
 :::
 :::
 
-**P6.6 [hard].** A cylinder/piston contains carbon dioxide at 1 MPa, 300 °C
+**P6.12 [hard].** A cylinder/piston contains carbon dioxide at 1 MPa, 300 °C
 with a volume of 200 L. The total external force acting on the piston is
 proportional to $V^3$. This system is allowed to cool to room temperature,
 20 °C. What is the entropy generation $S_\text{gen}$ for the process in kJ/K?
@@ -1012,7 +1239,7 @@ for an ideal gas. That being done, you can then use the second law of
 thermodynamics to find the entropy generation.*
 
 **(a)** 0.126 &nbsp;&nbsp; **(b)** 0.589 &nbsp;&nbsp; **(c)** 0.634
-&nbsp;&nbsp; **(d)** 0.366
+&nbsp;&nbsp; **(d)** 0.369
 
 ::: {.gap height="fill"}
 ::: {.worked}
@@ -1022,7 +1249,7 @@ $$
 S_2 - S_1 = \int \frac{\delta Q}{T} + S_\text{gen} \tag{I}
 $$
 
-![](figures/img/ch6-p-co2-sol.png){width=28% fig-align="center"}
+![](figures/out/ch6-p-co2-sol.svg){width=36% fig-align="center"}
 
 **Find $\int \delta Q/T$.** The temperature at the border of the system (where
 the heat transfer occurs) is constant and equal to that of the surroundings, so
@@ -1074,9 +1301,7 @@ $$
 -0.868~\frac{\mathrm{kJ}}{\mathrm{K}}
 = \frac{-362.2~\mathrm{kJ}}{(20 + 273)~\mathrm{K}} + S_\text{gen}
 \quad\Rightarrow\quad
-S_\text{gen} = -0.868 + 1.236 = \boxed{0.37~\mathrm{kJ/K}} \quad \text{(d)}
+S_\text{gen} = -0.868 + 1.236 = \boxed{0.369~\mathrm{kJ/K}} \quad \text{(d)}
 $$
-The listed 0.366 kJ/K is what you get if $S_2 - S_1$ is first rounded to
-$-0.87$ kJ/K.
 :::
 :::

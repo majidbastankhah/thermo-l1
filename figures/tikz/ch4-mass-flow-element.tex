@@ -1,0 +1,32 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% A slice of fluid (volume dV = A dx) entering a control volume in a time dt.
+\begin{document}
+\begin{tikzpicture}[
+    dim/.style={{Stealth[length=2mm]}-{Stealth[length=2mm]}, duRed, line width=0.9pt}]
+  \def\r{0.55}
+  % control volume
+  \draw[line width=0.9pt] (5.0,0) circle (1.75);
+  \node[align=center] at (5.35,0) {Control\\volume};
+  % pipe (broken end on the left) running into the control volume
+  \draw[line width=0.9pt] (1.45,\r) -- (3.32,\r);
+  \draw[line width=0.9pt] (1.38,-\r) -- (3.32,-\r);
+  \draw[line width=0.9pt] (1.45,\r) .. controls (1.18,\r) and (1.18,0.2) .. (1.33,0)
+                                    .. controls (1.5,-0.22) and (1.52,-\r) .. (1.38,-\r)
+                                    .. controls (1.22,-\r) and (1.2,-0.2) .. (1.33,0);
+  % the fluid slice
+  \fill[duBlue!15] (2.0,-\r) rectangle (2.5,\r);
+  \fill[pattern=north east lines, pattern color=duBlue] (2.0,-\r) rectangle (2.5,\r);
+  \draw[duBlue, line width=1.1pt] (2.0,-\r) rectangle (2.5,\r);
+  \node[duBlue, anchor=south] at (2.25,\r+0.05) {$\mathrm{d}V$};
+  % dimensions
+  \draw[dim] (2.0,-\r-0.3) -- (2.5,-\r-0.3);
+  \node[duRed, anchor=north] at (2.25,-\r-0.38) {$\mathrm{d}x$};
+  \draw[dim] (3.02,-\r) -- (3.02,\r);
+  \node[duRed, anchor=east] at (3.0,0) {$A$};
+  % influx
+  \draw[-{Stealth[length=3mm]}, duBlue, line width=1.8pt] (-0.4,0) -- (1.0,0);
+  \node[duBlue, anchor=south] at (0.3,0.12) {$\mathrm{d}m/\mathrm{d}t$};
+  \node[anchor=north] at (0.3,-0.12) {Influx};
+\end{tikzpicture}
+\end{document}

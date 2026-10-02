@@ -1,0 +1,32 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% P4: household fan, air in at i and out at e.
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm,
+    flow/.style={-{Stealth[length=2.2mm]}, duRed, line width=0.9pt},
+    fan/.style={duBlue, line width=1.1pt, line join=round}]
+  % ground and stand
+  \draw[fan] (0.95,-1.05) -- (2.45,-1.05);
+  \foreach \x in {1.15,1.45,...,2.35}
+    \draw[duBlue, line width=0.6pt] (\x,-1.05) -- ++(-0.2,-0.2);
+  \draw[fan] (1.55,-1.05) -- (1.72,-0.2);
+  \draw[fan] (1.8,-1.05) -- (1.84,-0.2);
+  % motor housing
+  \draw[fan, fill=white] (1.05,0.07) .. controls (1.4,0.12) and (2.2,0.22) .. (2.45,0.1)
+     .. controls (2.6,0.02) and (2.6,-0.18) .. (2.45,-0.24)
+     .. controls (2.2,-0.32) and (1.4,-0.2) .. (1.05,-0.15) -- cycle;
+  % blades
+  \draw[fan, fill=white] (0.95,0) .. controls (0.75,0.3) and (0.8,0.85) .. (0.98,0.85)
+     .. controls (1.12,0.85) and (1.1,0.3) .. (0.95,0);
+  \draw[fan, fill=white] (0.95,0) .. controls (0.75,-0.3) and (0.8,-0.85) .. (0.98,-0.85)
+     .. controls (1.12,-0.85) and (1.1,-0.3) .. (0.95,0);
+  \draw[fan, fill=white] (0.98,-0.04) circle (0.08);
+  % air in and out
+  \foreach \y in {0.5,0,-0.5} {
+    \draw[flow] (-0.35,\y) -- (0.55,\y);
+    \draw[flow] (2.75,\y) -- (3.65,\y);
+  }
+  \node[duRed] at (-0.25,0.9) {$i$};
+  \node[duRed] at (3.55,0.9) {$e$};
+\end{tikzpicture}
+\end{document}
