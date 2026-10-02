@@ -47,6 +47,32 @@ blocked.
 
 ---
 
+### Live questions (Poll Everywhere)
+
+Students can ask questions anonymously during the lecture, through your
+Poll Everywhere **Q&A** activity (pin it, allow anonymous responses, and turn
+on moderation if you want to approve questions first). The address is one
+setting in `_quarto.yml`:
+
+```yaml
+qa-url: "https://pollev.com/majidbastankhah994"   # empty: remove all of it
+qa-presenter-url: ""                               # what Q opens for you
+```
+
+On the notes with gaps (not on the completed notes) this gives:
+
+| | |
+|:--|:--|
+| **Ask a question** button | for students: opens the Q&A in a side panel beside the notes (a new tab on phones). If Poll Everywhere refuses to load inside the page, the panel's *open in a new tab* link always works. |
+| **P** (presentation mode) | the address and a small QR code stay in the bottom-right corner |
+| **J** | a full-screen QR code and the address, to show at the start of a lecture; J or Esc closes it |
+| **Q** | for you: the side panel on `qa-presenter-url` (e.g. your moderation page) or, if that is empty, on `qa-url`. Q again or Esc closes it. Note it shows on the projector if your screen is mirrored. |
+
+The syllabus and the front page show the address with `{{< meta qa-url >}}`,
+so it is set only in `_quarto.yml`. The QR code is drawn in the browser by
+`js/qrcode.js` (Kazuhiko Arase's QR Code Generator, MIT licence), so nothing
+is loaded from outside the site.
+
 ## How the source works
 
 ### Gaps
@@ -193,7 +219,8 @@ _quarto.yml                  website + HTML settings, filter list
 _pdf.yml                     print settings
 tex/preamble.tex             LaTeX: Durham colours, running heads, all the boxes
 styles.css                   the same boxes for the web, plus the reveal styling
-js/lecture-reveal.html       the keyboard-driven reveal + presentation mode
+js/lecture-reveal.html       the keyboard-driven reveal + presentation mode + live questions
+js/qrcode.js                 QR code generator for the live-questions address
 js/katex/                    self-hosted maths renderer (no CDN in the lecture theatre)
 filters/gaps.lua             reveal / student / complete / lecturer, and solution visibility
 filters/boxes.lua            ::: {.note} etc. -> LaTeX environment or styled div; example numbering

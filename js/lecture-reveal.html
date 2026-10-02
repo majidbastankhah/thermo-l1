@@ -151,3 +151,97 @@
   paint(null);
 })();
 </script>
+
+<!-- Live questions during the lecture (Poll Everywhere Q&A, address set by
+     qa-url in _quarto.yml). Only on pages that carry #qa-config, i.e. the
+     notes with gaps.
+       button  "Ask a question": opens the Q&A in a side panel (a new tab on phones)
+       Q       you: open/close the panel on qa-presenter-url (or qa-url)
+       J       a large QR code + address, to show at the start of a lecture
+       Esc     close the panel / the QR card
+     In presentation mode (P) the address and a small QR stay in a corner. -->
+<script src="js/qrcode.js"></script>
+<script>
+(function () {
+  "use strict";
+  const cfg = document.getElementById("qa-config");
+  if (!cfg || !cfg.dataset.url) return;
+  const url = cfg.dataset.url;
+  const presenter = cfg.dataset.presenter || url;
+  const shown = url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
+  function qrSvg() {
+    try {
+      const qr = qrcode(0, "M"); qr.addData(url); qr.make();
+      return qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
+    } catch (e) { return ""; }
+  }
+  const qr = qrSvg();
+
+  // ------------------------------------------------- button + side panel --
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "qa-button";
+  btn.innerHTML = "Ask a question <span>anonymous</span>";
+  btn.title = "Ask a question anonymously (" + shown + ")";
+  document.body.appendChild(btn);
+
+  // a div, not an <aside>: Quarto's CSS puts asides under its navbar
+  const panel = document.createElement("div");
+  panel.className = "qa-panel";
+  panel.setAttribute("role", "complementary");
+  panel.setAttribute("aria-label", "Questions");
+  panel.innerHTML =
+    '<div class="qa-head"><strong>Questions</strong>' +
+    '<a target="_blank" rel="noopener">open in a new tab &#8599;</a>' +
+    '<button type="button" class="qa-close" aria-label="Close">&times;</button></div>' +
+    '<iframe title="Questions (Poll Everywhere)"></iframe>' +
+    '<p class="qa-foot">Nothing showing? Use <em>open in a new tab</em>.</p>';
+  document.body.appendChild(panel);
+  const frame = panel.querySelector("iframe");
+  const link = panel.querySelector("a");
+
+  function isOpen() { return document.body.classList.contains("qa-open"); }
+  function openPanel(target) {
+    if (window.matchMedia("(max-width: 760px)").matches) {   // phones: a tab
+      window.open(target, "_blank", "noopener");
+      return;
+    }
+    if (frame.getAttribute("src") !== target) frame.setAttribute("src", target);
+    link.href = target;
+    document.body.classList.add("qa-open");
+  }
+  function closePanel() { document.body.classList.remove("qa-open"); }
+  function toggle(target) {
+    if (isOpen() && frame.getAttribute("src") === target) closePanel();
+    else openPanel(target);
+  }
+  btn.addEventListener("click", function () { toggle(url); });
+  panel.querySelector(".qa-close").addEventListener("click", closePanel);
+
+  // ------------------------------- presentation mode: badge + join card --
+  const badge = document.createElement("div");
+  badge.className = "qa-badge";
+  badge.innerHTML = qr + '<div><strong>Questions?</strong><br>' + shown +
+                    '<br><small>anonymous</small></div>';
+  document.body.appendChild(badge);
+
+  const card = document.createElement("div");
+  card.className = "qa-card";
+  card.innerHTML = '<div class="qa-card-inner">' + qr +
+    '<p class="qa-card-title">Ask a question, anonymously</p>' +
+    '<p class="qa-card-url">' + shown + '</p>' +
+    '<p class="qa-card-hint">press J to close</p></div>';
+  document.body.appendChild(card);
+  card.addEventListener("click", function () { document.body.classList.remove("qa-join"); });
+
+  document.addEventListener("keydown", function (ev) {
+    const t = ev.target;
+    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    if (ev.key === "q" || ev.key === "Q") { ev.preventDefault(); toggle(presenter); }
+    else if (ev.key === "j" || ev.key === "J") { document.body.classList.toggle("qa-join"); }
+    else if (ev.key === "Escape") { closePanel(); document.body.classList.remove("qa-join"); }
+  });
+})();
+</script>

@@ -49,3 +49,12 @@ filters:
 # a time in the room. It is also the version posted afterwards, so the screen
 # and the posted notes are the same file. build.sh overrides this for print.
 gapmode: reveal
+
+# Live, anonymous questions during the lecture (Poll Everywhere Q&A). On the
+# notes with gaps this adds an "Ask a question" button, and in presentation
+# mode the address and a QR code. Leave qa-url empty to remove all of it.
+#   qa-url            the address students go to
+#   qa-presenter-url  what the Q key opens for YOU (e.g. your moderation page);
+#                     if empty, Q opens qa-url
+qa-url: "https://pollev.com/majidbastankhah994"
+qa-presenter-url: ""

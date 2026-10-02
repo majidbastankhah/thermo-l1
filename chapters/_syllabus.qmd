@@ -72,6 +72,10 @@ engineering mechanics. By the end of the course, you should be able to:
 
 ## Questions and feedback {.unnumbered}
 
-- During lectures, give me a shout if anything is unclear.
+- During lectures, give me a shout if anything is unclear, or ask your
+  question **anonymously** online, at
+  [{{< meta qa-url >}}]({{< meta qa-url >}}) or with the **Ask a question**
+  button on the notes with gaps. Other students can upvote it, and I pick up
+  the most popular questions during the lecture.
 - After lectures, come to office hours or contact me by email at
   [majid.bastankhah@durham.ac.uk](mailto:majid.bastankhah@durham.ac.uk).

@@ -24,11 +24,14 @@
 
 local mode = "complete"
 local chapter = nil          -- from the chapter's own front matter
+local qa_url, qa_presenter = "", ""   -- live questions (see _quarto.yml)
 local show_solutions = nil   -- nil => decide from `mode`
 
 function Meta(m)
   if m.gapmode then mode = pandoc.utils.stringify(m.gapmode) end
   if m.chapter then chapter = pandoc.utils.stringify(m.chapter) end
+  if m["qa-url"] then qa_url = pandoc.utils.stringify(m["qa-url"]) end
+  if m["qa-presenter-url"] then qa_presenter = pandoc.utils.stringify(m["qa-presenter-url"]) end
   if m.solutions ~= nil then
     local s = pandoc.utils.stringify(m.solutions)
     show_solutions = (s == "true" or s == "yes")
@@ -190,7 +193,18 @@ local LABEL = {
   lecturer = "presenter notes, do not circulate",
 }
 
+local function attr_escape(s)
+  return (s:gsub("&", "&amp;"):gsub('"', "&quot;"):gsub("<", "&lt;"))
+end
+
 function Pandoc(doc)
+  -- the live-questions settings, read by js/lecture-reveal.html; only the
+  -- lecture view (notes with gaps) gets them
+  if mode == "reveal" and not is_latex() and qa_url ~= "" then
+    table.insert(doc.blocks, 1, pandoc.RawBlock("html",
+      '<div id="qa-config" hidden data-url="' .. attr_escape(qa_url) ..
+      '" data-presenter="' .. attr_escape(qa_presenter) .. '"></div>'))
+  end
   if is_latex() then
     local label = LABEL[mode] or LABEL.complete
     if chapter then label = "Chapter " .. chapter .. " -- " .. label end

@@ -232,3 +232,58 @@ body:has(.reveal-bar) #quarto-document-content { padding-bottom: 4.5rem; }
 .reveal-bar { opacity: 0.35; transition: opacity 140ms ease; }
 .reveal-bar:hover, .reveal-bar:focus-within { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .reveal-bar { transition: none; } }
+
+/* --- live questions (js/lecture-reveal.html, qa-url in _quarto.yml) ------ */
+.qa-button {
+  position: fixed; right: 16px; bottom: 16px; z-index: 1040;
+  border: 0; border-radius: 999px; padding: 0.55em 1.1em;
+  background: var(--du-purple); color: #fff; font-size: 0.95rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18); cursor: pointer;
+}
+.qa-button span { opacity: 0.75; font-size: 0.8em; margin-left: 0.3em; }
+.qa-button:hover { filter: brightness(1.1); }
+
+body .qa-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 1050 !important;
+  width: min(420px, 92vw); display: flex; flex-direction: column;
+  background: var(--bs-body-bg, #fff); border-left: 1px solid var(--box-border);
+  box-shadow: -4px 0 16px rgba(0,0,0,0.12);
+  transform: translateX(100%); transition: transform 0.2s ease;
+}
+body.qa-open .qa-panel { transform: none; }
+body.qa-open .qa-button { display: none; }
+.qa-head { display: flex; align-items: center; gap: 0.8em; padding: 0.6em 0.9em;
+           border-bottom: 1px solid var(--box-border); }
+.qa-head a { font-size: 0.85rem; margin-left: auto; }
+.qa-close { border: 0; background: none; font-size: 1.5rem; line-height: 1; cursor: pointer; color: inherit; }
+.qa-panel iframe { flex: 1; width: 100%; border: 0; }
+.qa-foot { margin: 0; padding: 0.4em 0.9em; font-size: 0.75rem; color: var(--box-text); }
+/* on a wide screen the notes move over, so the panel sits beside them */
+@media (min-width: 1200px) { body.qa-open { padding-right: 420px; } }
+
+.qa-badge, .qa-card { display: none; }
+body.present .qa-button { display: none; }
+body.present .qa-badge {
+  display: flex; align-items: center; gap: 0.6em;
+  position: fixed; right: 14px; bottom: 14px; z-index: 1040;
+  padding: 0.4em 0.7em 0.4em 0.4em; border-radius: 8px;
+  background: var(--bs-body-bg, #fff); border: 1px solid var(--box-border);
+  font-size: 0.8rem; line-height: 1.25; color: var(--box-text);
+}
+body.present .qa-badge svg { width: 64px; height: 64px; }
+body.present .qa-badge strong { color: var(--du-purple); }
+
+body.qa-join .qa-card {
+  display: flex; position: fixed; inset: 0; z-index: 1060;
+  align-items: center; justify-content: center;
+  background: var(--bs-body-bg, #fff); cursor: pointer;
+}
+.qa-card-inner { text-align: center; }
+.qa-card svg { width: min(56vmin, 520px); height: auto; }
+.qa-card-title { font-size: 2rem; margin: 0.4em 0 0.1em; color: var(--du-purple); }
+.qa-card-url { font-size: 2.4rem; font-weight: 600; margin: 0; }
+.qa-card-hint { font-size: 0.9rem; color: var(--box-text); margin-top: 1em; }
+/* the QR code must stay dark-on-light to scan, in dark mode too */
+.qa-card svg, .qa-badge svg { background: #fff; }
+
+@media print { .qa-button, .qa-panel, .qa-badge, .qa-card { display: none !important; } }

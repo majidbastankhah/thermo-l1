@@ -19,5 +19,9 @@ the arrow keys move through the gaps, **P** switches to presentation mode and
 **A** uncovers everything. The worked solution of each end-of-chapter problem
 stays covered until you click it, so try the problem first.
 
+**Questions during the lecture?** Ask them anonymously at
+[{{< meta qa-url >}}]({{< meta qa-url >}}), or with the **Ask a question**
+button on the notes with gaps.
+
 **The PDF with gaps** leaves the same gaps blank, and a page for your working
 after each end-of-chapter problem: print it and bring it to the lecture.
