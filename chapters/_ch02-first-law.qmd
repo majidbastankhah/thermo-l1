@@ -192,6 +192,30 @@ exactly why work is a **path function**.
 :::
 :::
 
+### Explore it yourself {#sec-ch2-explore}
+
+Work is the area under the path in the $P_\text{ext}$–$V$ diagram, which is why
+two processes between the same two states can need very different amounts of
+work.
+
+::: {.content-visible when-format="html"}
+Switch between the three paths, drag the polytropic exponent, and watch the
+shaded area change.
+
+```{=html}
+<iframe src="widgets/pv-explorer.html" class="widget-frame"
+        title="Interactive PV work explorer" loading="lazy"></iframe>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+![A family of polytropic paths $P_\text{ext}V^{n} = \text{const.}$ between the same two volumes. The shaded region is $|W|$ for $n = 1$.](figures/out/polytropic-family.svg){width=82%}
+
+The interactive version of this figure is on the course website —
+follow the *Explore it yourself* link in CH2.
+:::
+
+
 ::: {.example}
 The external pressure on the piston is estimated to be 1 bar. A burner heats the
 system until the volume of the gas increases from $0.05~\mathrm{m^3}$ to
@@ -593,29 +617,6 @@ Exactly the same physical situation, three different boundaries:
 | (c) everything, including the falling mass | $Q = 0$, $W = 0$ |
 
 Choosing the boundary badly does not make a problem wrong — it makes it hard.
-
-## Explore it yourself {#sec-ch2-explore}
-
-Work is the area under the path in the $P_\text{ext}$–$V$ diagram, which is why
-two processes between the same two states can need very different amounts of
-work.
-
-::: {.content-visible when-format="html"}
-Switch between the three paths, drag the polytropic exponent, and watch the
-shaded area change.
-
-```{=html}
-<iframe src="widgets/pv-explorer.html" class="widget-frame"
-        title="Interactive PV work explorer" loading="lazy"></iframe>
-```
-:::
-
-::: {.content-visible when-format="pdf"}
-![A family of polytropic paths $P_\text{ext}V^{n} = \text{const.}$ between the same two volumes. The shaded region is $|W|$ for $n = 1$.](figures/out/polytropic-family.svg){width=82%}
-
-The interactive version of this figure is on the course website —
-follow the *Explore it yourself* link in CH2.
-:::
 
 {{< pagebreak >}}
 

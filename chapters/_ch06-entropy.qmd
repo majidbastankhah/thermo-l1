@@ -520,6 +520,32 @@ of thermodynamics, $\sum W + \sum Q = 0$, this area should be equal to the area
 enclosed by the cycle in a P–V diagram (i.e. the net cyclic work).
 :::
 
+### Explore it yourself {#sec-ch6-explore}
+
+The Carnot cycle is made of two reversible isothermal and two reversible
+adiabatic processes. Here it is drawn on both the P–v and the T–s diagrams, for
+helium treated as an ideal gas.
+
+::: {.content-visible when-format="html"}
+Press *Play* and follow the state around the cycle on both diagrams. Then
+change $T_H$, $T_C$ and the volume ratio. Which of them change
+$\eta_\text{rev}$, and which only change how much work you get per cycle? Run
+the cycle backwards and see what happens to the COPs as $T_C$ gets close to
+$T_H$.
+
+```{=html}
+<iframe src="widgets/carnot-cycle.html" class="widget-frame"
+        title="Interactive Carnot cycle on the P-v and T-s diagrams" loading="lazy"></iframe>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+![A Carnot cycle for helium between 800 K and 300 K. On the T–s diagram the cycle is a rectangle: the area under 2–3 is $|Q_H|$, the area under 4–1 is $|Q_C|$ and the enclosed area is the net work, so $\eta_\text{rev} = 1 - T_C/T_H = 62.5\%$.](figures/img/ch6-carnot-cycle-widget.png){width=88%}
+
+The interactive version of this figure is on the course website: follow the
+*Explore it yourself* link in CH6.
+:::
+
 ## Corollary 8: entropy change in ANY process
 
 ::: {.key}
@@ -792,32 +818,6 @@ $$ {#eq-ch6-ds-TP}
 ::: {.note}
 @eq-ch6-ds-Tv and @eq-ch6-ds-TP are two forms of the same result: one turns into
 the other with $Pv = RT$ and $c_p - c_v = R$.
-:::
-
-## Explore it yourself {#sec-ch6-explore}
-
-The Carnot cycle is made of two reversible isothermal and two reversible
-adiabatic processes. Here it is drawn on both the P–v and the T–s diagrams, for
-helium treated as an ideal gas.
-
-::: {.content-visible when-format="html"}
-Press *Play* and follow the state around the cycle on both diagrams. Then
-change $T_H$, $T_C$ and the volume ratio. Which of them change
-$\eta_\text{rev}$, and which only change how much work you get per cycle? Run
-the cycle backwards and see what happens to the COPs as $T_C$ gets close to
-$T_H$.
-
-```{=html}
-<iframe src="widgets/carnot-cycle.html" class="widget-frame"
-        title="Interactive Carnot cycle on the P-v and T-s diagrams" loading="lazy"></iframe>
-```
-:::
-
-::: {.content-visible when-format="pdf"}
-![A Carnot cycle for helium between 800 K and 300 K. On the T–s diagram the cycle is a rectangle: the area under 2–3 is $|Q_H|$, the area under 4–1 is $|Q_C|$ and the enclosed area is the net work, so $\eta_\text{rev} = 1 - T_C/T_H = 62.5\%$.](figures/img/ch6-carnot-cycle-widget.png){width=88%}
-
-The interactive version of this figure is on the course website: follow the
-*Explore it yourself* link in CH6.
 :::
 
 {{< pagebreak >}}

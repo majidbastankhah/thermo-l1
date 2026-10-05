@@ -245,8 +245,10 @@
     // heat bath
     el("rect", { x: x - 8, y: bottom + 2, width: w + 16, height: 10, fill: "rgba(235,104,52,0.25)" }, cyl);
     el("text", { x: x + w / 2, y: bottom + 11, "text-anchor": "middle", class: "tick", fill: "#52514e" }, cyl, "constant T");
-    el("text", { x: x + w / 2, y: 22, "text-anchor": "middle", class: "lbl", fill: "#0b0b0b" }, cyl,
-       "P_ext = " + fmt(Pe, 2) + " bar");
+    const lt = el("text", { x: x + w / 2, y: 22, "text-anchor": "middle", class: "lbl", fill: "#0b0b0b" }, cyl);
+    el("tspan", {}, lt, "P");
+    el("tspan", { "baseline-shift": "sub", "font-size": "75%" }, lt, "ext");
+    el("tspan", {}, lt, " = " + fmt(Pe, 2) + " bar");
   }
 
   // ----------------------------------------------------------- readout --

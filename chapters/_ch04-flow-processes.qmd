@@ -536,7 +536,7 @@ $$
 $$
 :::
 
-## Explore it yourself {#sec-ch4-explore}
+### Explore it yourself {#sec-ch4-explore}
 
 Every device in this chapter obeys the same steady-flow energy equation; what
 changes from one device to the next is which terms matter. Here air flows

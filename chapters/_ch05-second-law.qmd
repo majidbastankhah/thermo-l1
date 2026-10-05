@@ -327,6 +327,30 @@ $$
 :::
 :::
 
+### Explore it yourself {#sec-ch5-explore}
+
+A heat engine, a refrigerator and a heat pump all work in a cycle between a hot
+and a cold reservoir. The first law fixes how the energy flows add up; the
+second law says which of these devices can exist.
+
+::: {.content-visible when-format="html"}
+Choose a device and move the sliders. Which energy is *sought* and which one
+*costs*? Then try to build an engine with $\eta = 100\%$, or a refrigerator
+that needs no work. Which statement of the second law does each one break?
+
+```{=html}
+<iframe src="widgets/cyclic-devices.html" class="widget-frame"
+        title="Interactive energy flows in a heat engine, a refrigerator and a heat pump" loading="lazy"></iframe>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+![A heat engine receiving 300 kW from the hot reservoir with a thermal efficiency of 30%: 90 kW leaves as work and 210 kW is rejected to the cold reservoir. The widths of the arrows are proportional to the energy rates.](figures/img/ch5-cyclic-devices-widget.png){width=88%}
+
+The interactive version of this figure is on the course website: follow the
+*Explore it yourself* link in CH5.
+:::
+
 ## Reversible cycle
 
 If **every** process in the cycle is *reversible*, then the whole cycle is
@@ -360,30 +384,6 @@ Since at least one of the sources of irreversibility discussed above is always
 present in some degree, no real process can be reversible. The reversible
 process (and a reversible cycle) must therefore be regarded as a limiting case
 – an ideal that can never quite be achieved.
-:::
-
-## Explore it yourself {#sec-ch5-explore}
-
-A heat engine, a refrigerator and a heat pump all work in a cycle between a hot
-and a cold reservoir. The first law fixes how the energy flows add up; the
-second law says which of these devices can exist.
-
-::: {.content-visible when-format="html"}
-Choose a device and move the sliders. Which energy is *sought* and which one
-*costs*? Then try to build an engine with $\eta = 100\%$, or a refrigerator
-that needs no work. Which statement of the second law does each one break?
-
-```{=html}
-<iframe src="widgets/cyclic-devices.html" class="widget-frame"
-        title="Interactive energy flows in a heat engine, a refrigerator and a heat pump" loading="lazy"></iframe>
-```
-:::
-
-::: {.content-visible when-format="pdf"}
-![A heat engine receiving 300 kW from the hot reservoir with a thermal efficiency of 30%: 90 kW leaves as work and 210 kW is rejected to the cold reservoir. The widths of the arrows are proportional to the energy rates.](figures/img/ch5-cyclic-devices-widget.png){width=88%}
-
-The interactive version of this figure is on the course website: follow the
-*Explore it yourself* link in CH5.
 :::
 
 {{< pagebreak >}}

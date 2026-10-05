@@ -500,7 +500,7 @@ $R = 8314/32 = 259.8~\mathrm{J/(kg\,K)}$, whereas $R_0$ has the same value for
 all ideal gases.
 :::
 
-## Explore it yourself {#sec-ch1-explore}
+### Explore it yourself {#sec-ch1-explore}
 
 The ideal-gas equation ties together the amount of gas, its temperature, its
 volume and its pressure; a manometer then shows how far that pressure is above
