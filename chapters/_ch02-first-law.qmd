@@ -642,6 +642,23 @@ then remains constant. Determine the total work, in kJ.
 **(a)** 4.35 &nbsp;&nbsp; **(b)** 7.875 &nbsp;&nbsp; **(c)** 0.75 &nbsp;&nbsp; **(d)** 9.465
 
 ::: {.gap height="fill"}
+::: {.approach}
+For a slow process the magnitude of the boundary work is the area under the
+path on the $P_\text{ext}$–$V$ diagram. Split the path into its two segments,
+find the area of each from simple shapes, and then fix the sign from whether the
+gas is compressed or expanded.
+:::
+
+::: {.hint}
+The linear segment gives a trapezium and the constant-pressure segment a
+rectangle. Read the volume change of each off the axis; kPa times m$^3$ gives
+kJ, and a compression means work done on the system, $W > 0$.
+:::
+
+::: {.answer}
+$W_\text{total} = 7.875$ kJ, option **(b)**.
+:::
+
 ::: {.worked}
 The area under the path in the $P_\text{ext}$–$V$ diagram gives the magnitude of
 the work.
@@ -680,6 +697,24 @@ steam to the piston during the process, in kJ.
 **(a)** 150 &nbsp;&nbsp; **(b)** 350 &nbsp;&nbsp; **(c)** $-350$ &nbsp;&nbsp; **(d)** $-150$
 
 ::: {.gap height="fill"}
+::: {.approach}
+Take the steam as a closed system and write the First Law,
+$\sum Q + \sum W = \Delta U$, with the kinetic and potential terms dropped.
+There are two work terms, paddle and piston; the internal-energy change follows
+from the mass and the specific internal energies, so only the piston work is
+unknown.
+:::
+
+::: {.hint}
+Energy into the system is positive, so the heat and the paddle work both
+enter as positive. Remember $\Delta U = m\,\Delta u$, not just
+$\Delta u$.
+:::
+
+::: {.answer}
+$W_\text{piston} = -350$ kJ, option **(c)**.
+:::
+
 ::: {.worked}
 From the First Law,
 $$
@@ -709,6 +744,23 @@ Determine the heat transfer, in kJ.
 **(a)** 1.5 &nbsp;&nbsp; **(b)** $-3.8$ &nbsp;&nbsp; **(c)** 2.6 &nbsp;&nbsp; **(d)** $-5.4$
 
 ::: {.gap height="fill"}
+::: {.approach}
+Write the general First Law for a closed system, including the
+potential-energy term: $Q + W = \Delta U + \Delta KE + \Delta PE$. It is
+easiest per unit mass: work out each term, then solve for the heat and multiply
+by the mass.
+:::
+
+::: {.hint}
+Watch the units: $g\,\Delta z$ comes out in J/kg, while $\Delta u$ is in
+kJ/kg. Work done on the system is positive, and a decrease in $u$ makes
+$\Delta u$ negative.
+:::
+
+::: {.answer}
+$Q = -5.4$ kJ, option **(d)**.
+:::
+
 ::: {.worked}
 Using the generic form of the First Law, per unit mass:
 $$
@@ -738,6 +790,22 @@ in kinetic and potential energy.
 **(a)** 150 &nbsp;&nbsp; **(b)** 260 &nbsp;&nbsp; **(c)** 330 &nbsp;&nbsp; **(d)** 420
 
 ::: {.gap height="fill"}
+::: {.approach}
+Apply the First Law for a closed system with the kinetic and potential terms
+neglected. Find the total change in internal energy first, then divide by the
+mass to get the change in specific internal energy, and add it to the initial
+value.
+:::
+
+::: {.hint}
+Heat leaving the system is negative and work done on it is positive.
+$\Delta U$ is a total, in kJ; $\Delta u = \Delta U/m$, in kJ/kg.
+:::
+
+::: {.answer}
+$u_2 = 260$ kJ/kg, option **(b)**.
+:::
+
 ::: {.worked}
 $$
 Q + W = \Delta U
@@ -763,6 +831,25 @@ The system is heated and the piston begins to rise. If the mass of the piston is
 **(a)** $-28$ J &nbsp;&nbsp; **(b)** $-53$ J &nbsp;&nbsp; **(c)** $-41$ J &nbsp;&nbsp; **(d)** $-12$ J
 
 ::: {.gap height="fill"}
+::: {.approach}
+The work is done against the external pressure on the moving piston. Find
+that pressure from a force balance on the piston (the atmosphere above it plus
+its own weight), check whether it changes as the piston rises, and then use the
+boundary-work expression with the volume swept until the piston reaches the
+stop.
+:::
+
+::: {.hint}
+$P_\text{ext} = P_\text{atm} + mg/A$ stays constant, so
+$W = -P_\text{ext}\,\Delta V$ with $\Delta V = A \times$ (rise). Take the
+piston diameter from the figure, work in metres, and expect $W < 0$ for an
+expansion.
+:::
+
+::: {.answer}
+$W = -52.8$ J, option **(b)**.
+:::
+
 ::: {.worked}
 The external pressure on the moving boundary is atmospheric plus the weight of
 the piston spread over its face:
@@ -776,7 +863,7 @@ $P_\text{ext}$ is constant, so
 $$
 W = -P_\text{ext}\,\Delta V
   = -131.2\times10^{3} \times \left(0.02 \times \tfrac{\pi}{4}(0.16)^{2}\right)
-  = \boxed{-52.7~\mathrm{J}} \quad \text{(b)}
+  = \boxed{-52.8~\mathrm{J}} \quad \text{(b)}
 $$
 
 Expansion, so $W < 0$ as expected.
@@ -797,6 +884,24 @@ clear why, give me a shout.)*
 **(a)** 165 J &nbsp;&nbsp; **(b)** 334 J &nbsp;&nbsp; **(c)** 538 J &nbsp;&nbsp; **(d)** 664 J
 
 ::: {.gap height="fill"}
+::: {.approach}
+Think about what the piston does as the refrigerant cools. It starts pressed
+against the stops and can only move once the gas pressure has fallen to the
+pressure that floats it; from then on the external pressure on it is constant.
+Find the work for the part of the process where the boundary actually moves.
+:::
+
+::: {.hint}
+While the gas pressure falls towards the floating pressure at constant
+volume, no work is done. After that, $W = -P_\text{float}(V_2 - V_1)$: the
+initial pressure and temperature are not needed, the volumes must be in
+m$^3$, and a compression gives $W > 0$.
+:::
+
+::: {.answer}
+$W = 664$ J, option **(d)**.
+:::
+
 ::: {.worked}
 As soon as the piston starts moving it is no longer in contact with the stops,
 and the external pressure becomes equal to the pressure required to float the
@@ -817,9 +922,26 @@ increasing the external pressure from 100 to 800 kPa such that
 $P_\text{ext}V^{2} = \text{const}$. If the initial volume $V_1 = 0.1~\mathrm{m^3}$,
 the work done on the system is
 
-**(a)** 42.9 kJ &nbsp;&nbsp; **(b)** 24.2 kJ &nbsp;&nbsp; **(c)** 31.6 kJ &nbsp;&nbsp; **(d)** 18.5 kJ
+**(a)** 42.9 kJ &nbsp;&nbsp; **(b)** 24.2 kJ &nbsp;&nbsp; **(c)** 31.6 kJ &nbsp;&nbsp; **(d)** 18.3 kJ
 
 ::: {.gap height="fill"}
+::: {.approach}
+The external pressure follows a polytropic relation, so it is a known
+function of volume. Use the initial state to find the constant, use the
+constant and the final pressure to find the final volume, and then integrate
+$W = -\int P_\text{ext}\,\mathrm{d}V$.
+:::
+
+::: {.hint}
+With $P_\text{ext} = C/V^{2}$ the integral gives $W = C/V_2 - C/V_1$, where
+$C = P_1V_1^{2}$ and $V_2 = \sqrt{C/P_2}$. The piston diameter is not
+needed.
+:::
+
+::: {.answer}
+$W = 18.3$ kJ, option **(d)**.
+:::
+
 ::: {.worked}
 With $P_\text{ext}V^{2} = C$, so $P_\text{ext} = C/V^{2}$:
 $$
@@ -835,13 +957,13 @@ C = P_{\text{ext},1} V_1^{2} = 10^{5} \times (0.1)^{2}
 $$
 $$
 V_2 = \sqrt{\frac{C}{P_{\text{ext},2}}} = \sqrt{\frac{10^{3}}{8\times10^{5}}}
-    = 0.035~\mathrm{m^3} \tag{III}
+    = 0.03536~\mathrm{m^3} \tag{III}
 $$
 
 Substituting (II) and (III) into (I):
 $$
-W = 10^{3}\left(\frac{1}{0.035} - \frac{1}{0.1}\right)
-  \approx 1.85\times10^{4}~\mathrm{J} = \boxed{18.5~\mathrm{kJ}} \quad \text{(d)}
+W = 10^{3}\left(\frac{1}{0.03536} - \frac{1}{0.1}\right)
+  \approx 1.83\times10^{4}~\mathrm{J} = \boxed{18.3~\mathrm{kJ}} \quad \text{(d)}
 $$
 
 Compression, so $W > 0$ as expected.
@@ -864,6 +986,23 @@ refer to the external pressure (i.e. pressure at the system boundaries).*
 **(a)** 631 &nbsp;&nbsp; **(b)** 1265 &nbsp;&nbsp; **(c)** 875 &nbsp;&nbsp; **(d)** 954
 
 ::: {.gap height="fill"}
+::: {.approach}
+Sketch the three processes on a $P$–$V$ diagram first, then find the work for
+each one separately and add them. Each process has a different pressure–volume
+relationship, so treat them one at a time and fill in any missing state
+properties as you go.
+:::
+
+::: {.hint}
+Constant volume means no boundary work. For $PV = \text{const}$,
+$W_{23} = P_2V_2\ln(V_2/V_3)$, and the constant-pressure step needs $P_3$,
+from $P_2V_2 = P_3V_3$. Pressures in pascals, and $V_2 = V_1$.
+:::
+
+::: {.answer}
+$W_\text{total} = 954$ kJ, option **(d)**.
+:::
+
 ::: {.worked}
 ![](figures/out/p-w3q5-sol.svg){width=52%}
 
@@ -911,6 +1050,23 @@ Determine values of $Q_{12}$, $Q_{23}$ and $W_{34}$, respectively, each in kJ.
 **(c)** 1000, 300, $-500$ &nbsp;&nbsp; **(d)** 700, 200, $-500$
 
 ::: {.gap height="fill"}
+::: {.approach}
+Apply the First Law, $Q + W = \Delta U$, to each process in turn, completing
+a row whenever two of its three entries are known. For the row with only one
+known entry, use the fact that the system goes round a cycle.
+:::
+
+::: {.hint}
+Over a complete cycle the system returns to its initial state, so
+$\sum \Delta U = 0$. Complete rows 1–2, 3–4 and 4–1 first; that leaves
+$\Delta U_{23}$ as the only unknown in the cycle sum.
+:::
+
+::: {.answer}
+$Q_{12} = 1200$ kJ, $Q_{23} = 200$ kJ, $W_{34} = -700$ kJ, option
+**(a)**.
+:::
+
 ::: {.worked}
 $$
 Q_{12} + W_{12} = \Delta U_{12}
@@ -960,6 +1116,22 @@ the heat transfer in kJ.
 **(a)** $-10.4$ &nbsp;&nbsp; **(b)** 10.4 &nbsp;&nbsp; **(c)** 6.5 &nbsp;&nbsp; **(d)** $-6.5$
 
 ::: {.gap height="fill"}
+::: {.approach}
+Take the CO in the rigid tank as a closed system. A rigid tank means no
+boundary work, so the only work is from the paddle wheel. Find the paddle work
+from its power and running time, then use the First Law to get the heat
+transfer.
+:::
+
+::: {.hint}
+Work is power times time, with the time in seconds (1 W = 1 J/s). The paddle
+work is done on the system, so it is positive; $\Delta U = m\,\Delta u$.
+:::
+
+::: {.answer}
+$Q = -10.4$ kJ, option **(a)**.
+:::
+
 ::: {.worked}
 First, the work done by the paddle on the system:
 $$
@@ -990,6 +1162,23 @@ cylinder wall can be neglected. Determine the amount of work.
 **(a)** 125 J &nbsp;&nbsp; **(b)** 2.5 J &nbsp;&nbsp; **(c)** 20 J &nbsp;&nbsp; **(d)** 10 J
 
 ::: {.gap height="fill"}
+::: {.approach}
+The external pressure on the piston comes from the atmosphere and the spring
+together. Write the spring force as a linear function of volume, turn it into a
+pressure by dividing by the piston area, add the atmosphere, and then integrate
+$W = -\int P_\text{ext}\,\mathrm{d}V$ between the two volumes.
+:::
+
+::: {.hint}
+Fit a straight line $F = aV + b$ through the two (volume, force) points given.
+Simplify $P_\text{ext}(V)$ before you integrate, and expect $W > 0$, since the
+air is compressed.
+:::
+
+::: {.answer}
+$W = 125$ J, option **(a)**.
+:::
+
 ::: {.worked}
 To find the work we first need the external pressure:
 $$
@@ -1035,6 +1224,24 @@ kJ/kg.
 **(a)** 324 &nbsp;&nbsp; **(b)** 148 &nbsp;&nbsp; **(c)** 263 &nbsp;&nbsp; **(d)** 89
 
 ::: {.gap height="fill"}
+::: {.approach}
+Take the CO$_2$ as a closed system and use the First Law to find the change
+in internal energy, and from it the final specific internal energy. The heat is
+given, so the work is the missing piece: find the external pressure from a force
+balance on the piston and check whether it changes during the process.
+:::
+
+::: {.hint}
+$P_\text{ext} = P_\text{atm} + mg/A$ is constant, so
+$W = -P_\text{ext}(V_2 - V_1)$, positive for this compression. Heat leaves the
+gas, so $Q < 0$, and the mass of CO$_2$ must be in kg when you divide
+$\Delta U$ by it.
+:::
+
+::: {.answer}
+$u_2 = 262.7$ kJ/kg, option **(c)**.
+:::
+
 ::: {.worked}
 To use the energy equation we first need $W$, which means the external pressure
 at the moving boundary:
@@ -1047,21 +1254,21 @@ $$
 $P_\text{ext}$ is constant, so
 $$
 W = -P_\text{ext}\left(V_2 - V_1\right)
-  = -149.1\times10^{3}\left(0.0025 - 0.005\right) = 373~\mathrm{J}
+  = -149.05\times10^{3}\left(0.0025 - 0.005\right) = 372.6~\mathrm{J}
 $$
 
 An energy balance for the CO$_2$, with the kinetic and potential terms zero:
 $$
 Q + W = \Delta U
 \quad\Rightarrow\quad
-\Delta U = -1.95 + 0.373 = -1.577~\mathrm{kJ}
+\Delta U = -1.95 + 0.3726 = -1.5774~\mathrm{kJ}
 $$
 
 Then, with $\Delta U = m\,\Delta u$:
 $$
 u_2 = \frac{\Delta U}{m} + u_1
-    = \frac{-1.577~\mathrm{kJ}}{0.004~\mathrm{kg}} + 657~\mathrm{kJ/kg}
-    = \boxed{262.8~\mathrm{kJ/kg}} \quad \text{(c)}
+    = \frac{-1.5774~\mathrm{kJ}}{0.004~\mathrm{kg}} + 657~\mathrm{kJ/kg}
+    = \boxed{262.7~\mathrm{kJ/kg}} \quad \text{(c)}
 $$
 :::
 :::

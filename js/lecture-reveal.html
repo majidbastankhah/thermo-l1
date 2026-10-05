@@ -15,7 +15,7 @@
   "use strict";
 
   // End-of-chapter solutions (.gap-solo) are not lecture steps: each opens by
-  // itself when clicked, and the keys, the counter and ?all=1 leave them alone,
+  // itself when clicked, and the keys and the counter leave them alone,
   // so opening P5's solution does not also give away P1-P4.
   Array.prototype.forEach.call(document.querySelectorAll(".gap-solo"), function (g) {
     g.setAttribute("role", "button");
@@ -47,7 +47,6 @@
     '<button type="button" data-act="back" title="Cover the last one (left arrow)">&larr;</button>' +
     '<span class="count"></span>' +
     '<button type="button" data-act="next" title="Reveal the next one (space)">Reveal &rarr;</button>' +
-    '<button type="button" data-act="all" title="Reveal everything (A)">All</button>' +
     '<button type="button" data-act="none" title="Cover everything (H)">Reset</button>' +
     '<button type="button" data-act="present" title="Presentation mode (P)">Present</button>' +
     '<span class="hintkey">space &middot; P</span>';
@@ -86,7 +85,6 @@
 
   function next() { if (cursor < gaps.length) { cursor++; paint(cursor - 1); } }
   function back() { if (cursor > 0) { cursor--; paint(cursor); } }
-  function all()  { cursor = gaps.length; paint(null); }
   function none() { cursor = 0; paint(null); window.scrollTo({ top: 0, behavior: "smooth" }); }
 
   function present() {
@@ -100,7 +98,6 @@
     const act = ev.target.getAttribute("data-act");
     if (act === "next") next();
     else if (act === "back") back();
-    else if (act === "all") all();
     else if (act === "none") none();
     else if (act === "present") present();
   });
@@ -131,23 +128,19 @@
         ev.preventDefault(); next(); break;
       case "ArrowLeft": case "ArrowUp": case "PageUp":
         ev.preventDefault(); back(); break;
-      case "a": case "A": all(); break;
       case "h": case "H": none(); break;
       case "p": case "P": present(); break;
       default: break;
     }
   });
 
-  // A student opening this afterwards picks up where they left off; someone
-  // arriving with ?all=1 (the link posted after the lecture) sees everything.
-  if (/[?&]all=1/.test(location.search)) {
-    cursor = gaps.length;
-  } else {
-    try {
-      const saved = parseInt(localStorage.getItem("reveal:" + location.pathname), 10);
-      if (!isNaN(saved)) cursor = Math.max(0, Math.min(gaps.length, saved));
-    } catch (e) {}
-  }
+  // A student opening this afterwards picks up where they left off. There is
+  // deliberately no "uncover everything" here: that is what the completed
+  // notes are for.
+  try {
+    const saved = parseInt(localStorage.getItem("reveal:" + location.pathname), 10);
+    if (!isNaN(saved)) cursor = Math.max(0, Math.min(gaps.length, saved));
+  } catch (e) {}
   paint(null);
 })();
 </script>

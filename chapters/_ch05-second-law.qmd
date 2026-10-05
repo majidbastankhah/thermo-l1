@@ -386,6 +386,21 @@ efficiency of the cycle is 33%, at what rate is power developed, in kW?
 **(d)** 36.9
 
 ::: {.gap height="fill"}
+::: {.approach}
+The engine is a cycle that takes heat from the burning fuel and delivers net
+power. Thermal efficiency is what you get (net work) over what you pay for (heat
+in): write the definition down and rearrange it for the power.
+:::
+
+::: {.hint}
+$\eta = |\dot{W}_\text{net}|/|\dot{Q}_H|$, where the rate of energy release by the
+fuel is $|\dot{Q}_H|$. Use the efficiency as a fraction, not a percentage.
+:::
+
+::: {.answer}
+$|\dot{W}_\text{net}| = 24.75$ kW, option **(a)**.
+:::
+
 ::: {.worked}
 The heat engine receives $|\dot{Q}_H| = 75$ kW and delivers the net power
 $|\dot{W}_\text{net}|$, rejecting $\dot{Q}_C$ to the cold reservoir. To find
@@ -407,6 +422,21 @@ rejected into the cold reservoir, in kJ?
 **(d)** 432
 
 ::: {.gap height="fill"}
+::: {.approach}
+Combine the definition of thermal efficiency with the first law for a cycle,
+which says the net work is the difference between the heat taken in and the heat
+rejected. Eliminate the work and solve for the heat rejected.
+:::
+
+::: {.hint}
+$\eta = 1 - |Q_C|/|Q_H|$, so the cold reservoir receives the fraction $1 - \eta$
+of the heat taken in. Do not stop at the work, which is the fraction $\eta$.
+:::
+
+::: {.answer}
+$|Q_C| = 432$ kJ, option **(d)**.
+:::
+
 ::: {.worked}
 The thermal efficiency of a heat engine is given by
 $$
@@ -430,6 +460,23 @@ supplied to the hot reservoir.
 **(d)** 3 kW
 
 ::: {.gap height="fill"}
+::: {.approach}
+Write the coefficient of performance of a heat pump (heat delivered to the hot
+side per unit work) and use the first law for the cycle to express the work as
+the difference between the two heats. That leaves one equation in which the heat
+from the cold reservoir is the only unknown.
+:::
+
+::: {.hint}
+For a heat pump $\beta' = |\dot{Q}_H|/|\dot{W}|$, so the COP gives you
+$|\dot{W}|$ first; then $|\dot{Q}_C| = |\dot{Q}_H| - |\dot{W}|$. Do not use the
+refrigerator COP, $|\dot{Q}_C|/|\dot{W}|$.
+:::
+
+::: {.answer}
+$|\dot{Q}_C| = 8$ kW, option **(b)**.
+:::
+
 ::: {.worked}
 The COP for a heat pump is given by
 $$
@@ -456,6 +503,22 @@ of performance?
 **(c)** 0.5 kJ, 1 &nbsp;&nbsp; **(d)** 1 kJ, 2
 
 ::: {.gap height="fill"}
+::: {.approach}
+Apply the first law to the refrigerator cycle: the energy dumped into the
+kitchen must equal everything that went in. Then use the refrigerator's
+coefficient of performance, which compares the useful effect (heat removed from
+the cold space) with the work you pay for.
+:::
+
+::: {.hint}
+$|Q_H| = |Q_C| + |W|$, and for a refrigerator $\beta = |Q_C|/|W|$ (not
+$|Q_H|/|W|$, which is the heat-pump COP).
+:::
+
+::: {.answer}
+$|Q_H| = 2.5$ kJ and $\beta = 1.5$, option **(a)**.
+:::
+
 ::: {.worked}
 Here $|Q_C| = 1.5$ kJ and $|W| = 1$ kJ; $Q_H$ is unknown. From the energy
 equation:
@@ -482,6 +545,23 @@ for the heat pump?
 **(a)** 2 &nbsp;&nbsp; **(b)** 5 &nbsp;&nbsp; **(c)** 3 &nbsp;&nbsp; **(d)** 1
 
 ::: {.gap height="fill"}
+::: {.approach}
+Start with what the heat pump has to achieve: the hatchery stays at a constant
+temperature, so an energy balance on the hatchery tells you the rate at which
+heat must be delivered. Then use the heat-pump COP, with the motor power as the
+work input.
+:::
+
+::: {.hint}
+At steady state the heat pump must deliver heat as fast as the hatchery loses
+it, so $|\dot{Q}_H|$ equals the loss. The hatchery temperature is not needed for
+this.
+:::
+
+::: {.answer}
+$\beta' = 5$, option **(b)**.
+:::
+
 ::: {.worked}
 The heat pump takes $\dot{Q}_C$ from the ambient, is driven by
 $|\dot{W}| = 2$ kW, and delivers $\dot{Q}_H$ to the hatchery, which loses
@@ -515,6 +595,23 @@ consumption, and the combined power rejected through the radiator and exhaust.
 &nbsp;&nbsp; **(c)** 5.43 kg/s, 100.9 kW &nbsp;&nbsp; **(d)** 9.8 kg/s, 256 kW
 
 ::: {.gap height="fill"}
+::: {.approach}
+Treat the car engine as a heat engine. Convert the shaft power to SI units, use
+the thermal efficiency to find the rate of heat input from the fuel, and get the
+fuel flow rate from that heat input and the specific fuel energy. The first law
+for the cycle then gives the rate of heat rejection.
+:::
+
+::: {.hint}
+$|\dot{Q}_H| = |\dot{W}|/\eta$ and $|\dot{Q}_H| = \dot{m}_\text{fuel} \times$
+(specific fuel energy). Keep the power in watts and the fuel energy in J/kg so
+that the mass flow comes out in kg/s.
+:::
+
+::: {.answer}
+$\dot{m}_\text{fuel} = 7.35$ kg/s and $|\dot{Q}_C| = 220.5$ kW, option **(a)**.
+:::
+
 ::: {.worked}
 Thermal efficiency for the heat engine, with
 $|\dot{W}| = 100~\text{hp} \times 735~\mathrm{W/hp} = 73\,500$ W:

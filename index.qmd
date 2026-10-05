@@ -15,8 +15,8 @@ Mechanics I: the course syllabus and all six chapters, in one document.
 
 **In the notes with gaps**, the steps of each derivation and the solution of each
 example start covered. In the lecture we uncover them one at a time: space or
-the arrow keys move through the gaps, **P** switches to presentation mode and
-**A** uncovers everything. The worked solution of each end-of-chapter problem
+the arrow keys move through the gaps and **P** switches to presentation mode;
+to see everything at once, use the completed notes. The worked solution of each end-of-chapter problem
 stays covered until you click it, so try the problem first.
 
 **Questions during the lecture?** Ask them anonymously at

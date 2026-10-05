@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------------------
    Thermodynamics (ENGI 1111) — website styling
-   Light and dark are both selected; nothing is an automatic flip.
+   One light theme; the boxes do not change with the phone's dark mode.
 --------------------------------------------------------------------------- */
 
 :root {
@@ -13,23 +13,10 @@
   --series-3:   #1baf7a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --du-purple:  #c79bcb;
-    --du-paper:   #232321;
-    --box-border: #3a3a37;
-    --box-text:   #c3c2b7;
-    --series-1:   #3987e5;
-    --series-2:   #d95926;
-    --series-3:   #199e70;
-  }
-}
-:root[data-theme="dark"] {
-  --du-purple:  #c79bcb;
-  --du-paper:   #232321;
-  --box-border: #3a3a37;
-  --box-text:   #c3c2b7;
-}
+/* No dark variants: the site uses one light theme (cosmo), so the boxes must
+   stay light too. (They used to switch to dark colours when a phone was in
+   dark mode, while the page itself stayed white: dark text on a near-black
+   box.) */
 
 h1, h2, h3 { letter-spacing: -0.01em; }
 h2 { border-bottom: 2px solid var(--du-purple); padding-bottom: 0.2em; }
@@ -56,15 +43,15 @@ h2 { border-bottom: 2px solid var(--du-purple); padding-bottom: 0.2em; }
 .tbox-key        { background: var(--du-paper); border-color: var(--du-purple); border-width: 1.5px; }
 .tbox-example    { background: transparent; border-color: var(--du-purple); }
 .tbox-activity   { background: var(--du-paper); border-color: var(--du-purple); border-width: 1.5px; }
+.tbox-approach   { background: color-mix(in srgb, var(--series-1) 4%, transparent); }
+.tbox-hint       { background: color-mix(in srgb, #e08a00 7%, transparent); }
+.tbox-answer     { background: color-mix(in srgb, var(--du-purple) 5%, transparent); }
+.tbox-approach, .tbox-hint, .tbox-answer { padding-top: 0.5em; padding-bottom: 0.5em; }
 .tbox-worked     { background: color-mix(in srgb, var(--series-3) 7%, transparent); }
 .tbox-objectives { background: var(--du-paper); }
 .tbox-tryfirst   { background: color-mix(in srgb, #e08a00 12%, transparent);
                    border: 0; border-left: 5px solid #e08a00; border-radius: 0; }
 .tbox-tryfirst > .box-label { color: #b86f00; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .tbox-tryfirst > .box-label { color: #f0a53a; }
-}
-:root[data-theme="dark"] .tbox-tryfirst > .box-label { color: #f0a53a; }
 
 /* --- gaps ---------------------------------------------------------------- */
 .gap-blank {
@@ -153,7 +140,8 @@ figure img, p > img { max-width: 100%; height: auto; }
   pointer-events: none;
 }
 .gap-reveal:not(.is-open) { cursor: pointer; }
-.gap-solo:not(.is-open)::after { content: "try it first \2014  click to show the solution"; }
+.gap-solo:not(.is-open)::after { content: "click to show " attr(data-label); }
+.gap-solo + .gap-solo { margin-top: 0.4em; }
 
 .gap-reveal.is-open > .gap-body {
   border-left: 3px solid var(--du-purple);

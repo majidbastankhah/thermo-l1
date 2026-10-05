@@ -29,17 +29,17 @@ furniture, enlarges the type). Then:
 |:--|:--|
 | space, →, ↓, PageDown, or a clicker | uncover the next gap and scroll to it |
 | ←, ↑, PageUp | cover the last one again |
-| **A** | uncover everything |
 | **H** | cover everything again |
 | **P** | leave presentation mode |
 
 Clicking a covered panel jumps straight to it — useful when someone asks about
 something three steps back. A student opening the page later resumes where they
-left off; `?all=1` on the URL opens it fully uncovered.
+left off. There is no "uncover everything" on this page: the completed notes
+(`notes-complete.html`) are for that.
 
 End-of-chapter solutions are not part of that sequence. Each one stays covered
 until it is clicked, on its own, so opening one solution does not give away the
-others; the keys, the counter and `?all=1` leave them alone.
+others; the keys and the counter leave them alone.
 
 Maths is rendered by KaTeX served from `js/katex/` in this repository, not from
 a CDN, so equations still render if the lecture-theatre network is slow or

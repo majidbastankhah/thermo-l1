@@ -78,30 +78,41 @@ end
 
 local reveal_count = 0
 
-local function revealable(blocks, height)
+-- The layers of help under an end-of-chapter problem, in the order they are
+-- offered. Each is a div inside the problem's gap; in the notes with gaps each
+-- one is a separate covered panel, opened with a click.
+local LAYERS = {
+  { class = "approach", label = "the approach",      h = "12mm" },
+  { class = "hint",     label = "a hint",            h = "12mm" },
+  { class = "answer",   label = "the final answer",  h = "12mm" },
+  { class = "worked",   label = "the full solution", h = "30mm" },
+}
+local function layer_of(b)
+  if b.t ~= "Div" then return nil end
+  for _, L in ipairs(LAYERS) do
+    if b.classes:includes(L.class) then return L end
+  end
+end
+
+-- `solo`: the label of an end-of-chapter layer. Such a panel is not a lecture
+-- step: it opens on its own when clicked and the keyboard sequence skips it.
+local function revealable(blocks, height, solo)
   if is_latex() then return filled(blocks) end
 
   reveal_count = reveal_count + 1
   local body = pandoc.Div(blocks, pandoc.Attr("", { "gap-body" }))
 
-  -- a gap that holds an end-of-chapter solution is not a lecture step: it
-  -- opens on its own when clicked and is skipped by the keyboard sequence
   local classes = { "gap-reveal" }
-  for _, b in ipairs(blocks) do
-    if b.t == "Div" and b.classes:includes("worked") then
-      classes[#classes + 1] = "gap-solo"
-    end
+  local attrs = {
+    ["data-gap"] = tostring(reveal_count),
+    ["style"]    = "--gap-h: " .. height,
+  }
+  if solo then
+    classes[#classes + 1] = "gap-solo"
+    attrs["data-label"] = solo
   end
 
-  return {
-    pandoc.Div({ body }, pandoc.Attr(
-      "gap-" .. reveal_count,
-      classes,
-      {
-        ["data-gap"] = tostring(reveal_count),
-        ["style"]    = "--gap-h: " .. height,
-      }))
-  }
+  return { pandoc.Div({ body }, pandoc.Attr("gap-" .. reveal_count, classes, attrs)) }
 end
 
 -- --------------------------------------------------------------- lecturer --
@@ -143,10 +154,11 @@ end
 -- ------------------------------------------------------------------ hooks --
 
 function Div(el)
-  -- worked solutions to the end-of-chapter problems
-  if el.classes:includes("worked") then
+  -- the layers under an end-of-chapter problem (approach, hint, answer,
+  -- worked solution): dropped from the student copy, styled by boxes.lua
+  if layer_of(el) then
     if not show_solutions then return {} end
-    return nil   -- left for boxes.lua to style
+    return nil
   end
 
   if not el.classes:includes("gap") then return nil end
@@ -164,10 +176,23 @@ function Div(el)
   -- a box nested in another box across pages, and long solutions need to
   local holds_solution = false
   for _, b in ipairs(el.content) do
-    if b.t == "Div" and b.classes:includes("worked") then holds_solution = true end
+    if layer_of(b) then holds_solution = true end
   end
-  if holds_solution and is_latex() and mode ~= "student" then
-    return el.content
+  if holds_solution and mode ~= "student" then
+    if mode == "reveal" and not is_latex() then
+      -- one covered panel per layer, each opened on its own
+      local out = {}
+      for _, b in ipairs(el.content) do
+        local L = layer_of(b)
+        if L then
+          for _, x in ipairs(revealable({ b }, L.h, L.label)) do out[#out + 1] = x end
+        else
+          out[#out + 1] = b
+        end
+      end
+      return out
+    end
+    return el.content   -- complete / lecturer: all layers, in order
   end
 
   if mode == "student" then

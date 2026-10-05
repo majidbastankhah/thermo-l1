@@ -21,6 +21,9 @@ local ENV = {
   example    = { env = "texample",    label = "Example"       },
   activity   = { env = "tactivity",   label = "In-class activity" },
   objectives = { env = "tobjectives", label = "Learning objectives" },
+  approach   = { env = "tapproach",   label = "Approach"       },
+  hint       = { env = "thint",       label = "Hint"           },
+  answer     = { env = "tanswer",     label = "Answer"         },
   worked     = { env = "tsolution",   label = "Solution"       },
   tryfirst   = { env = "ttryfirst",   label = "Try it before you look" },
 }
