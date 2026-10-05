@@ -962,7 +962,7 @@ $R = 0.518~\mathrm{kJ/(kg\,K)}$.)
 
 ::: {.gap height="fill"}
 ::: {.hint}
-You need the mass of methane first. Watch the litres and the units of $R$; cooling should give $Q < 0$.
+You need the mass of methane first. Watch the litres and the units of $R$, and think about what cooling means for the sign of $Q$.
 :::
 
 ::: {.answer}
@@ -1107,17 +1107,13 @@ diaphragm is removed, and the air is allowed to fill the whole chamber. What is
 the final temperature (in Celsius) and pressure (bar) of the air? Assume ideal
 gas behaviour and no heat exchange across the walls.
 
-*Hint: you can first write the energy equation to find the change in internal
-energy during this process. Then, you can try to relate this change to the
-change in temperature. Once the final temperature is found, you should be able
-to find the final pressure using the ideal-gas equation.*
 
 **(a)** 10, 1 &nbsp;&nbsp; **(b)** 20, 0.5 &nbsp;&nbsp; **(c)** 20, 2
 &nbsp;&nbsp; **(d)** 10, 0.5
 
 ::: {.gap height="fill"}
 ::: {.hint}
-What resists the air as it expands into the vacuum, and so what is the work? Then: what does that mean for the temperature of an ideal gas?
+What resists the air as it expands into the vacuum, and so what is the work? Write the energy equation to find the change in internal energy, relate that change to the change in temperature, and once you have the final temperature, the ideal-gas equation gives the final pressure.
 :::
 
 ::: {.answer}
@@ -1173,7 +1169,7 @@ $R = 0.287~\mathrm{kJ/(kg\,K)}$.
 
 ::: {.gap height="fill"}
 ::: {.hint}
-Find the final state from the polytropic relation, then use the first law. Watch the sign of the work in an expansion.
+Find the final state from the polytropic relation, then use the first law. Is the air expanding or being compressed, and what does that mean for the sign of the work?
 :::
 
 ::: {.answer}

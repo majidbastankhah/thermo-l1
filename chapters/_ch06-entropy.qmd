@@ -1322,17 +1322,13 @@ Treat carbon dioxide as an ideal gas with $R = 188.92~\mathrm{J/(kg\,K)}$ and
 $c_v = 653~\mathrm{J/(kg\,K)}$, and assume that the system pressure is
 infinitesimally different from the external pressure.
 
-*Hint: this is a challenging problem. To solve it, you can first find the heat
-transfer using the first law of thermodynamics. Then, find the change of entropy
-for an ideal gas. That being done, you can then use the second law of
-thermodynamics to find the entropy generation.*
 
 **(a)** 0.126 &nbsp;&nbsp; **(b)** 0.589 &nbsp;&nbsp; **(c)** 0.634
 &nbsp;&nbsp; **(d)** 0.369
 
 ::: {.gap height="fill"}
 ::: {.hint}
-Write the force relation in the form $PV^n = \text{const.}$: what kind of process is it? In the second law, think carefully about which temperature divides $Q$.
+Find the heat transfer from the first law (writing the force relation as $PV^n = \text{const.}$ tells you what kind of process it is), then the entropy change of the ideal gas, and then use the second law to find the entropy generation. Think carefully about which temperature divides $Q$.
 :::
 
 ::: {.answer}

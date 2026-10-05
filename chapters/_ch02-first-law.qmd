@@ -643,7 +643,7 @@ then remains constant. Determine the total work, in kJ.
 
 ::: {.gap height="fill"}
 ::: {.hint}
-Work is the area under the path on the $P$–$V$ diagram: split it into simple shapes. Check the sign for a compression.
+Work is the area under the path on the $P$–$V$ diagram: split it into simple shapes. Then ask whether the air is compressed or expanded, and what that means for the sign of the work.
 :::
 
 ::: {.answer}
@@ -796,7 +796,7 @@ The system is heated and the piston begins to rise. If the mass of the piston is
 
 ::: {.gap height="fill"}
 ::: {.hint}
-What sets the pressure on the moving piston, and does it change as the piston rises? The gas does the work, so expect a negative answer.
+What sets the pressure on the moving piston, and does it change as the piston rises? Is the gas expanding or being compressed, and what does that mean for the sign of the work?
 :::
 
 ::: {.answer}
@@ -828,17 +828,13 @@ Expansion, so $W < 0$ as expected.
 half the initial volume. The piston mass and gravitation are such that a pressure
 of 400 kPa will float the piston. Find the work in the process.
 
-*(Hint: the gas pressure required to float the piston is equal to the total
-external pressure caused by the piston and atmospheric pressure. If it is not
-clear why, give me a shout.)*
-
 ![](figures/img/p-r410a.png){width=22%}
 
 **(a)** 165 J &nbsp;&nbsp; **(b)** 334 J &nbsp;&nbsp; **(c)** 538 J &nbsp;&nbsp; **(d)** 664 J
 
 ::: {.gap height="fill"}
 ::: {.hint}
-Does the piston move as soon as the cooling starts? Think about when the boundary actually moves, and at what pressure.
+Does the piston move as soon as the cooling starts? Think about when the boundary actually moves, and at what pressure: the gas pressure needed to float the piston is equal to the total external pressure from the piston and the atmosphere (if it is not clear why, give me a shout).
 :::
 
 ::: {.answer}
