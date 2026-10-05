@@ -82,10 +82,9 @@ local reveal_count = 0
 -- offered. Each is a div inside the problem's gap; in the notes with gaps each
 -- one is a separate covered panel, opened with a click.
 local LAYERS = {
-  { class = "approach", label = "the approach",      h = "12mm" },
-  { class = "hint",     label = "a hint",            h = "12mm" },
-  { class = "answer",   label = "the final answer",  h = "12mm" },
-  { class = "worked",   label = "the full solution", h = "30mm" },
+  { class = "hint",   title = "Hint",          h = "9mm"  },
+  { class = "answer", title = "Final answer",  h = "9mm"  },
+  { class = "worked", title = "Full solution", h = "24mm" },
 }
 local function layer_of(b)
   if b.t ~= "Div" then return nil end
@@ -154,8 +153,8 @@ end
 -- ------------------------------------------------------------------ hooks --
 
 function Div(el)
-  -- the layers under an end-of-chapter problem (approach, hint, answer,
-  -- worked solution): dropped from the student copy, styled by boxes.lua
+  -- the layers under an end-of-chapter problem (hint, final answer,
+  -- full solution): dropped from the student copy, styled by boxes.lua
   if layer_of(el) then
     if not show_solutions then return {} end
     return nil
@@ -180,12 +179,15 @@ function Div(el)
   end
   if holds_solution and mode ~= "student" then
     if mode == "reveal" and not is_latex() then
-      -- one covered panel per layer, each opened on its own
+      -- one covered panel per layer, each opened on its own, with its title
+      -- visible above it, so students can see what they are about to open
       local out = {}
       for _, b in ipairs(el.content) do
         local L = layer_of(b)
         if L then
-          for _, x in ipairs(revealable({ b }, L.h, L.label)) do out[#out + 1] = x end
+          out[#out + 1] = pandoc.Div({ pandoc.Plain({ pandoc.Str(L.title) }) },
+                                     pandoc.Attr("", { "layer-title", "layer-" .. L.class }))
+          for _, x in ipairs(revealable({ b }, L.h, L.title)) do out[#out + 1] = x end
         else
           out[#out + 1] = b
         end

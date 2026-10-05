@@ -771,15 +771,8 @@ $c_v = 0.72~\mathrm{kJ/(kg\,K)}$.)
 **(a)** 8 &nbsp;&nbsp; **(b)** 24 &nbsp;&nbsp; **(c)** 48 &nbsp;&nbsp; **(d)** 36
 
 ::: {.gap height="fill"}
-::: {.approach}
-The air is a closed system held at constant volume, so think first about
-what that means for the boundary work. Then apply the first law per unit mass
-and use the ideal-gas relation between internal energy and temperature.
-:::
-
 ::: {.hint}
-With $w = 0$, the first law gives $q_v = \Delta u = c_v\,\Delta T$. A
-temperature difference has the same value in kelvin and in degrees Celsius.
+What does the first law reduce to when the volume cannot change?
 :::
 
 ::: {.answer}
@@ -802,16 +795,8 @@ unit mass in kJ/kg if the process is constant pressure (isobaric).
 **(a)** 100.6 &nbsp;&nbsp; **(b)** 50.35 &nbsp;&nbsp; **(c)** 20.9 &nbsp;&nbsp; **(d)** 10
 
 ::: {.gap height="fill"}
-::: {.approach}
-Same heating, but now at constant pressure, so the gas expands and does
-boundary work as well. At constant pressure the heat per unit mass equals the
-change in specific enthalpy, which for an ideal gas is set by $c_P$: find
-$c_P$ from the data you are given.
-:::
-
 ::: {.hint}
-For an ideal gas $c_P = c_v + R$. Put both in the same units: $R = 0.287$
-kJ/(kg K).
+At constant pressure, which specific heat applies, and how is it related to $c_v$ for an ideal gas?
 :::
 
 ::: {.answer}
@@ -840,16 +825,8 @@ that is heated to 1400 K. Find the heat transfer in kJ.
 **(a)** 298 &nbsp;&nbsp; **(b)** 150 &nbsp;&nbsp; **(c)** 138 &nbsp;&nbsp; **(d)** 369
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the nitrogen in the tank as a closed system. Decide what 'rigid' tells
-you about the work, then apply the first law with the ideal-gas expression for
-the change in internal energy.
-:::
-
 ::: {.hint}
-Rigid means $V$ is constant, so $W = 0$ and $Q = \Delta U = m\,c_v\,\Delta T$.
-The question asks for the total heat, so do not forget the mass; the pressure
-is not needed.
+Rigid container: what does that tell you about the work? The question asks for the total heat, not per kilogram.
 :::
 
 ::: {.answer}
@@ -881,16 +858,8 @@ is 1 bar. Evaluate the heat transfer magnitude through the base in kJ.
 **(a)** 2.45 &nbsp;&nbsp; **(b)** 3.10 &nbsp;&nbsp; **(c)** 4.25 &nbsp;&nbsp; **(d)** 8.67
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the gas in the cylinder as a closed system. Because the expansion is
-quasi-equilibrium at constant pressure, the boundary work follows directly from
-the pressure and the change in volume. The first law then gives the heat.
-:::
-
 ::: {.hint}
-$W = -P\left(V_2 - V_1\right)$ with $P$ in pascals; the gas does work, so
-$W < 0$. The 2 bar gas pressure already balances the atmosphere and the piston,
-so do not subtract the atmospheric pressure.
+Find the boundary work first. The gas pressure is what acts on the piston, so think before using the atmospheric pressure.
 :::
 
 ::: {.answer}
@@ -933,16 +902,8 @@ the heat transfer in kJ. Kinetic and potential energy effects are negligible.
 **(a)** 2.75 &nbsp;&nbsp; **(b)** 1.46 &nbsp;&nbsp; **(c)** 3.69 &nbsp;&nbsp; **(d)** 7.84
 
 ::: {.gap height="fill"}
-::: {.approach}
-The gas is a closed system following a polytropic path. Find the final
-volume from the polytropic relation, use it to evaluate the polytropic work,
-and then apply the first law with the total change in internal energy.
-:::
-
 ::: {.hint}
-$V_2 = V_1\left(P_1/P_2\right)^{1/n}$ and $W = \left(P_2V_2 - P_1V_1\right)/(n-1)$,
-in SI units. The internal energy decreases, so $\Delta U = m\,\Delta u$ is
-negative.
+You need the work, and for that the final volume, which the polytropic relation gives. Watch the sign of $\Delta u$.
 :::
 
 ::: {.answer}
@@ -1000,16 +961,8 @@ $R = 0.518~\mathrm{kJ/(kg\,K)}$.)
 &nbsp;&nbsp; **(d)** 128
 
 ::: {.gap height="fill"}
-::: {.approach}
-The methane in the rigid tank is a closed system with no work, so the heat
-equals the change in internal energy. To use that you need the mass first: get
-it from the ideal-gas equation at the initial state.
-:::
-
 ::: {.hint}
-$m = PV/(RT)$ with $V$ in $\mathrm{m^3}$ (1 litre $= 10^{-3}~\mathrm{m^3}$)
-and $R$ in J/(kg K). The gas is cooled, so $\Delta T < 0$ and $Q$ should come
-out negative.
+You need the mass of methane first. Watch the litres and the units of $R$; cooling should give $Q < 0$.
 :::
 
 ::: {.answer}
@@ -1047,16 +1000,8 @@ gas, $R = 287~\mathrm{J/(kg\,K)}$ and $c_P = 1000~\mathrm{J/(kg\,K)}$.)
 **(a)** 62.7 &nbsp;&nbsp; **(b)** 35.6 &nbsp;&nbsp; **(c)** 128.9 &nbsp;&nbsp; **(d)** 26.9
 
 ::: {.gap height="fill"}
-::: {.approach}
-The air is a closed system at constant pressure. Use the known work to find
-the final volume, the ideal-gas equation to find the mass and the final
-temperature, and then the constant-pressure relation for the heat.
-:::
-
 ::: {.hint}
-Work done *by* the system is negative in our convention: $W = -18$ kJ
-$= -P\left(V_2 - V_1\right)$. At constant pressure $V/T$ stays constant, so
-$T_2 = T_1V_2/V_1$.
+Use the work to find the final volume, and from it the final temperature. Careful with the sign of work done *by* the system.
 :::
 
 ::: {.answer}
@@ -1116,17 +1061,8 @@ $c_P = 1000~\mathrm{J/(kg\,K)}$.)
 **(c)** 650 kJ, $(1 + c_v/R)$ &nbsp;&nbsp; **(d)** 350 kJ, $c_v/R$
 
 ::: {.gap height="fill"}
-::: {.approach}
-The air is a closed system heated at constant pressure. Find the heat from
-$c_P$ and the temperature rise, then write the work in terms of the same
-temperature rise using the ideal-gas equation, so that the ratio can be
-simplified with symbols rather than numbers.
-:::
-
 ::: {.hint}
-At constant pressure, $P\,\Delta V = mR\,\Delta T$ for an ideal gas, so
-$|W| = mR\,\Delta T$ and the ratio becomes $c_P/R$. To match the options,
-write $c_P$ in terms of $c_v$ and $R$.
+At constant pressure, how can $P\,\Delta V$ be written in terms of temperature for an ideal gas? Then compare $q$ and $w$.
 :::
 
 ::: {.answer}
@@ -1180,18 +1116,8 @@ to find the final pressure using the ideal-gas equation.*
 &nbsp;&nbsp; **(d)** 10, 0.5
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take all the air in the chamber as a closed system whose boundary is the
-chamber walls. Work out the heat and the work for this process, use the first
-law to find the change in internal energy, and turn that into a change in
-temperature; the ideal-gas equation then gives the final pressure.
-:::
-
 ::: {.hint}
-This is a free expansion into a vacuum: nothing resists the air, so
-$P_\text{ext} = 0$ and $W = 0$ even though the volume changes. With $Q = 0$ as
-well, $\Delta U = 0$, so $T$ is unchanged and $PV$ stays constant while the
-volume doubles.
+What resists the air as it expands into the vacuum, and so what is the work? Then: what does that mean for the temperature of an ideal gas?
 :::
 
 ::: {.answer}
@@ -1246,17 +1172,8 @@ $R = 0.287~\mathrm{kJ/(kg\,K)}$.
 &nbsp;&nbsp; **(d)** $-166.4$
 
 ::: {.gap height="fill"}
-::: {.approach}
-Work per unit mass for a closed system. Find the initial specific volume
-from the ideal-gas equation, the final pressure from the polytropic relation,
-and then the polytropic work; finally, the first law with
-$\Delta u = c_v\,\Delta T$ gives the heat.
-:::
-
 ::: {.hint}
-$P_2 = P_1\left(v_1/v_2\right)^n$. You do not need $T_2$ on its own: since
-$T = Pv/R$, $\Delta u = \left(c_v/R\right)\left(P_2v_2 - P_1v_1\right)$, the
-same bracket as in the work.
+Find the final state from the polytropic relation, then use the first law. Watch the sign of the work in an expansion.
 :::
 
 ::: {.answer}
@@ -1317,17 +1234,8 @@ $R = 287~\mathrm{J/(kg\,K)}$.)
 &nbsp;&nbsp; **(d)** 7.89
 
 ::: {.gap height="fill"}
-::: {.approach}
-The air is a closed system compressed at constant temperature. On the $PV$
-diagram the path is the hyperbola $PV = \text{const}$, going from low pressure
-and large volume to high pressure and small volume. Then find the isothermal
-work, and use the first law, remembering what constant temperature means for
-the internal energy of an ideal gas.
-:::
-
 ::: {.hint}
-$W = -mRT\ln\left(V_2/V_1\right)$ with $V_2/V_1 = P_1/P_2$ at constant $T$.
-Since $\Delta U = 0$, $Q = -W$: the work done on the gas leaves it as heat.
+For an ideal gas at constant temperature, what is $\Delta U$, and so how are $Q$ and $W$ related?
 :::
 
 ::: {.answer}

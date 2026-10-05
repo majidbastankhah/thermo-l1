@@ -43,10 +43,9 @@ h2 { border-bottom: 2px solid var(--du-purple); padding-bottom: 0.2em; }
 .tbox-key        { background: var(--du-paper); border-color: var(--du-purple); border-width: 1.5px; }
 .tbox-example    { background: transparent; border-color: var(--du-purple); }
 .tbox-activity   { background: var(--du-paper); border-color: var(--du-purple); border-width: 1.5px; }
-.tbox-approach   { background: color-mix(in srgb, var(--series-1) 4%, transparent); }
 .tbox-hint       { background: color-mix(in srgb, #e08a00 7%, transparent); }
 .tbox-answer     { background: color-mix(in srgb, var(--du-purple) 5%, transparent); }
-.tbox-approach, .tbox-hint, .tbox-answer { padding-top: 0.5em; padding-bottom: 0.5em; }
+.tbox-hint, .tbox-answer { padding-top: 0.5em; padding-bottom: 0.5em; }
 .tbox-worked     { background: color-mix(in srgb, var(--series-3) 7%, transparent); }
 .tbox-objectives { background: var(--du-paper); }
 .tbox-tryfirst   { background: color-mix(in srgb, #e08a00 12%, transparent);
@@ -140,8 +139,14 @@ figure img, p > img { max-width: 100%; height: auto; }
   pointer-events: none;
 }
 .gap-reveal:not(.is-open) { cursor: pointer; }
-.gap-solo:not(.is-open)::after { content: "click to show " attr(data-label); }
-.gap-solo + .gap-solo { margin-top: 0.4em; }
+.gap-solo:not(.is-open)::after { content: "click to show"; }
+.gap-solo { margin-top: 0.2em; margin-bottom: 0.8em; }
+/* the title of each layer under a problem, visible before it is opened */
+.layer-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
+               text-transform: uppercase; margin: 0.9em 0 0; }
+.layer-hint   { color: #b86f00; }
+.layer-answer { color: var(--du-purple); }
+.layer-worked { color: #13805a; }
 
 .gap-reveal.is-open > .gap-body {
   border-left: 3px solid var(--du-purple);

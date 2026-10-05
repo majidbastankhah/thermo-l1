@@ -559,16 +559,8 @@ MW. (Assume air as an ideal gas with $c_p = 1005~\mathrm{J/(kg\,K)}$.)
 &nbsp;&nbsp; **(d)** $-2.68$
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the turbine as a control volume in steady flow and apply the SFEE.
-Decide which terms can be neglected (heat loss, potential energy, and check the
-kinetic energy), then use the ideal-gas relation for the enthalpy change.
-:::
-
 ::: {.hint}
-What is left is $\dot{W}_{cv} = \dot{m}\,c_p\left(T_e - T_i\right)$; the
-pressures are not needed. A turbine delivers power, so in our convention
-$\dot{W}_{cv}$ should come out negative.
+Steady-flow energy equation for an adiabatic turbine: decide which terms matter (how big is the kinetic-energy change?). Mind the sign of the power output.
 :::
 
 ::: {.answer}
@@ -611,15 +603,8 @@ exits the turbine.
 &nbsp;&nbsp; **(d)** $-360$ kJ/kg
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the turbine as a steady-flow control volume and apply the SFEE with no
-heat transfer and no change in kinetic or potential energy. What remains links
-the power directly to the change in specific enthalpy.
-:::
-
 ::: {.hint}
-Convert the mass flow rate to kg/s, and give the power output a negative sign:
-$\dot{W}_{cv} = -500$ kW. Then $h_e - h_i = \dot{W}_{cv}/\dot{m}$.
+Steady-flow energy equation with no heat and no change in kinetic or potential energy. Watch the units of the mass flow rate and the sign of the power.
 :::
 
 ::: {.answer}
@@ -657,16 +642,8 @@ $R = 287~\mathrm{J/(kg\,K)}$.)
 **(d)** 3.34
 
 ::: {.gap height="fill"}
-::: {.approach}
-This is a mass-flow problem, not an energy one. The mass flow rate is the
-density times the cross-sectional area times the velocity: get the density
-from the ideal-gas equation and the area from the duct dimensions, then solve
-for the velocity.
-:::
-
 ::: {.hint}
-$C = \dot{m}/\left(\rho A\right)$ with $\rho = P/(RT)$. Convert millimetres
-to metres and the temperature to kelvin first.
+The mass flow rate links density, area and velocity; the density comes from the equation of state. Convert mm and °C first.
 :::
 
 ::: {.answer}
@@ -707,16 +684,8 @@ inlet velocity in m/s? (Assume air as an ideal gas.)
 **(d)** 1.3
 
 ::: {.gap height="fill"}
-::: {.approach}
-The fan is a steady-flow device, so use conservation of mass: the mass flow
-rate in equals the mass flow rate out. The inlet and exit areas are the same,
-so the velocities are related through the densities, which you can get from
-the ideal-gas equation.
-:::
-
 ::: {.hint}
-$\rho_iC_i = \rho_eC_e$ with $\rho = P/(RT)$, so $R$ cancels and you do not
-need its value. Use the temperatures in kelvin.
+At steady state, what flows in must flow out. You may not need $R$ at all.
 :::
 
 ::: {.answer}
@@ -759,17 +728,8 @@ $c_p = 1005~\mathrm{J/(kg\,K)}$.)
 **(d)** 123
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the nozzle as a steady-flow control volume and apply the SFEE. A nozzle
-has no shaft work, and here there is no heat loss; the kinetic-energy term,
-however, is essential, because accelerating the flow is the whole job of a
-nozzle.
-:::
-
 ::: {.hint}
-$c_p\left(T_e - T_i\right) + \tfrac{1}{2}\left(C_e^{2} - C_i^{2}\right) = 0$.
-Keep $c_p$ in J/(kg K) so that it matches the velocities squared in
-$\mathrm{m^2/s^2}$; the pressures are not needed.
+Steady-flow energy equation for an adiabatic nozzle with no work. Keep the units consistent: J/kg and $\mathrm{m^2/s^2}$.
 :::
 
 ::: {.answer}
@@ -811,16 +771,8 @@ exit temperature is 700 K. Find the heat transfer per unit mass in kJ/kg.
 &nbsp;&nbsp; **(d)** $-191.8$
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the compressor as a steady-flow control volume and write the SFEE per
-unit mass. Keep the heat term, since it is what you are asked for, neglect the
-kinetic and potential energy changes, and use the ideal-gas relation for the
-enthalpy change.
-:::
-
 ::: {.hint}
-A work input is positive in our convention: $w_{cv} = +450$ kJ/kg. Then
-$q_{cv} = c_p\left(T_e - T_i\right) - w_{cv}$; the pressures are not needed.
+Steady-flow energy equation per unit mass. Mind the sign of a work input in our convention.
 :::
 
 ::: {.answer}
@@ -882,16 +834,8 @@ properties of water and steam at standard atmospheric pressure (1.013 bar) and
 &nbsp;&nbsp; **(d)** 2.3 W
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the boiler tube as a steady-flow control volume and apply the SFEE with
-no work and negligible kinetic and potential energy changes. The water changes
-phase, so it is not an ideal gas: read its properties from the table.
-:::
-
 ::: {.hint}
-The temperature does not change, but that does not mean no heat: use
-$\dot{Q}_{cv} = \dot{m}\left(h_e - h_i\right)$. Use the enthalpy, not the
-internal energy, because the SFEE includes the flow work.
+The temperature does not change, but something else does. Which property appears in the steady-flow energy equation?
 :::
 
 ::: {.answer}
@@ -937,19 +881,8 @@ $c_p = 1.05~\mathrm{kJ/(kg\,K)}$.)
 ![](figures/img/ch4-p-compressor-cooler.png){width=66%}
 
 ::: {.gap height="fill"}
-::: {.approach}
-Treat the compressor and the cooler as two separate steady-flow control
-volumes in series. Apply the SFEE to the compressor first to find the
-temperature of the air leaving it, which is also the inlet temperature of the
-cooler; then apply the SFEE to the cooler.
-:::
-
 ::: {.hint}
-Compressor: adiabatic, with a positive power input, so
-$\dot{W}_{cv} = \dot{m}\,c_p\left(T_e - T_i\right)$ gives the intermediate
-temperature (use kelvin). Cooler: no work, so
-$\dot{Q} = \dot{m}\,c_p\left(T_\text{out} - T_\text{in}\right)$, which should
-come out negative.
+Treat the compressor and the cooler as two control volumes, one after the other: you need the temperature between them.
 :::
 
 ::: {.answer}

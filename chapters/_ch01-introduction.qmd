@@ -521,16 +521,8 @@ solution, and compare the method, not just the final number.
 &nbsp;&nbsp; **(d)** volume
 
 ::: {.gap height="fill"}
-::: {.approach}
-A property describes the state of a system at one instant: it has a single
-value for a given state, whatever happened to the system before. Go through the
-options and ask, for each one, whether you could measure it on the system as it
-sits now, or whether it only makes sense during a process.
-:::
-
 ::: {.hint}
-One of the options is not something a system *has*: it is energy crossing the
-boundary during a process, and its amount depends on the path taken.
+Ask of each option: is it something the system *has* in a given state, or something that crosses its boundary during a process?
 :::
 
 ::: {.answer}
@@ -549,15 +541,8 @@ process, not only on the state of the system.
 **(c)** a 10 m³ volume &nbsp;&nbsp; **(d)** 30 J of kinetic energy
 
 ::: {.gap height="fill"}
-::: {.approach}
-Recall the difference between intensive and extensive properties. A quick
-test for each option: imagine putting two identical copies of the system
-together and ask whether the value stays the same or doubles.
-:::
-
 ::: {.hint}
-Intensive properties are not summed when two systems are combined. Kinetic
-energy, like mass and volume, depends on how much matter there is.
+Imagine cutting the system in half: which of these quantities would keep the same value in each half?
 :::
 
 ::: {.answer}
@@ -577,14 +562,8 @@ volume of $0.0013~\mathrm{m^3/kg}$. Calculate its density.
 **(c)** 3846.0 kg/m³ &nbsp;&nbsp; **(d)** 0.0325 kg/m³
 
 ::: {.gap height="fill"}
-::: {.approach}
-Write down the definitions of specific volume and density and see how the
-two are related. Then decide whether the size of the can matters at all.
-:::
-
 ::: {.hint}
-Density is the reciprocal of specific volume, $\rho = 1/v$. Both are
-intensive, so the volume of the can is a distractor.
+Think about how specific volume and density are defined. Not every number in the question is needed.
 :::
 
 ::: {.answer}
@@ -612,16 +591,8 @@ The 5 litres is not needed: density is an intensive property.
 &nbsp;&nbsp; **(d)** 9.9 kg
 
 ::: {.gap height="fill"}
-::: {.approach}
-The balloon holds a fixed amount of air in a known state. Two independent
-properties fix the state of a gas, and the ideal-gas equation links them to the
-mass: write it down, rearrange it for the unknown, and put every quantity in SI
-units first.
-:::
-
 ::: {.hint}
-$m = PV/(RT)$. The pressure must be in pascals (1 bar $= 10^5$ Pa) and the
-temperature in kelvin.
+Which equation links the mass of a gas to its state? Careful with units: pressure in Pa and temperature in K.
 :::
 
 ::: {.answer}
@@ -653,16 +624,8 @@ $R = 287~\mathrm{J/(kg\,K)}$.
 **(c)** 0.15 kg/m³ &nbsp;&nbsp; **(d)** 0.09 kg/m³
 
 ::: {.gap height="fill"}
-::: {.approach}
-Treat the air inside and the air outside as two ideal gases at the same
-pressure but different temperatures. Rearrange the ideal-gas equation for
-density, evaluate it for each, and subtract.
-:::
-
 ::: {.hint}
-$\rho = P/(RT)$, with $P$ in pascals and both temperatures in kelvin (a
-negative Celsius temperature gives nonsense). Keep a few decimal places in each
-density: the difference is small compared with either.
+Find each density on its own from the equation of state. Use kelvin, and keep enough decimal places: the difference is small.
 :::
 
 ::: {.answer}
@@ -694,13 +657,8 @@ if its specific volume is $10~\mathrm{m^3/kg}$ ($g = 9.8~\mathrm{m/s^2}$).
 **(d)** 92 N
 
 ::: {.gap height="fill"}
-::: {.approach}
-Weight is a force, mass times gravitational acceleration, so find the mass
-first. The specific volume links the volume the body occupies to its mass.
-:::
-
 ::: {.hint}
-$v = V/m$, so $m = V/v$; then $W = mg$, in newtons.
+Weight needs the mass, and the specific volume tells you how much volume each kilogram takes up.
 :::
 
 ::: {.answer}
@@ -734,16 +692,8 @@ surrounding tank B is 101 kPa, and $g = 9.81~\mathrm{m/s^2}$.
 **(d)** 0.4
 
 ::: {.gap height="fill"}
-::: {.approach}
-Work from the outside in. First find the absolute pressure in the outer tank
-B from the atmospheric pressure and the manometer, then use gauge A to step from
-tank B into tank A. Keep all pressures in the same unit when you add them.
-:::
-
 ::: {.hint}
-Gauge A sits inside tank B, so it reads the pressure of tank A relative to
-tank B, not to the atmosphere. The manometer gives the gauge pressure of tank B
-as $\rho g L$, with the mercury density in kg/m$^3$ and $L$ in metres.
+Be careful about what each gauge measures its pressure relative to: gauge A is not open to the atmosphere.
 :::
 
 ::: {.answer}
@@ -787,18 +737,8 @@ The atmospheric pressure in both locations is 100 kPa.
 &nbsp;&nbsp; **(d)** 260 kPa
 
 ::: {.gap height="fill"}
-::: {.approach}
-The air in the tyre is a closed system: identify states 1 and 2 and decide
-which properties stay constant between them. Apply the ideal-gas equation to
-both states and take the ratio, so that the unknown constants cancel. Convert
-back to a gauge reading at the end.
-:::
-
 ::: {.hint}
-Assume the mass of air and the tyre volume stay constant, so $P/T$ is
-constant. The trap: $P$ must be absolute and $T$ in kelvin, so add the
-atmospheric pressure to the gauge reading first and subtract it again at the
-end.
+Which properties of the air stay (roughly) the same on the journey? Careful: the equation of state needs absolute pressure.
 :::
 
 ::: {.answer}
@@ -862,18 +802,8 @@ $\tfrac{4}{3}\pi r^3$, where $r$ is its radius.*)
 &nbsp;&nbsp; **(d)** Ethane
 
 ::: {.gap height="fill"}
-::: {.approach}
-Each gas in the table has its own gas constant $R$, so the task is to find
-$R$ for the gas in the sphere and look it up. Once you know the volume of the
-sphere and the mass of gas inside it, $R$ is the only unknown in the ideal-gas
-equation.
-:::
-
 ::: {.hint}
-The difference between the two weighings is the mass of gas. Use the radius
-(half the inside diameter) in metres, the pressure in pascals and the
-temperature in kelvin, then compare $R = PV/(mT)$ with the table, watching J
-against kJ.
+The gas constant identifies the gas: can you find it from the measurements? Watch radius against diameter, and J against kJ.
 :::
 
 ::: {.answer}
@@ -913,15 +843,8 @@ pressure become? ($R_\text{air} = 0.287~\mathrm{kJ/(kg\,K)}$)
 **(c)** 0.697 kg, 1000 kPa &nbsp;&nbsp; **(d)** 0.234 kg, 3000 kPa
 
 ::: {.gap height="fill"}
-::: {.approach}
-Two parts. Use the ideal-gas equation at the initial state, where everything
-except the mass is known. For the final state, note what stays fixed during
-combustion and use the equation again, or a ratio between the two states.
-:::
-
 ::: {.hint}
-With mass and volume both fixed, $P_2/P_1 = T_2/T_1$. Convert the initial
-temperature to kelvin, and note that $R$ is given in kJ/(kg K).
+Which properties stay fixed while the air is heated? Use kelvin throughout.
 :::
 
 ::: {.answer}
@@ -966,16 +889,8 @@ $0.1~\mathrm{m^3}$. It is used to fill a balloon. When the pressure drops to
 &nbsp;&nbsp; **(d)** 7 litres
 
 ::: {.gap height="fill"}
-::: {.approach}
-Choose the system carefully: take all of the helium, which starts in the
-tank and ends up in the tank plus the balloon. That is a closed system, so apply
-the ideal-gas equation at the start and at the end and compare.
-:::
-
 ::: {.hint}
-Mass and temperature are the same in both states, so $P_1V_1 = P_2V_2$. The
-final volume $V_2$ includes the tank, which is still full of helium: the
-balloon is only part of it.
+Treat all the helium as one system, before and after. Careful: at the end it fills the tank as well as the balloon.
 :::
 
 ::: {.answer}
@@ -1016,16 +931,8 @@ cool down to room temperature. What is the pressure inside the glass?
 &nbsp;&nbsp; **(d)** 167.8 kPa
 
 ::: {.gap height="fill"}
-::: {.approach}
-Focus on the air trapped in the glass once the leak has finished: from then
-on it is a closed system of fixed volume. Write down its state while it is hot
-and after it has cooled, and apply the ideal-gas equation to both.
-:::
-
 ::: {.hint}
-The air that leaked out does not matter; the starting state is the hot air
-after the leak. With $m$ and $V$ fixed, $P/T$ is constant. The pressure is given
-relative to ambient, so make it absolute, and use kelvin.
+Start from the moment the glass seals, after the leak: what stays constant as the air cools? Pressures must be absolute.
 :::
 
 ::: {.answer}

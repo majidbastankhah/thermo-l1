@@ -111,17 +111,30 @@ one file.
 ::: {.worked} ... :::
 ```
 
-`.worked` is the solution box for an end-of-chapter problem. Put it inside a
-gap, so it is blank in the student copy and covered on the website (students
-can uncover it after trying the problem):
+Every end-of-chapter problem has three layers of help, in this order, inside
+one page-filling gap:
 
 ```markdown
-::: {.gap height="45mm"}
+::: {.gap height="fill"}
+::: {.hint}
+One or two sentences: a direction, and a caution if there is a common trap.
+Never the method, never a number from the working.
+:::
+
+::: {.answer}
+The final result and the option letter, nothing else.
+:::
+
 ::: {.worked}
-...
+The full worked solution.
 :::
 :::
 ```
+
+On the notes with gaps each layer is a covered panel with its title (Hint,
+Final answer, Full solution) visible above it, opened on its own click. The
+completed notes and PDFs show all three, labelled. The PDF with gaps shows
+none of them, just a blank page for working.
 
 It is not called `.solution` because Quarto has a built-in environment of that
 name, which takes the block over before the filter can drop it. All problems go in the End-of-chapter problems section, sorted easy to hard;

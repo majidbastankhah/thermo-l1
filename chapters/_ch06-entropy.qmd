@@ -818,17 +818,8 @@ theoretical power that might be developed by such a cycle, in MW.
 **(d)** 9.81
 
 ::: {.gap height="fill"}
-::: {.approach}
-"Maximum theoretical power" means a reversible engine between the two
-reservoirs. For a reversible cycle the ratio of the heats equals the ratio of the
-reservoir temperatures, so find the heat taken in from the known heat rejected,
-then use the first law for the cycle to get the work.
-:::
-
 ::: {.hint}
-$(|\dot{Q}_H|/|\dot{Q}_C|)_\text{rev} = T_H/T_C$. The heat you are given is the
-rejected one, so do not simply multiply it by the Carnot efficiency, which is
-defined relative to $|\dot{Q}_H|$.
+For a reversible engine the ratio of the heats follows from the reservoir temperatures. Careful: the heat given is the rejected one.
 :::
 
 ::: {.answer}
@@ -866,16 +857,8 @@ the number $N$ for any such cycle?
 **(a)** 1 &nbsp;&nbsp; **(b)** 2 &nbsp;&nbsp; **(c)** 3 &nbsp;&nbsp; **(d)** 4
 
 ::: {.gap height="fill"}
-::: {.approach}
-The largest possible work for a given heat rejection comes from a reversible
-engine. Use the Kelvin relation for the ratio of the heats, then the first law
-for the cycle to write the work in terms of $Q_C$ alone: $N$ falls out.
-:::
-
 ::: {.hint}
-Write $|W| = |Q_H| - |Q_C|$ and replace $|Q_H|$ using
-$(|Q_H|/|Q_C|)_\text{rev} = T_H/T_C$; $N$ then depends on the temperature ratio
-only.
+Write the work in terms of $Q_C$ using the reversible heat ratio: $N$ should depend on the temperatures only.
 :::
 
 ::: {.answer}
@@ -921,17 +904,8 @@ is $Q_H$, in kJ?
 **(c)** 75%, 350 &nbsp;&nbsp; **(d)** 75%, 1610
 
 ::: {.gap height="fill"}
-::: {.approach}
-The engine is reversible, so its efficiency depends only on the two reservoir
-temperatures (the Carnot efficiency). Part (i) is a direct use of it; in part
-(ii) find the efficiency first, then use its definition to get the heat input
-from the work.
-:::
-
 ::: {.hint}
-Convert the temperatures in part (ii) to kelvin before forming $T_C/T_H$. The
-minus sign on $W_\text{cycle}$ only says that work is delivered: use $|W|$ in
-$\eta = |W|/|Q_H|$.
+A reversible engine's efficiency comes from the reservoir temperatures. Use kelvin, and mind the sign of $W$.
 :::
 
 ::: {.answer}
@@ -969,15 +943,8 @@ $R = 0.287~\mathrm{kJ/(kg\,K)}$.
 **(d)** 3.98
 
 ::: {.gap height="fill"}
-::: {.approach}
-Use the ideal-gas entropy relation written in terms of temperature and specific
-volume, since the volume ratio is given. You also need the temperature ratio:
-get it by applying the ideal-gas equation at the two states.
-:::
-
 ::: {.hint}
-From $Pv = RT$, $T_2/T_1 = (P_2/P_1)(v_2/v_1)$. Only ratios are needed; you do
-not need the actual states.
+Use the ideal-gas entropy change. Only ratios are needed, and the temperature ratio follows from the equation of state.
 :::
 
 ::: {.answer}
@@ -1016,16 +983,8 @@ $c_p = 1005~\mathrm{J/(kg\,K)}$ and $R = 287~\mathrm{J/(kg\,K)}$.
 **(c)** 33.9, 25.6 &nbsp;&nbsp; **(d)** 28.1, 28.1
 
 ::: {.gap height="fill"}
-::: {.approach}
-Pick the ideal-gas entropy relation that matches the data you have,
-temperature and pressure, and evaluate it. Then ask yourself whether the answer
-can depend on how the process is carried out, given that entropy is a
-property.
-:::
-
 ::: {.hint}
-$s_2 - s_1 = c_p\ln(T_2/T_1) - R\ln(P_2/P_1)$. Same end states, same change of
-a property: irreversibility shows up in $s_\text{gen}$, not in $\Delta s$.
+Entropy is a property: does the way the process happens change $\Delta s$ between the same two states?
 :::
 
 ::: {.answer}
@@ -1059,17 +1018,8 @@ the minimum theoretical power, in kW, required by the refrigerator.
 **(d)** 1
 
 ::: {.gap height="fill"}
-::: {.approach}
-The minimum power belongs to a reversible refrigerator working between the
-freezer and the surroundings. Write its COP in terms of the two reservoir
-temperatures, then use the definition of the COP to get the work from the heat
-removed.
-:::
-
 ::: {.hint}
-$\beta_\text{rev} = T_C/(T_H - T_C)$, with $T_C$ in kelvin (the difference
-$T_H - T_C$ is the same in °C and K). Watch the sign of the freezer
-temperature.
+Minimum power means a reversible refrigerator. Temperatures in kelvin: watch the negative Celsius one.
 :::
 
 ::: {.answer}
@@ -1105,16 +1055,8 @@ power input required by such a heat pump, in kW.
 **(d)** 70.8
 
 ::: {.gap height="fill"}
-::: {.approach}
-Identify the reservoirs: the building is the hot reservoir and the outside air
-the cold one. At steady state the heat pump must deliver heat at the rate the
-building loses it. The minimum power is that of a reversible heat pump, whose
-COP depends only on the two temperatures.
-:::
-
 ::: {.hint}
-$|\dot{Q}_H|$ equals the heat loss, and
-$(|\dot{W}|/|\dot{Q}_H|)_\text{rev} = (T_H - T_C)/T_H$, with $T_H$ in kelvin.
+Minimum power means a reversible heat pump. How much heat must it deliver?
 :::
 
 ::: {.answer}
@@ -1157,16 +1099,8 @@ ratio of specific heats $\gamma$ and the polytropic exponent $n$.
 **(d)** $-c_v(\gamma + n)\ln(v_2/v_1)$
 
 ::: {.gap height="fill"}
-::: {.approach}
-Start from an ideal-gas entropy relation and use the ideal-gas equation to
-rewrite it in terms of the pressure and volume ratios only. Then use the
-polytropic relation to replace the pressure ratio by the volume ratio, and tidy
-up the coefficients with $c_p - R = c_v$ and $\gamma = c_p/c_v$.
-:::
-
 ::: {.hint}
-$Pv^n = \text{const.}$ gives $\ln(P_2/P_1) = -n\ln(v_2/v_1)$. Check your result:
-for $n = \gamma$ (reversible adiabatic) $\Delta s$ must be zero.
+Start from the ideal-gas entropy change and use the polytropic relation to eliminate the pressure. Check: what should $\Delta s$ be when $n = \gamma$?
 :::
 
 ::: {.answer}
@@ -1222,15 +1156,8 @@ $c_v = 0.312~\mathrm{kJ/(kg\,K)}$.
 **(d)** 0.29
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the argon in the bulb as a closed system and use the ideal-gas entropy
-relation in terms of temperature and specific volume. Ask yourself what happens
-to the volume of a gas sealed in a glass bulb.
-:::
-
 ::: {.hint}
-The bulb is rigid, so $v_2 = v_1$ and the $R\ln(v_2/v_1)$ term vanishes: the
-pressure is not needed. Use kelvin in the temperature ratio.
+What stays constant inside the bulb? Use kelvin.
 :::
 
 ::: {.answer}
@@ -1270,17 +1197,8 @@ efficiency for each of the two power cycles.
 **(c)** 388.5, 30%, 60% &nbsp;&nbsp; **(d)** 433.2, 40%, 60%
 
 ::: {.gap height="fill"}
-::: {.approach}
-Treat each cycle as a separate reversible engine and, for each, write the ratio
-of the heat exchanged with the intermediate reservoir to the work, in terms of
-temperatures. The two works are equal, so set the two expressions equal to find
-$T$; then use the Carnot efficiency of each engine.
-:::
-
 ::: {.hint}
-Equal works with the same $|Q|$ lead to $T_H - T = T - T_C$. Each efficiency
-uses its own pair of temperatures: $1 - T_C/T_H$ is the efficiency of the two
-engines together, not of the second one.
+Write each engine's work in terms of its own reservoir temperatures and set them equal. Careful: each cycle's efficiency uses its own pair of reservoirs.
 :::
 
 ::: {.answer}
@@ -1343,16 +1261,8 @@ J/(kg K). (Treat argon as an ideal gas with $c_v = 0.312~\mathrm{kJ/(kg\,K)}$.)
 **(d)** 0.6
 
 ::: {.gap height="fill"}
-::: {.approach}
-Take the argon as a closed, rigid system and apply the second law per unit mass,
-$\Delta s = q/T + s_\text{gen}$. Find $\Delta s$ from the ideal-gas relation and
-$q$ from the first law, then solve for $s_\text{gen}$.
-:::
-
 ::: {.hint}
-With the light off and a rigid bulb, $w = 0$, so $q = c_v\Delta T$. The $T$ in
-$q/T$ is the temperature at the boundary, i.e. the ambient temperature in kelvin,
-not the changing argon temperature.
+Apply the second law to the argon. Careful: which temperature should divide the heat transfer?
 :::
 
 ::: {.answer}
@@ -1421,19 +1331,8 @@ thermodynamics to find the entropy generation.*
 &nbsp;&nbsp; **(d)** 0.369
 
 ::: {.gap height="fill"}
-::: {.approach}
-Follow the order in the question's hint, but set up the pieces first: the mass
-from the ideal-gas equation at state 1, and the type of process from the force
-law, which gives you the work. Then the first law gives $Q$, the ideal-gas
-entropy relation gives $S_2 - S_1$ (which needs the final volume), and the second
-law gives $S_\text{gen}$.
-:::
-
 ::: {.hint}
-$P \propto V^{3}$ means $PV^{-3} = \text{const.}$: a polytropic process with
-$n = -3$, so use the polytropic work, and $V_2/V_1 = (T_2/T_1)^{1/(1-n)}$. In the
-second law divide $Q$ by the surroundings temperature (at the boundary), in
-kelvin.
+Write the force relation in the form $PV^n = \text{const.}$: what kind of process is it? In the second law, think carefully about which temperature divides $Q$.
 :::
 
 ::: {.answer}
