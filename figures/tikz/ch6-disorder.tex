@@ -5,17 +5,17 @@
 \begin{document}
 \begin{tikzpicture}[x=1cm,y=1cm]
   % before: particles left of the (dashed) partition
-  \draw[line width=1.1pt] (0,0) rectangle (4.0,1.2);
-  \draw[duBlue, dashed, line width=0.9pt] (1.35,0) -- (1.35,1.2);
+  \draw[line width=1.54pt] (0,0) rectangle (4.0,1.2);
+  \draw[duBlue, dashed, line width=1.26pt] (1.35,0) -- (1.35,1.2);
   \foreach \x/\y in {0.3/0.95,0.85/1.0,0.25/0.4,0.55/0.25,1.05/0.45,1.15/0.8,
       0.4/0.7,0.95/0.15,0.7/0.6}
     \fill[duBlue] (\x,\y) circle (1.4pt);
   \fill[duRed] (0.62,0.88) circle (3pt);
   % arrow
-  \draw[-{Stealth[length=2.8mm]}, line width=1.2pt, duBlue] (4.6,0.6) -- (6.4,0.6);
+  \draw[-{Stealth[length=2.8mm]}, line width=1.68pt, duBlue] (4.6,0.6) -- (6.4,0.6);
   % after: the same particles anywhere in the box
   \begin{scope}[shift={(7.0,0)}]
-    \draw[line width=1.1pt] (0,0) rectangle (4.0,1.2);
+    \draw[line width=1.54pt] (0,0) rectangle (4.0,1.2);
     \foreach \x/\y in {0.35/0.6,0.75/0.95,1.4/0.25,1.85/0.95,2.05/0.4,2.6/0.75,
         3.0/0.3,3.25/0.95,3.7/0.55}
       \fill[duBlue] (\x,\y) circle (1.4pt);

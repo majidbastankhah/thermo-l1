@@ -4,8 +4,8 @@
 % Clausius inequality: reversible and irreversible engines with the same Q_H
 \begin{document}
 \begin{tikzpicture}[x=1cm,y=1cm,
-    eng/.style={ellipse, draw=black, line width=0.9pt, minimum width=1.7cm, minimum height=1.0cm, font=\small},
-    flow/.style={-{Stealth[length=2.4mm]}, line width=1.1pt}]
+    eng/.style={ellipse, draw=black, line width=1.26pt, minimum width=1.7cm, minimum height=1.0cm, font=\normalsize},
+    flow/.style={-{Stealth[length=2.4mm]}, line width=1.54pt}]
   \foreach \x/\name/\w/\qc in {0/Rev/{W}/{Q_C}, 4.6/{\textcolor{duRed}{Irrev}}/{W'}/{Q_C'}} {
     \node[eng] (E) at (\x,0) {\name};
     \draw[flow, duRed] (\x,1.5) node[above, lbl] {$|Q_H|$} -- (E.north);

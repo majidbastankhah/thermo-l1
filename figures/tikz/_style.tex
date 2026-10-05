@@ -18,18 +18,23 @@
 \definecolor{duBlue}{HTML}{2A78D6}
 \definecolor{duRed}{HTML}{EB6834}
 \definecolor{duGreen}{HTML}{1BAF7A}
-\definecolor{duGrey}{HTML}{6B6B6B}
+\definecolor{duGrey}{HTML}{4D4D4D}
 
 \tikzset{
-  axisline/.style   = {-{Stealth[length=3mm]}, line width=0.7pt, black},
-  path1/.style      = {duBlue,   line width=1.1pt},
-  path2/.style      = {duRed,    line width=1.1pt},
-  path3/.style      = {duGreen,  line width=1.1pt},
-  statedot/.style   = {circle, fill=black, inner sep=1.4pt},
+  % heavier default lines and arrow tips, so diagrams stay clear when zoomed
+  every picture/.append style = {line width=0.7pt, >={Stealth[length=3mm]}},
+  axisline/.style   = {-{Stealth[length=3.4mm]}, line width=1.0pt, black},
+  path1/.style      = {duBlue,   line width=1.6pt},
+  path2/.style      = {duRed,    line width=1.6pt},
+  path3/.style      = {duGreen,  line width=1.6pt},
+  statedot/.style   = {circle, fill=black, inner sep=1.8pt},
   arrowhead/.style  = {decoration={markings,
-                        mark=at position #1 with {\arrow{Stealth[length=2.6mm]}}},
+                        mark=at position #1 with {\arrow{Stealth[length=3.4mm]}}},
                        postaction={decorate}},
-  lbl/.style        = {font=\small},
-  slbl/.style       = {font=\footnotesize, duGrey},
+  lbl/.style        = {font=\normalsize},
+  slbl/.style       = {font=\small, duGrey},
   workfill/.style   = {duPurple, opacity=0.16},
 }
+
+% larger labels in plots as well
+\pgfplotsset{every axis/.append style={label style={font=\normalsize}, tick label style={font=\small}, line width=0.9pt}}

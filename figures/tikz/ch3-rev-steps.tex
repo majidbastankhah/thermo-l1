@@ -9,7 +9,7 @@
   \draw[path2] plot[domain=0.9:5.6, samples=80] (\x, {\C/\x});
   % external pressure: a staircase just below it (one small mass removed per step)
   \foreach \a/\b in {0.9/1.2,1.2/1.55,1.55/1.95,1.95/2.45,2.45/3.05,3.05/3.75,3.75/4.6,4.6/5.6} {
-    \draw[path1, line width=0.9pt] (\a,{\C/\a}) -- (\a,{\C/\b}) -- (\b,{\C/\b});
+    \draw[path1, line width=1.26pt] (\a,{\C/\a}) -- (\a,{\C/\b}) -- (\b,{\C/\b});
   }
   \node[statedot] at (0.9,{\C/0.9}) {}; \node[lbl, above right=0pt] at (0.9,{\C/0.9}) {1};
   \node[statedot] at (5.6,{\C/5.6}) {}; \node[lbl, above right=0pt] at (5.6,{\C/5.6}) {2};

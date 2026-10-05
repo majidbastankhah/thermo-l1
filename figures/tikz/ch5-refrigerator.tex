@@ -7,11 +7,11 @@
 \begin{document}
 \begin{tikzpicture}[
   res/.style={rounded corners=3pt, minimum width=3.6cm, minimum height=0.8cm,
-              font=\small\bfseries},
+              font=\normalsize\bfseries},
   flow/.style={-{Stealth[length=3mm,width=3mm]}, line width=2.2pt}]
   \node[res, fill=hotres]  (H) at (0,2.6)  {Hot reservoir};
   \node[ellipse, fill=engine, minimum width=2.9cm, minimum height=1.9cm,
-        align=center, font=\small\bfseries] (E) at (0,0)
+        align=center, font=\normalsize\bfseries] (E) at (0,0)
         {Heat pump\\[-1pt]{\normalfont or}\\[-1pt]Refrigerator};
   \node[res, fill=coldres] (C) at (0,-2.6) {Cold reservoir};
   \draw[flow, duRed]  (E.north) -- (H.south)

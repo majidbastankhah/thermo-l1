@@ -5,7 +5,7 @@
 \begin{document}
 \begin{tikzpicture}[
     wall/.style={line width=1.3pt, line join=round},
-    flow/.style={-{Stealth[length=2.6mm]}, line width=1.1pt}]
+    flow/.style={-{Stealth[length=2.6mm]}, line width=1.54pt}]
   % channel and walls
   \draw[wall] (-1.3,0) -- (4.7,0);
   \draw[wall] (-1.3,0.55) -- (0,0.55) -- (0,3.0);
@@ -13,18 +13,18 @@
   % piston and its rod
   \fill[white] (0.05,2.3) rectangle (3.35,2.6);
   \fill[pattern=north east lines, pattern color=duBlue] (0.05,2.3) rectangle (3.35,2.6);
-  \draw[duBlue, line width=1.1pt] (0.05,2.3) rectangle (3.35,2.6);
-  \draw[duBlue, line width=1.1pt] (1.75,2.6) -- (2.55,3.45);
-  \draw[duBlue, line width=1.1pt] (1.95,2.6) -- (2.75,3.45);
+  \draw[duBlue, line width=1.54pt] (0.05,2.3) rectangle (3.35,2.6);
+  \draw[duBlue, line width=1.54pt] (1.75,2.6) -- (2.55,3.45);
+  \draw[duBlue, line width=1.54pt] (1.95,2.6) -- (2.75,3.45);
   % control volume
-  \draw[duRed, dashed, line width=1.1pt] (0.2,0.15) rectangle (3.2,2.15);
+  \draw[duRed, dashed, line width=1.54pt] (0.2,0.15) rectangle (3.2,2.15);
   % paddle wheel on a shaft
-  \draw[duBlue, line width=1.1pt] (2.1,1.25) -- (4.6,2.45);
-  \draw[duBlue, line width=1.1pt, fill=white, rotate around={-38:(1.75,1.55)}]
+  \draw[duBlue, line width=1.54pt] (2.1,1.25) -- (4.6,2.45);
+  \draw[duBlue, line width=1.54pt, fill=white, rotate around={-38:(1.75,1.55)}]
     (1.75,1.55) ellipse (0.42 and 0.17);
-  \draw[duBlue, line width=1.1pt, fill=white, rotate around={-38:(2.45,0.95)}]
+  \draw[duBlue, line width=1.54pt, fill=white, rotate around={-38:(2.45,0.95)}]
     (2.45,0.95) ellipse (0.42 and 0.17);
-  \draw[duBlue, line width=1.1pt, fill=white] (2.1,1.25) circle (0.11);
+  \draw[duBlue, line width=1.54pt, fill=white] (2.1,1.25) circle (0.11);
   % flow in and out
   \draw[flow] (-1.15,0.27) -- (-0.35,0.27);
   \draw[flow] (3.75,0.27) -- (4.55,0.27);

@@ -24,8 +24,15 @@ website:
 
 format:
   html:
-    theme: cosmo
+    # Light by default. The sun/moon switch in the navigation bar turns on a
+    # dark theme for readers who prefer it; the choice is remembered on that
+    # device. The phone's own dark mode does NOT switch it on.
+    theme:
+      light: cosmo
+      dark: darkly
     css: styles.css
+    # Click any figure to open it full-screen (helps when reading zoomed in).
+    lightbox: auto
     toc: true
     toc-depth: 2
     number-sections: true

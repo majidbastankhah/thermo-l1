@@ -2,8 +2,8 @@
 \input{_style}
 \begin{document}
 \begin{tikzpicture}[
-  blk/.style   = {draw, line width=0.7pt, minimum width=24mm, minimum height=9mm, font=\small},
-  bound/.style = {duPurple, dashed, line width=1pt, rounded corners=3pt},
+  blk/.style   = {draw, line width=0.98pt, minimum width=24mm, minimum height=9mm, font=\normalsize},
+  bound/.style = {duPurple, dashed, line width=1.4pt, rounded corners=3pt},
 ]
 
 % ---- (a) boundary around the whole block: Q = 0 --------------------------
@@ -11,7 +11,7 @@
   \node[blk] (h1) at (0,1.1) {Hot};
   \node[blk] (c1) at (0,-0.5) {Cold};
   \foreach \dx in {-0.7,0,0.7} {
-    \draw[-{Stealth[length=2mm]}, line width=0.6pt] (\dx,0.62) -- (\dx,-0.02);
+    \draw[-{Stealth[length=2mm]}, line width=0.84pt] (\dx,0.62) -- (\dx,-0.02);
   }
   \draw[bound] (-1.55,-1.15) rectangle (1.55,1.75);
   \node[slbl, align=center] at (0,-1.62) {(a) boundary around \emph{everything}\\[-2pt]
@@ -19,11 +19,11 @@
 \end{scope}
 
 % ---- (b) boundary around the cold part only: Q =/= 0 ---------------------
-\begin{scope}[shift={(5.6,0)}]
+\begin{scope}[shift={(6.6,0)}]
   \node[blk] (h2) at (0,1.1) {Hot};
   \node[blk] (c2) at (0,-0.5) {Cold};
   \foreach \dx in {-0.7,0,0.7} {
-    \draw[-{Stealth[length=2mm]}, line width=0.6pt] (\dx,0.62) -- (\dx,-0.02);
+    \draw[-{Stealth[length=2mm]}, line width=0.84pt] (\dx,0.62) -- (\dx,-0.02);
   }
   \draw[bound] (-1.55,-1.15) rectangle (1.55,0.15);
   \node[slbl, duPurple, right] at (1.65,-0.5) {heat crosses here};

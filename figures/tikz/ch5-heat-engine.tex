@@ -6,11 +6,11 @@
 \begin{document}
 \begin{tikzpicture}[
   res/.style={rounded corners=3pt, minimum width=3.6cm, minimum height=0.8cm,
-              font=\small\bfseries},
+              font=\normalsize\bfseries},
   flow/.style={-{Stealth[length=3mm,width=3mm]}, line width=2.2pt}]
   \node[res, fill=hotres]  (H) at (0,2.6)  {Hot reservoir};
   \node[circle, fill=engine, minimum size=1.9cm, align=center,
-        font=\small\bfseries] (E) at (0,0) {Heat\\engine};
+        font=\normalsize\bfseries] (E) at (0,0) {Heat\\engine};
   \node[res, fill=coldres] (C) at (0,-2.6) {Cold reservoir};
   \draw[flow, duRed]  (H.south) -- (E.north)
     node[midway, right=3pt, font=\normalsize, text=duRed] {$Q_H > 0$};

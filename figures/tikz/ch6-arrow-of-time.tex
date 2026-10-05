@@ -7,7 +7,7 @@
   ($#1+(-0.2,-0.2)$) -- ++(0.4,0.4) ($#1+(-0.2,0.2)$) -- ++(0.4,-0.4);}
 \begin{document}
 \begin{tikzpicture}[x=1cm,y=1cm,
-    flow/.style={-{Stealth[length=2.6mm]}, line width=1.2pt, duBlue}]
+    flow/.style={-{Stealth[length=2.6mm]}, line width=1.68pt, duBlue}]
   % --- egg ---------------------------------------------------------------
   \node[inner sep=0] (egg) at (0,0)
     {\includegraphics[height=1.75cm]{../img/ch6-egg-clean.png}};
@@ -20,12 +20,12 @@
   % --- hot cup in a 20 C room --------------------------------------------
   \begin{scope}[shift={(8.6,0)}]
     \foreach \x/\t in {0/100, 4.2/20} {
-      \draw[line width=0.9pt] (\x-1.0,-0.4) -- (\x+1.0,-0.4);          % table
-      \draw[line width=0.9pt] (\x-0.6,-0.4) rectangle (\x+0.6,0.45);   % cup
+      \draw[line width=1.26pt] (\x-1.0,-0.4) -- (\x+1.0,-0.4);          % table
+      \draw[line width=1.26pt] (\x-0.6,-0.4) rectangle (\x+0.6,0.45);   % cup
       \node[lbl] at (\x,0.02) {$\t\,^\circ$C};
       \node[lbl] at (\x,0.8) {$20\,^\circ$C};
     }
-    \draw[-{Stealth[length=2.6mm]}, line width=1.2pt] (0.9,0.05) -- (3.3,0.05);
+    \draw[-{Stealth[length=2.6mm]}, line width=1.68pt] (0.9,0.05) -- (3.3,0.05);
     \draw[flow] (3.4,-0.6) .. controls (2.8,-1.2) and (1.4,-1.2) .. (0.8,-0.6);
     \cross{(2.1,-1.05)}
   \end{scope}

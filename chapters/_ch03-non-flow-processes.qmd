@@ -17,7 +17,7 @@ work) crosses the boundary, but mass does not.
 In the last chapter, the energy equation for a process was presented in the
 form of:
 
-![](figures/img/ch3-system.png){width=26%}
+![](figures/img/ch3-system.png){width=26% fig-alt="Sketch of a closed system: a shaded region labelled system, enclosed by a dashed boundary and surrounded by the surroundings."}
 
 $$
 q + w = u_2 - u_1
@@ -34,7 +34,7 @@ A process during which the system only deviates from thermodynamic equilibrium
 by an infinitesimal amount. In other words, the system is passed through a
 continuous series of equilibrium states.
 
-![](figures/out/ch3-quasi-path.svg){width=86%}
+![](figures/out/ch3-quasi-path.svg){width=86% fig-alt="Two P-V diagrams joining state 1 to state 2: (a) a general process drawn as a dashed line, and (b) a quasi-equilibrium process drawn as a solid line of closely spaced points, every one an equilibrium state."}
 
 ::: {.note}
 During a quasi-equilibrium process, intensive properties (e.g. $T$, $P$) of a
@@ -52,12 +52,12 @@ conditions.
 In a quasi-equilibrium (reversible) expansion/compression, the external
 pressure is infinitesimally different from the system pressure.
 
-![](figures/img/ch3-piston-masses.png){width=24%}
+![](figures/img/ch3-piston-masses.png){width=24% fig-alt="Piston-cylinder containing a gas or liquid, with a pile of small incremental masses on the piston that are removed one at a time during the expansion; the boundary is drawn dashed around the gas."}
 
 Incremental masses are removed one at a time during the expansion.
 $P_\text{ext}$ acts on the piston from above; $P$ is the pressure of the gas.
 
-![](figures/out/ch3-rev-steps.svg){width=58%}
+![](figures/out/ch3-rev-steps.svg){width=58% fig-alt="P-V diagram from state 1 to state 2: a smooth curve for the gas pressure P with a staircase for the external pressure P ext hugging it closely, so P is approximately equal to P ext throughout."}
 
 Each small mass removed lowers $P_\text{ext}$ a little and the gas expands
 until its pressure $P$ matches it again, so $P \approx P_\text{ext}$ at every
@@ -87,7 +87,7 @@ that is NOT quasi-equilibrium. A gas at $P_1, V_1$ is held on one side of a
 partition, with a vacuum ($P = 0$) on the other. The partition is removed and
 the gas fills the whole container, reaching $P_2, V_2$.
 
-![](figures/out/ch3-free-expansion.svg){width=100%}
+![](figures/out/ch3-free-expansion.svg){width=100% fig-alt="Free expansion: a gas at P1, V1 sits beside a vacuum behind a partition; the partition is removed and the gas fills the container at P2, V2. Its P-V diagram shows a dashed path from 1 to 2 with P ext equal to zero."}
 
 ::: {.gap height="14mm" hint="What pushes back on the gas? Nothing: $P_\text{ext} = 0$, so $W = 0$."}
 Nothing pushes back on the expanding gas, $P_\text{ext} = 0$, so
@@ -109,7 +109,7 @@ something between free expansion and a quasi-equilibrium (reversible)
 expansion.
 :::
 
-![](figures/out/ch3-exp-comp.svg){width=74%}
+![](figures/out/ch3-exp-comp.svg){width=74% fig-alt="Two piston-cylinder sketches with gas pressure P inside and external pressure P ext outside: in expansion the piston moves out, with P at least P ext; in compression it moves in, with P at most P ext."}
 
 **Magnitude of expansion work done by the system:**
 
@@ -179,14 +179,14 @@ the two ways of doing it shown below: putting the system straight into a heat
 source at 200 °C (left), or heating it with a heat source that is always only
 $\mathrm{d}T$ hotter than the system (right). Which one is reversible?
 
-![](figures/img/ch3-heat-sources.png){width=62%}
+![](figures/img/ch3-heat-sources.png){width=62% fig-alt="Two ways to heat a system: left, a system placed inside a heat source at 200 degrees C; right, a system at temperature T inside a heat source only dT hotter, at T plus dT."}
 
 **Step 1.** *System at 100 °C inside a source at 200 °C: sketch how the
 temperature varies across a section A–A of the system while it heats up. Is it
 uniform?*
 
 ::: {.gap height="50mm" hint="Temperature profile across A--A: 200 at the walls, 100 inside at first; the profiles evolve, never uniform. Non-quasi $\Rightarrow$ irreversible."}
-![](figures/out/ch3-temp-profile.svg){width=62%}
+![](figures/out/ch3-temp-profile.svg){width=62% fig-alt="Temperature against position along section A-A between the two walls of the system: it starts flat at 100 degrees C, then U-shaped profiles rise with time, held at 200 degrees C at the walls and cooler in the middle."}
 
 The part of the system next to the wall heats up first, so while the system
 heats up its temperature is **not uniform**. The process is not
@@ -720,7 +720,7 @@ The initial pressure is 3 bar, the initial volume is $0.1~\mathrm{m^3}$, and the
 final volume is $0.2~\mathrm{m^3}$. Determine the work for the process, in kJ,
 if (a) $n = 1.5$, (b) $n = 1$, and (c) $n = 0$.
 
-![](figures/img/ch3-polytropic-piston.png){width=40%}
+![](figures/img/ch3-polytropic-piston.png){width=40% fig-alt="Piston-cylinder containing a gas following p V to the n equals constant, expanding with the piston moving outwards, from p1 = 3.0 bar and V1 = 0.1 m3 to V2 = 0.2 m3."}
 
 **Step 1.** *(a) @eq-ch3-wpoly needs $P_2$. Find it from $PV^{n} = \text{const}$.*
 
@@ -845,7 +845,7 @@ For a given $\Delta T$, $q_P > q_v$ because $c_P > c_v$.
 that is heated to 1400 K. Find the heat transfer in kJ.
 ($c_v = 0.745~\mathrm{kJ/(kg\,K)}$)
 
-![](figures/img/ch3-p-rigid-tank.png){width=36%}
+![](figures/img/ch3-p-rigid-tank.png){width=36% fig-alt="A closed rigid tank fitted with a valve, heated from below by a row of burner flames."}
 
 **(a)** 298 &nbsp;&nbsp; **(b)** 150 &nbsp;&nbsp; **(c)** 138 &nbsp;&nbsp; **(d)** 369
 
@@ -878,7 +878,7 @@ heat-resistant material, and the piston moves smoothly and slowly in the
 cylinder (assume a quasi-equilibrium expansion). The local atmospheric pressure
 is 1 bar. Evaluate the heat transfer magnitude through the base in kJ.
 
-![](figures/img/ch3-p-piston-base.png){width=46%}
+![](figures/img/ch3-p-piston-base.png){width=46% fig-alt="Piston-cylinder with atmospheric pressure of 1 bar above the piston and gas at p = 2 bar inside, V1 = 0.1 m3, V2 = 0.12 m3, U2 minus U1 = 0.25 kJ; heat Q enters through the base."}
 
 **(a)** 2.45 &nbsp;&nbsp; **(b)** 3.10 &nbsp;&nbsp; **(c)** 4.25 &nbsp;&nbsp; **(d)** 8.67
 
@@ -1269,7 +1269,7 @@ gas, the pressure rises along $PV = mRT = \text{const}$ as the volume falls,
 from $V_1 = mRT/P_1 = 0.086~\mathrm{m^3}$ to
 $V_2 = mRT/P_2 = 0.034~\mathrm{m^3}$:
 
-![](figures/out/ch3-p-isothermal-sol.svg){width=52%}
+![](figures/out/ch3-p-isothermal-sol.svg){width=52% fig-alt="P-V diagram of the isothermal compression: a curve labelled PV = mRT = const joins state 1 at 0.086 m3 and 100 kPa to state 2 at 0.034 m3 and 250 kPa."}
 
 The work is
 $$

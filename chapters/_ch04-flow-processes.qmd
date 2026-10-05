@@ -179,7 +179,7 @@ $$
 \begin{bmatrix}\text{net rate of energy}\\ \text{transfer by mass fluxes}\end{bmatrix}
 $$
 
-![](figures/img/ch4-energy-cv.png){width=50%}
+![](figures/img/ch4-energy-cv.png){width=50% fig-alt="A control volume, outlined by a dashed boundary, with mass flow m dot i entering at inlet i and m dot e leaving at exit e, while heat transfer Q dot and work W dot cross the boundary."}
 
 Each unit of mass crossing the boundary carries its own energy with it: internal,
 kinetic and potential, $u + \tfrac{1}{2}C^{2} + gz$ per kg (CH2).
@@ -361,7 +361,7 @@ A **nozzle** is a flow passage in which the velocity of a gas or liquid
 *increases* in the direction of flow. In a **diffuser**, the gas or liquid
 velocity *decreases* in the direction of flow.
 
-![](figures/out/ch4-nozzle-diffuser.svg){width=60%}
+![](figures/out/ch4-nozzle-diffuser.svg){width=60% fig-alt="Sketches of a nozzle and a diffuser, each with flow entering at i and leaving at e: the nozzle narrows in the direction of flow, while the diffuser widens."}
 
 | Nozzle | Diffuser |
 |:--|:--|
@@ -660,7 +660,7 @@ The mass flow rate is 0.015 kg/s. What is the velocity of the air flowing in
 the duct in m/s? (Assume air as an ideal gas with
 $R = 287~\mathrm{J/(kg\,K)}$.)
 
-![](figures/img/ch4-p-furnace.png){width=20%}
+![](figures/img/ch4-p-furnace.png){width=20% fig-alt="Drawing of a household furnace cabinet with an exhaust duct at the top, illustrating the heating system in the problem."}
 
 **(a)** 0.84 &nbsp;&nbsp; **(b)** 0.36 &nbsp;&nbsp; **(c)** 1.2 &nbsp;&nbsp;
 **(d)** 3.34
@@ -702,7 +702,7 @@ $$
 22 °C and delivers it at 105 kPa, 23 °C with a velocity of 1.5 m/s. What is the
 inlet velocity in m/s? (Assume air as an ideal gas.)
 
-![](figures/img/ch4-p-fan.png){width=20%}
+![](figures/img/ch4-p-fan.png){width=20% fig-alt="Drawing of a household desk fan."}
 
 **(a)** 3.7 &nbsp;&nbsp; **(b)** 2 &nbsp;&nbsp; **(c)** 1.6 &nbsp;&nbsp;
 **(d)** 1.3
@@ -720,7 +720,7 @@ $C_i = 1.6$ m/s, option **(c)**.
 If we assume steady-state conditions, with the inlet $i$ and exit $e$ as
 sketched:
 
-![](figures/out/ch4-p-fan-sol.svg){width=27%}
+![](figures/out/ch4-p-fan-sol.svg){width=27% fig-alt="Sketch of a fan with air flowing in from the left at inlet i and out to the right at exit e."}
 $$
 \dot{m}_i = \dot{m}_e
 \quad\Rightarrow\quad
@@ -763,7 +763,7 @@ $T_e \approx 876$ K, option **(c)**.
 ::: {.worked}
 The nozzle, with its inlet $i$ and exit $e$:
 
-![](figures/out/ch4-p-nozzle-sol.svg){width=36%}
+![](figures/out/ch4-p-nozzle-sol.svg){width=36% fig-alt="Sketch of a converging nozzle: air enters at inlet i at 40 m/s and 200 kPa and leaves at exit e at 500 m/s and 90 kPa."}
 
 According to the SFEE, with $\dot{Q}_{cv} \approx 0$, $\dot{W}_{cv} = 0$ and
 $z_e \approx z_i$:
@@ -869,7 +869,7 @@ $\dot{Q}_{cv} \approx 2257$ kW, option **(a)**.
 ::: {.worked}
 Take the tube as the control volume: water enters at $i$, steam leaves at $e$.
 
-![](figures/out/ch4-p-boiler-sol.svg){width=46%}
+![](figures/out/ch4-p-boiler-sol.svg){width=46% fig-alt="Sketch of a tube taken as the control volume: water enters at the left at inlet i and steam leaves at the right at exit e."}
 
 SFEE for the tube, with $\dot{W}_{cv} = 0$ and the kinetic and potential energy
 changes $\approx 0$:
@@ -902,7 +902,7 @@ exiting from the compressor is then cooled by a cooler to 300 K. Find the heat
 transfer in the cooler in kW. (Assume air as an ideal gas with
 $c_p = 1.05~\mathrm{kJ/(kg\,K)}$.)
 
-![](figures/img/ch4-p-compressor-cooler.png){width=66%}
+![](figures/img/ch4-p-compressor-cooler.png){width=66% fig-alt="Air enters a compressor at state 1, driven by power input W dot c, leaves at state 2 into a cooler, which rejects heat Q dot cool, and exits at state 3."}
 
 ::: {.gap height="fill"}
 ::: {.hint}

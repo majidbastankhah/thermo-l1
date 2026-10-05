@@ -122,6 +122,7 @@
     if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
     if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
     if (t && t.closest && t.closest(".gap-reveal")) return;   // handled above
+    if (document.querySelector(".glightbox-container")) return;   // a full-screen figure is open
 
     switch (ev.key) {
       case " ": case "ArrowRight": case "ArrowDown": case "PageDown":

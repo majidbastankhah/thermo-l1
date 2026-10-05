@@ -25,7 +25,7 @@ take us from the second law, stated for cycles, to a new system property,
 Corollaries 2 and 3 are about **reversible** (i.e. ideal) thermodynamic cycles,
 and they are often called the **Carnot corollaries**.
 
-![](figures/img/ch6-carnot.png){width=22% fig-align="center"}
+![](figures/img/ch6-carnot.png){width=22% fig-align="center" fig-alt="Portrait of Sadi Carnot (1796 to 1832, France) as a young man in a dark uniform."}
 
 ::: {.key}
 **Corollary 2:** It is *impossible* to construct a heat engine operating between
@@ -95,7 +95,7 @@ $$
 reservoirs have the same efficiency.
 :::
 
-![](figures/out/ch6-three-reversible.svg){width=72% fig-align="center"}
+![](figures/out/ch6-three-reversible.svg){width=72% fig-align="center" fig-alt="Three reversible heat engines R1, R2 and R3, each taking heat from the same hot reservoir at T H, delivering work W and rejecting heat to the same cold reservoir at T C, with their efficiencies marked equal."}
 
 ::: {.note}
 As a result of corollary 3, the efficiency of a *reversible* heat engine is
@@ -193,7 +193,7 @@ same hot and cold reservoirs with temperatures 400 K and 200 K, respectively. If
 they are **reversible**, calculate the heat engine thermal efficiency and the
 COP of the refrigerator and the heat pump.
 
-![](figures/img/ch6-example-devices.png){width=80% fig-align="center"}
+![](figures/img/ch6-example-devices.png){width=80% fig-align="center" fig-alt="Three devices between a hot reservoir at 400 K and a cold reservoir at 200 K: a heat engine delivering work, and a refrigerator and a heat pump each taking work in and moving heat from cold to hot."}
 
 **Step 1.** *Heat engine: use $\eta_\text{rev} = 1 - T_C/T_H$.*
 
@@ -230,7 +230,7 @@ several reservoirs must be less than that of a reversible heat engine operating
 between the highest and the lowest reservoir temperatures.
 :::
 
-![](figures/out/ch6-multi-reservoir.svg){width=44% fig-align="center"}
+![](figures/out/ch6-multi-reservoir.svg){width=44% fig-align="center" fig-alt="A heat engine exchanging heat with four reservoirs: it takes heat from two hot reservoirs at T H1 and T H2, rejects heat to two cold reservoirs at T C1 and T C2, and delivers work W."}
 
 From corollary 4, $\eta_\text{rev} = 1 - T_C/T_H$.
 
@@ -269,7 +269,7 @@ Do not confuse the Clausius **inequality** (corollary 6) with the Clausius
 
 **Proof.**
 
-![](figures/img/ch6-heat-engine.png){width=18% fig-align="right"}
+![](figures/img/ch6-heat-engine.png){width=18% fig-align="right" fig-alt="Heat engine taking heat from a hot reservoir at T H, delivering work W and rejecting heat to a cold reservoir at T C."}
 
 **For a reversible heat engine.** Heat crosses the boundary only at the two
 reservoirs, each at a constant temperature; $Q_H > 0$ and $Q_C < 0$.
@@ -297,7 +297,7 @@ $$
 **For an irreversible heat engine.** Compare it with a reversible engine taking
 the same $|Q_H|$ from the same hot reservoir:
 
-![](figures/out/ch6-rev-irrev.svg){width=52% fig-align="center"}
+![](figures/out/ch6-rev-irrev.svg){width=52% fig-align="center" fig-alt="Two engines side by side, each taking the same heat Q H: a reversible engine giving work W and rejecting Q C, and an irreversible engine giving work W prime and rejecting Q C prime."}
 
 ::: {.gap height="14mm" hint="By corollary 2 the irreversible engine does less work, so it must reject more heat."}
 By corollary 2, the irreversible engine is less efficient, so with the same
@@ -346,7 +346,7 @@ $\oint (\delta Q_\text{rev}/T) = 0$. Take two states 1 and 2, a reversible
 process $a$ from 1 to 2, and two different reversible processes $b$ and $c$
 back from 2 to 1.
 
-![](figures/out/ch6-cor7-paths.svg){width=44% fig-align="center"}
+![](figures/out/ch6-cor7-paths.svg){width=44% fig-align="center" fig-alt="Diagram of two states 1 and 2 linked by three reversible paths: path a from 1 to 2, and paths b and c, which both return from 2 to 1 along different curves."}
 
 ::: {.note}
 **Reminder:** a quantity is a *system property* if its change in value between
@@ -478,7 +478,7 @@ A **Carnot cycle** is an ideal cycle consisting of four processes: two
 **reversible isothermal** processes and two **reversible adiabatic** (i.e.
 isentropic) processes. Plot this cycle in a T–s diagram.
 
-![](figures/img/ch6-carnot-pv.png){width=30% fig-align="center"}
+![](figures/img/ch6-carnot-pv.png){width=30% fig-align="center" fig-alt="P-v diagram of a Carnot cycle: a closed loop through states 1, 2, 3 and 4, made of four curved segments, with the temperatures T H and T C marked and the enclosed area shaded."}
 
 **Step 1.** *On the P–v diagram, which processes are the isotherms and which are
 the adiabats? Where is heat added and removed, and what is the area enclosed?*
@@ -499,7 +499,7 @@ An isothermal process is a **horizontal** line ($T$ = const.) and an isentropic
 process a **vertical** line ($s$ = const.), so the Carnot cycle is a
 **rectangle**:
 
-![](figures/out/ch6-carnot-ts.svg){width=56% fig-align="center"}
+![](figures/out/ch6-carnot-ts.svg){width=56% fig-align="center" fig-alt="T-s diagram of a Carnot cycle: a rectangle with isothermal heat input 2 to 3 at T H, isothermal heat output 4 to 1 at T C, and two vertical isentropic sides. The enclosed area is Q cycle and the shaded area under 4 to 1 is Q C."}
 :::
 
 **Step 3.** *Use the areas under the paths to link the heat and the net work.*
@@ -562,7 +562,7 @@ one.
 $\oint (\delta Q/T) \le 0$. Go from 1 to 2 by any process $a$, and return from 2
 to 1 by a reversible process $b$.
 
-![](figures/out/ch6-cor8-paths.svg){width=44% fig-align="center"}
+![](figures/out/ch6-cor8-paths.svg){width=44% fig-align="center" fig-alt="Diagram of states 1 and 2 linked by two paths: a dashed path a, any process from 1 to 2, and a solid reversible path b back from 2 to 1."}
 
 ::: {.gap height="14mm" hint="Clausius inequality for the cycle $a + b$."}
 $$
@@ -617,7 +617,7 @@ entropy of the system may be positive, negative or zero: heat added moves the
 state to the right on a T–s diagram, heat removed moves it to the left, and
 entropy generation can only move it to the right.
 
-![](figures/out/ch6-ts-sgen.svg){width=40% fig-align="center"}
+![](figures/out/ch6-ts-sgen.svg){width=40% fig-align="center" fig-alt="T-s diagram with a state point: heat removed moves it left, heat added moves it right, and entropy generation S gen can only move it to the right."}
 :::
 
 ::: {.warning}
@@ -627,7 +627,7 @@ $\int T\,\mathrm{d}S$. Therefore, the area underneath the path does not
 represent work and heat on the P–v and T–s diagrams, respectively.
 :::
 
-![](figures/out/ch6-area-meaning.svg){width=100% fig-align="center"}
+![](figures/out/ch6-area-meaning.svg){width=100% fig-align="center" fig-alt="Two pairs of P-v and T-s diagrams. Irreversible, dashed paths with the areas crossed out: they are not work and heat. Reversible, solid paths: the shaded areas are w and q."}
 
 ## Principle of the increase of entropy
 
@@ -635,7 +635,7 @@ Write the second law for both the system (A) and its surroundings (B), which
 together make up the **universe**. The heat $\delta Q$ that enters one leaves
 the other, across the same boundary.
 
-![](figures/img/ch6-universe.png){width=26% fig-align="center"}
+![](figures/img/ch6-universe.png){width=26% fig-align="center" fig-alt="A system inside a dashed boundary, with the surroundings outside it."}
 
 ::: {.gap height="12mm" hint="Second law for the system A."}
 **System A:**
@@ -714,7 +714,7 @@ microscopic disorder**.
 Gibbs equations are the result of combining the first and the second laws of
 thermodynamics for a *reversible* process.
 
-![](figures/img/ch6-gibbs.png){width=18% fig-align="center"}
+![](figures/img/ch6-gibbs.png){width=18% fig-align="center" fig-alt="Black and white portrait of J. W. Gibbs (1839 to 1903, US)."}
 
 ::: {.gap height="18mm" hint="First law (CH2) with $\delta Q_\text{rev} = T\,\mathrm{d}S$ and $\delta W_\text{rev} = -P\,\mathrm{d}V$. Label (I)."}
 CH2, first law: $\delta Q_\text{rev} + \delta W_\text{rev} = \mathrm{d}U$, with
@@ -924,7 +924,7 @@ $Q_C$ by heat transfer to a cold reservoir at $T_C$.
 (ii) If $T_H = 500$ °C and $T_C = 20$ °C, and $W_\text{cycle} = -1000$ kJ, what
 is $Q_H$, in kJ?
 
-![](figures/img/ch5-p-reversible-engine.png){width=46%}
+![](figures/img/ch5-p-reversible-engine.png){width=46% fig-alt="A reversible heat engine R inside a dashed boundary takes heat Q H from a hot reservoir at T H, rejects heat Q C to a cold reservoir at T C, and delivers work W cycle."}
 
 **(a)** 50%, 1350 &nbsp;&nbsp; **(b)** 50%, 1610 &nbsp;&nbsp;
 **(c)** 75%, 350 &nbsp;&nbsp; **(d)** 75%, 1610
@@ -1217,7 +1217,7 @@ temperature $T$ and rejects energy $Q_C$ by heat transfer to a reservoir at
 222 K. Determine the intermediate temperature $T$, in K, and the thermal
 efficiency for each of the two power cycles.
 
-![](figures/img/ch5-p-series-engines.png){width=34%}
+![](figures/img/ch5-p-series-engines.png){width=34% fig-alt="Two reversible engines in series: R1 takes Q H from a hot reservoir at T H and rejects Q to a reservoir at T; R2 takes Q from that reservoir and rejects Q C to a cold reservoir at T C. Each delivers W cycle."}
 
 **(a)** 388.5, 30%, 42.9% &nbsp;&nbsp; **(b)** 388.5, 45%, 45% &nbsp;&nbsp;
 **(c)** 388.5, 30%, 60% &nbsp;&nbsp; **(d)** 433.2, 40%, 60%
@@ -1302,7 +1302,7 @@ $$
 $$
 So we need to find $\Delta s$ and $q/T$.
 
-![](figures/out/ch6-p-bulb-sol.svg){width=42% fig-align="center"}
+![](figures/out/ch6-p-bulb-sol.svg){width=42% fig-align="center" fig-alt="A light bulb inside a dot-dashed system boundary, losing heat q to the room. Labels give the room at 20 degrees C and the bulb temperature at 80 degrees C initially and 20 degrees C finally."}
 
 To find $\Delta s$ for an ideal gas, with $v_2/v_1 = 1$ (the bulb is rigid):
 $$
@@ -1368,7 +1368,7 @@ $$
 S_2 - S_1 = \int \frac{\delta Q}{T} + S_\text{gen} \tag{I}
 $$
 
-![](figures/out/ch6-p-co2-sol.svg){width=36% fig-align="center"}
+![](figures/out/ch6-p-co2-sol.svg){width=36% fig-align="center" fig-alt="A gas in a piston-cylinder, marked as the system, with an external force on the piston proportional to V cubed. Heat Q crosses the boundary to surroundings at 20 degrees C."}
 
 **Find $\int \delta Q/T$.** The temperature at the border of the system (where
 the heat transfer occurs) is constant and equal to that of the surroundings, so

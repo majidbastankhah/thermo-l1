@@ -4,8 +4,8 @@
 % open / closed / isolated: the same flask, with what may cross the boundary
 \begin{document}
 \begin{tikzpicture}[x=1cm,y=1cm,
-    xfer/.style={-{Stealth[length=2.6mm]}, line width=1.1pt},
-    both/.style={{Stealth[length=2.6mm]}-{Stealth[length=2.6mm]}, line width=1.1pt}]
+    xfer/.style={-{Stealth[length=2.6mm]}, line width=1.54pt},
+    both/.style={{Stealth[length=2.6mm]}-{Stealth[length=2.6mm]}, line width=1.54pt}]
   \foreach \x/\name in {0/Open system, 5/Closed system, 10/Isolated system} {
     \node[inner sep=0] (f\x) at (\x,0) {\includegraphics[height=3cm]{../img/flask.png}};
     \node[lbl, below=4pt] at (f\x.south) {\name};

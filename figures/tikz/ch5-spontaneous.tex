@@ -29,10 +29,10 @@
   % arrows: forward (happens by itself) and backward (never by itself)
   \foreach \y in {5.9, 2.4} {
     \foreach \x in {2.95, 7.65} {
-      \draw[-{Stealth[length=2.6mm]}, line width=1.2pt, duRed]
+      \draw[-{Stealth[length=2.6mm]}, line width=1.68pt, duRed]
         (\x+0.05,\y) -- ++(\gx-0.1,0);
       \tick{(\x+0.5*\gx,\y+0.45)}
-      \draw[-{Stealth[length=2.6mm]}, line width=1.2pt, duBlue]
+      \draw[-{Stealth[length=2.6mm]}, line width=1.68pt, duBlue]
         (\x+\gx-0.05,\y-0.8) -- ++(-\gx+0.1,0);
       \cross{(\x+0.5*\gx,\y-1.2)}
     }

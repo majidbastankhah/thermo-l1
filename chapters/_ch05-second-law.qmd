@@ -31,9 +31,9 @@ heat engine therefore has a net work output, $W < 0$, and a net heat input,
 $Q > 0$.
 
 ::: {layout-ncol=2}
-![](figures/out/ch5-power-plant.svg)
+![](figures/out/ch5-power-plant.svg){fig-alt="Schematic of a steam power plant as one system: heat enters at the boiler, the turbine delivers net work, heat leaves at the condenser, and a shaft from the turbine drives the pump."}
 
-![](figures/img/ch5-power-plant-photo.png)
+![](figures/img/ch5-power-plant-photo.png){fig-alt="Photograph of a large thermal power station with two cooling towers releasing steam and a tall chimney, set among green hills."}
 :::
 
 A steam power plant is a heat engine. Heat is received in the boiler
@@ -46,7 +46,7 @@ Any heat engine can be represented by the same simple picture: it receives heat
 $Q_H$ from a **hot reservoir**, delivers work $W$, and rejects heat $Q_C$ to a
 **cold reservoir**.
 
-![](figures/out/ch5-heat-engine.svg){width=36% fig-align="center"}
+![](figures/out/ch5-heat-engine.svg){width=36% fig-align="center" fig-alt="Heat engine diagram: heat Q H flows from a hot reservoir into the engine, the engine delivers work W, and heat Q C flows out to a cold reservoir."}
 
 Applying the First Law to the cycle of a heat engine:
 
@@ -104,7 +104,7 @@ An automobile engine produces a power of 100 kW on the output shaft with a
 thermal efficiency of 30%. Find (i) the rate of energy received by burning fuel
 in the engine, (ii) the rate of energy rejected to the ambient.
 
-![](figures/img/ch5-car.png){width=40% fig-align="center"}
+![](figures/img/ch5-car.png){width=40% fig-align="center" fig-alt="Line drawing of a car with its body shown in outline, revealing the engine, gearbox and drive shaft underneath."}
 
 **Step 1.** *The energy received from the fuel is the heat input to the engine.
 Which quantity in @eq-ch5-eta is it, and which one is the 100 kW?*
@@ -162,7 +162,7 @@ $$
 According to the second law, it is still possible to have a cycle that converts
 all of the *work input* into *heat energy output*.
 
-![](figures/out/ch5-work-heat.svg){width=80% fig-align="center"}
+![](figures/out/ch5-work-heat.svg){width=80% fig-align="center" fig-alt="Two sketches of a cycle. Left, marked possible with a tick: work input turned entirely into heat output. Right, crossed out: heat input turned entirely into work output, labelled impossible."}
 
 The reverse is not possible: the work output of a cycle is always less than
 its heat input, $W_\text{output} < Q_\text{input}$.
@@ -181,9 +181,9 @@ system by the surroundings."*
 :::
 
 ::: {layout="[[22,-8,50,-20]]"}
-![](figures/img/ch5-clausius.png)
+![](figures/img/ch5-clausius.png){fig-alt="Black and white portrait of Rudolf Clausius (1822 to 1888)."}
 
-![](figures/out/ch5-clausius-bars.svg)
+![](figures/out/ch5-clausius-bars.svg){fig-alt="Two metal bars joining a hot body above to a cold body below. In one, heat flows down from hot to cold by itself; in the other, heat flows up from cold to hot only with work input."}
 :::
 
 Heat flows through a metal bar from the hot to the cold body by itself. To move
@@ -202,9 +202,9 @@ reservoir *to* a **hot** reservoir. According to the second law, work has to be
 done on the system to make this happen.
 
 ::: {layout="[[22,-6,60,-12]]"}
-![](figures/img/ch5-fridge.png)
+![](figures/img/ch5-fridge.png){fig-alt="Cutaway drawing of a domestic refrigerator showing cold coils inside the top of the cabinet, hot coils on the back and a compressor at the bottom."}
 
-![](figures/img/ch5-ac-heat-pump.png)
+![](figures/img/ch5-ac-heat-pump.png){fig-alt="Cartoon of the same house in summer and in winter, illustrating an air conditioner that cools the house in summer and a heat pump that warms it in winter."}
 :::
 
 | Device | Cold reservoir | Hot reservoir |
@@ -217,7 +217,7 @@ In each case heat is taken from the cold reservoir, $Q_C > 0$, and rejected to
 the hot reservoir, $Q_H < 0$, and the device needs a work input, $W > 0$ (in a
 refrigerator, the electrical work that drives the compressor).
 
-![](figures/out/ch5-refrigerator.svg){width=40% fig-align="center"}
+![](figures/out/ch5-refrigerator.svg){width=40% fig-align="center" fig-alt="Heat pump or refrigerator diagram: heat Q C flows from a cold reservoir into the device, work W is supplied to it, and heat Q H flows out to a hot reservoir."}
 
 Applying the First Law to the cycle, now with $Q_H < 0$, $Q_C > 0$ and
 $W > 0$:
@@ -305,7 +305,7 @@ The refrigerator in a kitchen receives electrical power of 150 W, and it rejects
 400 W to the kitchen air. Find the rate of energy taken out of the cold space
 inside the refrigerator and the COP of the refrigerator.
 
-![](figures/img/ch5-fridge.png){width=22% fig-align="center"}
+![](figures/img/ch5-fridge.png){width=22% fig-align="center" fig-alt="Cutaway drawing of a domestic refrigerator showing cold coils inside the cabinet, hot coils on the back and a compressor at the bottom."}
 
 **Step 1.** *Which of $|\dot{Q}_H|$, $|\dot{Q}_C|$ and $|\dot{W}|$ are given?
 Use the First Law for the refrigerator.*
@@ -364,7 +364,7 @@ can be exactly restored to their initial states.
 If a reversible heat engine cycle is reversed, it becomes a refrigerator with
 the exact same magnitude of heat transfers and work.
 
-![](figures/out/ch5-reverse.svg){width=86% fig-align="center"}
+![](figures/out/ch5-reverse.svg){width=86% fig-align="center" fig-alt="A heat engine taking Q H from a hot reservoir, delivering W and rejecting Q C to a cold reservoir; reversed, it becomes a heat pump or refrigerator with every arrow flipped and the same magnitudes."}
 
 ### Common sources of irreversibility
 
@@ -498,7 +498,7 @@ $$
 work input. How much energy goes into the kitchen, and what is its coefficient
 of performance?
 
-![](figures/img/ch5-p-fridge.png){width=20%}
+![](figures/img/ch5-p-fridge.png){width=20% fig-alt="Cutaway drawing of a refrigerator labelling the evaporator coils inside the cabinet, the expansion device, the condenser coils on the back and the compressor at the bottom."}
 
 **(a)** 2.5 kJ, 1.5 &nbsp;&nbsp; **(b)** 3.5 kJ, 3 &nbsp;&nbsp;
 **(c)** 0.5 kJ, 1 &nbsp;&nbsp; **(d)** 1 kJ, 2
@@ -533,7 +533,7 @@ chicken hatchery at 30 °C, which loses energy at a rate of 10 kW to the colder
 ambient. What is the minimum coefficient of performance that will be acceptable
 for the heat pump?
 
-![](figures/img/ch5-p-hatchery.png){width=36%}
+![](figures/img/ch5-p-hatchery.png){width=36% fig-alt="Photograph of yellow chicks in a hatchery, gathered around red feeders on a floor of wood shavings."}
 
 **(a)** 2 &nbsp;&nbsp; **(b)** 5 &nbsp;&nbsp; **(c)** 3 &nbsp;&nbsp; **(d)** 1
 
@@ -573,7 +573,7 @@ energy released by burning one kilogram of fuel). Find the rate of fuel
 consumption, and the combined power rejected through the radiator and exhaust.
 (**Hint:** one horsepower (hp) is approximately equal to 0.735 kW.)
 
-![](figures/img/ch5-p-sportcar.png){width=38%}
+![](figures/img/ch5-p-sportcar.png){width=38% fig-alt="Photograph of a racing stock car parked with its bonnet raised, showing the engine."}
 
 **(a)** 7.35 kg/s, 220.5 kW &nbsp;&nbsp; **(b)** 2.67 kg/s, 220.5 kW
 &nbsp;&nbsp; **(c)** 5.43 kg/s, 100.9 kW &nbsp;&nbsp; **(d)** 9.8 kg/s, 256 kW

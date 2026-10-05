@@ -8,7 +8,7 @@
 \begin{document}
 \begin{tikzpicture}[
     elem/.style={draw=duRed, line width=1.3pt, fill=duRed, fill opacity=0.35},
-    ghost/.style={draw=duBlue, line width=1.1pt, densely dotted},
+    ghost/.style={draw=duBlue, line width=1.54pt, densely dotted},
     rod/.style={line width=1.6pt, line cap=round}]
   \node[anchor=north west, inner sep=0] (img) at (0,0)
     {\includegraphics[width=11.7cm]{../img/ch4-flow-work-clean.png}};
@@ -16,16 +16,16 @@
     % ---- inlet
     \draw[elem] (167,258) rectangle (197,285);
     \draw[ghost] (205,258) rectangle (235,285);
-    \fill[duGreen, draw=duGreen!70!black, line width=0.6pt] (152,258) rectangle (162,285);
+    \fill[duGreen, draw=duGreen!70!black, line width=0.84pt] (152,258) rectangle (162,285);
     \draw[rod, duGreen] (152,271.5) -- (92,271.5);
-    \node[duGreen!70!black, align=center, font=\small] (ip) at (78,178)
+    \node[duGreen!70!black, align=center, font=\normalsize] (ip) at (78,178)
       {imaginary\\piston};
-    \draw[-{Stealth[length=2.2mm]}, duGreen!70!black, line width=0.9pt]
+    \draw[-{Stealth[length=2.2mm]}, duGreen!70!black, line width=1.26pt]
       (ip.south) ++(12,0) .. controls (95,230) and (125,235) .. (150,255);
     % ---- exit
     \draw[ghost] (683,91) rectangle (709,119);
     \draw[elem] (719,91) rectangle (745,119);
-    \fill[duBlue, draw=duBlue!70!black, line width=0.6pt] (750,91) rectangle (760,119);
+    \fill[duBlue, draw=duBlue!70!black, line width=0.84pt] (750,91) rectangle (760,119);
     \draw[rod, duBlue] (760,105) -- (835,105);
   \end{scope}
 \end{tikzpicture}

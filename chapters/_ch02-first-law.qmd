@@ -14,7 +14,7 @@ Whenever properties of a system change, we say that a change in the
 thermodynamic state has occurred. The path through which the system passes from
 one state to the other is called the **process**.
 
-![](figures/out/process-path.svg){width=68%}
+![](figures/out/process-path.svg){width=68% fig-alt="P-V diagram: a curved path labelled process runs from an initial state at low pressure and volume to a final state at higher pressure and volume."}
 
 ### Thermodynamic equilibrium
 
@@ -22,7 +22,7 @@ Thermodynamic equilibrium is a state at which no change occurs within the system
 *when it is isolated from the surroundings*. The properties can describe the
 state of a system only when it is in thermodynamic equilibrium.
 
-![](figures/img/balanced-rocks.png){width=26% fig-align="center"}
+![](figures/img/balanced-rocks.png){width=26% fig-align="center" fig-alt="Photograph of two pebbles balanced on a flat stone resting on a larger rock, with the sea behind, suggesting a state of balance."}
 
 Isolate a system and wait: the internal gradients even out, and the system
 settles into a state that no longer changes. Full thermodynamic equilibrium
@@ -50,7 +50,7 @@ Initial and final states of a process are NOT enough to characterise a process.
 
 ![The same two end states, reached by two different processes.](figures/img/pan-states.png){width=62%}
 
-![](figures/out/two-paths.svg){width=68%}
+![](figures/out/two-paths.svg){width=68% fig-alt="P-V diagram: two different paths, a and b, join state 1 (high pressure, small volume) to state 2 (low pressure, large volume), with heat and work Q a, W a and Q b, W b."}
 
 The two paths start and finish at the same two states, yet the heat and the work
 along them are different:
@@ -93,7 +93,7 @@ joule per second (J/s), or **watt** (W).
 
 ### Sign convention
 
-![](figures/img/piston-weights.png){width=34% fig-align="center"}
+![](figures/img/piston-weights.png){width=34% fig-align="center" fig-alt="Gas in a cylinder beneath a piston loaded with weights, with atmospheric pressure P 0 above; a dashed system boundary encloses the gas."}
 
 | | |
 |:--|:--|
@@ -105,7 +105,7 @@ joule per second (J/s), or **watt** (W).
 Imagine the external force $F_\text{ext}$ compresses the gas within the cylinder.
 The work done by the surroundings on the system is given by:
 
-![](figures/img/piston-fext.png){width=58% fig-align="center"}
+![](figures/img/piston-fext.png){width=58% fig-align="center" fig-alt="An external force F ext from the surroundings pushes a piston down into a cylinder of gas, the system, compressing it to a smaller volume."}
 
 ::: {.gap height="16mm" hint="Work from force and distance, and pressure from force and area, give (I)."}
 $$
@@ -163,7 +163,7 @@ From mathematics, we know that $\int f(x)\,\mathrm{d}x$ is equal to the area
 under $f(x)$. Therefore, the area under the path shown in the pressure–volume
 (PV) diagram is equal to the amount of work.
 
-![](figures/out/work-area.svg){width=62%}
+![](figures/out/work-area.svg){width=62% fig-alt="P ext-V diagram: a curve from state 1 (large volume, low pressure) to state 2 (small volume, high pressure). A thin strip of width dV under the curve shows that the area under the path is the magnitude of W."}
 
 $$
 W = -\int P_\text{ext}\,\mathrm{d}V
@@ -177,7 +177,7 @@ As mentioned earlier, a system can change from one state to another in many
 different ways. Compare the **work magnitude** required to compress the system
 from **i** to **f** for these three cases.
 
-![](figures/out/three-cases.svg){width=100%}
+![](figures/out/three-cases.svg){width=100% fig-alt="Three P ext-V diagrams, each from state i to state f at a smaller volume and higher pressure: (a) pressure rise then compression, (b) compression then pressure rise, (c) a smooth curve. The area under each path is shaded."}
 
 *Hint: all three paths start at **i** and end at **f**. What does $|W|$
 correspond to on each diagram?*
@@ -198,9 +198,9 @@ system until the volume of the gas increases from $0.05~\mathrm{m^3}$ to
 $0.1~\mathrm{m^3}$. Calculate the amount of work done by the system on the
 surroundings during this process.
 
-![](figures/img/cylinder-burner.png){width=22% fig-align="right"}
+![](figures/img/cylinder-burner.png){width=22% fig-align="right" fig-alt="Gas in a cylinder beneath a piston carrying a stack of weights."}
 
-![](figures/out/example-burner.svg){width=58%}
+![](figures/out/example-burner.svg){width=58% fig-alt="P ext-V diagram: a horizontal line at 1 bar from state 1 at 0.05 m3 to state 2 at 0.10 m3; the shaded rectangle beneath it is labelled magnitude of W equals P ext times delta V."}
 
 **Step 1.** *$P_\text{ext}$ does not change during the process. What does that
 let you do with the integral in @eq-ch2-work?*
@@ -230,7 +230,7 @@ The gas expands, so the work is done **by** the system: $W < 0$.
 
 **Shaft work:**
 
-![](figures/img/shaft-work.png){width=32% fig-align="center"}
+![](figures/img/shaft-work.png){width=32% fig-align="center" fig-alt="An electric motor, inside a dashed system boundary, drives a rotating shaft; shaft work is delivered through a torque and an angular speed."}
 
 $$
 \dot{W}_\text{shaft} = \text{torque} \times \text{rotational speed}
@@ -238,7 +238,7 @@ $$
 
 **Electrical work:**
 
-![](figures/img/electrical-work.png){width=26% fig-align="center"}
+![](figures/img/electrical-work.png){width=26% fig-align="center" fig-alt="An electrolytic cell inside a dashed system boundary, with an electric current i flowing in through wires connected across terminals a and b."}
 
 $$
 \dot{W}_\text{electrical} = \text{voltage} \times \text{current}
@@ -263,9 +263,9 @@ higher to where the temperature is lower. What temperature is to heat, voltage i
 to electrical current.
 
 ::: {layout-ncol=2}
-![](figures/img/gas-hotplate.png)
+![](figures/img/gas-hotplate.png){fig-alt="A cylinder of gas, with a dashed system boundary, standing on a hot plate that heats it from below."}
 
-![](figures/img/circuit-analogy.png)
+![](figures/img/circuit-analogy.png){fig-alt="A simple circuit: a 12 V battery drives a current around a loop through a glowing lamp, the electrical analogy for heat driven by a temperature difference."}
 :::
 
 **Sign convention:** heat flowing from the surroundings into the system is taken
@@ -281,7 +281,7 @@ Like work, heat appears only at system boundaries and is not a system property.
 Any internal energy transfer *within* the system is not treated as heat transfer
 in engineering thermodynamics.
 
-![](figures/out/heat-boundary.svg){width=88% fig-align="center"}
+![](figures/out/heat-boundary.svg){width=88% fig-align="center" fig-alt="A hot block above a cold block, with arrows from hot to cold. (a) A boundary around both: energy is only redistributed inside, Q = 0. (b) A boundary around the cold block only: heat crosses it, Q not zero."}
 
 Draw the boundary around the **whole** box and nothing crosses it: $Q = 0$.
 Draw it around the cold part only and heat does cross it: $Q \neq 0$.
@@ -302,7 +302,7 @@ important concept in thermodynamics.
 The magnitude of the net work for any cycle is equal to the area enclosed by the
 cycle in the PV diagram.
 
-![](figures/out/cycle-area.svg){width=62%}
+![](figures/out/cycle-area.svg){width=62% fig-alt="P ext-V diagram of a cycle: an upper compression path from state 1 to state 2, W 12 positive, and a lower expansion path back, W 21 negative. The shaded enclosed area equals the magnitude of the cycle work."}
 
 ::: {.gap height="12mm" hint="Split the cycle into its two processes."}
 $$
@@ -334,7 +334,7 @@ positive, and vice versa.
 Find the magnitude and sign of the net work delivered by the cycle shown below.
 The system mass is 10 kg.
 
-![](figures/out/cycle-rectangle.svg){width=52%}
+![](figures/out/cycle-rectangle.svg){width=52% fig-alt="P ext-v diagram of a rectangular cycle between 100 and 200 kPa and between 1 and 2 m3/kg, traced clockwise: up the left side, right along the top, down, then left along the bottom."}
 
 **Step 1.** *The magnitude of the net work is the area enclosed by the cycle.
 Look carefully at what the horizontal axis shows.*
@@ -392,7 +392,7 @@ contradicted.
 80 J of work is done on the system by the paddle. Calculate the required heat
 transfer for the system to return to its initial state.
 
-![](figures/img/paddle-tank.png){width=34% fig-align="right"}
+![](figures/img/paddle-tank.png){width=34% fig-align="right" fig-alt="A closed tank of fluid containing a paddle wheel, turned through a shaft by a hanging weight W outside the tank."}
 
 *Hint: the system returns to its initial state. What kind of process is
 that, and which form of the First Law applies? Mind the sign of work done* on
@@ -424,7 +424,7 @@ $$
 $$
 :::
 
-![](figures/img/molecules.png){width=22% fig-align="center"}
+![](figures/img/molecules.png){width=22% fig-align="center" fig-alt="Many small particles moving in random directions, representing the energy stored by the molecules of a substance."}
 
 **Internal energy (U)** is the energy stored by particles of a substance, and its
 SI unit is joule (J), similar to work and heat. However, *unlike* work and heat,
@@ -496,7 +496,7 @@ $$
 When a system is taken from state "a" to state "b" along "acb", 80 kJ of heat is
 supplied into the system and the system does 30 kJ of work.
 
-![](figures/out/acb-adb.svg){width=50% fig-align="right"}
+![](figures/out/acb-adb.svg){width=50% fig-align="right" fig-alt="P ext-V diagram with states a (bottom left) and b (top right). Path acb goes up then right; path adb goes right then up; a curved path returns from b to a."}
 
 1. How much is the heat transfer along path "adb" if the work done by the system
    is 10 kJ?
@@ -605,7 +605,7 @@ $$ {#eq-ch2-firstlaw}
 The first and important step to solve any thermodynamic problem must be to define
 the system and its boundaries.
 
-![](figures/img/system-selection.png){width=78% fig-align="center"}
+![](figures/img/system-selection.png){width=78% fig-align="center" fig-alt="Gas or liquid in an insulated tank with a copper plate wired to a generator driven by a falling mass. Three boundaries: (a) the fluid only, (b) the tank and plate, (c) everything."}
 
 Exactly the same physical situation, three different boundaries:
 
@@ -637,7 +637,7 @@ compressed. As shown in the figure, during this process the pressure at the
 system boundaries (i.e. external pressure) first varies linearly with volume and
 then remains constant. Determine the total work, in kJ.
 
-![](figures/out/p-w3q1.svg){width=58%}
+![](figures/out/p-w3q1.svg){width=58% fig-alt="P ext-V diagram: from state 1 (0.07 m3, 100 kPa) pressure rises linearly to state 2 (0.055 m3, 150 kPa), then stays constant to state 3 (0.015 m3, 150 kPa)."}
 
 **(a)** 4.35 &nbsp;&nbsp; **(b)** 7.875 &nbsp;&nbsp; **(c)** 0.75 &nbsp;&nbsp; **(d)** 9.465
 
@@ -654,7 +654,7 @@ $W_\text{total} = 7.875$ kJ, option **(b)**.
 The area under the path in the $P_\text{ext}$–$V$ diagram gives the magnitude of
 the work.
 
-![](figures/out/p-w3q1-sol.svg){width=58%}
+![](figures/out/p-w3q1-sol.svg){width=58% fig-alt="The same P ext-V diagram with the area under the path split into a trapezium under process 1-2, labelled W 12, and a rectangle under process 2-3, labelled W 23."}
 
 Process 1–2 is a trapezium:
 $$
@@ -683,7 +683,7 @@ work in the amount of 18.5 kJ. There is no significant change in the kinetic or
 potential energy of the steam. Determine the energy transfer by work from the
 steam to the piston during the process, in kJ.
 
-![](figures/img/p-steam-paddle.png){width=58%}
+![](figures/img/p-steam-paddle.png){width=58% fig-alt="Piston-cylinder holding 5 kg of steam, with a paddle wheel doing 18.5 kJ of work and a flame supplying 80 kJ of heat; u 1 = 2709.9 and u 2 = 2659.6 kJ/kg; the piston work is unknown."}
 
 **(a)** 150 &nbsp;&nbsp; **(b)** 350 &nbsp;&nbsp; **(c)** $-350$ &nbsp;&nbsp; **(d)** $-150$
 
@@ -790,7 +790,7 @@ The system is heated and the piston begins to rise. If the mass of the piston is
 64 kg, what is the work done by the air on the piston until it reaches the stop?
 ($P_\text{atm} = 100$ kPa, $g = 9.8~\mathrm{m\,s^{-2}}$)
 
-![](figures/img/p-stop-piston.png){width=52%}
+![](figures/img/p-stop-piston.png){width=52% fig-alt="Air in a cylinder of 160 mm diameter, 50 mm deep below a piston; stops at the top of the cylinder are 20 mm above the piston."}
 
 **(a)** $-28$ J &nbsp;&nbsp; **(b)** $-53$ J &nbsp;&nbsp; **(c)** $-41$ J &nbsp;&nbsp; **(d)** $-12$ J
 
@@ -828,7 +828,7 @@ Expansion, so $W < 0$ as expected.
 half the initial volume. The piston mass and gravitation are such that a pressure
 of 400 kPa will float the piston. Find the work in the process.
 
-![](figures/img/p-r410a.png){width=22%}
+![](figures/img/p-r410a.png){width=22% fig-alt="Cylinder of refrigerant R-410a below a piston of mass m p, which rests against stops at the top of the cylinder; atmospheric pressure P 0 acts above."}
 
 **(a)** 165 J &nbsp;&nbsp; **(b)** 334 J &nbsp;&nbsp; **(c)** 538 J &nbsp;&nbsp; **(d)** 664 J
 
@@ -925,7 +925,7 @@ $W_\text{total} = 954$ kJ, option **(d)**.
 :::
 
 ::: {.worked}
-![](figures/out/p-w3q5-sol.svg){width=52%}
+![](figures/out/p-w3q5-sol.svg){width=52% fig-alt="P ext-V diagram: 1 to 2 constant volume at 4 m3 from 1 to 2 bar; 2 to 3 a curve with P ext V constant to 2 m3 and 4 bar; 3 to 4 constant pressure to 1 m3."}
 
 $P_2V_2 = P_3V_3$, so
 $P_3 = P_2\left(V_2/V_3\right) = 2 \times \tfrac{4}{2} = 4$ bar.
@@ -1062,7 +1062,7 @@ process, the spring exerts a force that varies linearly from an initial value of
 of the piston face is $0.018~\mathrm{m^2}$. Friction between the piston and the
 cylinder wall can be neglected. Determine the amount of work.
 
-![](figures/img/p-spring-cylinder.png){width=62%}
+![](figures/img/p-spring-cylinder.png){width=62% fig-alt="Horizontal piston-cylinder holding air, piston area 0.018 m2, with a spring pushing on the piston and atmospheric pressure 100 kPa. The spring force falls linearly from 900 N at 0.003 m3 to zero at 0.002 m3."}
 
 **(a)** 125 J &nbsp;&nbsp; **(b)** 2.5 J &nbsp;&nbsp; **(c)** 20 J &nbsp;&nbsp; **(d)** 10 J
 

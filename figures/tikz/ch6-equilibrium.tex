@@ -4,14 +4,14 @@
 % temperature, a gas spreading through a box.
 \begin{document}
 \begin{tikzpicture}[x=1cm,y=1cm,
-    flow/.style={-{Stealth[length=2.6mm]}, line width=1.2pt},
-    blk/.style={draw=black, line width=1.1pt, minimum width=1.6cm,
-                minimum height=0.9cm, inner sep=0, font=\small}]
+    flow/.style={-{Stealth[length=2.6mm]}, line width=1.68pt},
+    blk/.style={draw=black, line width=1.54pt, minimum width=1.6cm,
+                minimum height=0.9cm, inner sep=0, font=\normalsize}]
   % --- ball in a bowl ----------------------------------------------------
-  \draw[line width=1.1pt] (0,0.3) ++(172:1.87) arc[start angle=172, end angle=368, radius=1.87];
-  \fill[duGreen!45, draw=black, line width=0.6pt] (0,0.3) ++(196:1.64) circle (0.2);
-  \fill[duRed, draw=duRed!70!black, line width=0.6pt] (0,-1.36) circle (0.2);
-  \draw[{Stealth[length=2.4mm]}-{Stealth[length=2.4mm]}, line width=1.0pt, duRed]
+  \draw[line width=1.54pt] (0,0.3) ++(172:1.87) arc[start angle=172, end angle=368, radius=1.87];
+  \fill[duGreen!45, draw=black, line width=0.84pt] (0,0.3) ++(196:1.64) circle (0.2);
+  \fill[duRed, draw=duRed!70!black, line width=0.84pt] (0,-1.36) circle (0.2);
+  \draw[{Stealth[length=2.4mm]}-{Stealth[length=2.4mm]}, line width=1.4pt, duRed]
     (0,0.3) ++(212:1.4) arc[start angle=212, end angle=328, radius=1.4];
   \draw[flow, duBlue] (0,-1.13) -- (0,-0.35) node[above, lbl] {$N$};
   \draw[flow, duBlue] (0,-1.67) -- (0,-2.5) node[right, lbl] {$mg$};
@@ -26,8 +26,8 @@
   \end{scope}
   % --- gas spreading through a box ---------------------------------------
   \begin{scope}[shift={(9.7,0)}]
-    \draw[line width=1.1pt] (-1.9,-0.15) rectangle (1.9,0.75);
-    \draw[line width=1.1pt] (-1.9,-2.45) rectangle (1.9,-1.55);
+    \draw[line width=1.54pt] (-1.9,-0.15) rectangle (1.9,0.75);
+    \draw[line width=1.54pt] (-1.9,-2.45) rectangle (1.9,-1.55);
     % before: the gas is all in one corner
     \foreach \x/\y in {-1.75/0.55, -1.6/0.35, -1.45/0.6, -1.3/0.45, -1.15/0.55,
         -1.7/0.15, -1.5/0.05, -1.3/0.25, -1.1/0.15, -1.25/0.0}

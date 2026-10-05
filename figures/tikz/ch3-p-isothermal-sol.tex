@@ -9,15 +9,15 @@
   xmin=0, xmax=0.1, ymin=0, ymax=290,
   xtick={0.0344,0.0861}, xticklabels={0.034,0.086},
   ytick={100,250},
-  label style={font=\small}, tick label style={font=\footnotesize},
+  label style={font=\normalsize}, tick label style={font=\normalsize},
 ]
-  \addplot[duBlue, line width=1.1pt, domain=0.0344:0.0861, samples=80,
-    postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{Stealth[length=2.8mm]}}}]
+  \addplot[duBlue, line width=1.54pt, domain=0.0344:0.0861, samples=80,
+    postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrowreversed{Stealth[length=2.8mm]}}}]
     ({x}, {8.61/x});
   \addplot[only marks, mark=*, mark size=1.6pt] coordinates {(0.0861,100) (0.0344,250)};
-  \node[font=\small, anchor=south west] at (axis cs:0.0861,100) {1};
-  \node[font=\small, anchor=south west] at (axis cs:0.0344,250) {2};
-  \node[font=\footnotesize, duBlue, anchor=west] at (axis cs:0.05,215) {$PV = mRT = \text{const}$};
+  \node[font=\normalsize, anchor=south west] at (axis cs:0.0861,100) {1};
+  \node[font=\normalsize, anchor=south west] at (axis cs:0.0344,250) {2};
+  \node[font=\normalsize, duBlue, anchor=west] at (axis cs:0.05,215) {$PV = mRT = \text{const}$};
   \draw[duGrey, dashed] (axis cs:0.0861,0) -- (axis cs:0.0861,100);
   \draw[duGrey, dashed] (axis cs:0.0344,0) -- (axis cs:0.0344,250);
 \end{axis}

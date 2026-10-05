@@ -3,12 +3,12 @@
 % P4: household fan, air in at i and out at e.
 \begin{document}
 \begin{tikzpicture}[x=1cm, y=1cm,
-    flow/.style={-{Stealth[length=2.2mm]}, duRed, line width=0.9pt},
-    fan/.style={duBlue, line width=1.1pt, line join=round}]
+    flow/.style={-{Stealth[length=2.2mm]}, duRed, line width=1.26pt},
+    fan/.style={duBlue, line width=1.54pt, line join=round}]
   % ground and stand
   \draw[fan] (0.95,-1.05) -- (2.45,-1.05);
   \foreach \x in {1.15,1.45,...,2.35}
-    \draw[duBlue, line width=0.6pt] (\x,-1.05) -- ++(-0.2,-0.2);
+    \draw[duBlue, line width=0.84pt] (\x,-1.05) -- ++(-0.2,-0.2);
   \draw[fan] (1.55,-1.05) -- (1.72,-0.2);
   \draw[fan] (1.8,-1.05) -- (1.84,-0.2);
   % motor housing

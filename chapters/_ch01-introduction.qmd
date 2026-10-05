@@ -14,12 +14,12 @@ By the end of this chapter, you should be able to:
 Thermodynamics is the study of the effects of energy transfer via **heat** and
 **work** on a system.
 
-![](figures/img/thermo-heat-work.png){width=34%}
+![](figures/img/thermo-heat-work.png){width=34% fig-alt="The word Thermodynamics split into two parts: 'thermo', meaning heat, and 'dynamics', meaning force or movement."}
 
 Thermodynamics has its roots in the study of engines that convert heat
 (*thermo*) into movement (*dynamics*).
 
-![](figures/img/steam-locomotive.png){width=26%}
+![](figures/img/steam-locomotive.png){width=26% fig-alt="Black-and-white photograph of a steam locomotive with smoke rising from its chimney, an early engine turning heat into movement."}
 
 ## Applications
 
@@ -67,7 +67,7 @@ surroundings, but not matter.
 **Isolated system**: a system that exchanges neither matter nor energy with its
 surroundings.
 
-![](figures/out/system-types.svg){width=92%}
+![](figures/out/system-types.svg){width=92% fig-alt="Three flasks of liquid. Open system: mass, heat and work cross the boundary. Closed system: sealed, so only heat and work cross. Isolated system: sealed within a dashed boundary, no mass and no energy cross."}
 
 ## Working fluid
 
@@ -83,7 +83,7 @@ A **phase** is a quantity of matter with the same chemical composition that is
 homogeneous throughout. Working fluids can exist in the solid, liquid or vapour
 phase.
 
-![](figures/img/phases.png){width=48%}
+![](figures/img/phases.png){width=48% fig-alt="Drawings of the three phases of matter: a solid ice cube, liquid water in a glass and a cloud of gas."}
 
 ## State and property of a system
 
@@ -157,7 +157,7 @@ thermal equilibrium with each other."*
 This law may seem so obvious that it does not need stating, but without it we
 could not build thermometers.
 
-![](figures/img/zeroth-law.png){width=40%}
+![](figures/img/zeroth-law.png){width=40% fig-alt="Thermometer C is linked by arrows to system A, a beaker of liquid, and to system B, a pot of water on a burner; a third arrow links A and B."}
 
 A thermometer $C$ placed in contact with $A$ reads $T_C = T_A$; placed in
 contact with $B$ it reads $T_C = T_B$. By the zeroth law, $A$ and $B$ are then
@@ -203,7 +203,7 @@ P = \frac{\Delta F_n}{\Delta A}
 $$
 :::
 
-![](figures/img/pressure-surface.png){width=46%}
+![](figures/img/pressure-surface.png){width=46% fig-alt="A force delta F acts at an angle on a small area delta A of a surface; only its component normal to the surface, delta F n, is used to define pressure."}
 
 The pressure at a point in a fluid in equilibrium is the same in all directions:
 it is a **scalar** quantity. The SI unit of pressure is the **pascal** (Pa),
@@ -224,9 +224,9 @@ system and the absolute pressure of the atmosphere outside the device. The
 magnitude of this difference is called the **gauge** pressure.
 
 ::: {layout-ncol=2}
-![](figures/img/tyre.png)
+![](figures/img/tyre.png){fig-alt="Photograph of a flat car tyre resting on the ground."}
 
-![](figures/img/tyre-gauge.png)
+![](figures/img/tyre-gauge.png){fig-alt="Photograph of a hand-held tyre pressure gauge with a dial and a hose."}
 :::
 
 ::: {.key}
@@ -246,7 +246,7 @@ atmosphere, since $\rho g h \approx 1000 \times 9.81 \times 10 \approx
 The **gauge** pressure of a tank is 50 kPa. Calculate the **absolute**
 pressure.
 
-![](figures/img/gauge-absolute.png){width=36%}
+![](figures/img/gauge-absolute.png){width=36% fig-alt="Bar diagram of pressure measured from zero: absolute pressure equals the local atmospheric pressure with the gauge pressure added on top of it."}
 
 *Hint: which relation links gauge and absolute pressure, and roughly what is the
 atmospheric pressure?*
@@ -264,7 +264,7 @@ The piston has a mass of 10 kg and an area of $0.1~\mathrm{m^2}$. Find the
 absolute pressure of the gas contained in the cylinder. Take
 $P_\text{atm} = 100~\mathrm{kPa}$ and $g = 10~\mathrm{m/s^2}$.
 
-![](figures/img/piston-10kg.png){width=22%}
+![](figures/img/piston-10kg.png){width=22% fig-alt="An open-topped cylinder containing gas molecules beneath a flat horizontal piston."}
 
 **Step 1.** *The gas holds up the piston as well as the atmosphere above it.
 What gauge pressure does the weight of the piston alone produce?*
@@ -299,7 +299,7 @@ Manometers measure pressure differences in terms of the length of a column of
 liquid such as water, mercury or oil. If one side of the manometer is open to
 the atmosphere, the length of the liquid column gives the gauge pressure.
 
-![](figures/img/manometer.png){width=40%}
+![](figures/img/manometer.png){width=40% fig-alt="U-tube manometer connecting a tank of fluid at pressure P to a tube open to the atmosphere. Points A and B are at the same level, with a liquid column of height H above B; gravity acts downwards."}
 
 Points $A$ and $B$ are at the same level in the manometer liquid. Above $B$ is a
 column of liquid of height $H$, open to the atmosphere at the top.
@@ -338,7 +338,7 @@ near vacuum ($P \approx 0$). Since there is almost zero pressure in the closed
 tube above the column of liquid, the height of the column gives the atmospheric
 pressure directly.
 
-![](figures/img/barometer.png){width=26%}
+![](figures/img/barometer.png){width=26% fig-alt="Barometer: a tube closed at the top, with near vacuum above the liquid, stands upside down in an open bath under atmospheric pressure; the liquid column rises a height H 0 above the bath surface."}
 
 ::: {.gap height="14mm" hint="Above the column is (near) vacuum, so the pressure at $B$ is due to the column alone."}
 Above the column there is (near) vacuum, so the pressure at the bottom of the
@@ -460,7 +460,7 @@ Given that $Pv = RT$, for an ideal gas:
 | $v \propto T$ | constant-pressure process |
 | $P \propto 1/v$ | constant-temperature process |
 
-![](figures/out/pv-ideal-processes.svg){width=62%}
+![](figures/out/pv-ideal-processes.svg){width=62% fig-alt="P-v diagram of ideal-gas processes: a vertical constant-volume line where P is proportional to T, a horizontal constant-pressure line where v is proportional to T, and a falling constant-temperature curve where P is proportional to 1/v."}
 
 ::: {.note}
 In microscopic and chemical studies, the equation of state is often written in
@@ -711,7 +711,7 @@ connected to tank B contains mercury. Using the data on the diagram, determine
 the absolute pressure inside tank A, in bar. The atmospheric pressure
 surrounding tank B is 101 kPa, and $g = 9.81~\mathrm{m/s^2}$.
 
-![](figures/img/p-tank-in-tank.png){width=62%}
+![](figures/img/p-tank-in-tank.png){width=62% fig-alt="Tank A sits inside tank B. Gauge A, inside tank B, reads 1.4 bar. A mercury U-tube manometer on tank B, open to the atmosphere at 101 kPa, shows a level difference L of 20 cm."}
 
 **(a)** 2.68 &nbsp;&nbsp; **(b)** 3.54 &nbsp;&nbsp; **(c)** 1.2 &nbsp;&nbsp;
 **(d)** 0.4
