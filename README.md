@@ -171,12 +171,12 @@ problems.
 ```markdown
 ::: {.content-visible when-format="html"}
 ```{=html}
-<iframe src="widgets/pv-explorer.html" class="widget-frame"></iframe>
+<iframe src="widgets/path-functions.html" class="widget-frame"></iframe>
 ```
 :::
 
 ::: {.content-visible when-format="pdf"}
-![Static stand-in](figures/out/polytropic-family.svg)
+![Static stand-in](figures/img/ch2-path-functions-widget.png)
 :::
 ```
 
@@ -189,7 +189,7 @@ scroll bar on a phone. Widgets use one light theme, like the notes.
 | Widget | Chapter |
 |:--|:--|
 | `widgets/ideal-gas.html` | CH1: ideal gas in a piston-cylinder, absolute vs gauge pressure, mercury manometer |
-| `widgets/pv-explorer.html` | CH2: work as the area under the path, polytropic family |
+| `widgets/path-functions.html` | CH2: W and Q change with the path, U2 − U1 does not |
 | `widgets/quasi-equilibrium.html` | CH3: expansion/compression in N steps approaching the reversible process |
 | `widgets/steady-flow.html` | CH4: steady-flow energy balance for nozzles, diffusers, turbines, compressors and heat exchangers |
 | `widgets/cyclic-devices.html` | CH5: energy flows in heat engines, refrigerators and heat pumps; Kelvin–Planck and Clausius violations |

@@ -271,3 +271,12 @@ body.qa-join .qa-card {
 .qa-card svg, .qa-badge svg { background: #fff; }
 
 @media print { .qa-button, .qa-badge, .qa-card { display: none !important; } }
+
+/* Zoom / reflow: keep everything inside the page width at high zoom.
+   The hidden MathML copy of each equation (for screen readers) must stay
+   inside its equation, and a long displayed equation scrolls on its own
+   instead of making the whole page scroll sideways. */
+.katex { position: relative; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+main a { overflow-wrap: anywhere; }
+main table { display: block; max-width: 100%; overflow-x: auto; }

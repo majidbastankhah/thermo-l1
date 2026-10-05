@@ -192,30 +192,6 @@ exactly why work is a **path function**.
 :::
 :::
 
-### Explore it yourself {#sec-ch2-explore}
-
-Work is the area under the path in the $P_\text{ext}$–$V$ diagram, which is why
-two processes between the same two states can need very different amounts of
-work.
-
-::: {.content-visible when-format="html"}
-Switch between the three paths, drag the polytropic exponent, and watch the
-shaded area change.
-
-```{=html}
-<iframe src="widgets/pv-explorer.html" class="widget-frame"
-        title="Interactive PV work explorer" loading="lazy"></iframe>
-```
-:::
-
-::: {.content-visible when-format="pdf"}
-![A family of polytropic paths $P_\text{ext}V^{n} = \text{const.}$ between the same two volumes. The shaded region is $|W|$ for $n = 1$.](figures/out/polytropic-family.svg){width=82%}
-
-The interactive version of this figure is on the course website —
-follow the *Explore it yourself* link in CH2.
-:::
-
-
 ::: {.example}
 The external pressure on the piston is estimated to be 1 bar. A burner heats the
 system until the volume of the gas increases from $0.05~\mathrm{m^3}$ to
@@ -471,6 +447,29 @@ $$
 $$
 \text{with } \; W_a \neq W_b \; \text{ and } \; Q_a \neq Q_b .
 $$
+:::
+
+### Explore it yourself {#sec-ch2-explore}
+
+Here are the two paths from the start of this chapter again, now with numbers:
+the system goes from state 1 to state 2, and you can change the path in
+between.
+
+::: {.content-visible when-format="html"}
+Try paths a and b, then drag the purple dot to make your own path. Which
+quantities change with the path, and which one never does?
+
+```{=html}
+<iframe src="widgets/path-functions.html" class="widget-frame"
+        title="Interactive: work and heat change with the path, the change in internal energy does not" loading="lazy"></iframe>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+![Path a from state 1 (4 bar, 1 litre) to state 2 (1.5 bar, 4 litres): $W = -1187$ J and $Q = 1687$ J. Along path b, $W = -458$ J and $Q = 958$ J. On both paths, $W + Q = U_2 - U_1 = 500$ J.](figures/img/ch2-path-functions-widget.png){width=88%}
+
+The interactive version of this figure is on the course website: follow the
+*Explore it yourself* link in CH2.
 :::
 
 ::: {.note}
