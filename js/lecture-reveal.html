@@ -222,3 +222,15 @@
   });
 })();
 </script>
+
+<!-- Interactive figures (widgets/*.html) report their height, so each frame
+     fits its widget, on a phone as well as on a wide screen. -->
+<script>
+window.addEventListener("message", function (ev) {
+  const h = ev.data && ev.data.widgetHeight;
+  if (!h) return;
+  document.querySelectorAll("iframe.widget-frame").forEach(function (f) {
+    if (f.contentWindow === ev.source) f.style.height = Math.ceil(h) + 4 + "px";
+  });
+});
+</script>

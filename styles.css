@@ -83,7 +83,7 @@ h2 { border-bottom: 2px solid var(--du-purple); padding-bottom: 0.2em; }
 /* --- interactive widgets ------------------------------------------------- */
 .widget-frame {
   width: 100%;
-  min-height: 720px;
+  height: 720px;        /* until the widget reports its own height */
   border: 1px solid var(--box-border);
   border-radius: 10px;
   background: transparent;

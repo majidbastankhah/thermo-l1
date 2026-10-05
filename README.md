@@ -182,6 +182,15 @@ problems.
 
 ---
 
+Each widget posts its height to the page (`parent.postMessage({widgetHeight})`),
+and `js/lecture-reveal.html` sizes its frame to fit, so there is no inner
+scroll bar on a phone. Widgets use one light theme, like the notes.
+
+| Widget | Chapter |
+|:--|:--|
+| `widgets/ideal-gas.html` | CH1: ideal gas in a piston-cylinder, absolute vs gauge pressure, mercury manometer |
+| `widgets/pv-explorer.html` | CH2: work as the area under the path, polytropic family |
+
 ## Building locally
 
 You need [Quarto](https://quarto.org/docs/get-started/) and a TeX distribution

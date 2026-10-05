@@ -22,43 +22,6 @@
     --fill-2:    rgba(235,104,52,0.16);
     --fill-3:    rgba(27,175,122,0.18);
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --surface-0: #141413;
-      --surface-1: #1a1a19;
-      --surface-2: #232321;
-      --border:    #3a3a37;
-      --text-1:    #ffffff;
-      --text-2:    #c3c2b7;
-      --text-3:    #97958c;
-      --accent:    #c79bcb;
-      --series-1:  #3987e5;
-      --series-2:  #d95926;
-      --series-3:  #199e70;
-      --fill-1:    rgba(57,135,229,0.22);
-      --fill-2:    rgba(217,89,38,0.22);
-      --fill-3:    rgba(25,158,112,0.24);
-    }
-  }
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --surface-0: #141413;
-    --surface-1: #1a1a19;
-    --surface-2: #232321;
-    --border:    #3a3a37;
-    --text-1:    #ffffff;
-    --text-2:    #c3c2b7;
-    --text-3:    #97958c;
-    --accent:    #c79bcb;
-    --series-1:  #3987e5;
-    --series-2:  #d95926;
-    --series-3:  #199e70;
-    --fill-1:    rgba(57,135,229,0.22);
-    --fill-2:    rgba(217,89,38,0.22);
-    --fill-3:    rgba(25,158,112,0.24);
-  }
-
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -527,6 +490,15 @@
 
   drawPaths();
   drawPoly();
+})();
+
+// tell the page embedding this widget how tall it is, so its frame fits
+(function () {
+  function postHeight() {
+    try { parent.postMessage({ widgetHeight: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+  }
+  window.addEventListener("load", postHeight);
+  window.addEventListener("resize", postHeight);
 })();
 </script>
 </body>

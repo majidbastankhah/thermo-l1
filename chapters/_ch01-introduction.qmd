@@ -500,6 +500,31 @@ $R = 8314/32 = 259.8~\mathrm{J/(kg\,K)}$, whereas $R_0$ has the same value for
 all ideal gases.
 :::
 
+## Explore it yourself {#sec-ch1-explore}
+
+The ideal-gas equation ties together the amount of gas, its temperature, its
+volume and its pressure; a manometer then shows how far that pressure is above
+or below the atmosphere.
+
+::: {.content-visible when-format="html"}
+Change the mass, the temperature and the volume, and switch between gases.
+Watch the molecules, the pressure, and the mercury in the manometer. Try to
+make the gauge pressure negative, and to give helium and air the same pressure
+with very different masses.
+
+```{=html}
+<iframe src="widgets/ideal-gas.html" class="widget-frame"
+        title="Interactive ideal gas in a piston-cylinder, with a manometer" loading="lazy"></iframe>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+![Air in a piston–cylinder at 450 K: the ideal-gas equation gives the absolute pressure, and the mercury manometer shows the gauge pressure.](figures/img/ch1-ideal-gas-widget.png){width=88%}
+
+The interactive version of this figure is on the course website: follow the
+*Explore it yourself* link in CH1.
+:::
+
 {{< pagebreak >}}
 
 ## End-of-chapter problems {#sec-ch1-problems}

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ideal gas in a cylinder</title>
+<!-- CH1 "Explore it yourself": PV = mRT, absolute vs gauge pressure, and a
+     mercury manometer, on one gas in a piston-cylinder. Self-contained: no
+     external scripts or fonts. One light theme, like the notes. -->
+<style>
+  :root {
+    color-scheme: light;
+    --surface-0: #ffffff;
+    --surface-1: #fcfcfb;
+    --surface-2: #f4f3f0;
+    --border:    #dedcd6;
+    --text-1:    #0b0b0b;
+    --text-2:    #52514e;
+    --text-3:    #78766f;
+    --accent:    #68246D;
+    --gas:       #2a78d6;
+    --hot:       #eb6834;
+    --mercury:   #8e9aa6;
+    --ok:        #1b7a57;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 16px;
+    background: var(--surface-0); color: var(--text-1);
+    font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  h1 { font-size: 1.05rem; margin: 0 0 2px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-2); font-size: 0.86rem; margin: 0 0 14px; }
+
+  .panel {
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px;
+  }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
+  .tabs span { font-size: 0.83rem; color: var(--text-2); margin-right: 4px; }
+  .tab {
+    font: inherit; font-size: 0.83rem; cursor: pointer;
+    padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--surface-1); color: var(--text-2);
+  }
+  .tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .tab:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .sliders { display: grid; grid-template-columns: 1fr; gap: 6px; margin: 4px 0 10px; }
+  @media (min-width: 620px) { .sliders { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
+  .sliders label { display: block; font-size: 0.8rem; color: var(--text-2); }
+  .sliders output { font-weight: 650; color: var(--text-1); font-variant-numeric: tabular-nums; }
+  .sliders small { color: var(--text-3); }
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+  canvas { display: block; width: 100%; height: auto; border-radius: 8px; background: var(--surface-0); }
+
+  .readout {
+    display: grid; grid-template-columns: 1fr; gap: 8px;
+    border-top: 1px solid var(--border); margin-top: 10px; padding-top: 10px;
+  }
+  @media (min-width: 620px) { .readout { grid-template-columns: 1.4fr 1fr 1fr; } }
+  .cell .k { font-size: 0.78rem; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.04em; }
+  .cell .v { font-size: 1.45rem; font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .cell .v small { font-size: 0.9rem; font-weight: 500; color: var(--text-2); }
+  .eq { font-size: 0.92rem; color: var(--text-2); font-variant-numeric: tabular-nums; }
+  .eq b { color: var(--text-1); }
+  .note { font-size: 0.82rem; color: var(--text-2); margin: 10px 2px 0; min-height: 2.6em; }
+  .note b { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>An ideal gas in a cylinder</h1>
+  <p class="sub">Change the amount of gas, its temperature and its volume. The
+  pressure follows from <i>PV</i> = <i>mRT</i>; the manometer shows the gauge
+  pressure.</p>
+
+  <div class="panel">
+    <div class="tabs" role="group" aria-label="Gas">
+      <span>Gas:</span>
+      <button class="tab" data-gas="air" aria-pressed="true">Air</button>
+      <button class="tab" data-gas="he" aria-pressed="false">Helium</button>
+      <button class="tab" data-gas="co2" aria-pressed="false">CO&#8322;</button>
+    </div>
+
+    <div class="sliders">
+      <label>Mass of gas, <i>m</i> = <output id="mOut"></output> g
+        <input id="m" type="range" min="0.05" max="3" step="0.01" value="1.2" aria-describedby="mOut">
+      </label>
+      <label>Temperature, <i>T</i> = <output id="tOut"></output> K <small id="tC"></small>
+        <input id="t" type="range" min="150" max="700" step="1" value="293">
+      </label>
+      <label>Volume, <i>V</i> = <output id="vOut"></output> litres
+        <input id="v" type="range" min="0.5" max="3" step="0.01" value="1">
+      </label>
+    </div>
+
+    <canvas id="c" width="760" height="330" aria-label="Piston-cylinder with gas molecules and a mercury U-tube manometer"></canvas>
+
+    <div class="readout">
+      <div class="cell">
+        <div class="k">Ideal-gas equation</div>
+        <div class="eq" id="eq"></div>
+      </div>
+      <div class="cell">
+        <div class="k">Absolute pressure</div>
+        <div class="v" id="pAbs"></div>
+      </div>
+      <div class="cell">
+        <div class="k">Gauge pressure</div>
+        <div class="v" id="pGauge"></div>
+      </div>
+    </div>
+    <p class="note" id="note"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  // gas data: R in J/(kg K), molar mass M in kg/kmol
+  const GAS = {
+    air: { name: "air",    R: 287,  M: 28.97, col: "#2a78d6" },
+    he:  { name: "helium", R: 2077, M: 4.003, col: "#1baf7a" },
+    co2: { name: "CO₂", R: 188.9, M: 44.01, col: "#68246D" },
+  };
+  const PATM = 101325;          // Pa
+  const RHO_HG = 13590, G = 9.81;
+  let gas = GAS.air;
+
+  const $ = id => document.getElementById(id);
+  const mS = $("m"), tS = $("t"), vS = $("v");
+  const cv = $("c"), ctx = cv.getContext("2d");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ------------------------------------------------------------ physics --
+  // m in g and V in litres: P [Pa] = m[g] * R * T / V[L]  (the factors of 1000 cancel)
+  function state() {
+    const m = +mS.value, T = +tS.value, V = +vS.value;
+    const P = m * gas.R * T / V;
+    return { m, T, V, P, Pg: P - PATM };
+  }
+  const fmt = (x, d) => x.toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d });
+
+  // ---------------------------------------------------------- molecules --
+  // the number drawn follows the number of MOLES, n = m/M, so 1.2 g of air and
+  // 0.17 g of helium show about the same number of molecules
+  let mols = [];
+  function targetCount() {
+    const n = +mS.value / gas.M;                        // mol (m in g, M in g/mol)
+    return Math.max(4, Math.min(260, Math.round(n * 1450)));
+  }
+  function syncMolecules(box) {
+    const want = targetCount();
+    while (mols.length < want) {
+      const a = Math.random() * Math.PI * 2;
+      mols.push({ x: box.x0 + Math.random() * (box.x1 - box.x0),
+                  y: box.y0 + Math.random() * (box.y1 - box.y0),
+                  dx: Math.cos(a), dy: Math.sin(a) });
+    }
+    if (mols.length > want) mols.length = want;
+  }
+
+  // ------------------------------------------------------------ drawing --
+  // the drawing is laid out for the actual width, so text stays readable on a phone
+  let W = 760, H = 330;
+  const cyl = { x: 70, w: 230, bottom: 290, top: 40 };      // cylinder outline
+  const man = { x: 400, gap: 70, tube: 16 };                // manometer
+  let narrow = false;
+  function layout() {
+    W = Math.max(260, Math.min(760, Math.round(cv.parentElement.clientWidth - 24)));
+    narrow = W < 560;
+    H = narrow ? 372 : 330;          // room under the drawing for the readings
+    cyl.x = narrow ? 14 : 70;
+    cyl.w = Math.round(W * (narrow ? 0.36 : 0.30));
+    man.x = cyl.x + cyl.w + Math.round(W * (narrow ? 0.10 : 0.13));
+    man.gap = narrow ? 38 : 70; man.tube = narrow ? 13 : 16;
+    cv.style.aspectRatio = W + " / " + H;
+  }
+  window.addEventListener("resize", () => { layout(); mols = []; });
+  function pistonY(V) {                                      // V 0.5..3 L
+    const frac = (V - 0.3) / (3 - 0.3);
+    return cyl.bottom - 18 - frac * (cyl.bottom - cyl.top - 40);
+  }
+
+  function draw(s, dt) {
+    const dpr = window.devicePixelRatio || 1;
+    if (cv.width !== Math.round(W * dpr)) { cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    const py = pistonY(s.V);
+    const box = { x0: cyl.x + 6, x1: cyl.x + cyl.w - 6, y0: py + 14, y1: cyl.bottom - 6 };
+
+    // gas region tint, warmer with temperature
+    const warm = Math.min(1, Math.max(0, (s.T - 150) / 550));
+    ctx.fillStyle = `rgba(${Math.round(42 + 193 * warm)},${Math.round(120 - 16 * warm)},${Math.round(214 - 162 * warm)},0.09)`;
+    ctx.fillRect(cyl.x, py + 10, cyl.w, cyl.bottom - py - 10);
+
+    // molecules: speed ~ sqrt(T/M)
+    syncMolecules(box);
+    const speed = 26 * Math.sqrt(s.T / gas.M) * (reduce ? 0 : 1);
+    ctx.fillStyle = gas.col;
+    for (const p of mols) {
+      p.x += p.dx * speed * dt; p.y += p.dy * speed * dt;
+      if (p.x < box.x0) { p.x = box.x0; p.dx = Math.abs(p.dx); }
+      if (p.x > box.x1) { p.x = box.x1; p.dx = -Math.abs(p.dx); }
+      if (p.y < box.y0) { p.y = box.y0; p.dy = Math.abs(p.dy); }
+      if (p.y > box.y1) { p.y = box.y1; p.dy = -Math.abs(p.dy); }
+      ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // cylinder walls
+    ctx.strokeStyle = "#52514e"; ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(cyl.x, cyl.top); ctx.lineTo(cyl.x, cyl.bottom);
+    ctx.lineTo(cyl.x + cyl.w, cyl.bottom); ctx.lineTo(cyl.x + cyl.w, cyl.top);
+    ctx.stroke();
+
+    // piston + rod
+    ctx.fillStyle = "#c9c6bf"; ctx.fillRect(cyl.x + 2, py, cyl.w - 4, 12);
+    ctx.strokeStyle = "#78766f"; ctx.lineWidth = 1; ctx.strokeRect(cyl.x + 2, py, cyl.w - 4, 12);
+    ctx.fillStyle = "#a9a59c"; ctx.fillRect(cyl.x + cyl.w / 2 - 5, Math.max(8, py - 34), 10, Math.min(34, py - 8));
+
+    // atmosphere label above the piston
+    ctx.fillStyle = "#78766f"; ctx.font = "12px system-ui, sans-serif"; ctx.textAlign = "center";
+    ctx.fillText(narrow ? "atm. 101.3 kPa" : "atmosphere, 101.3 kPa", cyl.x + cyl.w / 2, Math.max(16, py - 40));
+
+    // labels inside
+    ctx.fillStyle = "#52514e"; ctx.font = "13px system-ui, sans-serif"; ctx.textAlign = "left";
+    ctx.textAlign = "center";
+    ctx.fillText(gas.name + " at " + fmt(s.T, 0) + " K", cyl.x + cyl.w / 2, cyl.bottom + 22);
+
+    drawManometer(s);
+  }
+
+  // mercury U-tube connected to the bottom of the cylinder; right leg open
+  function drawManometer(s) {
+    const x = man.x, legGap = man.gap, tubeW = man.tube, base = 286, mid = 165;   // mid: level when Pg = 0
+    const scale = 0.16;                          // px per mm of Hg difference
+    const h_mm = s.Pg / (RHO_HG * G) * 1000;     // column difference, mm
+    let d = h_mm * scale / 2;                    // each leg moves half the difference
+    const lim = 112, off = Math.abs(d) > lim; d = Math.max(-lim, Math.min(lim, d));
+    const left = mid + d, right = mid - d;       // gas side pushed down when Pg > 0
+
+    // pipe from the bottom of the cylinder (always below the piston) over the
+    // top into the left leg, so the gas sits above the mercury on that side
+    const pipeY = cyl.bottom - 8, over = 26, bend = x - (narrow ? 8 : 14);
+    ctx.strokeStyle = "#a9a59c"; ctx.lineWidth = 6; ctx.lineCap = "butt"; ctx.lineJoin = "round";
+    ctx.beginPath(); ctx.moveTo(cyl.x + cyl.w, pipeY); ctx.lineTo(bend, pipeY);
+    ctx.lineTo(bend, over); ctx.lineTo(x + tubeW / 2, over); ctx.lineTo(x + tubeW / 2, 41); ctx.stroke();
+
+    // mercury
+    ctx.fillStyle = "#8e9aa6";
+    ctx.fillRect(x, left, tubeW, base - left);
+    ctx.fillRect(x + legGap, right, tubeW, base - right);
+    ctx.fillRect(x, base, legGap + tubeW, 14);
+
+    // gas above the mercury in the left leg (same tint as the cylinder)
+    ctx.fillStyle = "rgba(42,120,214,0.10)"; ctx.fillRect(x, 40, tubeW, left - 40);
+
+    // tube outline
+    ctx.strokeStyle = "#52514e"; ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(x, 40); ctx.lineTo(x + tubeW, 40);
+    ctx.moveTo(x, 40); ctx.lineTo(x, base + 14); ctx.lineTo(x + legGap + tubeW, base + 14);
+    ctx.lineTo(x + legGap + tubeW, 30);
+    ctx.moveTo(x + tubeW, 40); ctx.lineTo(x + tubeW, base); ctx.lineTo(x + legGap, base); ctx.lineTo(x + legGap, 30);
+    ctx.stroke();
+    ctx.fillStyle = "#78766f"; ctx.font = "12px system-ui, sans-serif"; ctx.textAlign = "center";
+    ctx.fillText("open", x + legGap + tubeW / 2, 22);
+
+    // height difference marker
+    const top = Math.min(left, right), bot = Math.max(left, right);
+    const mx = x + legGap + tubeW + (narrow ? 14 : 26);
+    ctx.strokeStyle = "#68246D"; ctx.fillStyle = "#68246D"; ctx.lineWidth = 1.2;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath(); ctx.moveTo(x, left); ctx.lineTo(mx + 6, left); ctx.moveTo(x + legGap, right); ctx.lineTo(mx + 6, right); ctx.stroke();
+    ctx.setLineDash([]);
+    if (bot - top > 6) {
+      ctx.beginPath(); ctx.moveTo(mx, top); ctx.lineTo(mx, bot); ctx.stroke();
+      arrow(mx, top, -1); arrow(mx, bot, 1);
+    }
+    ctx.textAlign = "left"; ctx.font = "600 13px system-ui, sans-serif";
+    const where = s.Pg >= 0 ? ["gas side lower:", "above atmospheric"] : ["gas side higher:", "below atmospheric"];
+    if (!narrow) {
+      const ty = (top + bot) / 2;
+      ctx.fillText("h = " + fmt(Math.abs(h_mm), 0) + " mm Hg", mx + 10, ty - 6);
+      ctx.font = "12px system-ui, sans-serif"; ctx.fillStyle = "#78766f";
+      if (off) ctx.fillText("(off scale)", mx + 10, ty + 10);
+      ctx.fillText(where[0], mx + 10, ty + (off ? 26 : 12));
+      ctx.fillText(where[1], mx + 10, ty + (off ? 41 : 27));
+      ctx.textAlign = "center";
+      ctx.fillText("mercury manometer", x + (legGap + tubeW) / 2, base + 34);
+    } else {
+      // under the drawing, centred, so nothing runs off a phone screen
+      ctx.textAlign = "center";
+      ctx.fillText("mercury manometer: h = " + fmt(Math.abs(h_mm), 0) + " mm Hg" + (off ? " (off scale)" : ""), W / 2, base + 50);
+      ctx.font = "12px system-ui, sans-serif"; ctx.fillStyle = "#78766f";
+      ctx.fillText(where[0] + " " + where[1], W / 2, base + 68);
+    }
+  }
+  function arrow(x, y, dir) {
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 4, y - 7 * dir); ctx.lineTo(x + 4, y - 7 * dir); ctx.closePath(); ctx.fill();
+  }
+
+  // ------------------------------------------------------------ readout --
+  function update() {
+    const s = state();
+    $("mOut").textContent = fmt(s.m, 2);
+    $("tOut").textContent = fmt(s.T, 0);
+    $("tC").textContent = "(" + fmt(s.T - 273.15, 0) + " °C)";
+    $("vOut").textContent = fmt(s.V, 2);
+    $("eq").innerHTML =
+      "<i>P</i> = <i>mRT</i>/<i>V</i> = (" + fmt(s.m / 1000, 5) + " kg)(" + fmt(gas.R, gas.R < 1000 ? 1 : 0) +
+      " J/(kg K))(" + fmt(s.T, 0) + " K) / (" + fmt(s.V / 1000, 5) + " m³)<br>= <b>" + fmt(s.P / 1000, 1) + " kPa</b>";
+    $("pAbs").innerHTML = fmt(s.P / 1000, 1) + " <small>kPa</small>";
+    $("pGauge").innerHTML = (s.Pg >= 0 ? "+" : "−") + fmt(Math.abs(s.Pg) / 1000, 1) + " <small>kPa</small>";
+    $("pGauge").style.color = s.Pg >= 0 ? "#0b0b0b" : "#be1e2d";
+    let note;
+    if (Math.abs(s.Pg) < 1500) note = "The gas is at about atmospheric pressure, so the gauge reads <b>almost zero</b>, although the absolute pressure is about 101 kPa.";
+    else if (s.Pg < 0) note = "The gauge pressure is <b>negative</b>: the gas is below atmospheric pressure (a partial vacuum), and the mercury is pushed up on the gas side.";
+    else note = "<i>P</i><sub>abs</sub> = <i>P</i><sub>gauge</sub> + <i>P</i><sub>atm</sub>. Only the absolute pressure goes into the ideal-gas equation.";
+    $("note").innerHTML = note;
+    return s;
+  }
+
+  // --------------------------------------------------------------- wire --
+  for (const el of [mS, tS, vS]) el.addEventListener("input", update);
+  document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    gas = GAS[b.dataset.gas];
+    // start each gas near atmospheric pressure at the current T and V
+    mS.value = Math.max(0.05, Math.min(3, PATM * (+vS.value) / (gas.R * (+tS.value)))).toFixed(2);
+    mols = [];
+    update();
+  }));
+
+  // tell the page embedding this widget how tall it is, so its frame fits
+  function postHeight() {
+    try { parent.postMessage({ widgetHeight: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+  }
+  window.addEventListener("load", postHeight);
+  window.addEventListener("resize", postHeight);
+
+  layout();
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    draw(state(), dt);
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  update();
+  draw(state(), 0);
+  if (!reduce) requestAnimationFrame(frame);
+  else for (const el of [mS, tS, vS]) el.addEventListener("input", () => draw(state(), 0));
+})();
+</script>
+</body>
+</html>
