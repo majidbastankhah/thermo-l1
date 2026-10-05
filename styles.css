@@ -52,6 +52,12 @@ h2 { border-bottom: 2px solid var(--du-purple); padding-bottom: 0.2em; }
                    border: 0; border-left: 5px solid #e08a00; border-radius: 0; }
 .tbox-tryfirst > .box-label { color: #b86f00; }
 
+/* --- problem difficulty (filters/difficulty.lua) ------------------------ */
+.difficulty   { letter-spacing: 0.08em; font-size: 0.95em; cursor: help; }
+.difficulty-1 { color: #1b7a57; }
+.difficulty-2 { color: #c77700; }
+.difficulty-3 { color: #be1e2d; }
+
 /* --- gaps ---------------------------------------------------------------- */
 .gap-blank {
   border: 1.5px dashed color-mix(in srgb, var(--du-purple) 40%, transparent);

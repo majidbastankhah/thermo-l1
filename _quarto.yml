@@ -42,6 +42,7 @@ format:
 filters:
   - filters/gaps.lua
   - filters/boxes.lua
+  - filters/difficulty.lua
   - filters/figext.lua
   - filters/wrapfig.lua
 

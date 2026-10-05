@@ -47,8 +47,8 @@ engineering mechanics. By the end of the course, you should be able to:
     gaps are left blank, so you can bring it and fill them in as we go.
   - **Completed notes.** Everything uncovered, including the worked solutions
     to the end-of-chapter problems.
-- **End-of-chapter problems** at the end of each chapter, marked **[easy]**,
-  **[medium]** or **[hard]**. The PDF with gaps leaves a page for your working
+- **End-of-chapter problems** at the end of each chapter, marked with one to
+  three stars for how challenging they are. The PDF with gaps leaves a page for your working
   after each one; on the website, each solution stays covered until you
   choose to open it.
 - **Lecture recordings** after each session.

@@ -142,6 +142,13 @@
   before skip=8pt, after skip=12pt
 }
 
+% problem difficulty, from filters/difficulty.lua: 1 green, 2 amber, 3 red stars
+\newcommand{\difficulty}[1]{%
+  \ifcase#1\or
+    \textcolor{duGreen}{\ensuremath{\bigstar}}\or
+    \textcolor{duAmber}{\ensuremath{\bigstar\bigstar}}\or
+    \textcolor{duRed}{\ensuremath{\bigstar\bigstar\bigstar}}\fi}
+
 % labels used by filters/boxes.lua
 \newcommand{\boxlabel}[1]{{\bfseries\color{duPurple}#1}\quad}
 

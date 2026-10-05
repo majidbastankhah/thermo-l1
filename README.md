@@ -137,7 +137,9 @@ completed notes and PDFs show all three, labelled. The PDF with gaps shows
 none of them, just a blank page for working.
 
 It is not called `.solution` because Quarto has a built-in environment of that
-name, which takes the block over before the filter can drop it. All problems go in the End-of-chapter problems section, sorted easy to hard;
+name, which takes the block over before the filter can drop it. Write each problem as `**P3.2 [medium].** ...`: `filters/difficulty.lua`
+shows the tag as stars (one green, two amber, three red), so students never
+see the words easy/medium/hard. All problems go in the End-of-chapter problems section, sorted easy to hard;
 only the examples of the notes are in the body.
 
 Examples are numbered automatically per chapter (Example 3.1, 3.2, ...) in
@@ -241,6 +243,7 @@ js/qrcode.js                 QR code generator for the live-questions address
 js/katex/                    self-hosted maths renderer (no CDN in the lecture theatre)
 filters/gaps.lua             reveal / student / complete / lecturer, and solution visibility
 filters/boxes.lua            ::: {.note} etc. -> LaTeX environment or styled div; example numbering
+filters/difficulty.lua       [easy]/[medium]/[hard] -> one/two/three coloured stars
 filters/figext.lua           .svg -> .pdf for the print build
 filters/wrapfig.lua          {.wrap} images float beside the text
 figures/tikz/                line drawings, source
