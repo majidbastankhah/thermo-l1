@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From sudden to quasi-equilibrium</title>
+<!-- CH3 "Explore it yourself": an isothermal ideal-gas expansion (or
+     compression) done in N steps by removing (adding) equal masses on the
+     piston. The P-V staircase approaches the reversible curve, and the work
+     approaches the reversible work, as N grows. Self-contained; one light theme. -->
+<style>
+  :root {
+    color-scheme: light;
+    --surface-0: #ffffff; --surface-1: #fcfcfb; --surface-2: #f4f3f0;
+    --border: #dedcd6; --text-1: #0b0b0b; --text-2: #52514e; --text-3: #78766f;
+    --accent: #68246D; --rev: #2a78d6; --steps: #eb6834; --fill: rgba(235,104,52,0.16);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 16px; background: var(--surface-0); color: var(--text-1);
+         font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  h1 { font-size: 1.05rem; margin: 0 0 2px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-2); font-size: 0.86rem; margin: 0 0 14px; }
+  .panel { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+  .tab, .btn { font: inherit; font-size: 0.83rem; cursor: pointer; padding: 5px 12px; border-radius: 999px;
+               border: 1px solid var(--border); background: var(--surface-1); color: var(--text-2); }
+  .tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn { border-radius: 7px; background: var(--surface-2); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .tab:focus-visible, .btn:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .nlab { font-size: 0.83rem; color: var(--text-2); flex: 1 1 220px; }
+  .nlab output { font-weight: 650; color: var(--text-1); font-variant-numeric: tabular-nums; }
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+  .figs { display: grid; grid-template-columns: 1fr; gap: 8px; }
+  #cyl { max-width: 190px; margin: 0 auto; }
+  @media (min-width: 600px) { .figs { grid-template-columns: 0.42fr 1fr; align-items: end; } #cyl { max-width: none; } }
+  svg { display: block; width: 100%; height: auto; }
+  .axis { stroke: var(--text-3); stroke-width: 1.2; fill: none; }
+  .grid { stroke: var(--border); stroke-width: 1; }
+  .tick { fill: var(--text-3); font-size: 12.5px; }
+  .axlab { fill: var(--text-2); font-size: 13px; }
+  .lbl { font-size: 13px; font-weight: 600; }
+
+  .readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+             border-top: 1px solid var(--border); margin-top: 10px; padding-top: 10px; }
+  .cell .k { font-size: 0.74rem; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.04em; }
+  .cell .v { font-size: 1.35rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .cell .v small { font-size: 0.85rem; font-weight: 500; color: var(--text-2); }
+  .bar { height: 8px; border-radius: 4px; background: var(--surface-2); margin-top: 4px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--steps); }
+  .note { font-size: 0.82rem; color: var(--text-2); margin: 10px 2px 0; min-height: 3.9em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>From a sudden to a quasi-equilibrium process</h1>
+  <p class="sub">An ideal gas, kept at constant temperature, expands from 4 bar
+  and 1 litre to 1 bar and 4 litres. The masses on the piston come off in
+  <i>N</i> equal steps. With more, smaller steps, the process gets closer to
+  quasi-equilibrium.</p>
+
+  <div class="panel">
+    <div class="row" role="group" aria-label="Process">
+      <button class="tab" data-mode="exp" aria-pressed="true">Expansion (remove masses)</button>
+      <button class="tab" data-mode="comp" aria-pressed="false">Compression (add masses)</button>
+    </div>
+    <div class="row">
+      <label class="nlab">Number of steps, <i>N</i> = <output id="nOut">4</output>
+        <input id="n" type="range" min="1" max="50" step="1" value="4">
+      </label>
+      <button class="btn primary" id="play">&#9654; Play</button>
+      <button class="btn" id="end">Show all steps</button>
+    </div>
+
+    <div class="figs">
+      <svg id="cyl" viewBox="0 0 220 300" role="img" aria-label="Piston-cylinder with a stack of masses"></svg>
+      <svg id="pv" viewBox="0 0 480 300" role="img" aria-label="P-V diagram with the reversible isotherm and the stepped path"></svg>
+    </div>
+
+    <div class="readout">
+      <div class="cell"><div class="k" id="kStep">Work, N steps</div><div class="v" id="wN"></div>
+        <div class="bar"><i id="barN"></i></div></div>
+      <div class="cell"><div class="k">Reversible work</div><div class="v" id="wRev"></div>
+        <div class="bar"><i style="width:100%; background: var(--rev)"></i></div></div>
+      <div class="cell"><div class="k" id="kRatio">Fraction of reversible</div><div class="v" id="ratio"></div></div>
+    </div>
+    <p class="note" id="note"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  // isothermal ideal gas: P V = C. Units: bar and litres; 1 bar.L = 100 J
+  const P1 = 4, V1 = 1, P2 = 1, V2 = 4, C = P1 * V1;
+  const W_REV = 100 * C * Math.log(V2 / V1);            // magnitude, J
+  let mode = "exp", N = 4;
+  let shown = 0;          // steps drawn so far (may be fractional while animating)
+  let anim = null;
+
+  const $ = id => document.getElementById(id);
+  const NS = "http://www.w3.org/2000/svg";
+  const fmt = (x, d) => x.toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d });
+  function el(tag, attrs, parent, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  // the external-pressure levels: equal mass steps = equal pressure steps
+  function levels() {
+    const out = [];
+    for (let i = 1; i <= N; i++) {
+      out.push(mode === "exp" ? P1 - (P1 - P2) * i / N : P2 + (P1 - P2) * i / N);
+    }
+    return out;              // P_ext during step i (1..N)
+  }
+  // the path as a list of points: start, then for each step a pressure jump
+  // at constant V, then a constant-P_ext move to the new equilibrium volume
+  function path() {
+    const L = levels();
+    let V = mode === "exp" ? V1 : V2, P = mode === "exp" ? P1 : P2;
+    const pts = [[V, P]];
+    for (const Pe of L) { pts.push([V, Pe]); V = C / Pe; pts.push([V, Pe]); P = Pe; }
+    return pts;
+  }
+  function workN() {         // magnitude of the boundary work, J
+    const L = levels();
+    let V = mode === "exp" ? V1 : V2, w = 0;
+    for (const Pe of L) { const Vn = C / Pe; w += Pe * Math.abs(Vn - V); V = Vn; }
+    return 100 * w;
+  }
+
+  // ------------------------------------------------------------ P-V plot --
+  const pv = $("pv");
+  const X0 = 52, X1 = 460, Y0 = 262, Y1 = 22;
+  const vx = V => X0 + (V - 0) / (4.5 - 0) * (X1 - X0);
+  const py = P => Y0 - (P - 0) / (4.5 - 0) * (Y0 - Y1);
+
+  function drawPV() {
+    pv.innerHTML = "";
+    for (let p = 1; p <= 4; p++) el("line", { x1: X0, x2: X1, y1: py(p), y2: py(p), class: "grid" }, pv);
+    for (let v = 1; v <= 4; v++) el("line", { y1: Y0, y2: Y1, x1: vx(v), x2: vx(v), class: "grid" }, pv);
+    el("path", { d: `M${X0},${Y1} V${Y0} H${X1}`, class: "axis" }, pv);
+    for (let p = 0; p <= 4; p++) el("text", { x: X0 - 8, y: py(p) + 4, "text-anchor": "end", class: "tick" }, pv, p);
+    for (let v = 0; v <= 4; v++) el("text", { x: vx(v), y: Y0 + 16, "text-anchor": "middle", class: "tick" }, pv, v);
+    el("text", { x: X0 - 34, y: Y1 + 8, class: "axlab" }, pv, "P (bar)");
+    el("text", { x: X1, y: Y0 + 34, "text-anchor": "end", class: "axlab" }, pv, "V (litres)");
+
+    // the stepped path drawn so far, and the area under it (the work)
+    const pts = path();
+    const k = Math.floor(shown), frac = shown - k;
+    const done = pts.slice(0, 1 + 2 * k);
+    if (k < N && frac > 0) {                 // the step in progress
+      const [vs, ps] = pts[2 * k], [, pe] = pts[2 * k + 1], [ve] = pts[2 * k + 2];
+      const f1 = Math.min(1, frac / 0.3), f2 = Math.max(0, (frac - 0.3) / 0.7);
+      done.push([vs, ps + (pe - ps) * f1]);
+      if (f2 > 0) done.push([vs + (ve - vs) * f2, pe]);
+    }
+    if (done.length > 1) {
+      let a = `M${vx(done[0][0])},${py(0)}`;
+      for (const [v, p] of done) a += ` L${vx(v)},${py(p)}`;
+      a += ` L${vx(done[done.length - 1][0])},${py(0)} Z`;
+      // under the constant-P_ext segments only: the vertical jumps do no work
+      el("path", { d: areaUnder(done), fill: "rgba(235,104,52,0.16)", stroke: "none" }, pv);
+    }
+
+    // reversible isotherm
+    let d = "";
+    for (let i = 0; i <= 80; i++) { const v = V1 + (V2 - V1) * i / 80; d += (i ? " L" : "M") + vx(v) + "," + py(C / v); }
+    el("path", { d, fill: "none", stroke: "#2a78d6", "stroke-width": 2.2 }, pv);
+    el("text", { x: vx(1.45), y: py(3.45), class: "lbl", fill: "#2a78d6" }, pv, "reversible: PV = const");
+
+    if (done.length > 1) {
+      let s = "";
+      done.forEach(([v, p], i) => { s += (i ? " L" : "M") + vx(v) + "," + py(p); });
+      el("path", { d: s, fill: "none", stroke: "#eb6834", "stroke-width": 2.2, "stroke-linejoin": "round" }, pv);
+    }
+    // end states
+    for (const [v, p, t] of [[V1, P1, "1"], [V2, P2, "2"]]) {
+      el("circle", { cx: vx(v), cy: py(p), r: 4, fill: "#0b0b0b" }, pv);
+      el("text", { x: vx(v) + 8, y: py(p) - 8, class: "lbl", fill: "#0b0b0b" }, pv, t);
+    }
+    el("text", { x: vx(3.95), y: py(0.45), "text-anchor": "end", class: "lbl", fill: "#c4531f" }, pv,
+       "shaded area = |W|, " + N + (N === 1 ? " step" : " steps"));
+  }
+  function areaUnder(pts) {
+    // union of rectangles under each horizontal segment
+    let d = "";
+    for (let i = 1; i < pts.length; i++) {
+      const [va, pa] = pts[i - 1], [vb, pb] = pts[i];
+      if (Math.abs(pa - pb) < 1e-9 && Math.abs(va - vb) > 1e-9) {
+        const xa = vx(Math.min(va, vb)), xb = vx(Math.max(va, vb));
+        d += `M${xa},${py(0)} V${py(pa)} H${xb} V${py(0)} Z `;
+      }
+    }
+    return d || "M0,0";
+  }
+
+  // ---------------------------------------------------------- cylinder --
+  const cyl = $("cyl");
+  function drawCyl() {
+    cyl.innerHTML = "";
+    const L = levels();
+    // current external pressure and volume, part-way through a step if animating:
+    // first the masses change (P_ext jumps), then the piston moves at that P_ext
+    const startP = mode === "exp" ? P1 : P2, startV = mode === "exp" ? V1 : V2;
+    let Pe, V;
+    if (shown >= N) { Pe = L[N - 1]; V = C / Pe; }
+    else {
+      const k = Math.floor(shown), frac = shown - k;
+      const Pprev = k === 0 ? startP : L[k - 1], Vprev = k === 0 ? startV : C / L[k - 1];
+      const f2 = Math.max(0, (frac - 0.3) / 0.7);
+      Pe = frac > 0.15 ? L[k] : Pprev;
+      V = Vprev + (C / L[k] - Vprev) * f2;
+    }
+    const x = 40, w = 140, bottom = 285;
+    const hGas = 26 + (V - 1) / 3 * 150;          // gas height from V
+    const top = bottom - hGas;
+    // gas
+    el("rect", { x, y: top, width: w, height: hGas, fill: "rgba(42,120,214,0.12)" }, cyl);
+    for (let i = 0; i < 22; i++) {
+      const gx = x + 8 + ((i * 53) % (w - 16)), gy = top + 6 + ((i * 37) % Math.max(8, hGas - 12));
+      el("circle", { cx: gx, cy: gy, r: 2.4, fill: "#2a78d6" }, cyl);
+    }
+    // piston
+    el("rect", { x: x + 1, y: top - 12, width: w - 2, height: 12, fill: "#c9c6bf", stroke: "#78766f" }, cyl);
+    // the stack of masses: height in proportion to P_ext - P2 (the piston and the
+    // atmosphere alone give P2), in N equal slices
+    const stackH = (Pe - P2) / (P1 - P2) * 90;
+    const nSlices = Math.round((Pe - P2) / (P1 - P2) * N);
+    if (nSlices > 0) {
+      const sh = stackH / nSlices;
+      for (let i = 0; i < nSlices; i++) {
+        el("rect", { x: x + 22, y: top - 12 - (i + 1) * sh, width: w - 44, height: Math.max(0.6, sh - (sh > 3 ? 1 : 0)),
+                     fill: i % 2 ? "#8e9aa6" : "#a7b1bb" }, cyl);
+      }
+    }
+    // walls
+    el("path", { d: `M${x},${10} V${bottom} H${x + w} V${10}`, fill: "none", stroke: "#52514e", "stroke-width": 3 }, cyl);
+    // heat bath
+    el("rect", { x: x - 8, y: bottom + 2, width: w + 16, height: 10, fill: "rgba(235,104,52,0.25)" }, cyl);
+    el("text", { x: x + w / 2, y: bottom + 11, "text-anchor": "middle", class: "tick", fill: "#52514e" }, cyl, "constant T");
+    el("text", { x: x + w / 2, y: 22, "text-anchor": "middle", class: "lbl", fill: "#0b0b0b" }, cyl,
+       "P_ext = " + fmt(Pe, 2) + " bar");
+  }
+
+  // ----------------------------------------------------------- readout --
+  function update() {
+    $("nOut").textContent = N;
+    const wn = workN(), r = wn / W_REV;
+    $("wN").innerHTML = fmt(wn, 0) + " <small>J</small>";
+    $("wRev").innerHTML = fmt(W_REV, 0) + " <small>J</small>";
+    $("ratio").innerHTML = fmt(100 * r, 0) + " <small>%</small>";
+    $("barN").style.width = Math.min(100, 100 * r / (mode === "exp" ? 1 : 2.2)) + "%";
+    $("kStep").textContent = (mode === "exp" ? "|W| by the gas, " : "W on the gas, ") + N + (N === 1 ? " step" : " steps");
+    let note;
+    if (mode === "exp") {
+      note = N === 1
+        ? "In one sudden step the gas expands against the lowest external pressure, 1 bar, the whole way: it does the least work. (With no masses and no piston at all, it would be a free expansion: W = 0.)"
+        : "During each step the gas pushes against a pressure lower than its own, so it does less work than in the reversible process. More, smaller steps: the staircase hugs the curve and |W| approaches the reversible work.";
+    } else {
+      note = N === 1
+        ? "In one sudden step the full 4 bar acts on the gas from the start, so far more work is needed than in the reversible compression."
+        : "In each step the external pressure is higher than the gas pressure, so more work is needed than in the reversible process. With more, smaller steps the extra work shrinks towards zero.";
+    }
+    $("note").textContent = note + " By our sign convention, W < 0 for the expansion and W > 0 for the compression.";
+  }
+  function redraw() { drawPV(); drawCyl(); }
+
+  // -------------------------------------------------------------- wire --
+  function stop() { if (anim) cancelAnimationFrame(anim); anim = null; $("play").innerHTML = "&#9654; Play"; }
+  function play() {
+    stop();
+    shown = 0; redraw();
+    const per = Math.max(120, Math.min(700, 6000 / N));     // ms per step
+    let t0 = null;
+    $("play").innerHTML = "&#9632; Stop";
+    function tick(now) {
+      if (t0 === null) t0 = now;
+      shown = Math.min(N, (now - t0) / per);
+      redraw();
+      if (shown < N) anim = requestAnimationFrame(tick); else stop();
+    }
+    anim = requestAnimationFrame(tick);
+  }
+  $("play").addEventListener("click", () => { anim ? stop() : play(); });
+  $("end").addEventListener("click", () => { stop(); shown = N; redraw(); });
+  $("n").addEventListener("input", e => { stop(); N = +e.target.value; shown = N; update(); redraw(); });
+  document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    mode = b.dataset.mode; stop(); shown = N; update(); redraw();
+  }));
+
+  // tell the page embedding this widget how tall it is, so its frame fits
+  function postHeight() {
+    try { parent.postMessage({ widgetHeight: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+  }
+  window.addEventListener("load", postHeight);
+  window.addEventListener("resize", postHeight);
+
+  shown = N; update(); redraw();
+})();
+</script>
+</body>
+</html>

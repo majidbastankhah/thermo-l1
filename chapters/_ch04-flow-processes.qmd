@@ -536,6 +536,30 @@ $$
 $$
 :::
 
+## Explore it yourself {#sec-ch4-explore}
+
+Every device in this chapter obeys the same steady-flow energy equation; what
+changes from one device to the next is which terms matter. Here air flows
+through a nozzle, a diffuser, a turbine, a compressor or a heat exchanger.
+
+::: {.content-visible when-format="html"}
+Pick a device and move the sliders. Watch which bars stay close to zero, and
+check that the two sides of the equation always balance. Why does the air
+cool down in a nozzle, even though no heat leaves it?
+
+```{=html}
+<iframe src="widgets/steady-flow.html" class="widget-frame"
+        title="Interactive steady-flow energy balance for nozzles, diffusers, turbines, compressors and heat exchangers" loading="lazy"></iframe>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+![A turbine with 5 kg/s of air entering at 1500 K and leaving at 850 K: the enthalpy drop of the flow leaves the control volume as shaft work, while heat transfer and the change in kinetic energy are negligible.](figures/img/ch4-steady-flow-widget.png){width=88%}
+
+The interactive version of this figure is on the course website: follow the
+*Explore it yourself* link in CH4.
+:::
+
 {{< pagebreak >}}
 
 ## End-of-chapter problems {#sec-ch4-problems}

@@ -749,6 +749,31 @@ the path in the $P$–$V$ diagram: $|W_{n=0}| > |W_{n=1}| > |W_{n=1.5}|$.
 :::
 :::
 
+## Explore it yourself {#sec-ch3-explore}
+
+A quasi-equilibrium process is the limit of doing a process in more and more,
+smaller and smaller steps. Here an ideal gas, kept at constant temperature,
+expands as the masses on its piston are removed in $N$ equal steps.
+
+::: {.content-visible when-format="html"}
+Choose the number of steps and press *Play*. Compare the work done in $N$
+steps with the reversible work, $W_\text{rev} = -\int P\,\mathrm{d}V$, and
+then switch to compression. Is it possible to beat the reversible work in
+either direction?
+
+```{=html}
+<iframe src="widgets/quasi-equilibrium.html" class="widget-frame"
+        title="Interactive expansion and compression in N steps, approaching quasi-equilibrium" loading="lazy"></iframe>
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+![An isothermal expansion from 4 bar and 1 litre to 1 bar and 4 litres, done in four equal steps: the stepped path lies below the reversible curve, so the gas does less work than in the reversible process.](figures/img/ch3-quasi-equilibrium-widget.png){width=88%}
+
+The interactive version of this figure is on the course website: follow the
+*Explore it yourself* link in CH3.
+:::
+
 {{< pagebreak >}}
 
 ## End-of-chapter problems {#sec-ch3-problems}

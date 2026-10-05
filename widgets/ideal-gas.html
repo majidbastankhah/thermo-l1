@@ -199,9 +199,10 @@
     ctx.fillStyle = `rgba(${Math.round(42 + 193 * warm)},${Math.round(120 - 16 * warm)},${Math.round(214 - 162 * warm)},0.09)`;
     ctx.fillRect(cyl.x, py + 10, cyl.w, cyl.bottom - py - 10);
 
-    // molecules: speed ~ sqrt(T/M)
+    // molecules: faster when hotter and lighter (the effect of T is exaggerated, to be seen)
     syncMolecules(box);
-    const speed = 26 * Math.sqrt(s.T / gas.M) * (reduce ? 0 : 1);
+    const speed = Math.min(480, 80 * Math.pow(s.T / 293, 1.2) * Math.sqrt(28.97 / gas.M)) * (reduce ? 0 : 1);
+    ctx.save(); ctx.beginPath(); ctx.rect(box.x0 - 3, box.y0 - 3, box.x1 - box.x0 + 6, box.y1 - box.y0 + 6); ctx.clip();
     ctx.fillStyle = gas.col;
     for (const p of mols) {
       p.x += p.dx * speed * dt; p.y += p.dy * speed * dt;
@@ -209,8 +210,14 @@
       if (p.x > box.x1) { p.x = box.x1; p.dx = -Math.abs(p.dx); }
       if (p.y < box.y0) { p.y = box.y0; p.dy = Math.abs(p.dy); }
       if (p.y > box.y1) { p.y = box.y1; p.dy = -Math.abs(p.dy); }
+      // a short trail behind each molecule, longer when it moves faster
+      const tl = Math.min(16, speed * 0.05);
+      ctx.globalAlpha = 0.35; ctx.strokeStyle = gas.col; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x - p.dx * tl, p.y - p.dy * tl); ctx.stroke();
+      ctx.globalAlpha = 1;
       ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, Math.PI * 2); ctx.fill();
     }
+    ctx.restore();
 
     // cylinder walls
     ctx.strokeStyle = "#52514e"; ctx.lineWidth = 3;

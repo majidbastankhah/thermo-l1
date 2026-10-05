@@ -190,6 +190,10 @@ scroll bar on a phone. Widgets use one light theme, like the notes.
 |:--|:--|
 | `widgets/ideal-gas.html` | CH1: ideal gas in a piston-cylinder, absolute vs gauge pressure, mercury manometer |
 | `widgets/pv-explorer.html` | CH2: work as the area under the path, polytropic family |
+| `widgets/quasi-equilibrium.html` | CH3: expansion/compression in N steps approaching the reversible process |
+| `widgets/steady-flow.html` | CH4: steady-flow energy balance for nozzles, diffusers, turbines, compressors and heat exchangers |
+| `widgets/cyclic-devices.html` | CH5: energy flows in heat engines, refrigerators and heat pumps; Kelvin–Planck and Clausius violations |
+| `widgets/carnot-cycle.html` | CH6: Carnot cycle on the P–v and T–s diagrams, reversed cycle, η and COPs |
 
 ## Building locally
 

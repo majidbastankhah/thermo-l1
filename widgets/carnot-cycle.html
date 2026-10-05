@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Carnot cycle</title>
+<!-- CH6 "Explore it yourself": a Carnot cycle on the P-v and T-s diagrams,
+     for 1 kg of helium treated as an ideal gas (R = 2.077 kJ/(kg K),
+     gamma = 5/3). States numbered as in the notes: 1-2 isentropic compression,
+     2-3 isothermal at T_H (heat in), 3-4 isentropic expansion, 4-1 isothermal
+     at T_C (heat out). Self-contained; one light theme. -->
+<style>
+  :root {
+    color-scheme: light;
+    --surface-0: #ffffff; --surface-1: #fcfcfb; --surface-2: #f4f3f0;
+    --border: #dedcd6; --text-1: #0b0b0b; --text-2: #52514e; --text-3: #78766f;
+    --accent: #68246D; --hot: #d8432c; --cold: #2a78d6;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 16px; background: var(--surface-0); color: var(--text-1);
+         font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  h1 { font-size: 1.05rem; margin: 0 0 2px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-2); font-size: 0.86rem; margin: 0 0 14px; }
+  .panel { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+  .top { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+  .tab, .btn { font: inherit; font-size: 0.83rem; cursor: pointer; padding: 5px 12px; border-radius: 999px;
+         border: 1px solid var(--border); background: var(--surface-1); color: var(--text-2); }
+  .tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn { margin-left: auto; color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  .tab:focus-visible, .btn:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .sliders { display: grid; grid-template-columns: 1fr; gap: 6px; margin: 2px 0 8px; }
+  @media (min-width: 620px) { .sliders { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
+  .sliders > div { display: flex; flex-direction: column; justify-content: flex-end; }
+  .sliders label { display: block; font-size: 0.8rem; color: var(--text-2); }
+  .sliders output { font-weight: 650; color: var(--text-1); font-variant-numeric: tabular-nums; }
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+  .plots { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  @media (min-width: 620px) { .plots { grid-template-columns: 1fr 1fr; } }
+  canvas { display: block; width: 100%; height: auto; border-radius: 8px; background: var(--surface-0); }
+  .caption { font-size: 0.86rem; margin: 8px 2px 0; min-height: 2.7em; color: var(--text-1); }
+  .caption b { color: var(--accent); }
+  .readout { display: grid; grid-template-columns: 1fr; gap: 8px; border-top: 1px solid var(--border);
+             margin-top: 8px; padding-top: 8px; }
+  @media (min-width: 620px) { .readout { grid-template-columns: 1.25fr 1fr; } }
+  .k { font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
+  .eq { font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+  .big { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .big small { font-size: 0.85rem; font-weight: 400; color: var(--text-2); }
+  .note { font-size: 0.83rem; color: var(--text-2); margin: 8px 2px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>The Carnot cycle</h1>
+  <p class="sub">Two reversible isothermal and two reversible adiabatic (isentropic)
+  processes, here for 1 kg of helium treated as an ideal gas. The same cycle is
+  drawn on the P–v and the T–s diagrams. Press <i>Play</i> to follow the state
+  around the cycle.</p>
+
+  <div class="panel">
+    <div class="top">
+      <div class="tabs" role="group" aria-label="Direction">
+        <button class="tab" data-dir="engine" aria-pressed="true">Heat engine</button>
+        <button class="tab" data-dir="reverse" aria-pressed="false">Reversed: refrigerator or heat pump</button>
+      </div>
+      <button class="btn" id="play" aria-pressed="false">Play</button>
+    </div>
+    <div class="sliders">
+      <div><label for="th">Hot reservoir, T<sub>H</sub> = <output id="thO"></output> K</label>
+        <input id="th" type="range" min="400" max="1200" step="10" value="800"></div>
+      <div><label for="tc">Cold reservoir, T<sub>C</sub> = <output id="tcO"></output> K</label>
+        <input id="tc" type="range" min="200" max="800" step="10" value="300"></div>
+      <div><label for="r">Isothermal volume ratio, v<sub>3</sub>/v<sub>2</sub> = <output id="rO"></output></label>
+        <input id="r" type="range" min="1.5" max="5" step="0.1" value="3"></div>
+    </div>
+    <div class="plots">
+      <canvas id="pv" width="380" height="320" aria-label="Carnot cycle on a P-v diagram"></canvas>
+      <canvas id="ts" width="380" height="320" aria-label="Carnot cycle on a T-s diagram"></canvas>
+    </div>
+    <p class="caption" id="cap"></p>
+    <div class="readout">
+      <div>
+        <div class="k">Heat and work per kg (areas on the T–s diagram)</div>
+        <div class="eq" id="bal"></div>
+      </div>
+      <div>
+        <div class="k" id="perfK"></div>
+        <div class="big" id="perf"></div>
+      </div>
+    </div>
+    <p class="note" id="note"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const fmt = (x, d) => x.toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const R = 2.077, G = 5 / 3;          // helium: kJ/(kg K), ratio of specific heats
+  const S1 = 0.6;                       // where state 1 sits on the (relative) s axis
+  const COL = { hot: "#d8432c", cold: "#2a78d6", w: "#68246D", ink: "#52514e", faint: "#a9a59c" };
+
+  let dir = "engine", playing = false, t = 0;      // t in [0, 4): which process, and how far along
+  let C = null;                                     // current cycle
+
+  function cycle() {
+    const TH = +$("th").value, TC = +$("tc").value, r = +$("r").value;
+    const v1 = R * TC / 100;                         // state 1 at 100 kPa
+    const v2 = v1 * Math.pow(TC / TH, 1 / (G - 1));  // isentropic 1-2: T v^(G-1) = const
+    const v3 = r * v2, v4 = r * v1;
+    const ds = R * Math.log(r);
+    return { TH, TC, r, v1, v2, v3, v4, ds, QH: TH * ds, QC: TC * ds, W: (TH - TC) * ds };
+  }
+  // state along the cycle, k = 0..3 for 1-2, 2-3, 3-4, 4-1, f = 0..1
+  function stateAt(k, f) {
+    const c = C;
+    if (k === 0) { const T = c.TC + f * (c.TH - c.TC); return { T, v: c.v1 * Math.pow(c.TC / T, 1 / (G - 1)), s: S1 }; }
+    if (k === 1) return { T: c.TH, v: c.v2 * Math.pow(c.r, f), s: S1 + f * c.ds };
+    if (k === 2) { const T = c.TH - f * (c.TH - c.TC); return { T, v: c.v3 * Math.pow(c.TH / T, 1 / (G - 1)), s: S1 + c.ds }; }
+    return { T: c.TC, v: c.v4 / Math.pow(c.r, f), s: S1 + c.ds * (1 - f) };
+  }
+  const P = st => R * st.T / st.v;                  // kPa
+
+  // ------------------------------------------------------------ update --
+  function update(src) {
+    const th = $("th"), tc = $("tc");
+    if (+tc.value > +th.value - 50) {                // keep T_C below T_H
+      if (src === "tc") th.value = Math.min(1200, +tc.value + 50);
+      if (+tc.value > +th.value - 50) tc.value = +th.value - 50;
+    }
+    C = cycle();
+    $("thO").textContent = fmt(C.TH, 0); $("tcO").textContent = fmt(C.TC, 0); $("rO").textContent = fmt(C.r, 1);
+    $("bal").innerHTML =
+      "Δs = R ln(v<sub>3</sub>/v<sub>2</sub>) = " + fmt(C.ds, 3) + " kJ/(kg K)<br>" +
+      "|Q<sub>H</sub>| = T<sub>H</sub>Δs = <b>" + fmt(C.QH, 0) + "</b>, " +
+      "|Q<sub>C</sub>| = T<sub>C</sub>Δs = <b>" + fmt(C.QC, 0) + "</b>, " +
+      "|W| = <b>" + fmt(C.W, 0) + "</b> kJ/kg";
+    if (dir === "engine") {
+      $("perfK").innerHTML = "η<sub>rev</sub> = 1 − T<sub>C</sub>/T<sub>H</sub>";
+      $("perf").innerHTML = fmt(1 - C.TC / C.TH, 3) + " <small>(" + fmt(100 * (1 - C.TC / C.TH), 1) + "%)</small>";
+      $("note").innerHTML = "Raise T<sub>H</sub> or lower T<sub>C</sub> and η<sub>rev</sub> goes up. A larger volume ratio gives more work per cycle, but the same η<sub>rev</sub>: the rectangle on the T–s diagram gets wider, but the share of |Q<sub>H</sub>| that becomes work does not change.";
+    } else {
+      $("perfK").innerHTML = "β<sub>rev</sub> = T<sub>C</sub>/(T<sub>H</sub> − T<sub>C</sub>), &nbsp;β′<sub>rev</sub> = T<sub>H</sub>/(T<sub>H</sub> − T<sub>C</sub>)";
+      $("perf").innerHTML = fmt(C.TC / (C.TH - C.TC), 2) + " <small>and</small> " + fmt(C.TH / (C.TH - C.TC), 2);
+      $("note").innerHTML = "Run backwards, every process is reversed: heat is taken in from the cold reservoir at T<sub>C</sub> and rejected to the hot one at T<sub>H</sub>, and the work goes in. Bring T<sub>C</sub> close to T<sub>H</sub> and the COPs grow without limit.";
+    }
+    caption(true); postHeight();
+  }
+
+  const PROC = {
+    engine: [
+      s => "<b>1–2</b> reversible adiabatic (isentropic) compression: Q = 0, and T rises from T<sub>C</sub> to T<sub>H</sub>.",
+      s => "<b>2–3</b> reversible isothermal expansion at T<sub>H</sub>: heat |Q<sub>H</sub>| = " + fmt(C.QH, 0) + " kJ/kg is added from the hot reservoir.",
+      s => "<b>3–4</b> reversible adiabatic (isentropic) expansion: Q = 0, and T falls from T<sub>H</sub> to T<sub>C</sub>.",
+      s => "<b>4–1</b> reversible isothermal compression at T<sub>C</sub>: heat |Q<sub>C</sub>| = " + fmt(C.QC, 0) + " kJ/kg is rejected to the cold reservoir.",
+    ],
+    reverse: [
+      s => "<b>1–4</b> reversible isothermal expansion at T<sub>C</sub>: heat |Q<sub>C</sub>| = " + fmt(C.QC, 0) + " kJ/kg is taken in from the cold reservoir.",
+      s => "<b>4–3</b> reversible adiabatic (isentropic) compression: Q = 0, and T rises from T<sub>C</sub> to T<sub>H</sub>.",
+      s => "<b>3–2</b> reversible isothermal compression at T<sub>H</sub>: heat |Q<sub>H</sub>| = " + fmt(C.QH, 0) + " kJ/kg is rejected to the hot reservoir.",
+      s => "<b>2–1</b> reversible adiabatic (isentropic) expansion: Q = 0, and T falls from T<sub>H</sub> to T<sub>C</sub>.",
+    ],
+  };
+  function current() { const k = Math.floor(t) % 4; return { k, f: t - Math.floor(t) }; }
+  let lastK = -1;
+  function caption(force) {
+    if (!playing) {
+      $("cap").innerHTML = dir === "engine"
+        ? "Clockwise on both diagrams: the cycle produces net work. Press <i>Play</i> to follow it one process at a time."
+        : "Anticlockwise on both diagrams: net work goes in. Press <i>Play</i> to follow it one process at a time.";
+      lastK = -1; return;
+    }
+    const { k } = current();
+    if (k !== lastK || force) { $("cap").innerHTML = PROC[dir][k](); lastK = k; }
+  }
+
+  // ----------------------------------------------------------- drawing --
+  const cvs = { pv: $("pv"), ts: $("ts") };
+  let CW = 380, CH = 320;
+  function layout() {
+    const w = cvs.pv.parentElement.clientWidth;
+    const two = window.innerWidth >= 620 + 32;
+    CW = Math.max(240, Math.round(two ? (w - 10) / 2 : w));
+    CH = Math.round(CW * (two ? 0.86 : 0.78));
+    for (const c of Object.values(cvs)) c.style.aspectRatio = CW + " / " + CH;
+  }
+  window.addEventListener("resize", () => { layout(); postHeight(); });
+
+  function prep(c) {
+    const dpr = window.devicePixelRatio || 1, ctx = c.getContext("2d");
+    if (c.width !== Math.round(CW * dpr) || c.height !== Math.round(CH * dpr)) { c.width = Math.round(CW * dpr); c.height = Math.round(CH * dpr); }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, CW, CH);
+    return ctx;
+  }
+  function axes(ctx, m, xl, yl) {
+    ctx.strokeStyle = COL.ink; ctx.fillStyle = COL.ink; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.moveTo(m.l, m.t - 6); ctx.lineTo(m.l, CH - m.b); ctx.lineTo(CW - m.r + 6, CH - m.b); ctx.stroke();
+    tri(ctx, m.l, m.t - 10, 0, -1); tri(ctx, CW - m.r + 10, CH - m.b, 1, 0);
+    ctx.font = "italic 14px system-ui, sans-serif"; ctx.textAlign = "left";
+    ctx.fillText(yl, m.l + 8, m.t + 2); ctx.textAlign = "right"; ctx.fillText(xl, CW - m.r + 6, CH - m.b - 8);
+  }
+  function tri(ctx, x, y, ux, uy) {
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 7 * ux - 4 * uy, y - 7 * uy + 4 * ux); ctx.lineTo(x - 7 * ux + 4 * uy, y - 7 * uy - 4 * ux); ctx.closePath(); ctx.fill();
+  }
+  function pathOf(k, n, map) { const pts = []; for (let i = 0; i <= n; i++) pts.push(map(stateAt(k, i / n))); return pts; }
+  function stroke(ctx, pts, col, w, dash) {
+    ctx.strokeStyle = col; ctx.lineWidth = w; ctx.setLineDash(dash || []);
+    ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.setLineDash([]);
+  }
+  // arrowhead in the middle of a process, pointing in the direction of travel
+  function midArrow(ctx, pts, col, rev) {
+    const i = Math.floor(pts.length / 2), a = pts[i - 1], b = pts[i + 1];
+    let ux = b[0] - a[0], uy = b[1] - a[1]; const L = Math.hypot(ux, uy) || 1; ux /= L; uy /= L;
+    if (rev) { ux = -ux; uy = -uy; }
+    ctx.fillStyle = col; ctx.beginPath(); const x = pts[i][0] + ux * 5, y = pts[i][1] + uy * 5;
+    ctx.moveTo(x, y); ctx.lineTo(x - 10 * ux - 5 * uy, y - 10 * uy + 5 * ux); ctx.lineTo(x - 10 * ux + 5 * uy, y - 10 * uy - 5 * ux); ctx.closePath(); ctx.fill();
+  }
+  // text with a subscript, e.g. sub(ctx, "T", "H", " isotherm", x, y)
+  function sub(ctx, a, b, c, x, y, align) {
+    const f = ctx.font, small = f.replace(/\d+(\.\d+)?px/, m => (parseFloat(m) * 0.78).toFixed(1) + "px");
+    const wa = ctx.measureText(a).width, wc = ctx.measureText(c).width;
+    ctx.font = small; const wb = ctx.measureText(b).width; ctx.font = f;
+    const tot = wa + wb + wc; let x0 = align === "center" ? x - tot / 2 : (align === "right" ? x - tot : x);
+    ctx.textAlign = "left"; ctx.fillText(a, x0, y);
+    ctx.font = small; ctx.fillText(b, x0 + wa, y + 4); ctx.font = f;
+    ctx.fillText(c, x0 + wa + wb, y);
+  }
+  const procCol = k => (k === 1 ? COL.hot : k === 3 ? COL.cold : COL.ink);
+  function labelState(ctx, p, n, dx, dy) {
+    ctx.fillStyle = COL.ink; ctx.beginPath(); ctx.arc(p[0], p[1], 3.2, 0, Math.PI * 2); ctx.fill();
+    ctx.font = "600 13px system-ui, sans-serif"; ctx.textAlign = "center"; ctx.fillText(n, p[0] + dx, p[1] + dy + 4);
+  }
+
+  function drawPV() {
+    const ctx = prep(cvs.pv), m = { l: 34, r: 16, t: 18, b: 26 };
+    const vmax = C.v4 * 1.1, pmax = P(stateAt(1, 0)) * 1.1;
+    const X = v => m.l + v / vmax * (CW - m.l - m.r), Y = p => CH - m.b - p / pmax * (CH - m.t - m.b);
+    const map = st => [X(st.v), Y(P(st))];
+    const paths = [0, 1, 2, 3].map(k => pathOf(k, 60, map));
+    // enclosed area = net work
+    ctx.fillStyle = "rgba(104,36,109,0.12)"; ctx.beginPath();
+    paths.flat().forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill();
+    // the two isotherms, extended faintly
+    for (const [T, col] of [[C.TH, COL.hot], [C.TC, COL.cold]]) {
+      const pts = []; for (let i = 0; i <= 80; i++) { const v = vmax * (0.02 + 0.98 * i / 80); const p = R * T / v; if (p <= pmax * 1.02) pts.push([X(v), Y(p)]); }
+      ctx.globalAlpha = 0.35; stroke(ctx, pts, col, 1.2, [4, 4]); ctx.globalAlpha = 1;
+    }
+    axes(ctx, m, "v", "P");
+    paths.forEach((pts, k) => { stroke(ctx, pts, procCol(k), 2.4); midArrow(ctx, pts, procCol(k), dir === "reverse"); });
+    const s = [stateAt(0, 0), stateAt(1, 0), stateAt(2, 0), stateAt(3, 0)].map(map);
+    labelState(ctx, s[0], "1", -4, 16); labelState(ctx, s[1], "2", -10, -6); labelState(ctx, s[2], "3", 10, -8); labelState(ctx, s[3], "4", 6, -10);
+    ctx.font = "600 12px system-ui, sans-serif"; ctx.textAlign = "left";
+    ctx.fillStyle = COL.hot; { const v = Math.min(C.v3 * 1.8, vmax * 0.6), q = [X(v), Y(R * C.TH / v)]; sub(ctx, "T", "H", " isotherm", q[0] + 6, q[1] - 6); }
+    ctx.fillStyle = COL.cold; sub(ctx, "T", "C", " isotherm", Math.min(CW - m.r - 80, s[3][0] - 30), s[3][1] - 24);
+    // legend: the shaded area is the net work
+    ctx.font = "600 12px system-ui, sans-serif"; ctx.textAlign = "right"; ctx.fillStyle = COL.w;
+    const lw = ctx.measureText("enclosed area = |W|").width;
+    ctx.fillText("enclosed area = |W|", CW - m.r, m.t + 5);
+    ctx.fillStyle = "rgba(104,36,109,0.18)"; ctx.fillRect(CW - m.r - lw - 20, m.t - 4, 14, 10);
+    return map;
+  }
+
+  function drawTS() {
+    const ctx = prep(cvs.ts), m = { l: 46, r: 16, t: 18, b: 26 };
+    const smax = S1 + R * Math.log(5) + 0.9, Tmax = 1300;
+    const X = s => m.l + s / smax * (CW - m.l - m.r), Y = T => CH - m.b - T / Tmax * (CH - m.t - m.b);
+    const x1 = X(S1), x2 = X(S1 + C.ds), yh = Y(C.TH), yc = Y(C.TC), y0 = Y(0);
+    // areas: |Q_C| under 4-1, |W| enclosed; together |Q_H| under 2-3
+    ctx.fillStyle = "rgba(42,120,214,0.14)"; ctx.fillRect(x1, yc, x2 - x1, y0 - yc);
+    ctx.fillStyle = "rgba(104,36,109,0.14)"; ctx.fillRect(x1, yh, x2 - x1, yc - yh);
+    // T ticks
+    ctx.font = "11px system-ui, sans-serif"; ctx.fillStyle = COL.ink; ctx.textAlign = "right";
+    for (let T = 0; T <= 1200; T += 400) { ctx.fillText(T, m.l - 6, Y(T) + 4); ctx.strokeStyle = "#ece9e3"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(m.l, Y(T)); ctx.lineTo(CW - m.r, Y(T)); ctx.stroke(); }
+    ctx.save(); ctx.translate(12, (m.t + CH - m.b) / 2); ctx.rotate(-Math.PI / 2); ctx.textAlign = "center"; ctx.fillText("T (K)", 0, 0); ctx.restore();
+    axes(ctx, m, "s", "T");
+    // reservoir temperature lines
+    ctx.setLineDash([4, 4]); ctx.lineWidth = 1;
+    ctx.strokeStyle = COL.hot; ctx.beginPath(); ctx.moveTo(m.l, yh); ctx.lineTo(x1, yh); ctx.stroke();
+    ctx.strokeStyle = COL.cold; ctx.beginPath(); ctx.moveTo(m.l, yc); ctx.lineTo(x1, yc); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle = COL.faint; ctx.beginPath(); ctx.moveTo(x1, yc); ctx.lineTo(x1, y0); ctx.moveTo(x2, yc); ctx.lineTo(x2, y0); ctx.stroke();
+    const map = st => [X(st.s), Y(st.T)];
+    const paths = [0, 1, 2, 3].map(k => pathOf(k, 20, map));
+    paths.forEach((pts, k) => { stroke(ctx, pts, procCol(k), 2.4); midArrow(ctx, pts, procCol(k), dir === "reverse"); });
+    labelState(ctx, [x1, yc], "1", -9, 12); labelState(ctx, [x1, yh], "2", -9, -8); labelState(ctx, [x2, yh], "3", 9, -8); labelState(ctx, [x2, yc], "4", 9, 12);
+    // area labels
+    ctx.textAlign = "center"; ctx.font = "600 12px system-ui, sans-serif";
+    const xm = (x1 + x2) / 2;
+    if (yc - yh > 18) { ctx.fillStyle = COL.w; ctx.fillText("|W|", xm, (yh + yc) / 2 + 4); }
+    if (y0 - yc > 18) { ctx.fillStyle = COL.cold; sub(ctx, "|Q", "C", "|", xm, (yc + y0) / 2 + 4, "center"); }
+    // brace for |Q_H|
+    const bx = x2 + 16;
+    if (bx + 30 < CW) {
+      ctx.strokeStyle = COL.hot; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(bx - 4, yh); ctx.lineTo(bx, yh); ctx.lineTo(bx, y0); ctx.lineTo(bx - 4, y0); ctx.stroke();
+      ctx.fillStyle = COL.hot; ctx.textAlign = "left"; sub(ctx, "|Q", "H", "|", bx + 5, (yh + y0) / 2 + 4);
+    }
+    ctx.font = "600 12px system-ui, sans-serif";
+    ctx.fillStyle = COL.hot; ctx.textAlign = "left"; sub(ctx, "T", "H", "", m.l + 4, yh - 5);
+    ctx.fillStyle = COL.cold; sub(ctx, "T", "C", "", m.l + 4, yc - 5);
+    return map;
+  }
+
+  function dot(c, map) {
+    if (!playing) return;
+    const ctx = c.getContext("2d"), { k, f } = current();
+    // reversed: run the processes backwards, 1-4, 4-3, 3-2, 2-1
+    const st = dir === "engine" ? stateAt(k, f) : stateAt(3 - k, 1 - f);
+    const p = map(st);
+    ctx.fillStyle = "#fff"; ctx.strokeStyle = "#0b0b0b"; ctx.lineWidth = 2.2;
+    ctx.beginPath(); ctx.arc(p[0], p[1], 6, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+  }
+
+  function frame(dt) {
+    if (playing && !reduce) { t = (t + dt / 1.8) % 4; caption(); }
+    if (playing && reduce) { t = (t + dt / 3) % 4; caption(); }
+    const mp = drawPV(); dot(cvs.pv, mp);
+    const mt = drawTS(); dot(cvs.ts, mt);
+  }
+
+  // -------------------------------------------------------------- wire --
+  ["th", "tc", "r"].forEach(id => $(id).addEventListener("input", () => update(id)));
+  document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    dir = b.dataset.dir; t = 0; update(); caption(true);
+  }));
+  $("play").addEventListener("click", () => {
+    playing = !playing; $("play").textContent = playing ? "Pause" : "Play";
+    $("play").setAttribute("aria-pressed", playing ? "true" : "false"); caption(true);
+  });
+
+  function postHeight() {
+    try { parent.postMessage({ widgetHeight: document.querySelector(".wrap").offsetHeight + 34 }, "*"); } catch (e) {}
+  }
+  window.addEventListener("load", postHeight);
+
+  layout(); update();
+  let last = performance.now();
+  function loop(now) { const dt = Math.min(0.05, (now - last) / 1000); last = now; frame(dt); requestAnimationFrame(loop); }
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

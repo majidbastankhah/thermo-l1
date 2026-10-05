@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heat engines, refrigerators and heat pumps</title>
+<!-- CH5 "Explore it yourself": energy flows in a heat engine, a refrigerator
+     and a heat pump working in a cycle between a hot and a cold reservoir.
+     Magnitudes only, as in the notes: |Q_H| = |W| + |Q_C|. Arrow widths are
+     proportional to the energy rates. Self-contained; one light theme. -->
+<style>
+  :root {
+    color-scheme: light;
+    --surface-0: #ffffff; --surface-1: #fcfcfb; --surface-2: #f4f3f0;
+    --border: #dedcd6; --text-1: #0b0b0b; --text-2: #52514e; --text-3: #78766f;
+    --accent: #68246D; --hot: #d8432c; --cold: #2a78d6; --w: #68246D; --bad: #be1e2d;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 16px; background: var(--surface-0); color: var(--text-1);
+         font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  h1 { font-size: 1.05rem; margin: 0 0 2px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-2); font-size: 0.86rem; margin: 0 0 14px; }
+  .panel { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tab { font: inherit; font-size: 0.83rem; cursor: pointer; padding: 5px 12px; border-radius: 999px;
+         border: 1px solid var(--border); background: var(--surface-1); color: var(--text-2); }
+  .tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .tab:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .sliders { display: grid; grid-template-columns: 1fr; gap: 6px; margin: 2px 0 8px; }
+  @media (min-width: 560px) { .sliders { grid-template-columns: 1fr 1fr; gap: 16px; } }
+  .sliders > div { display: flex; flex-direction: column; justify-content: flex-end; }
+  .sliders label { display: block; font-size: 0.8rem; color: var(--text-2); }
+  .sliders output { font-weight: 650; color: var(--text-1); font-variant-numeric: tabular-nums; }
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+  canvas { display: block; width: 100%; height: auto; border-radius: 8px; background: var(--surface-0); }
+  .readout { display: grid; grid-template-columns: 1fr; gap: 8px; border-top: 1px solid var(--border);
+             margin-top: 8px; padding-top: 8px; }
+  @media (min-width: 560px) { .readout { grid-template-columns: 1.3fr 1fr; } }
+  .k { font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
+  .eq { font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+  .big { font-size: 1.45rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .big small { font-size: 0.85rem; font-weight: 400; color: var(--text-2); }
+  .note { font-size: 0.83rem; color: var(--text-2); margin: 8px 2px 0; min-height: 2.6em; }
+  .warn { display: none; margin: 8px 0 0; padding: 8px 10px; border-radius: 8px; font-size: 0.85rem;
+          background: #fbeaea; border: 1px solid #e8b4b8; color: #7a1420; }
+  .warn.on { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Heat engines, refrigerators and heat pumps</h1>
+  <p class="sub">A device works in a cycle between a hot and a cold reservoir. The
+  width of each arrow is proportional to the energy it carries, and over a cycle
+  the energy in always equals the energy out: |Q̇<sub>H</sub>| = |Ẇ| + |Q̇<sub>C</sub>|.
+  Try to build a device that breaks the second law.</p>
+
+  <div class="panel">
+    <div class="tabs" role="group" aria-label="Device">
+      <button class="tab" data-mode="engine" aria-pressed="true">Heat engine</button>
+      <button class="tab" data-mode="fridge" aria-pressed="false">Refrigerator</button>
+      <button class="tab" data-mode="hp" aria-pressed="false">Heat pump</button>
+    </div>
+    <div class="sliders" id="sliders"></div>
+    <canvas id="c" width="760" height="320" aria-label="Energy flows between the reservoirs and the device"></canvas>
+    <div class="readout">
+      <div>
+        <div class="k">Energy balance over a cycle</div>
+        <div class="eq" id="bal"></div>
+      </div>
+      <div>
+        <div class="k" id="perfK"></div>
+        <div class="big" id="perf"></div>
+      </div>
+    </div>
+    <div class="warn" id="warn"></div>
+    <p class="note" id="note"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const fmt = (x, d) => x.toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const cv = $("c"), ctx = cv.getContext("2d");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ------------------------------------------------------------- modes --
+  // Each mode: its sliders, how to get |Q_H|, |W|, |Q_C| from them, and words.
+  const MODES = {
+    engine: {
+      hot: ["Hot reservoir, T", "H", "e.g. burning fuel"],
+      cold: ["Cold reservoir, T", "C", "e.g. the surroundings"],
+      sliders: [
+        { id: "QH", label: "Heat supplied, |Q̇<sub>H</sub>|", unit: "kW", min: 50, max: 500, step: 5, value: 300, d: 0 },
+        { id: "eta", label: "Thermal efficiency, η", unit: "%", min: 0, max: 100, step: 1, value: 30, d: 0 },
+      ],
+      solve: v => { const QH = v.QH, W = v.eta / 100 * QH; return { QH, W, QC: QH - W }; },
+      workOut: true, sought: "W", costs: "QH",
+    },
+    fridge: {
+      hot: ["Kitchen, T", "H", "warm"],
+      cold: ["Inside the fridge, T", "C", "cold"],
+      sliders: [
+        { id: "QC", label: "Heat removed from inside, |Q̇<sub>C</sub>|", unit: "kW", min: 0.05, max: 1, step: 0.01, value: 0.25, d: 2 },
+        { id: "W", label: "Electrical work input, |Ẇ|", unit: "kW", min: 0, max: 0.5, step: 0.01, value: 0.1, d: 2 },
+      ],
+      solve: v => ({ QC: v.QC, W: v.W, QH: v.QC + v.W }),
+      workOut: false, sought: "QC", costs: "W",
+    },
+    hp: {
+      hot: ["Inside the house, T", "H", "warm"],
+      cold: ["Outside air, T", "C", "cold"],
+      sliders: [
+        { id: "QH", label: "Heat delivered to the house, |Q̇<sub>H</sub>|", unit: "kW", min: 1, max: 20, step: 0.1, value: 10, d: 1 },
+        { id: "W", label: "Electrical work input, |Ẇ|", unit: "kW", min: 0, max: 10, step: 0.1, value: 2.5, d: 1 },
+      ],
+      solve: v => { const W = Math.min(v.W, v.QH); return { QH: v.QH, W, QC: v.QH - W }; },
+      workOut: false, sought: "QH", costs: "W",
+    },
+  };
+  let mode = "engine";
+  const vals = {};
+
+  function buildSliders() {
+    const m = MODES[mode];
+    $("sliders").innerHTML = m.sliders.map(s =>
+      "<div><label for='s_" + s.id + "'>" + s.label + " = <output id='o_" + s.id + "'></output> " + s.unit + "</label>" +
+      "<input id='s_" + s.id + "' type='range' min='" + s.min + "' max='" + s.max + "' step='" + s.step + "' value='" + s.value + "'></div>"
+    ).join("");
+    m.sliders.forEach(s => $("s_" + s.id).addEventListener("input", update));
+  }
+
+  // ------------------------------------------------------------ update --
+  let R = null;
+  function update() {
+    const m = MODES[mode];
+    m.sliders.forEach(s => { vals[s.id] = parseFloat($("s_" + s.id).value); });
+    if (mode === "hp") {                        // work cannot exceed the heat delivered
+      const ws = $("s_W"); ws.max = vals.QH;
+      if (vals.W > vals.QH) { ws.value = vals.QH; vals.W = vals.QH; }
+    }
+    m.sliders.forEach(s => { $("o_" + s.id).textContent = fmt(vals[s.id], s.d); });
+    R = m.solve(vals);
+    const d = mode === "engine" ? 0 : (mode === "fridge" ? 2 : 1);
+    const k = x => fmt(Math.abs(x) < 1e-9 ? 0 : x, d);
+
+    $("bal").innerHTML = "|Q̇<sub>H</sub>| = |Ẇ| + |Q̇<sub>C</sub>|<br><b>" +
+      k(R.QH) + " kW = " + k(R.W) + " kW + " + k(R.QC) + " kW</b>";
+
+    const warn = $("warn"); let w = "", note = "";
+    if (mode === "engine") {
+      $("perfK").innerHTML = "Thermal efficiency, η = |Ẇ| / |Q̇<sub>H</sub>|";
+      $("perf").innerHTML = fmt(R.W / R.QH, 2) + " <small>(" + fmt(vals.eta, 0) + "%)</small>";
+      if (vals.eta >= 100) w = "<b>Impossible: this engine breaks the Kelvin–Planck statement.</b> No device working in a cycle can turn all the heat it receives into work. Some heat must always be rejected to a colder reservoir, so η < 1.";
+      else if (vals.eta === 0) note = "No work at all: the heat just flows from the hot to the cold reservoir. That does not need an engine.";
+      else note = "The first law alone would allow any η up to 100%. The second law says η < 1, and in CH6 you will find how high η can be for given reservoir temperatures.";
+    } else if (mode === "fridge") {
+      $("perfK").innerHTML = "COP, β = |Q̇<sub>C</sub>| / |Ẇ|";
+      $("perf").innerHTML = R.W > 0 ? fmt(R.QC / R.W, 2) : "∞";
+      if (R.W <= 0) w = "<b>Impossible: this fridge breaks the Clausius statement.</b> Heat cannot be moved from a colder to a hotter body with no other effect: some work must always be put in, so β < ∞.";
+      else note = "A household fridge has a COP of about 2.5. The heat rejected to the kitchen is more than the heat removed from inside: |Q̇<sub>H</sub>| = |Q̇<sub>C</sub>| + |Ẇ|.";
+    } else {
+      $("perfK").innerHTML = "COP, β′ = |Q̇<sub>H</sub>| / |Ẇ|";
+      $("perf").innerHTML = R.W > 0 ? fmt(R.QH / R.W, 2) + " <small>(= β + 1)</small>" : "∞";
+      if (R.W <= 0) w = "<b>Impossible: this heat pump breaks the Clausius statement.</b> Heating the house from the colder outside air always needs some work input, so β′ < ∞.";
+      else if (R.QC < 1e-9) note = "β′ = 1: all the heat comes from the electricity, and none from the outside air. That is just an electric heater.";
+      else note = "β′ = β + 1 > 1: a heat pump always delivers more heat than the electricity it uses, because it also takes heat from the outside air.";
+    }
+    warn.innerHTML = w; warn.classList.toggle("on", !!w);
+    $("note").innerHTML = note;
+    postHeight();
+  }
+
+  // ------------------------------------------------------------ layout --
+  let W = 760, H = 320, narrow = false;
+  function layout() {
+    W = Math.max(260, Math.min(760, Math.round(cv.parentElement.clientWidth - 24)));
+    narrow = W < 520;
+    H = narrow ? 400 : 380;
+    cv.style.aspectRatio = W + " / " + H;
+  }
+  window.addEventListener("resize", layout);
+
+  // ----------------------------------------------------------- drawing --
+  let phase = 0;
+  function draw(dt) {
+    const dpr = window.devicePixelRatio || 1;
+    if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)) {
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    if (!R) return;
+    if (!reduce) phase = (phase + dt * 40) % 1000;
+
+    const m = MODES[mode];
+    const resH = narrow ? 50 : 54, pad = 8;
+    const cx = Math.round(W * (narrow ? 0.47 : 0.40)), cy = Math.round(H / 2), rad = narrow ? 30 : 36;
+    const hotY1 = pad + resH, coldY0 = H - pad - resH;
+    const bad = (mode === "engine" && R.QC < 1e-9) || (mode !== "engine" && R.W < 1e-9);
+
+    // reservoirs
+    reservoir(pad, pad, W - 2 * pad, resH, "#fbe3dc", "#d8432c", m.hot);
+    reservoir(pad, coldY0, W - 2 * pad, resH, "#e0ecfa", "#2a78d6", m.cold);
+
+    // arrow widths proportional to the rates
+    const big = Math.max(R.QH, R.W, R.QC, 1e-9);
+    const wid = x => (x < 1e-9 ? 0 : 4 + (narrow ? 30 : 38) * x / big);
+
+    const d = mode === "engine" ? 0 : (mode === "fridge" ? 2 : 1);
+    const lab = (name, x) => name + " = " + fmt(x, d) + " kW";
+    const tag = key => key === m.sought ? "sought" : (key === m.costs ? "costs" : "");
+    const down = mode === "engine";        // engine: heat flows down through the device
+
+    // Q_H between hot reservoir and device
+    flow(cx, hotY1 + 2, cx, cy - rad - 2, wid(R.QH), "#d8432c", !down,
+         "|Q̇H|", lab("|Q̇_H|", R.QH), tag("QH"), "left");
+    // Q_C between device and cold reservoir
+    flow(cx, cy + rad + 2, cx, coldY0 - 2, wid(R.QC), "#2a78d6", !down,
+         "|Q̇C|", lab("|Q̇_C|", R.QC), tag("QC"), "left");
+    // W, horizontal: out to the right for the engine, in from the right otherwise
+    const wx = Math.round(W - (narrow ? 16 : 70));
+    flow(cx + rad + 2, cy, wx, cy, wid(R.W), "#68246D", !m.workOut,
+         "|Ẇ|", lab("|Ẇ|", R.W), tag("W"), "above");
+
+    // the device
+    ctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+    ctx.fillStyle = bad ? "#fbeaea" : "#f4f3f0"; ctx.fill();
+    ctx.lineWidth = 2; ctx.strokeStyle = bad ? "#be1e2d" : "#52514e";
+    if (bad) ctx.setLineDash([5, 4]);
+    ctx.stroke(); ctx.setLineDash([]);
+    // a small cycle symbol inside
+    ctx.strokeStyle = bad ? "#be1e2d" : "#52514e"; ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.arc(cx, cy, rad * 0.45, -Math.PI * 0.35, Math.PI * 1.45); ctx.stroke();
+    const ae = Math.PI * 1.45, ax = cx + rad * 0.45 * Math.cos(ae), ay = cy + rad * 0.45 * Math.sin(ae);
+    ctx.beginPath(); ctx.moveTo(ax + 5, ay - 1); ctx.lineTo(ax - 2, ay - 5); ctx.lineTo(ax - 1, ay + 3); ctx.closePath();
+    ctx.fillStyle = ctx.strokeStyle; ctx.fill();
+    ctx.font = "600 12px system-ui, sans-serif"; ctx.textAlign = "center"; ctx.fillStyle = bad ? "#be1e2d" : "#52514e";
+    const name = { engine: "engine", fridge: "fridge", hp: "heat pump" }[mode];
+    ctx.textAlign = "left";
+    ctx.fillText(bad ? "impossible" : name, cx + rad * 0.75 + 6, cy + rad + 10);
+  }
+
+  function reservoir(x, y, w, h, fill, edge, words) {
+    ctx.fillStyle = fill; ctx.fillRect(x, y, w, h);
+    ctx.strokeStyle = edge; ctx.lineWidth = 1.5; ctx.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1);
+    ctx.fillStyle = edge; ctx.textAlign = "left";
+    ctx.font = "600 13px system-ui, sans-serif";
+    const tx = x + 12, ty = y + h / 2 - 2;
+    ctx.fillText(words[0], tx, ty);
+    const w0 = ctx.measureText(words[0]).width;
+    ctx.font = "600 10px system-ui, sans-serif"; ctx.fillText(words[1], tx + w0 + 1, ty + 4);
+    ctx.font = "12px system-ui, sans-serif"; ctx.fillStyle = "#52514e";
+    ctx.fillText(words[2], tx, ty + 16);
+  }
+
+  // A thick arrow from (x0,y0) to (x1,y1), reversed if rev; width w (0: absent).
+  function flow(x0, y0, x1, y1, w, col, rev, short, label, tagText, where) {
+    if (rev) { [x0, x1] = [x1, x0]; [y0, y1] = [y1, y0]; }
+    const L = Math.hypot(x1 - x0, y1 - y0), ux = (x1 - x0) / L, uy = (y1 - y0) / L;
+    const vertical = Math.abs(uy) > 0.5;
+    if (w > 0) {
+      const head = Math.min(L * 0.45, 10 + w * 0.35), hw = w / 2 + 7;
+      const bx = x1 - ux * head, by = y1 - uy * head;
+      ctx.strokeStyle = col; ctx.lineWidth = w; ctx.lineCap = "butt";
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(bx, by); ctx.stroke();
+      ctx.fillStyle = col;
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(bx - uy * hw, by + ux * hw); ctx.lineTo(bx + uy * hw, by - ux * hw);
+      ctx.closePath(); ctx.fill();
+      // moving dashes show the direction of the energy flow
+      if (w > 7) {
+        ctx.save();
+        ctx.strokeStyle = "rgba(255,255,255,0.55)"; ctx.lineWidth = Math.max(2, w * 0.28);
+        ctx.setLineDash([6, 12]); ctx.lineDashOffset = -phase;
+        ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(bx, by); ctx.stroke();
+        ctx.restore();
+      }
+    } else {
+      ctx.save(); ctx.strokeStyle = "#a9a59c"; ctx.lineWidth = 1.5; ctx.setLineDash([3, 4]);
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); ctx.restore();
+    }
+    // label
+    const pretty = label.replace("_H", "H").replace("_C", "C");
+    ctx.font = "600 13px system-ui, sans-serif"; ctx.fillStyle = w > 0 ? col : "#78766f";
+    let lx, ly;
+    if (where === "left") {
+      ctx.textAlign = "right"; lx = (x0 + x1) / 2 - Math.max(w, 8) / 2 - 12; ly = (y0 + y1) / 2 + 4;
+    } else {
+      ctx.textAlign = "center"; lx = (x0 + x1) / 2 + 6; ly = (y0 + y1) / 2 - Math.max(w, 8) / 2 - (tagText ? 24 : 8);
+    }
+    subText(pretty, lx, ly, ctx.textAlign);
+    if (tagText) {
+      ctx.font = "600 10.5px system-ui, sans-serif";
+      const tw = ctx.measureText(tagText).width + 12;
+      const tx = ctx.textAlign === "right" ? lx - tw : (ctx.textAlign === "center" ? lx - tw / 2 : lx);
+      const ty = ly + 6;
+      ctx.fillStyle = tagText === "sought" ? "#e3f4ea" : "#f4f3f0";
+      roundRect(tx, ty, tw, 16, 8); ctx.fill();
+      ctx.fillStyle = tagText === "sought" ? "#137a4b" : "#52514e";
+      ctx.textAlign = "center"; ctx.fillText(tagText, tx + tw / 2, ty + 12);
+    }
+  }
+  // draw "|Q̇H| = ..." with the H or C as a subscript
+  function subText(s, x, y, align) {
+    const m = s.match(/^(\|Q̇)([HC])(\|.*)$/);
+    if (!m) { ctx.textAlign = align; ctx.fillText(s, x, y); return; }
+    const big = "600 13px system-ui, sans-serif", small = "600 10px system-ui, sans-serif";
+    ctx.font = big; const a = ctx.measureText(m[1]).width, c = ctx.measureText(m[3]).width;
+    ctx.font = small; const b = ctx.measureText(m[2]).width;
+    const total = a + b + c;
+    let x0 = align === "right" ? x - total : (align === "center" ? x - total / 2 : x);
+    ctx.textAlign = "left";
+    ctx.font = big; ctx.fillText(m[1], x0, y);
+    ctx.font = small; ctx.fillText(m[2], x0 + a, y + 4);
+    ctx.font = big; ctx.fillText(m[3], x0 + a + b, y);
+    ctx.textAlign = align;
+  }
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+
+  // -------------------------------------------------------------- wire --
+  document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    mode = b.dataset.mode; buildSliders(); update();
+  }));
+
+  function postHeight() {
+    try { parent.postMessage({ widgetHeight: document.querySelector(".wrap").offsetHeight + 34 }, "*"); } catch (e) {}
+  }
+  window.addEventListener("load", postHeight);
+  window.addEventListener("resize", postHeight);
+
+  layout(); buildSliders(); update();
+  let last = performance.now();
+  function frame(now) { const dt = Math.min(0.05, (now - last) / 1000); last = now; draw(dt); requestAnimationFrame(frame); }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
