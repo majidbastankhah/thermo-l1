@@ -304,7 +304,7 @@
   window.addEventListener("resize", layout);
 
   function postHeight() {
-    try { parent.postMessage({ widgetHeight: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+    try { parent.postMessage({ widgetHeight: document.querySelector(".wrap").offsetHeight + 34 }, "*"); } catch (e) {}
   }
   window.addEventListener("load", postHeight);
   window.addEventListener("resize", postHeight);

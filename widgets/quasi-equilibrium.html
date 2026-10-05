@@ -300,7 +300,7 @@
 
   // tell the page embedding this widget how tall it is, so its frame fits
   function postHeight() {
-    try { parent.postMessage({ widgetHeight: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+    try { parent.postMessage({ widgetHeight: document.querySelector(".wrap").offsetHeight + 34 }, "*"); } catch (e) {}
   }
   window.addEventListener("load", postHeight);
   window.addEventListener("resize", postHeight);

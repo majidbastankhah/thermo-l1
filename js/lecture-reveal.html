@@ -231,7 +231,11 @@ window.addEventListener("message", function (ev) {
   const h = ev.data && ev.data.widgetHeight;
   if (!h) return;
   document.querySelectorAll("iframe.widget-frame").forEach(function (f) {
-    if (f.contentWindow === ev.source) f.style.height = Math.ceil(h) + 4 + "px";
+    if (f.contentWindow !== ev.source) return;
+    // ignore tiny changes, so a widget and its frame can never feed each
+    // other a slowly growing height
+    const now = parseFloat(f.style.height) || 0, want = Math.ceil(h) + 4;
+    if (Math.abs(want - now) > 6) f.style.height = want + "px";
   });
 });
 </script>
