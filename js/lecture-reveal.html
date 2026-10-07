@@ -85,7 +85,23 @@
 
   function next() { if (cursor < gaps.length) { cursor++; paint(cursor - 1); } }
   function back() { if (cursor > 0) { cursor--; paint(cursor); } }
-  function none() { cursor = 0; paint(null); window.scrollTo({ top: 0, behavior: "smooth" }); }
+  // Reset covers everything but keeps the reader where they are: note what
+  // is at the top of the screen, re-cover, then scroll so it is back in the
+  // same place (covering the steps above it would otherwise pull the page up).
+  function none() {
+    const y = Math.min(window.innerHeight - 1, 120);
+    let anchor = document.elementFromPoint(window.innerWidth / 2, y);
+    if (anchor && anchor.closest) {
+      const g = anchor.closest(".gap-reveal");
+      if (g) anchor = g;                    // a step that is about to be covered
+      if (anchor.closest(".reveal-bar")) anchor = null;
+    }
+    const before = anchor ? anchor.getBoundingClientRect().top : null;
+    cursor = 0; paint(null);
+    if (anchor && before != null) {
+      window.scrollBy({ top: anchor.getBoundingClientRect().top - before, behavior: "auto" });
+    }
+  }
 
   function present() {
     document.body.classList.toggle("present");

@@ -1,0 +1,28 @@
+\documentclass[border=3pt,tikz]{standalone}
+\input{_style}
+% Two blocks, one hot and one cold, brought into contact: heat flows from hot
+% to cold until both reach the same temperature (thermal equilibrium).
+\begin{document}
+\begin{tikzpicture}[
+  blk/.style = {draw, line width=1.1pt, minimum width=19mm, minimum height=15mm,
+                font=\normalsize, align=center},
+]
+% ---- before: hot and cold in contact ------------------------------------
+\node[blk, fill=duBlue!22] (c) at (0,0) {cold\\$T_C$};
+\node[blk, fill=duRed!30, anchor=west] (h) at (c.east) {hot\\$T_H$};
+\draw[-{Stealth[length=3.4mm]}, line width=2pt, duRed]
+  ([yshift=4mm]h.north) -- ([yshift=4mm]c.north)
+  node[midway, above=1pt, font=\normalsize] {heat, $Q$};
+\node[slbl, below=3mm] at (c.south east) {in contact: $T_H > T_C$, heat flows};
+
+% ---- time passes ---------------------------------------------------------
+\draw[-{Stealth[length=3.4mm]}, line width=1.4pt, duGrey]
+  ([xshift=6mm]h.east) -- ++(2.6,0) node[midway, above, font=\normalsize, black] {after some time};
+
+% ---- after: same temperature ---------------------------------------------
+\node[blk, fill=duGreen!25, anchor=west] (a) at ([xshift=35.5mm]h.east) {1\\$T_1$};
+\node[blk, fill=duGreen!25, anchor=west] (b) at (a.east) {2\\$T_2$};
+\node[font=\normalsize, above=3mm] at (a.north east) {no more heat transfer};
+\node[slbl, below=3mm] at (a.south east) {thermal equilibrium: $T_1 = T_2$};
+\end{tikzpicture}
+\end{document}

@@ -147,6 +147,8 @@ If there is no transfer of heat between two systems when they are brought into
 thermal contact, they are said to be in **thermal equilibrium** with each other.
 In this case, the temperatures of the two systems are the same: $T_1 = T_2$.
 
+![](figures/out/ch1-thermal-equilibrium.svg){width=82% fig-alt="A cold block and a hot block placed in contact, with heat flowing from the hot one to the cold one. After some time the two blocks reach the same temperature, T1 equals T2, and no more heat flows: thermal equilibrium."}
+
 ### Zeroth law of thermodynamics
 
 ::: {.key}
@@ -177,9 +179,9 @@ degrees.
 ### Absolute temperature scale (based on the second law)
 
 A definition of absolute temperature is possible with the second law of
-thermodynamics (to be studied later). The **Kelvin** scale is the SI unit of
-temperature, named after William Thomson, Lord Kelvin. A temperature in Celsius
-is converted to kelvin as
+thermodynamics (to be studied later). This is the **Kelvin** scale, named after
+William Thomson, Lord Kelvin. Its unit, the **kelvin** (symbol K), is the SI
+unit of temperature. A temperature in Celsius is converted to kelvin as
 
 ::: {.key}
 $$
