@@ -66,6 +66,7 @@
   .cell .v small { font-size: 0.9rem; font-weight: 500; color: var(--text-2); }
   .eq { font-size: 0.92rem; color: var(--text-2); font-variant-numeric: tabular-nums; }
   .eq b { color: var(--text-1); }
+  .eq .moles { margin-top: 6px; font-size: 0.86rem; }
   .note { font-size: 0.82rem; color: var(--text-2); margin: 10px 2px 0; min-height: 2.6em; }
   .note b { color: var(--accent); }
 </style>
@@ -145,12 +146,13 @@
   const fmt = (x, d) => x.toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d });
 
   // ---------------------------------------------------------- molecules --
-  // the number drawn follows the number of MOLES, n = m/M, so 1.2 g of air and
-  // 0.17 g of helium show about the same number of molecules
+  // the number drawn is proportional to the number of MOLES, n = m/M, over the
+  // whole slider range (no cap is reached: 3 g of helium is 0.75 mol, about 670
+  // dots), so 1.2 g of helium really shows about 7 times as many as 1.2 g of air
   let mols = [];
   function targetCount() {
     const n = +mS.value / gas.M;                        // mol (m in g, M in g/mol)
-    return Math.max(4, Math.min(260, Math.round(n * 1450)));
+    return Math.max(1, Math.min(700, Math.round(n * 900)));
   }
   function syncMolecules(box) {
     const want = targetCount();
@@ -322,7 +324,9 @@
     $("vOut").textContent = fmt(s.V, 2);
     $("eq").innerHTML =
       "<i>P</i> = <i>mRT</i>/<i>V</i> = (" + fmt(s.m / 1000, 5) + " kg)(" + fmt(gas.R, gas.R < 1000 ? 1 : 0) +
-      " J/(kg K))(" + fmt(s.T, 0) + " K) / (" + fmt(s.V / 1000, 5) + " m³)<br>= <b>" + fmt(s.P / 1000, 1) + " kPa</b>";
+      " J/(kg K))(" + fmt(s.T, 0) + " K) / (" + fmt(s.V / 1000, 5) + " m³)<br>= <b>" + fmt(s.P / 1000, 1) + " kPa</b>" +
+      "<div class='moles'>Amount of gas: <i>n</i> = <i>m</i>/<i>M</i> = " + fmt(s.m, 2) + " g / " + fmt(gas.M, 2) +
+      " g/mol = <b>" + fmt(s.m / gas.M, 3) + " mol</b></div>";
     $("pAbs").innerHTML = fmt(s.P / 1000, 1) + " <small>kPa</small>";
     $("pGauge").innerHTML = (s.Pg >= 0 ? "+" : "−") + fmt(Math.abs(s.Pg) / 1000, 1) + " <small>kPa</small>";
     $("pGauge").style.color = s.Pg >= 0 ? "#0b0b0b" : "#be1e2d";
