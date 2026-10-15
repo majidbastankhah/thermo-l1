@@ -1,0 +1,59 @@
+<!-- List of symbols: kept from the original lecture notes, with the units made
+     consistent with the chapters (moles in kmol) and a few symbols that the
+     chapters use added at the end. -->
+
+{{< pagebreak >}}
+
+# List of symbols {.unnumbered #sec-symbols}
+
+| Symbol | Description | SI unit |
+|:--|:--|:--|
+| $P$ | pressure | $\mathrm{Pa}$ |
+| $P_\text{ext}$ | external pressure | $\mathrm{Pa}$ |
+| $V$ | volume | $\mathrm{m^3}$ |
+| $v$ | specific volume (volume per unit mass) | $\mathrm{m^3/kg}$ |
+| $T$ | temperature | $\mathrm{K}$ |
+| $m$ | mass | $\mathrm{kg}$ |
+| $t$ | time | $\mathrm{s}$ |
+| $\rho$ | density | $\mathrm{kg/m^3}$ |
+| $g$ | gravitational acceleration | $\mathrm{m/s^2}$ |
+| atm | atmosphere (unit of pressure) | -- |
+| $R$ | gas constant | $\mathrm{J/(kg\,K)}$ |
+| $R_0$ | universal gas constant | $\mathrm{J/(kmol\,K)}$ |
+| $M$ | molar mass | $\mathrm{kg/kmol}$ |
+| $n$ (CH1) | number of moles | $\mathrm{kmol}$ |
+| $U$ | internal energy | $\mathrm{J}$ |
+| $u$ | specific internal energy (internal energy per unit mass) | $\mathrm{J/kg}$ |
+| $H$ | enthalpy | $\mathrm{J}$ |
+| $h$ | specific enthalpy (enthalpy per unit mass) | $\mathrm{J/kg}$ |
+| $W$ | work | $\mathrm{J}$ |
+| $w$ | work per unit mass | $\mathrm{J/kg}$ |
+| $Q$ | heat | $\mathrm{J}$ |
+| $q$ | heat per unit mass | $\mathrm{J/kg}$ |
+| $A$ | area | $\mathrm{m^2}$ |
+| $F$ | force | $\mathrm{N}$ |
+| $\dfrac{\mathrm{d}y}{\mathrm{d}x}$ | derivative of the function $y(x)$ with respect to $x$ | -- |
+| $\left(\dfrac{\partial z}{\partial x}\right)_y$ | partial derivative of $z(x, y)$ with respect to $x$, keeping $y$ constant | -- |
+| $\mathrm{d}(\;)$ | exact differential: an infinitesimal change in a property, such as temperature, pressure or internal energy | -- |
+| $\delta(\;)$ | inexact differential: an infinitesimal amount of a process (path) function, such as work or heat | -- |
+| $\Delta(\;)$ | a finite (not infinitely small) change in a variable | -- |
+| $C$ (CH3) | heat capacity | $\mathrm{J/K}$ |
+| $c$ | specific heat capacity | $\mathrm{J/(kg\,K)}$ |
+| $c_v$ | specific heat capacity at constant volume, $(\partial u/\partial T)_v$ | $\mathrm{J/(kg\,K)}$ |
+| $c_P$ | specific heat capacity at constant pressure, $(\partial h/\partial T)_P$ | $\mathrm{J/(kg\,K)}$ |
+| $n$ (CH3) | polytropic exponent | -- |
+| $\gamma$ | ratio of specific heat capacities, $c_P/c_v$ | -- |
+| CV | control volume | -- |
+| $\dot{(\;)}$ | rate of a quantity (per unit time), e.g. $\dot{m}$, $\dot{Q}$, $\dot{W}$ | (unit)$/\mathrm{s}$ |
+| $C$ (CH4) | fluid speed | $\mathrm{m/s}$ |
+| $z$ | height | $\mathrm{m}$ |
+| $S$ | entropy | $\mathrm{J/K}$ |
+| $s$ | specific entropy (entropy per unit mass) | $\mathrm{J/(kg\,K)}$ |
+| $S_\text{gen}$ | entropy generation | $\mathrm{J/K}$ |
+| $T_H$, $T_C$ | temperatures of the hot and cold reservoirs | $\mathrm{K}$ |
+| $Q_H$, $Q_C$ | heat exchanged with the hot and cold reservoirs | $\mathrm{J}$ |
+| $\eta$ | thermal efficiency of a heat engine | -- |
+| $\beta$ | coefficient of performance (COP) of a refrigerator | -- |
+| $\beta'$ | coefficient of performance (COP) of a heat pump | -- |
+
+: {tbl-colwidths="[16,66,18]"}

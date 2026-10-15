@@ -340,7 +340,7 @@ near vacuum ($P \approx 0$). Since there is almost zero pressure in the closed
 tube above the column of liquid, the height of the column gives the atmospheric
 pressure directly.
 
-![](figures/img/barometer.png){width=26% fig-alt="Barometer: a tube closed at the top, with near vacuum above the liquid, stands upside down in an open bath under atmospheric pressure; the liquid column rises a height H 0 above the bath surface."}
+![](figures/out/ch1-barometer.svg){width=40% fig-alt="Barometer: a tube closed at the top, with near vacuum above the liquid, stands upside down in an open bath under atmospheric pressure; the liquid column rises a height H 0 above the bath surface. Point A is on the free surface of the bath and point B is inside the tube at the same level."}
 
 ::: {.gap height="14mm" hint="Above the column is (near) vacuum, so the pressure at $B$ is due to the column alone."}
 Above the column there is (near) vacuum, so the pressure at the bottom of the
