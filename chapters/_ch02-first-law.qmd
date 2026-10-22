@@ -105,7 +105,7 @@ joule per second (J/s), or **watt** (W).
 Imagine the external force $F_\text{ext}$ compresses the gas within the cylinder.
 The work done by the surroundings on the system is given by:
 
-![](figures/img/piston-fext.png){width=58% fig-align="center" fig-alt="An external force F ext from the surroundings pushes a piston down into a cylinder of gas, the system, compressing it to a smaller volume."}
+![](figures/out/ch2-piston-work.svg){width=52% fig-align="center" fig-alt="A piston of area A, pushed down by an external force F ext, compresses the gas (the system) in a cylinder. A dashed line marks where the piston face will be after it moves a small distance dl; the hatched slab between the two positions is the swept volume dV."}
 
 ::: {.gap height="16mm" hint="Work from force and distance, and pressure from force and area, give (I)."}
 $$
@@ -163,7 +163,7 @@ From mathematics, we know that $\int f(x)\,\mathrm{d}x$ is equal to the area
 under $f(x)$. Therefore, the area under the path shown in the pressure–volume
 (PV) diagram is equal to the amount of work.
 
-![](figures/out/work-area.svg){width=62% fig-alt="P ext-V diagram: a curve from state 1 (large volume, low pressure) to state 2 (small volume, high pressure). A thin strip of width dV under the curve shows that the area under the path is the magnitude of W."}
+![](figures/out/work-area.svg){width=62% fig-alt="P ext-V diagram: a compression path, with an arrow from state 1 (large volume, low pressure) to state 2 (small volume, high pressure). The area under it is cut into thin strips of width dV, coloured alternately; one strip, of area P ext dV, is highlighted. The strips add up to the magnitude of W."}
 
 $$
 W = -\int P_\text{ext}\,\mathrm{d}V
