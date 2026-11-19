@@ -1,26 +1,43 @@
 \documentclass[border=3pt,tikz]{standalone}
 \input{_style}
+% Net work of a cycle as a difference of two areas:
+%   area under the compression path 1->2 (blue)
+% - area under the expansion path 2->1 (red, hatched)
+% = area enclosed by the cycle (purple)
 \begin{document}
-\begin{tikzpicture}[scale=1]
-  \draw[axisline] (0,0) -- (6.4,0) node[right, lbl] {$V$};
-  \draw[axisline] (0,0) -- (0,4.4) node[above, lbl] {$P_\text{ext}$};
+\begin{tikzpicture}[scale=0.62]
+  % the two paths, reused in every panel
+  \newcommand{\panel}[1]{%
+    \draw[axisline] (0,0) -- (6.0,0) node[right, lbl] {$V$};
+    \draw[axisline] (0,0) -- (0,4.6) node[above, lbl] {$P_\text{ext}$};
+    \draw[duGrey, dashed, line width=0.6pt] (1.2,0) -- (1.2,3.2);
+    \draw[duGrey, dashed, line width=0.6pt] (5.0,0) -- (5.0,1.2);
+    #1
+    \draw[path1, arrowhead=0.55] (5.0,1.2) .. controls (4.2,3.9) and (2.4,4.1) .. (1.2,3.2);
+    \draw[path2, arrowhead=0.55] (1.2,3.2) .. controls (2.2,2.0) and (3.6,1.5) .. (5.0,1.2);
+    \node[statedot] at (5.0,1.2) {}; \node[lbl, right=1pt] at (5.0,1.2) {1};
+    \node[statedot] at (1.2,3.2) {}; \node[lbl, left=1pt]  at (1.2,3.2) {2};
+  }
 
-  \coordinate (s1) at (5.0,1.2);
-  \coordinate (s2) at (1.2,3.2);
+  % ---- (a) area under the blue (compression) path --------------------------
+  \begin{scope}
+    \panel{\fill[duBlue!30] (5.0,1.2) .. controls (4.2,3.9) and (2.4,4.1) .. (1.2,3.2) -- (1.2,0) -- (5.0,0) -- cycle;}
+    \node[lbl, align=center, duBlue] at (3.0,-1.6) {area under 1--2\\$= |W_{12}|$\\{\small compression, $W_{12} > 0$}};
+  \end{scope}
+  \node[font=\Huge] at (7.35,2.0) {$-$};
 
-  \fill[workfill]
-    (s1) .. controls (4.2,3.9) and (2.4,4.1) .. (s2)
-         .. controls (2.2,2.0) and (3.6,1.5) .. (s1) -- cycle;
+  % ---- (b) area under the red (expansion) path -----------------------------
+  \begin{scope}[xshift=8.4cm]
+    \panel{\fill[duRed!18] (1.2,3.2) .. controls (2.2,2.0) and (3.6,1.5) .. (5.0,1.2) -- (5.0,0) -- (1.2,0) -- cycle;
+           \fill[pattern=north east lines, pattern color=duRed] (1.2,3.2) .. controls (2.2,2.0) and (3.6,1.5) .. (5.0,1.2) -- (5.0,0) -- (1.2,0) -- cycle;}
+    \node[lbl, align=center, duRed] at (3.0,-1.6) {area under 2--1\\$= |W_{21}|$\\{\small expansion, $W_{21} < 0$}};
+  \end{scope}
+  \node[font=\Huge] at (15.75,2.0) {$=$};
 
-  \draw[path1, arrowhead=0.55] (s1) .. controls (4.2,3.9) and (2.4,4.1) .. (s2);
-  \draw[path2, arrowhead=0.55] (s2) .. controls (2.2,2.0) and (3.6,1.5) .. (s1);
-
-  \node[statedot] at (s1) {}; \node[lbl, right=2pt] at (s1) {1};
-  \node[statedot] at (s2) {}; \node[lbl, left=2pt]  at (s2) {2};
-
-  \node[lbl, duPurple, align=center] at (3.2,3.05)
-    {$|W_\text{cycle}|$ =\\area enclosed};
-  \node[slbl, duBlue] at (2.9,4.3) {$W_{12}$ (compression, $>0$)};
-  \node[slbl, duRed]  at (2.1,0.75) {$W_{21}$ (expansion, $<0$)};
+  % ---- (c) what is left: the area enclosed by the cycle --------------------
+  \begin{scope}[xshift=16.8cm]
+    \panel{\fill[duPurple!35] (5.0,1.2) .. controls (4.2,3.9) and (2.4,4.1) .. (1.2,3.2) .. controls (2.2,2.0) and (3.6,1.5) .. (5.0,1.2) -- cycle;}
+    \node[lbl, align=center, duPurple] at (3.0,-1.6) {area enclosed\\$= |W_\text{cycle}|$\\{\small\phantom{x}}};
+  \end{scope}
 \end{tikzpicture}
 \end{document}

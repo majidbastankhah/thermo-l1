@@ -5,6 +5,7 @@
 %          control volume, to where the dotted element is;
 % exit   - the fluid in the control volume (dotted) pushes the element (red)
 %          out, and it in turn pushes the fluid ahead of it (blue piston).
+% The two leader lines name each element's mass and volume change.
 \begin{document}
 \begin{tikzpicture}[
     elem/.style={draw=duRed, line width=1.3pt, fill=duRed, fill opacity=0.35},
@@ -18,7 +19,7 @@
     \draw[ghost] (205,258) rectangle (235,285);
     \fill[duGreen, draw=duGreen!70!black, line width=0.84pt] (152,258) rectangle (162,285);
     \draw[rod, duGreen] (152,271.5) -- (92,271.5);
-    \node[duGreen!70!black, align=center, font=\normalsize] (ip) at (78,178)
+    \node[duGreen!70!black, align=center, font=\normalsize] (ip) at (50,150)
       {imaginary\\piston};
     \draw[-{Stealth[length=2.2mm]}, duGreen!70!black, line width=1.26pt]
       (ip.south) ++(12,0) .. controls (95,230) and (125,235) .. (150,255);
@@ -27,6 +28,11 @@
     \draw[elem] (719,91) rectangle (745,119);
     \fill[duBlue, draw=duBlue!70!black, line width=0.84pt] (750,91) rectangle (760,119);
     \draw[rod, duBlue] (760,105) -- (835,105);
+    % ---- labels on the two (previously empty) leader lines
+    \node[duRed, font=\normalsize, anchor=south, fill=white, inner sep=1.5pt, align=center]
+      at (160,209) {element: $\mathrm{d}m_i$, $\mathrm{d}V_i$};
+    \node[duRed, font=\normalsize, anchor=south, fill=white, inner sep=1.5pt, align=center]
+      at (705,40) {element: $\mathrm{d}m_e$, $\mathrm{d}V_e$};
   \end{scope}
 \end{tikzpicture}
 \end{document}

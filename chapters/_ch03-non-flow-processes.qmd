@@ -568,21 +568,17 @@ $$
 \delta q - P\,\mathrm{d}v = \mathrm{d}u
 $$
 
-::: {.gap height="14mm" hint="$\delta q = 0$ and $\mathrm{d}u = c_v\,\mathrm{d}T$."}
+::: {.gap height="88mm" hint="Set $\delta q = 0$ and $\mathrm{d}u = c_v\,\mathrm{d}T$, replace $P$ by $RT/v$, separate the variables and integrate; then eliminate $T$ with $Pv = RT$ and use $\gamma = c_P/c_v = (R + c_v)/c_v$."}
 $\delta q = 0$ and $\mathrm{d}u = c_v\,\mathrm{d}T$:
 $$
 -P\,\mathrm{d}v = c_v\,\mathrm{d}T
 $$
-:::
 
-::: {.gap height="14mm" hint="Replace $P$ by $RT/v$."}
 With $P = RT/v$:
 $$
 -\frac{RT}{v}\,\mathrm{d}v = c_v\,\mathrm{d}T
 $$
-:::
 
-::: {.gap height="22mm" hint="Separate variables and integrate; $\int_{x_1}^{x_2} \mathrm{d}x/x = \ln(x_2/x_1)$."}
 Separating the variables and integrating, with
 $\int_{x_1}^{x_2} \frac{\mathrm{d}x}{x} = \ln\frac{x_2}{x_1}$:
 $$
@@ -590,16 +586,12 @@ $$
 \quad\rightarrow\quad
 -R\ln\!\left(\frac{v_2}{v_1}\right) = c_v\ln\!\left(\frac{T_2}{T_1}\right)
 $$
-:::
 
-::: {.gap height="14mm" hint="Move the coefficients into the logarithms as powers."}
 Moving the coefficients into the logarithms as powers:
 $$
 \left(\frac{v_2}{v_1}\right)^{-R} = \left(\frac{T_2}{T_1}\right)^{c_v}
 $$
-:::
 
-::: {.gap height="24mm" hint="Eliminate $T$: $T_2/T_1 = (P_2/P_1)(v_2/v_1)$; then use $\gamma = c_P/c_v = (R + c_v)/c_v$."}
 From $Pv = RT$, $\dfrac{T_2}{T_1} = \left(\dfrac{P_2}{P_1}\right)\left(\dfrac{v_2}{v_1}\right)$, so
 $$
 \left(\frac{v_2}{v_1}\right)^{-(R + c_v)} = \left(\frac{P_2}{P_1}\right)^{c_v}
@@ -653,37 +645,24 @@ $\rightarrow$ $n = 1$.
 $n = \gamma = c_P/c_v$.
 :::
 
-| | Polytropic | $Pv^{n} = \text{const}$ | $n$ | Work [J/kg] |
-|:-:|:--|:--|:-:|:-:|
-| 1 | **Isobaric** | $P = \text{const}$ | $0$ | $-P\,(v_2 - v_1)$ |
-| 2 | **Isochoric** | $v = \text{const}$ | $\infty$ | $0$ |
-| 3 | **Isothermal** | $Pv = \text{const}$ (only for ideal gas) | $1$ | $-Pv\ln\left(v_2/v_1\right)$ |
-| 4 | **Adiabatic** | $Pv^{\gamma} = \text{const}$ (only for ideal gas) | $\gamma > 1$ | $\dfrac{P_2 v_2 - P_1 v_1}{\gamma - 1}$ |
-
-: The polytropic family of processes. In general, $w = \dfrac{P_2 v_2 - P_1 v_1}{n - 1}$ for $n \neq 1$.
-
 ![Polytropic expansions from the same initial state. The dotted lines are isotherms, $T_1 > T_2 > T_3$.](figures/out/ch3-polytropic-paths.svg){width=70%}
 
 Let us derive a relationship for the amount of **work** in a ***reversible
 polytropic*** process, $Pv^{n} = \text{const}$:
 
-::: {.gap height="18mm" hint="Reversible: $P_\text{ext} = P$; then $P = \text{const}/v^n$ comes out of the integral."}
+::: {.gap height="52mm" hint="Reversible: $P_\text{ext} = P$. Write $P = \text{const}/v^n$, integrate with $\int \mathrm{d}x/x^n = x^{1-n}/(1-n)$, then use $\text{const} = P_1v_1^n = P_2v_2^n$."}
 $$
 w = -\int P_\text{ext}\,\mathrm{d}v
 \;\xrightarrow{\ P_\text{ext}\,=\,P\ }\;
 w = -\int P\,\mathrm{d}v = -\text{Const.}\int_{v_1}^{v_2}\frac{\mathrm{d}v}{v^{n}}
 $$
-:::
 
-::: {.gap height="18mm" hint="$\int \mathrm{d}x/x^n = x^{1-n}/(1-n)$ for $n \neq 1$."}
 With $\displaystyle\int_{x_1}^{x_2}\frac{\mathrm{d}x}{x^{n}}
 = \left.\frac{x^{1-n}}{1-n}\right|_{x_1}^{x_2}$ for $n \neq 1$:
 $$
 w = -P v^{n}\,\frac{v_2^{\,1-n} - v_1^{\,1-n}}{1 - n}
 $$
-:::
 
-::: {.gap height="16mm" hint="The constant $Pv^n$ equals $P_1v_1^n$ and also $P_2v_2^n$: use each with its own term."}
 The constant $Pv^{n}$ equals both $P_1 v_1^{n}$ and $P_2 v_2^{n}$; use each one
 with its own term:
 $$
@@ -713,6 +692,17 @@ $$
 w = -Pv\ln\!\left(\frac{v_2}{v_1}\right) \qquad (n = 1)
 $$ {#eq-ch3-wiso}
 :::
+
+Together, these give the work for each member of the polytropic family:
+
+| | Polytropic | $Pv^{n} = \text{const}$ | $n$ | Work [J/kg] |
+|:-:|:--|:--|:-:|:-:|
+| 1 | **Isobaric** | $P = \text{const}$ | $0$ | $-P\,(v_2 - v_1)$ |
+| 2 | **Isochoric** | $v = \text{const}$ | $\infty$ | $0$ |
+| 3 | **Isothermal** | $Pv = \text{const}$ (only for ideal gas) | $1$ | $-Pv\ln\left(v_2/v_1\right)$ |
+| 4 | **Adiabatic** | $Pv^{\gamma} = \text{const}$ (only for ideal gas) | $\gamma > 1$ | $\dfrac{P_2 v_2 - P_1 v_1}{\gamma - 1}$ |
+
+: The polytropic family of processes. In general, $w = \dfrac{P_2 v_2 - P_1 v_1}{n - 1}$ for $n \neq 1$.
 
 ::: {.example}
 A gas in a piston–cylinder assembly undergoes a reversible polytropic process.

@@ -302,7 +302,7 @@ important concept in thermodynamics.
 The magnitude of the net work for any cycle is equal to the area enclosed by the
 cycle in the PV diagram.
 
-![](figures/out/cycle-area.svg){width=62% fig-alt="P ext-V diagram of a cycle: an upper compression path from state 1 to state 2, W 12 positive, and a lower expansion path back, W 21 negative. The shaded enclosed area equals the magnitude of the cycle work."}
+![](figures/out/cycle-area.svg){width=100% fig-alt="Three P ext-V diagrams of the same cycle: a compression path from state 1 to state 2 on top and an expansion path back from 2 to 1 below. First, the whole area under the compression path is shaded blue: the magnitude of W 12. Minus, second, the area under the expansion path, hatched red: the magnitude of W 21. Equals, third, only the area enclosed by the cycle, shaded purple: the magnitude of the cycle work."}
 
 ::: {.gap height="12mm" hint="Split the cycle into its two processes."}
 $$

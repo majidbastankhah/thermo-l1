@@ -40,7 +40,7 @@ heat pump, and let the imaginary engine drive it.
 
 ![I: the imaginary engine, with $\eta_I > \eta_R$. R: the reversible engine, run backwards. Both exchange the same $|Q_H|$ with the hot reservoir.](figures/out/ch6-carnot-proof.svg){width=62%}
 
-::: {.gap height="16mm" hint="Same $|Q_H|$ for both; $\eta_I > \eta_R$ means $|W_I| > |W_R|$."}
+::: {.gap height="64mm" hint="Give both engines the same $|Q_H|$, so $|W_I| > |W_R|$. Run R backwards, driven by I: the hot reservoir gets back what I took. Net work $|W_I| - |W_R| > 0$ then comes from the cold reservoir alone, which breaks Kelvin–Planck."}
 Let both engines exchange the same heat $|Q_H|$ with the hot reservoir. Since
 $\eta = |W|/|Q_H|$,
 $$
@@ -48,25 +48,19 @@ $$
 \quad\Rightarrow\quad
 |W_I| = \eta_I |Q_H| \;>\; |W_R| = \eta_R |Q_H|
 $$
-:::
 
-::: {.gap height="16mm" hint="Run R backwards: it takes $|W_R|$ (supplied by I) and returns $|Q_H|$ to the hot reservoir."}
 Run R backwards: it takes $|Q_{C,R}|$ from the cold reservoir, receives the work
 $|W_R|$ (supplied by I) and delivers $|Q_H|$ to the hot reservoir. The hot
 reservoir therefore gets back exactly what I took from it: **no net heat
 exchange with the hot reservoir**.
-:::
 
-::: {.gap height="18mm" hint="Net effect of I + R: work $|W_I| - |W_R| > 0$ out, all of it drawn as heat from the COLD reservoir only."}
 The combined device I + R still delivers the net work $|W_I| - |W_R| > 0$. By
 the first law for the two cycles together, that energy must come from the only
 reservoir it still exchanges heat with, the cold one:
 $$
 |Q_{C,R}| - |Q_{C,I}| = |W_I| - |W_R| > 0
 $$
-:::
 
-::: {.gap height="14mm" hint="One reservoir, net work out: violates Kelvin–Planck, so the assumption is false."}
 So the combined device exchanges heat with a **single** reservoir and produces
 net work. This violates the Kelvin–Planck statement of the second law, so the
 assumption $\eta_I > \eta_R$ must be false.
