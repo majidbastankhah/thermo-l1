@@ -544,8 +544,11 @@ through a nozzle, a diffuser, a turbine, a compressor or a heat exchanger.
 
 ::: {.content-visible when-format="html"}
 Pick a device and move the sliders. Watch which bars stay close to zero, and
-check that the two sides of the equation always balance. Why does the air
-cool down in a nozzle, even though no heat leaves it?
+check that the two sides of the equation always balance. The table under the
+device shows both states: the density follows from $\rho = P/(RT)$ and the
+velocities from $\dot{m} = \rho A C$, so heating or expanding the air changes
+how fast it moves. Why does the air cool down in a nozzle, even though no heat
+leaves it?
 
 ```{=html}
 <iframe src="widgets/steady-flow.html" class="widget-frame"
@@ -554,7 +557,7 @@ cool down in a nozzle, even though no heat leaves it?
 :::
 
 ::: {.content-visible when-format="pdf"}
-![A turbine with 5 kg/s of air entering at 1500 K and leaving at 850 K: the enthalpy drop of the flow leaves the control volume as shaft work, while heat transfer and the change in kinetic energy are negligible.](figures/img/ch4-steady-flow-widget.png){width=88%}
+![An ideal turbine with 5 kg/s of air entering at 1500 K and 10 bar and expanding to 1.25 bar: the air leaves at 828 K, and the enthalpy drop of the flow leaves the control volume as shaft work (about 3.37 MW). The exit duct is wider because the density falls, so the change in speed, and in kinetic energy, is negligible.](figures/img/ch4-steady-flow-widget.png){width=88%}
 
 The interactive version of this figure is on the course website: follow the
 *Explore it yourself* link in CH4.
